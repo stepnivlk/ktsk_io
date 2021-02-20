@@ -1,0 +1,54 @@
+base_url = "https://ktsk.io"
+
+compile_sass = true
+
+build_search_index = false 
+highlight_code = true
+highlight_theme = "one-dark"
+generate_feed = true
+feed_filename = "rss.xml"
+
+title = "ktsk.io"
+description = "Personal web of Tomas Koutsky"
+default_language = "en"
+
+theme = "DeepThought"
+
+taxonomies = [
+	{ name = "categories", feed = true, paginate_by = 10 },
+	{ name = "tags", fees = true, paginate_by = 10 },
+]
+
+[markdown]
+highlight_code = false
+
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+[extra]
+# Put all your custom variables here
+
+navbar_items = [
+	{ url = "$BASE_URL/", name = "Home" },
+	{ url = "$BASE_URL/posts", name = "Posts" },
+]
+
+# Add links to favicon, you can use https://realfavicongenerator.net/ to generate favicon for your site
+[extra.favicon]
+favicon_16x16 = "/icons/favicon-16x16.png"
+favicon_32x32 = "/icons/favicon-32x32.png"
+apple_touch_icon = "/icons/apple-touch-icon.png"
+safari_pinned_tab = "/icons/safari-pinned-tab.svg"
+webmanifest = "/icons/site.webmanifest"
+
+# Author details
+[extra.author]
+name = "Tomas Koutsky"
+avatar = "/images/avatar.jpg"
+
+# Social links
+[extra.social]
+email = "tomas@ktsk.io"
+github = "stepnivlk"
