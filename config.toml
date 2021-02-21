@@ -1,14 +1,12 @@
-base_url = "https://ktsk.io"
+base_url = "https://ktsk.xyz"
 
 compile_sass = true
 
 build_search_index = false 
-highlight_code = true
-highlight_theme = "one-dark"
 generate_feed = true
 feed_filename = "rss.xml"
 
-title = "ktsk.io"
+title = "ktsk"
 description = "Personal web of Tomas Koutsky"
 default_language = "en"
 
@@ -20,7 +18,8 @@ taxonomies = [
 ]
 
 [markdown]
-highlight_code = false
+highlight_code = true
+highlight_theme = "one-dark"
 
 [slugify]
 paths = "on"
@@ -50,5 +49,9 @@ avatar = "/images/avatar.jpg"
 
 # Social links
 [extra.social]
-email = "tomas@ktsk.io"
+email = "tomas@ktsk.xyz"
 github = "stepnivlk"
+
+[extra.katex]
+enabled = true
+auto_render = true
