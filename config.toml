@@ -51,6 +51,7 @@ avatar = "/images/avatar.jpg"
 [extra.social]
 email = "tomas@ktsk.xyz"
 github = "stepnivlk"
+linkedin = "tomas-koutsky-88578910a"
 
 [extra.katex]
 enabled = true
