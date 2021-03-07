@@ -36,7 +36,7 @@ Given it was damp even before the storm and I was all wet from my toothpaste par
 
 
 # Day 1 - Calenzana -> Refuge de Carozzu | 19.88 km; 2,300m up; 1,298m down
-<iframe src='https://connect.garmin.com/modern/activity/embed/5472906765' title='GR20 Day 1' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/3997444075/embed/f7685261e7efdee4fe833e1c16c78dbc157da113'></iframe>
 
 ![img](https://live.staticflickr.com/65535/50330573247_6460537b29_c.jpg)
 
@@ -88,7 +88,7 @@ Uncle and the Kids didn't have a tent nor any booking; the hut manager looked li
 Then usual rituals, I cooked on the alcohol stove for the first time; I really hoped I won't burn the place to the ground.
 
 # Day 2 - Refuge de Carozzu -> Ascu | 5.01km; 816m up; 668m down
-<iframe src='https://connect.garmin.com/modern/activity/embed/5472918099' title='GR20 Day 2' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/3997455202/embed/7a1082315cee05ef15f95f9033073b437d37870c'></iframe>
 
 I got up in the middle of the night, and I was freezing. Found out my mattress was totally deflated, so I inflated it, got to sleep ... and this repeated 3 more times. So I got a puncture probably even before the first night on the trail. Plus, I got a second night without good sleep and counting.
 
@@ -117,7 +117,7 @@ Cooked some meal, left packed stove in the vestibule of the tent, and fell aslee
 
 
 # Day 3 | 1.9. 2020 | Ascu -> Castel de Vergio | 23.51 km; 2,021m up; 1,298m
-<iframe src='https://connect.garmin.com/modern/activity/embed/5472954644' title='GR20 Day 3' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/3997492271/embed/c781ac26142e5109136dd0d5a4d72cc28dc10c06'></iframe>
 
 It was around 3:30 when the cold awoke me, it means the nest was working, but the cold was still bitter as well as fragmented sleep. HR was still at 100BPM. I inflated the mat and fell asleep.
 
@@ -195,7 +195,7 @@ I arrived very much wretched to the refuge but with a feeling of a day fully liv
 
 
 # Day 4 | 2.9. 2020 | Castel de Vergio -> Petra Piana | 26.32 km; 1,577m up; 1,140m
-<iframe src='https://connect.garmin.com/modern/activity/embed/5477148603' title='GR20 Day 4' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/4001619813/embed/42439deb5b83108789358cec1d922ed9169aebd7'></iframe>
 
 I had to reinflate only two times over the night. But still, I desperately needed to improve my quality of sleep. And for that, I hatched a plan - on the next refuge, I will try to panhandle some of their spare mats. For this purpose, my amazing girlfriend sent me a manual full of french phrases including "I broke my matters, can I borrow one of yours?".
 
@@ -242,7 +242,7 @@ And again I fell asleep totally exhausted & happy.
 
 
 # Day 5 | 3.9. 2020 | Petra Piana -> Vizzavona | 18.15 km; 1,058m up; 1,979m
-<iframe src='https://connect.garmin.com/modern/activity/embed/5497994555' title='GR20 Day 5' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/4022470711/embed/9bc7d582f0701c3253576153782fb7d6f5efe6e8'></iframe>
 
 It got freezing in the night, but I regenerated much better on a real mat than a nest. I was ready to go at 8:30. Actually, that's my superpower here; I'm usually glad when I start cooking sometime after 7.
 
@@ -260,7 +260,7 @@ Vizzavona divides the northern part of GR20 I just did and the southern part. Wh
 ![img](https://live.staticflickr.com/65535/50329751083_0155e76c33_c.jpg)
 
 # Day 6 | 4.9. 2020 | Vizzavona -> Refuge de Prati | 34.84km; 2,064m up; 1,172m down 
-<iframe src='https://connect.garmin.com/modern/activity/embed/5498019910' title='GR20 Day 6' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/4022496565/embed/ca00f13cd46acfdb493de4d8fc52b54b98ddf1c8'></iframe>
 
 Today was indeed a fast day. It all started with 1000m of a very gentle climb on dirt roads through forests. Around lunchtime, I arrived at a refuge; had coke & omelet. I met some Czech guys there, so I had an opportunity to chat in my native language. They had huge ~20kg backpacks; I wished them my condolences and got going.
 ![img](https://live.staticflickr.com/65535/50330424596_5f001e3fe1_c.jpg)
@@ -287,7 +287,7 @@ Then some beers and chats followed by sleep in a million stars hotel.
 
 
 # Day 7 | 5.9. 2020 | Refuge de Prati -> Refuge d'Asinau | 28.95km; 1,935m up; 2,140m down 
-<iframe src='https://connect.garmin.com/modern/activity/embed/5498045759' title='GR20 Day 7' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/4022520158/embed/1b0efe626d7f5d3a6aaa28f27a5386b644170b08'></iframe>
 
 I had such a late start that even the staff had already cleaned everything and were merely chilling around.
 The trail was playing with me this time, it was running just below the ridge, but I had to constantly switch sides of it. Sometimes there was a nice solid trail, sometimes serious scrambling.
@@ -335,7 +335,7 @@ It was hot, sweaty during the night, sometimes someone farted, the guy next to m
 
 
 # Day 8 | 6.9. 2020 | Refuge d'Asinau -> Conca | 30.48km; 1,133m up; 2,378m down 
-<iframe src='https://connect.garmin.com/modern/activity/embed/5498070052' title='GR20 Day 8' width='465' height='500' frameborder='0'></iframe>
+<iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/4022543592/embed/3a26981684c0deb31ed973c43ce2c177f95a7d64'></iframe>
 
 I aimed to oversleep as much as possible. Ate breakfast as the very last non-stuff person in the camp.
 At the water source, there was donkey drinking; I needed to drink too, so I came by, he moved a bit, and we simply drank together there, like some hippies.
