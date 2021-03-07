@@ -304,9 +304,6 @@ The second one goes rather around over a couple of intermediate refuges and shou
 ![img](https://live.staticflickr.com/65535/50330612307_21d6118363_c.jpg)
 
 Before dropping to the valley, there was an extra ridge ahead of me, seemed short on the map. In reality, it was a technical and tedious scramble under the scorching sun.
-<iframe src='https://connect.garmin.com/modern/activity/embed/5498070052' title='GR20 Day 8' width='465' height='500' frameborder='0'></iframe>
-
-![img](https://live.staticflickr.com/65535/50330618717_1e616a28bc_c.jpg)
 
 The sun started to be a real problem down in the south. No wind; the rock was all white; hence it acted as a reflector. Mirages everywhere around.
 
