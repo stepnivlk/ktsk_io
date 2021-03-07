@@ -162,6 +162,11 @@ There's no other way to find prime factors of a number $n$ then trying all the p
 So multiplying two large primes is a quick process but expensive to reverse.
 This fact is a base to secure encryption systems.
 
+### Finding LCM and HCF using prime factors
+* Find the prime factorisation of the numbers.
+* To find the LCM, multiply together the highest ower of each prime factor occuring in any of the numbers.
+* To find the HCF, multiply together the lowest power of each prime factor common to all the numbers.
+
 ## 1.5 Powers
 ### Index laws
 So far I've used these
@@ -203,3 +208,282 @@ There are two possible outcomes of the division:
 > Decimal numbers that are terminating or recurring.
 
 I can convert terminating to fraction so I can prove first part of the statement but I can't prove the second yet.
+
+
+## 2.2 Adding and subtracting fractions
+
+* Only when there's a same denominator - fractions are of a same type.
+* When there's different denominator - find common one (LCM).
+* Always simplify.
+
+## 2.3 Multiplying and dividing fractions
+
+### Multiplying
+
+* Multiply the numerators together and multiply the denominators together.
+
+### Dividing
+
+* Multiple the fraction by its reciprocal 
+
+#### Reciprocal
+A number and its reciprocal multiply together to give 1.
+E.g.:
+$0.25 ~\text{is rec of} ~4$,since $0.25 \times 4 = 1$
+$\frac{3}{2} ~\text{is rec of} ~\frac{2}{3}$,since $\frac{3}{2} \times \frac{2}{3} = 1$
+
+Alternatively, it is 1 divided by given number. 
+
+To find a reciprocal of fraction turn it upside down.
+E.g.:
+$\text{rec of}~\frac{3}{4}~\text{is}~\frac{4}{3}$
+
+## 2.4 Negative indices
+The previous positive power of a number $n$ is equal to current positive power divided by $n$, e.g.:
+$4^3 = \frac{4^4}{4}$
+
+Thus $4^0$ has to be a number I get when dividing $\frac{4^1}{4} = 1$.
+Similarly $4^{-1}$ has to be a number I get when dividing $\frac{4^0}{4} = \frac{1}{4}$.
+
+We can build whole scale of the pattern
+
+| $4^{-3}$ | $4^{-2}$ | $4^{-1}$ | $4^0$ | $4^1$ | $4^2$ | $4^3$ |
+|---       | ---      | ---      | ---   | ---   | ---   | ---   |
+| $\frac{1}{4^3}$ | $\frac{1}{4^2}$ | $\frac{1}{4}$ | $1$ | $4$ | $16$ | $64$ |
+
+The meaning of negative and zero indices works with all the index laws I've seen so far.
+
+Index laws can be expand by following rules based on previous observations:
+
+* A non-zero number raised to the power zero is 1:
+$$
+a^0 = 1
+$$
+* A non-zero number raised to a negative power is the reciprocal of the number raised to the corresponding positive power:
+$$
+a^{n - 1} = \frac{1}{a^n}
+$$
+
+Interestingly:
+$$
+a^{-1} = \frac{1}{a}
+$$
+Hence, raising a number to the power of $-1$ is the same as finding its reciprocal.
+
+E.g.:
+$$
+(\frac{2}{3})^{-1} = 1 \times \frac{3}{2} = \frac{3}{2}
+$$
+
+## 2.5 Scientific notation
+* Also called **standard form**.
+* A number between 1 and 10 (excluded) multiplied by a power of 10.
+
+# 3 Irrational numbers and real numbers
+## 3.1 What is an irrational number?
+Decimals with infinite number of digits afterthe decimal point but no repeating block of digits.
+
+Following number is not terminating nor recurring:
+$$
+0.010,010,001,000,010,000,01\ldots
+$$
+
+*TODO: What if the repeating block is just really big?*
+
+Here $x$ is not rational:
+
+$$
+x^2 = 2 \\\\
+\sqrt{2} = x
+$$
+
+
+---
+The fact that $\sqrt{2}$ is irrational can be proven by **contradiction** followingly.
+
+Suppose there's a rational number whose square is $2$. Hence it can be written as
+$$
+\frac{\text{integer}}{\text{integer}}
+$$
+Consider it being cancelled down to the simplest form as:
+$$
+\frac{m}{n}
+$$
+So $m$ and $n$ don't have any common factor.
+The square of $\frac{m}{n}$ is 2, so:
+$$
+(\frac{m}{n})^2 = 2 \\\\
+\frac{m^2}{n^2} = 2
+$$
+It follow that
+$$
+\frac{m^2}{n^2} \times n^2 = 2 \times n^2 \\\\
+m^2 = 2n^2
+$$
+$2n^2$ has to be even since it's a product of 2 and whole number. Meaning $m^2$ has to be even too, that means $m$ has to be even as well.
+That means that $m = 2r$ for some integer $r$.
+When substituting to the original equation we get:
+$$
+(2r)^2 = 2n^2 \\\\
+4r^2 = 2n^2 \\\\
+$$
+It follow that
+$$
+\frac{4r^2}{2} = \frac{2n^2}{2} \\\\
+2r^2 = n^2
+$$
+
+The integer $n^2$ is even hence $n$ has to be even too.
+So both $m$ and $n$ are even. But that's **impossible** since $m$ and $n$ don't have any common factor.
+
+---
+
+The irrational numbers together with the rational numbers form the **real numbers**.
+
+I can think about various categories of numbers as layers:
+```
+Real(
+	Irrational,
+	Rational(
+		Integers(
+			Natural
+		)
+	)
+)
+```
+plus complex, that will come later on.
+
+## 3.2 Roots of numbers
+A number that when multiplied by itself gives the original number.
+Every positive number has two square roots - a positive one and a negative one.
+
+Square roots of two numbers can be used to find the square root of the product or a quotient.
+
+For example, numbers 16 and 49 have square roots of 4 and 7.
+I can apply index law $(a \times b)^n = a^n \times b^n$ to those:
+$$
+(4 \times 7)^2 = 4^2 \times 7^2 \\\\
+(4 \times 7)^2 = 16 \times 49
+$$
+That implies:
+$$
+\sqrt{16 \times 49} = \sqrt{16} \times \sqrt{49}
+$$
+
+This can be generalized into following laws:
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$
+
+Obviously, these laws apply to any root.
+
+## 3.3 Surds
+Numbers that are not perfect square have irrational roots. Hence following roots are irrational:
+$$
+\sqrt{7}, \sqrt{8}, \sqrt{10}, \sqrt{11}
+$$
+Since such number can be only approximated as a decimal it should be left as is in calculations, e.g.:
+$$
+x = 2 \times \sqrt{5}
+$$
+such expressions are called **surds** - it contains one or more irrational roots of numbers.
+Surds are usually written concisely as formulas, number before surd when multiplied:
+$$
+y = 2\sqrt{5}
+$$
+In the simplest form:
+$$
+\sqrt{12} = \sqrt{4 \times 3} = \sqrt{4} \times \sqrt{3} = 2\sqrt{3}
+$$
+This is obviously possible when some of a numbers under the root are perfect squares. Thus the goal when simplifying is to find some perfect square multiplied some other number giving the original number bellow the root.
+
+### Multiplying roots
+* Multiply numbers together
+* Multiply roots together
+* Simplify the root
+
+### Dividing roots
+Use following laws
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$
+
+Sometimes, I should expand an integer to a multiplication of surds in order to simplify the quotient:
+$$
+\frac{2}{\sqrt{2}} = \frac{\sqrt{2} \times \sqrt{2}}{\sqrt{2}} = \frac{1 \times \sqrt{2}}{1} = \sqrt{2}
+$$
+
+### Adding and substracting roots
+It's usually not possible to add or substract different roots, thus 
+$$
+\sqrt{a} + \sqrt{b} \not= \sqrt{a + b}
+$$
+
+I can only add or substract roots that are the same.
+
+> **To simplify surds**
+>
+> * Simplify roots of integers with square factors.
+> * Simplify products and quotients of roots.
+> * Add or subtract roots that are the same.
+
+## 3.4 Fractional indices
+Index laws can be applied to fractional indices too, e.g. let's consider the power $5^\frac{1}{2}$
+
+By applying
+$$
+a^m \times a^n = a ^{m + n}
+$$
+I get
+$$
+5^\frac{1}{2} \times 5^\frac{1}{2} = 5^{\frac{1}{2} + \frac{1}{2}} = 5^1 = 5
+$$
+Hence
+$$
+5^\frac{1}{2} = \sqrt{5}
+$$
+
+It can be generalized in the following index law
+$$
+a^\frac{1}{n} = \sqrt[n]{a}
+$$
+
+This rule toegher with other index laws can be used to give a meaning to any fractional index.
+
+E.g. in combination with
+$$
+(a^m)^n = a^{mn}
+$$
+
+I can do following operation
+$$
+5^\frac{4}{3} = 5^{\frac{1}{3} \times 4} = (5^{\frac{1}{3}})^4 = (\sqrt[3]{5})^4
+$$
+
+This combination can be generalized to yet another index law
+$$
+a^\frac{m}{n} = (\sqrt[n]{a})^m
+$$
+
+Interestingly the square root laws I saw before:
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$
+Can be deduced by applying $n = \frac{1}{2}$ to following index laws:
+$$
+(a \times b)^n = a^n \times b^n \qquad (\frac{a}{b})^n = \frac{a^n}{b^n}
+$$
+
+> Irrational indices are also valid but I will encounter those later on.
+
+# 4 Ratios
+## 4.1 What is a ratio?
+Comparition of multiple ordered quantities, e.g.: $3:5 ~ 2:10:7$
+
+Sometimes it's useful to convert a ratio to a $number:1$ form to e.g.
+* Compare multiple ratios.
+* Find approximate ratios.
+To reach such a form I can divide both numbers by second number, e.g.:
+$$
+7 : 11 = \frac{7}{11} : \frac{11}{11} = 0.636 : 1 ~\text{(3 d.p.)}
+$$
