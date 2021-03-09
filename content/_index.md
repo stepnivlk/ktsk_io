@@ -2,8 +2,8 @@
 title = "hello world"
 +++
 
-# Hi, I'm Tomas Koutsky
-I'm a self-taught software developer; currently, I write code in the data platform team in [Pipedrive](https://pipedrive.com).
+# I'm Tomas Koutsky
+a self-taught software developer; currently, I write code in the data platform team in [Pipedrive](https://pipedrive.com).
 
 Besides that, I, of course, have some side projects (slooowly) going on, namely:
 * [Gameboy DMG-01 emulator](https://github.com/stepnivlk/ohboy)
