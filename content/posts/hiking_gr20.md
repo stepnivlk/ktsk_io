@@ -10,7 +10,7 @@ categories = ["hiking"]
 # Day 0 - Arrival
 ![d0](https://live.staticflickr.com/65535/50329726063_2ae5b97922_c.jpg)
 
-My plane landed at the [Calvi](https://en.mapy.cz/s/jecazulapa) - a rural airport; there were herds of goats and small fields everywhere. Horizon was filled with mountains; thick clouds were forming over them. It was hot and damp in a very tropical way.
+My plane landed at the [Calvi](https://en.mapy.cz/s/jecazulapa) - a rather rural airport; there were herds of goats and small fields everywhere. Horizon was filled with mountains; thick clouds were forming over them. It was hot and damp in a very tropical way.
 
 I got some money out of ATM and unwrapped a massively wrapped backpack; the scrap plastic was like a football.
 
@@ -166,10 +166,10 @@ I only had tiny moments to decide which limb goes where. Really enjoyed this liv
 And I finished first. Had to cool down my legs in a lagoon.
 ![img](https://live.staticflickr.com/65535/50330410116_f22f4750de_c.jpg)
 
-I ate lunch of champions on the first refuge in the valley.
+I ate lunch of champions on the [first refuge](https://en.mapy.cz/s/fadujuvose) in the valley.
 ![img](https://live.staticflickr.com/65535/50329737458_3e2aa96435_c.jpg)
 
-On the second, I bought 400g of cheese, on both combined I drank 3l of water, the sun was starting to show its power.
+On [the second](https://en.mapy.cz/s/kovacalare), I bought 400g of cheese, on both combined I drank 3l of water, the sun was starting to show its power.
 
 The plan was to get over one more ridge and combine two official stages.
 First, it was an easy flat walk, but then the climb began. The sun was burning everything around. Other hikers were climbing up too. I often caught up with some of them; usually, they were pretty polite and wanted to let me go ahead. But that's like an obligation to move faster and lose them a bit together with remaining energy.
