@@ -3,7 +3,7 @@ title = "Hey Webpack, can you bust my cache?"
 date = 2017-07-02
 
 [taxonomies]
-categories = ["javascript"]
+categories = ["programming"]
 +++
 
 Most JavaScript developers are familiar with this problem. You have a bug in your system; you fix it, ship it… and your error monitoring still spams you with the problem, which was apparently fixed. How come? Your responses have cache headers set, and the client's browser caches static assets. But web development is very dynamic nowadays; we deploy multiple times per day. So how can we continue with aggressive deployment and still cache static assets?
