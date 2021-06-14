@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>ktsk - math</title>
+        <link>https://ktsk.xyz</link>
+        <description>Personal web of Tomas Koutsky</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://ktsk.xyz/categories/math/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>MU123 Unit 9 Notes</title>
+            <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/mu123-unit9/</link>
+            <guid>https://ktsk.xyz/posts/mu123-unit9/</guid>
+            <description>&lt;h1 id=&quot;1-number-patterns-and-algebra&quot;&gt;1 Number patterns and algebra&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;1-1-arithmetic-sequences&quot;&gt;1.1 Arithmetic sequences&lt;&#x2F;h2&gt;
+&lt;p&gt;Sum of a sequence of natural numbers can be rewritten as a sum of pairs of numbers:
+$$
+1 + 2 + ... + 99 + 100 = (1 + 100) + (2 + 99) + ... + (50 + 51)
+$$
+There are 50 pairs, each of them having a sum of $101$, so:
+$$
+1 + 2 + ... + 99 + 100 = 50 \times 101 = 5050
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;In case of a sum of successive odd numbers the sum is always the square of how many odd numbers I add, e.g. $1 + 3 + 5 + 7 = 16 = 4^2$ . For $n$ numbers the formula is $n^2$.&lt;&#x2F;p&gt;
+&lt;p&gt;Formula for $n$ successive natural numbers is:
+$$
+1 + 2 + ... + n = \frac{1}{2}n(n + 1)
+$$
+The numbers given by the formula are called &lt;strong&gt;triangular numbers&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Any list of numbers is called a &lt;strong&gt;sequence&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;$1, 2, 3, ..., 100$ is &lt;strong&gt;finite&lt;&#x2F;strong&gt; sequence&lt;&#x2F;li&gt;
+&lt;li&gt;$1, 2, 3, ...$ is &lt;strong&gt;infinite&lt;&#x2F;strong&gt; sequence&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The numbers in a sequence are called the &lt;strong&gt;terms&lt;&#x2F;strong&gt; of the sequence.
+&lt;strong&gt;Arithmetic&lt;&#x2F;strong&gt; sequence is a sequence where the &lt;strong&gt;difference&lt;&#x2F;strong&gt; between consequtive terms is constant, e.g.: $1, 2, 3, ...$ is a arithmetic sequence with difference of 1,
+To specify an arithemtic sequence we can give the first term denoted by $a$, the difference denoted by $d$. If the sequence is finite the number of terms is denoted by $n$.&lt;&#x2F;p&gt;
+&lt;p&gt;The $n$th term of an arithmetic sequence with first term $a$ and difference $d$ is given by the formula
+$$
+n\text{th term} = a + (n  - 1)d
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;The number of terms $n$ of a finite arithmetic sequence with first term $a$, last term $L$ and non-zero difference $d$ is given by the formula:
+$$
+n = \frac{L - a}{d}  + 1
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;The sum of the finite arithmetic sequence with first term $a$, difference $d$ and numbers of term $n$ is given by the formula:
+$$
+S = \frac{1}{2}n(2a + (n - 1)d)
+$$
+An alternative formula involving the last term $L$:
+$$
+S = \frac{1}{2}n(a + L)
+$$&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;2-multiplying-out-pairs-of-brackets&quot;&gt;2 Multiplying out pairs of brackets&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;2-1-pairs-of-brackets&quot;&gt;2.1 Pairs of brackets&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Strategy to multiply out two brackets&lt;&#x2F;p&gt;
+&lt;p&gt;Multiply each term inside the first bracket  by each term inside the second bracket, and add the resulting terms.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;2-2-squaring-brackets&quot;&gt;2.2 Squaring brackets&lt;&#x2F;h2&gt;
+&lt;p&gt;$$
+(x + p)^2 = (x + p)(x + p) \\
+= x^2 + xp + px + p^2 \\
+= x^2 + 2px + p^2
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;Hence the general formula:
+$$
+(x + p)^2 = x^2 + 2px + p^2
+$$
+and
+$$
+(x - p)^2 = x^2 - 2px + p^2
+$$&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-3-differences-of-two-squares&quot;&gt;2.3 Differences of two squares&lt;&#x2F;h2&gt;
+&lt;p&gt;$$
+(x - p)(x + p) = x^2 + xp - px - p^2
+$$
+Hence:
+$$
+(x - p)(x + p) = x^2 - p^2
+$$&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;3-quadratic-expressions-and-equations&quot;&gt;3 Quadratic expressions and equations&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;3-1-quadratic-expressions&quot;&gt;3.1 Quadratic expressions&lt;&#x2F;h2&gt;
+&lt;p&gt;An expression of the form $ax^2 + bx + c$, where $a, b, c$ are numbers and $a \ne 0$ is called a &lt;strong&gt;quadratic expression&lt;&#x2F;strong&gt; in $x$. $a, b, c$ are called the &lt;strong&gt;coefficients&lt;&#x2F;strong&gt; of the quadratic.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-2-quadratic-equations&quot;&gt;3.2 Quadratic equations&lt;&#x2F;h2&gt;
+&lt;p&gt;An equation that can be expressed in the form:
+$$
+ax^2 + bx + c = 0
+$$
+is called a &lt;strong&gt;quadratic equation&lt;&#x2F;strong&gt; in $x$.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-3-solving-simple-quadratic-equations&quot;&gt;3.3 Solving simple quadratic equations&lt;&#x2F;h2&gt;
+&lt;p&gt;An equation of the form $x^2 = d$, where $d &amp;gt; 0$ has two solutions $x = \pm \sqrt{d}$.&lt;&#x2F;p&gt;
+&lt;p&gt;Equations as $x^2 + 1 = 0$ have no solution among the real numbers.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-4-factorising-quadratics-of-the-form-x-2-bx-c&quot;&gt;3.4 Factorising quadratics of the form $x^2 + bx + c$&lt;&#x2F;h2&gt;
+&lt;p&gt;Fill in the gaps in the brackets on the right-hand side of the equation
+$$
+x^2 + bx + c = (x...)(x...)
+$$
+with two numbers whose product is $c$ and whose sum is $b$.
+I can search systematically by writing down all the factor pairs of $c$ and choosing (if possible) a pair whose sum is $b$.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-5-solving-quadratic-equations-by-factorisation&quot;&gt;3.5 Solving quadratic equations by factorisation&lt;&#x2F;h2&gt;
+&lt;p&gt;If the product of two or more numbers is 0, then at least one of the numbers must be 0.
+Hence in an equation as $(x - 2)(x - 3) = 0$ either $x - 2$ or $x - 3$ is 0. If $x - 2 = 0$ then $x = 2$, if $x - 3 = 0$  then $x - 3$ so the equation has two solutions.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;strategy-to-solve-x-2-bx-c-0-by-factorisation&quot;&gt;Strategy to solve $x^2 + bx + c = 0$ by factorisation&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Find a factorisation: $x^2 + bx + c = (x + p)(x + p)$&lt;&#x2F;li&gt;
+&lt;li&gt;Then $(x + p)(x + p) = 0$, so $x + p = 0$ or $x + q = 0$
+and  hence the solutions are $x = -p$ and $x = -q$.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;When the two solutions are same it&#x27;s said that equation has a &lt;strong&gt;repeated solution&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-6-factorising-quadratics-of-the-form-ax-2-bx-c&quot;&gt;3.6 Factorising quadratics of the form $ax^2 + bx + c$&lt;&#x2F;h2&gt;
+&lt;p&gt;E.g. following quadratic expression;
+$$
+2x^2 - x - 6
+$$
+Where:
+$$
+a = 2\\
+b = -1\\
+c = -6
+$$&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Find two numbers whose product is $ac$ and whose sum is $b$.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;The numbers are $3$ and $-4$.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rewrite the quadratic expression, splitting the term in $x$ using the above factor pair.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;$$
+2x^2 - x - 6 = 2x^2 +3x -4x - 6
+$$&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Group the four terms in pairs and take out common factors to give the required factorisation.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;$$
+2x^2 - x - 6 = 2x^2 +3x -4x - 6 \\
+= x(2x + 3) -2(2x + 3) \\
+= (x - 2)(2x + 3)
+$$&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;simplify-a-quadratic-equation&quot;&gt;Simplify a quadratic equation&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If the coefficient of $x^2$ is negative, then multiply the equation through by $-1$ to make this coefficient positive.&lt;&#x2F;li&gt;
+&lt;li&gt;If the coefficients have a common factor, then divide the equation through by this factor.&lt;&#x2F;li&gt;
+&lt;li&gt;If any of the coefficients are fractions, then multiply the equation through by a suitable number to clear them.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;4-manipulating-algebraic-fractions&quot;&gt;4 Manipulating algebraic fractions&lt;&#x2F;h1&gt;
+&lt;p&gt;$\frac{a}{b}$ is equivalent to $\frac{a(a + 1)}{b(b + 1)}$ and common factor can be cancelled out as usual.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>MU123 Unit 6 Notes</title>
+            <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/mu123-unit6/</link>
+            <guid>https://ktsk.xyz/posts/mu123-unit6/</guid>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Extends Unit 2 with connections between algebra and graphs.&lt;&#x2F;li&gt;
+&lt;li&gt;Explores relationships between two quantities.&lt;&#x2F;li&gt;
+&lt;li&gt;Relationships corresponding to straight lines only&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;1-plotting-graphs&quot;&gt;1 Plotting graphs&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Useful to illustrate an equation or formula with two variables
+&lt;ul&gt;
+&lt;li&gt;Formula is an equation with a subject - a variable that appears by itself on one side of the equals sign and not at all on the other side.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;1-1-graph-axes-and-coordinates&quot;&gt;1.1 Graph axes and coordinates&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Two axes - x and y.&lt;&#x2F;li&gt;
+&lt;li&gt;Aeach axis has scale markings and arrows.&lt;&#x2F;li&gt;
+&lt;li&gt;Distance between two consecutive integers on an axis is reffered to as 1 unit.&lt;&#x2F;li&gt;
+&lt;li&gt;Axis are often extended to include negative numbers.&lt;&#x2F;li&gt;
+&lt;li&gt;Each point plottend on a graph is represented by the &lt;strong&gt;coordinates&lt;&#x2F;strong&gt;.
+&lt;ul&gt;
+&lt;li&gt;First number represents position along the x-axis from 0&lt;&#x2F;li&gt;
+&lt;li&gt;Second number position along the y-axis from 0&lt;&#x2F;li&gt;
+&lt;li&gt;The two numbers are called &lt;em&gt;x&lt;&#x2F;em&gt;- and &lt;em&gt;y&lt;&#x2F;em&gt;-coordinates&lt;&#x2F;li&gt;
+&lt;li&gt;Also known as the &lt;strong&gt;Cartesian coordinate system&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Alternatives labels (and units) can be used too&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;1-2-graphs-of-equations&quot;&gt;1.2 Graphs of equations&lt;&#x2F;h2&gt;
+&lt;p&gt;When an equation, e.g.: $y = \frac{1}{2}x + 3$ is plotted into a line we say it&#x27;s the &lt;strong&gt;equation&lt;&#x2F;strong&gt; of the line.
+Checking whether some coordinates lie on the line $y = \frac{1}{2}x + 3$ is checking whether whether the coordinates of the point &lt;strong&gt;satisfy&lt;&#x2F;strong&gt; the equation.&lt;&#x2F;p&gt;
+&lt;p&gt;In practical formulas, where variables are letters other than &lt;em&gt;x&lt;&#x2F;em&gt; and &lt;em&gt;y&lt;&#x2F;em&gt; the subject is known as the &lt;strong&gt;dependent variable&lt;&#x2F;strong&gt;. Its value depends on the value of th other, &lt;strong&gt;independent variable&lt;&#x2F;strong&gt;.
+Indpendent variable should be on the horizontal axis and the depenedent on the vertical - &lt;strong&gt;against&lt;&#x2F;strong&gt; the independent variable.
+In the table of values, the indendent variable should be in the first line.&lt;&#x2F;p&gt;
+&lt;p&gt;Relationships plotted on straight line are called &lt;strong&gt;linear relationships&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-3-scatterplots&quot;&gt;1.3 Scatterplots&lt;&#x2F;h2&gt;
+&lt;p&gt;Is a graph plotted for two quantities for which I don&#x27;t know an equation relating them. Plotted points are reffered to as &lt;strong&gt;data points&lt;&#x2F;strong&gt;.
+When data points approximatelly form a straight line it can be modelled into it. For which an equation can be devised.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;2-characteristics-of-straight-line-graphs&quot;&gt;2 Characteristics of straight-line graphs&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;2-1-gradient&quot;&gt;2.1 Gradient&lt;&#x2F;h2&gt;
+&lt;p&gt;Measures the steepnes of a line. Gradient of the line is the number of units it moves vertically as it moves 1 unit horizontally to the right.
+Gradient is often not obvious to find. One approach is to pick two points on the line and consider what happens when &amp;quot;cursor&amp;quot; is moved from left-hand point to the right-hand point.
+The increase in the:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;x&lt;&#x2F;em&gt;-coordinate is called &lt;strong&gt;run&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;y&lt;&#x2F;em&gt;-coordinate is called &lt;strong&gt;rise&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The gradient of the line can be calculated by dividing the rise by the run:
+$$
+\text{gradient} = \frac{\text{increase in y}}{\text{increase in x}} = \frac{\text{rise}}{\text{run}}
+$$&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;The sign of the gradient&lt;&#x2F;strong&gt;
+Lines that slope up from left to right have a &lt;em&gt;positive&lt;&#x2F;em&gt; gradient.
+Lines that slope down from left to right have a &lt;em&gt;negative&lt;&#x2F;em&gt; gradient.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Run (&lt;em&gt;x&lt;&#x2F;em&gt; increase) and rise (&lt;em&gt;y&lt;&#x2F;em&gt; increase) can be calculated by subtracting the respective coordinate of the left-hand point from the respective coordinate of the right-hand point.&lt;&#x2F;p&gt;
+&lt;p&gt;Steepnes of a line depends not only on its gradient but also on the scales used on the axes.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;horizontal-and-vertical-lines&quot;&gt;Horizontal and vertical lines&lt;&#x2F;h3&gt;
+&lt;p&gt;The gradient of every horizontal line is &lt;strong&gt;zero&lt;&#x2F;strong&gt; since the rise between any two points on a horizontal line is zero.
+The gradient of every vertical line is &lt;strong&gt;undefined&lt;&#x2F;strong&gt; since the run is zero and it&#x27;s not possible to divide any rise number by zero.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-2-a-formula-for-gradient&quot;&gt;2.2 A formula for gradient&lt;&#x2F;h2&gt;
+&lt;p&gt;First point on the line can be represented as $(x_1, y_1)$ and second as $(x_2, y_2)$. 1, 2 are &lt;strong&gt;subscripts&lt;&#x2F;strong&gt;. Hence the gradient calculation can be generalised as:
+$$
+\text{gradient} = \frac{\text{rise}}{\text{run}} = \frac{y_2 - y_1}{x_2 - x_1}
+$$
+It doesn&#x27;t matter which point I take to be $(x_1, y_1)$ and which $(x_2, y_2)$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Paralel&lt;&#x2F;strong&gt; are such lines that never cross, even when extended infinitely. Hence those lines have to have the same gradient (except for vertical lines with undefined gradient).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-3-interpreting-gradients&quot;&gt;2.3 Interpreting gradients&lt;&#x2F;h2&gt;
+&lt;p&gt;Gradients for graphs that illustrate a relationship between real-life quantities should contain units in a form of &lt;em&gt;y&lt;&#x2F;em&gt;-unit &#x2F; &lt;em&gt;x&lt;&#x2F;em&gt;-unit. When units are the same they cancel out so the gradient has no units.&lt;&#x2F;p&gt;
+&lt;p&gt;The gradient can be thought of as the &lt;strong&gt;rate of change&lt;&#x2F;strong&gt; of &lt;em&gt;y&lt;&#x2F;em&gt; with respect to &lt;em&gt;x&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To save time the units can be quoted in calculations e.g.:
+$$
+\frac{150}{6} = 25~\text{cm&#x2F;day}
+$$
+That is not strictly correct though.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Interpreting the sign of the gradient of a graph&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;em&gt;positive&lt;&#x2F;em&gt; indicates that the quantity on the vertical axis &lt;em&gt;increases&lt;&#x2F;em&gt; as the quantity on the horizontal axis increases.&lt;&#x2F;li&gt;
+&lt;li&gt;A &lt;em&gt;negative&lt;&#x2F;em&gt; indicates that the quantity on the vertical axis &lt;em&gt;decreases&lt;&#x2F;em&gt; as the quantity on the horizontal axis increases.&lt;&#x2F;li&gt;
+&lt;li&gt;A &lt;em&gt;zero&lt;&#x2F;em&gt; indicates that the quantity on the vertical axis &lt;em&gt;remains constant&lt;&#x2F;em&gt; as the quantity on the horizontal axis increases.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;2-4-intercepts&quot;&gt;2.4 Intercepts&lt;&#x2F;h2&gt;
+&lt;p&gt;The value on the axis scale where a straight-line graph one of the graph axes.
+&lt;em&gt;x&lt;&#x2F;em&gt;-intercept is the value of &lt;em&gt;x&lt;&#x2F;em&gt; when &lt;em&gt;y = 0&lt;&#x2F;em&gt; and the &lt;em&gt;y&lt;&#x2F;em&gt;-intercept is the value of &lt;em&gt;y&lt;&#x2F;em&gt; when &lt;em&gt;x = 0&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;3-equations-of-straight-lines&quot;&gt;3 Equations of straight lines&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;3-1-lines-that-pass-through-the-origin&quot;&gt;3.1 Lines that pass through the origin&lt;&#x2F;h2&gt;
+&lt;p&gt;In general, each line that passes through the origin has the equation:
+$$
+y = \text{gradient} \times x
+$$
+With the exception of the vertical lines since it doesn&#x27;t have a gradient.&lt;&#x2F;p&gt;
+&lt;p&gt;The statement can be generalised as:
+The straight line that passes through the origin and has gradient $m$ has equation $y = mx$.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-2-direct-proportion&quot;&gt;3.2 Direct proportion&lt;&#x2F;h2&gt;
+&lt;p&gt;The relationship between two quantities when, if one quantity is multiplied or divided by a number then the second quantity is also multiplied or divided by same number.
+E.g. number of miles is directly proportional to the equivalent number of kilometers.&lt;&#x2F;p&gt;
+&lt;p&gt;If two quantities $x$ and $y$ are directly proportional to each other, then the relationship between them is described  by an equation of the form
+$$
+y = kx
+$$
+where $k$ is a non-zero number, known as the &lt;strong&gt;constant of proportionality&lt;&#x2F;strong&gt;.
+The statement &#x27;$y$ is directly proportional to $x$&#x27; is sometimes written as
+$$
+y \propto x
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Constant&lt;&#x2F;strong&gt; in an equation or expression is a quantity that doesn&#x27;t change when the values of the variables change.&lt;&#x2F;p&gt;
+&lt;p&gt;A graph represents directly proportional quantities when it&#x27;s a &lt;strong&gt;straight line through the origin&lt;&#x2F;strong&gt;. That means the constant of proprtionality is a gradient.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-3-the-general-equation-of-a-straight-line&quot;&gt;3.3 The general equation of a straight line&lt;&#x2F;h2&gt;
+&lt;p&gt;Nearly every straight line graph can be described by an equation of the form
+$$
+y = mx + c
+$$
+where gradient $m$ and $y$-intercept $c$ are constants. The exeception being vertical lines.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Equations of horizontal and vertical lines&lt;&#x2F;strong&gt;
+The horizontal line with $y$-intercept $a$ has equation $y = a$.
+The vertical line with $x$-interceept $a$ has equation $x = a$.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-4-drawing-lines-from-their-equations&quot;&gt;3.4 Drawing lines from their equations&lt;&#x2F;h2&gt;
+&lt;p&gt;When a graph illustrates an equation it should label the line.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-5-finding-the-equations-of-lines&quot;&gt;3.5 Finding the equations of lines&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Find the gradient $m$ of the line and substitute it into the general equation $y = mx + c$.&lt;&#x2F;li&gt;
+&lt;li&gt;Substitute the coordinates of a point on the line into the equation of the line from step 1 and solve it fo find the value of the $y$-intercept $c$.&lt;&#x2F;li&gt;
+&lt;li&gt;Use the values of $m$ and $c$ to write down the equation of the line.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h1 id=&quot;4-linear-models-from-data&quot;&gt;4 Linear models from data&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;4-1-regression-lines&quot;&gt;4.1 Regression lines&lt;&#x2F;h2&gt;
+&lt;p&gt;Collected data can be plotted on the graph and possibly modelled by straight line.
+The way how a line fits the data can be meassured followingly:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Measure the vertical distances from the points to the line&lt;&#x2F;li&gt;
+&lt;li&gt;Square each of these distances&lt;&#x2F;li&gt;
+&lt;li&gt;Add up the squared distances&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The smaller the sum the better the fit of the line. There is always just one line for which the sum is the smallest - the &lt;strong&gt;regression line&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The process of estimating a value within the &lt;em&gt;range&lt;&#x2F;em&gt; of the data is called &lt;strong&gt;interpolation&lt;&#x2F;strong&gt;.
+Estimating a value outside of the data &lt;em&gt;range&lt;&#x2F;em&gt; is called &lt;strong&gt;extrapolation&lt;&#x2F;strong&gt; and it can be unreliable. In general it is unwise to extrapolate too far from the range of dataset.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;4-2-correlation-coefficients&quot;&gt;4.2 Correlation coefficients&lt;&#x2F;h2&gt;
+&lt;p&gt;Measures how accurate a prediction provided by a regression line is likely to be. It&#x27;s calcluated from data pair and denoted by $r$.
+It indicates how well the regression line fits the data pairs.
+The coefficient is always between -1 and 1, inclusive.
+When it&#x27;s possitive the regression line has a positive gradient and it&#x27;s called &lt;strong&gt;possitive correlation&lt;&#x2F;strong&gt;. Negative has a negative gradient and is called &lt;strong&gt;negative correlation&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The correlation coefficient is exactly 1 or exactly -1 when all the data points lie exactly on the regression line, it&#x27;s called &lt;strong&gt;perfect correlation&lt;&#x2F;strong&gt;.
+Strong correlation is when the data points are close to the regression line.
+The closer the coefficient is to zero the &lt;strong&gt;weaker&lt;&#x2F;strong&gt; is the correlation.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>MU123 Unit 5 Notes</title>
+            <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/mu123-unit5/</link>
+            <guid>https://ktsk.xyz/posts/mu123-unit5/</guid>
+            <description>&lt;h1 id=&quot;2-expressions&quot;&gt;2 Expressions&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;2-1-what-is-an-expression&quot;&gt;2.1 What is an expression?&lt;&#x2F;h2&gt;
+&lt;p&gt;A collection of letters, numbers and&#x2F;or mathematical symbols arranged in such a way that if numbers are substituted for the letters, then I can work out hte value of the expression.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Letters represent numbers, so the normal rules of arithmetic apply to them.
+In exactly the same way as they apply to numbers.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;In particular &lt;strong&gt;BIDMAS&lt;&#x2F;strong&gt; rules apply to the letters.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Evaluation&lt;&#x2F;strong&gt; is the process of substituting numbers for the letters.
+&lt;strong&gt;Equivalent&lt;&#x2F;strong&gt; expresions are those that are same, just written differently&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;e.g.: $x + x = 2x$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;Rearranging&lt;&#x2F;strong&gt; is writing an expression in a different way.
+&lt;strong&gt;Simplifying&lt;&#x2F;strong&gt; is rearranging in order to make the expression simpler.&lt;&#x2F;p&gt;
+&lt;p&gt;Expressions &lt;em&gt;don&#x27;t&lt;&#x2F;em&gt; contain equals sings. E.g.: $x + x = 2$ is an &lt;strong&gt;equation&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;bicause noe 2 thynges can be moare equalle.&lt;&#x2F;em&gt;
+-- Robert Recorde, the inventor of $=$&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Identities&lt;&#x2F;strong&gt; are equations that are true for all values of the variables&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\frac{3}{10}N = 150$ is not identity, it&#x27;s currect for only one value of $N$.&lt;&#x2F;li&gt;
+&lt;li&gt;$x + x = 2x$ is an identity.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;unknown&lt;&#x2F;strong&gt; is a letter representing a particular number I don&#x27;t know yet&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;In $\frac{3}{10}N = 150$ the $N$ is unknown.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;variable&lt;&#x2F;strong&gt; is a letter that represents &lt;em&gt;any&lt;&#x2F;em&gt; number&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;In $x + x = 2x$ the $x$ is variable. &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2-2-what-is-a-term&quot;&gt;2.2 What is a term?&lt;&#x2F;h2&gt;
+&lt;p&gt;The things that are added or subtracted in an expression.
+E.g. in following expression:
+$$
+-2xy + 3z - y^2
+$$
+The $-2xy$, $+3z$, $-y^2$ are terms. Plus &#x2F; minus signs are part of the term.
+There&#x27;s implicit plus in the front of an expression, e.g. $4a + c$ has following terms: $+4a$ and $+c$. When dicussing the terms the plus sign can be omitted alltogether.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An expression is equivalent to the sum of its terms.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Order of terms can be changed since it doesn&#x27;t matter when adding numbers.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Constant&lt;&#x2F;strong&gt; term is a number only, e.g. in $3a - 2$ the term $-2$ is constant.
+&lt;strong&gt;Coefficient&lt;&#x2F;strong&gt; of a term is a number in a term of the $\text{a number} \times \text{a combination of letters}$ form, e.g. $2xy$ has coefficient $2$ and $2$ is a term in $xy$.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-3-collecting-like-terms&quot;&gt;2.3 Collecting like terms&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;Like terms&lt;&#x2F;strong&gt; are terms that are &#x27;batches of same thing&#x27;. Same thing means the letters and the powers of the letters in each term must be the same. E.g. $7\sqrt{A}$ and $3\sqrt{A}$ are like terms.
+The lower- and upper-case versions of the same letter are &lt;em&gt;different&lt;&#x2F;em&gt; symbols.
+Terms &lt;strong&gt;cancel&lt;&#x2F;strong&gt; each other out when the result of collecting those is zero.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;3-simplifying-terms&quot;&gt;3 Simplifying terms&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;3-1-simplifying-single-terms&quot;&gt;3.1 Simplifying single terms.&lt;&#x2F;h2&gt;
+&lt;p&gt;Index notation should be used when simplifying a term with samel letters, e.g. $p \times p$ simplifies to $p^2$.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Strategy&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Find the overall sign.&lt;&#x2F;li&gt;
+&lt;li&gt;Simplify the rest of the coefficient.&lt;&#x2F;li&gt;
+&lt;li&gt;Write the letters in alphabetical order, use index notation.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;3-2-simplifying-two-or-more-terms&quot;&gt;3.2 Simplifying two or more terms&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Strategy&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Identify the terms. Each term after the first starts with a plus or minus sign that isn&#x27;t inside brackets.&lt;&#x2F;li&gt;
+&lt;li&gt;Simplify each term. Include the sign (plus or minus) at the start of each term.&lt;&#x2F;li&gt;
+&lt;li&gt;Collect any like terms&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h1 id=&quot;4-brackets&quot;&gt;4 Brackets&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;4-1-multiplying-out-brackets&quot;&gt;4.1 Multiplying out brackets&lt;&#x2F;h2&gt;
+&lt;p&gt;Any expression containing brackets like:
+$$
+8a + 3b(b - 2a)
+$$
+can be rewritten without brackets by multiplying each term inside the brackets by the &lt;strong&gt;multiplier&lt;&#x2F;strong&gt; - $3b$ in the example:
+$$
+8a + 3b \times b - 3b \times 2a
+$$&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Strategy&lt;&#x2F;strong&gt;
+To multiply out brackets in an expression with more than one term&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Identify the terms. Each term after the first starts with a plus or minus sign that isn&#x27;t inside brackets.&lt;&#x2F;li&gt;
+&lt;li&gt;Multiply out the brackets in each term. Include the sign (plus or minus) at the start of each resulting term.&lt;&#x2F;li&gt;
+&lt;li&gt;Collect any like terms.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Strategy&lt;&#x2F;strong&gt;
+To remove brackets with a plus or minus sign in front&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Inf the sign is plus, keep the sign of each term inside the brackets the same.&lt;&#x2F;li&gt;
+&lt;li&gt;If the sign is minus, change the sign of each term inside the brackets.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;4-2-algebraic-fractions&quot;&gt;4.2 Algebraic fractions&lt;&#x2F;h2&gt;
+&lt;p&gt;Are algebraic expressions written using fraction notation, e.g.: $a + \frac{b}{c}$. Fractions are preffered over divisin sign.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Expanding&lt;&#x2F;strong&gt; the algebraic fraction is useful technique when there is more terms in th numerator. such as:
+$$
+\frac{2a - 5b + c}{3d}
+$$
+The expresion can be rewritten as multiplication by the reciprocal of the denominator:
+$$
+\frac{1}{3d}(2a - 5b + c)
+$$
+Then I can multiply out the brackets:
+$$
+\frac{2a}{3d} - \frac{5b}{3d} + \frac{c}{3d}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;Once the algebraic fraction is expanded it may be possible to simplify some of the resulting terms.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;5-linear-equations&quot;&gt;5 Linear equations&lt;&#x2F;h1&gt;
+&lt;p&gt;Particularly &lt;em&gt;linear equations in one unknown&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Linear because those equations doesn&#x27;t include powers, e.g.: $x^2$, thus form straigh lines on a graph.&lt;&#x2F;p&gt;
+&lt;p&gt;An equation consists of two expressions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;left-hand side (LHS)&lt;&#x2F;li&gt;
+&lt;li&gt;righ-hand side (RHS)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;Solving the equation&lt;&#x2F;strong&gt; is the process of finding the value of the unknown. Found value is &lt;em&gt;solution&lt;&#x2F;em&gt; - &lt;em&gt;solution&lt;&#x2F;em&gt; &lt;strong&gt;satisfies&lt;&#x2F;strong&gt; the equation.&lt;&#x2F;p&gt;
+&lt;p&gt;An equation can have more than one solution, e.g.: $a^2 = 4$ has two solutions - $a = 2$ and $a = -2$. Also an equation can have no solution at all, e.g.: $a^2 = -1$&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;5-2-how-to-solve-linear-equation&quot;&gt;5.2 How to solve linear equation&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Strategy&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;do the same thing to both sides&lt;&#x2F;li&gt;
+&lt;li&gt;simplify one side or both sides&lt;&#x2F;li&gt;
+&lt;li&gt;swap the sides&lt;&#x2F;li&gt;
+&lt;li&gt;clear any fraction and multiply out any brackets. To clear a fraction, multiply both sides by a suitable number.&lt;&#x2F;li&gt;
+&lt;li&gt;Add or subtract terms on both sides to obtain an equation of the form $\text{a number} \times \text{the unknown} = \text{a number}$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+</description>
+        </item>
+        <item>
+            <title>MU123 Unit 4 Notes</title>
+            <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/mu123-unit4/</link>
+            <guid>https://ktsk.xyz/posts/mu123-unit4/</guid>
+            <description>&lt;h1 id=&quot;1-questions-questions&quot;&gt;1 Questions, questions&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Quantitative view - uses numbers -&amp;gt; measurments, counts&lt;&#x2F;li&gt;
+&lt;li&gt;Qualitative view - describes what something is like in words&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Statistics is about quantitative view&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-1-types-of-statistical-question&quot;&gt;1.1 Types of statistical question&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Summarising: how can the information be reduced?
+&lt;ul&gt;
+&lt;li&gt;Reduction of many numbers to few representatives, e.g. average&lt;&#x2F;li&gt;
+&lt;li&gt;Statistical charts or plots&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Comparing: is there a difference?
+&lt;ul&gt;
+&lt;li&gt;Depends on various factors
+&lt;ul&gt;
+&lt;li&gt;Sizes of the samples on which averages are based&lt;&#x2F;li&gt;
+&lt;li&gt;The degree of variation&lt;&#x2F;li&gt;
+&lt;li&gt;Whether the size of the observed difference is sufficiently large to act upon&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Seeking a relationship: what sort of relationship is there?
+&lt;ul&gt;
+&lt;li&gt;Finding a possible relationship between quite separate things&lt;&#x2F;li&gt;
+&lt;li&gt;Statistical relation doesn&#x27;t prove a cause-and-effect relationship&lt;&#x2F;li&gt;
+&lt;li&gt;Useful to determine the kind of relationship
+&lt;ul&gt;
+&lt;li&gt;How much does one factor change relative to the other?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;1-2-the-statistical-investigation-cycle&quot;&gt;1.2 The statistical investigation cycle&lt;&#x2F;h2&gt;
+&lt;p&gt;The stages of statistical investigation&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;P&lt;&#x2F;strong&gt;ose a question&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;C&lt;&#x2F;strong&gt;ollect relevant data&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;A&lt;&#x2F;strong&gt;nalyse the data&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;&#x2F;strong&gt;nterpret the data&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Forming &lt;strong&gt;PCAI&lt;&#x2F;strong&gt; cycle:&lt;&#x2F;p&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;stateDiagram-v2
+	P: P Real world
+	A: A Statistical world
+	P --&amp;gt; A : C
+	A --&amp;gt; P : I&lt;&#x2F;div&gt;
+&lt;p&gt;The question has to be as focused as possible.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;2-dealing-with-data&quot;&gt;2 Dealing with data&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Issues to do with collecting data (&lt;strong&gt;C&lt;&#x2F;strong&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Important distinctions between different types of data (&lt;strong&gt;A&lt;&#x2F;strong&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2-1-primary-and-secondary-data&quot;&gt;2.1 Primary and secondary data&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Primary data - data that I collect by myself (a research unit)&lt;&#x2F;li&gt;
+&lt;li&gt;Secondary data - data that already exist and can be used or adapted&lt;&#x2F;li&gt;
+&lt;li&gt;Dataset - a collection of data (e.g. in tabular form)
+&lt;ul&gt;
+&lt;li&gt;Reference should be provided&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2-2-discrete-and-continuous-data&quot;&gt;2.2 Discrete and continuous data&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Discrete - counting
+&lt;ul&gt;
+&lt;li&gt;Can take one of a particular set of values, typically integers&lt;&#x2F;li&gt;
+&lt;li&gt;Non-numerical data can be coded to discrete values
+&lt;ul&gt;
+&lt;li&gt;e.g. binary yes&#x2F;no -&amp;gt; 1&#x2F;0&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Exact answer can be given&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Continuous - measuring
+&lt;ul&gt;
+&lt;li&gt;Can take all the in-between values on the number scale&lt;&#x2F;li&gt;
+&lt;li&gt;All the real numbers, can be constrained to e.g. finite interval &lt;&#x2F;li&gt;
+&lt;li&gt;Never possible to get an exact answer
+&lt;ul&gt;
+&lt;li&gt;Measurements can be only approximated with some degree of precision&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The approximation given by measuring of continuous data implies that its a dicrete representation of continous data&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-3-checking-and-cleaning-data&quot;&gt;2.3 Checking and cleaning data&lt;&#x2F;h2&gt;
+&lt;p&gt;One or more data values that are considerably smaller or larger than the other values in the same dataset are called &lt;strong&gt;outliers&lt;&#x2F;strong&gt;.
+Outliers sometimes correspond to errors. Sometimes its just unusual observation (e.g. woman 1.92m tall).
+Therea are various statistical techniques to deal with outliers.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-4-spurious-precision&quot;&gt;2.4 Spurious precision&lt;&#x2F;h2&gt;
+&lt;p&gt;Can arise in various ways, e.g.:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conversion of units
+&lt;ul&gt;
+&lt;li&gt;E.g.: age given as $29.91666$ that is a result of months-to-years conversion $=29\text{years} + 11\text{months}&#x2F;12$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Implying that a quantity can be measured to a greater level of precision than is possible with the measuring instrumet used. &lt;&#x2F;li&gt;
+&lt;li&gt;Quoting figures to a greater number of significant figures than is warranted in the context. &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Generally, displayed data should be just precise enough to reveal the key features.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-6-single-and-paired-data&quot;&gt;2.6 Single and paired data&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sigle data&lt;&#x2F;strong&gt; - can be analysed in isolation, e.g. in weights of persons I can: 
+&lt;ul&gt;
+&lt;li&gt;Find average&lt;&#x2F;li&gt;
+&lt;li&gt;Find dispersion of values&lt;&#x2F;li&gt;
+&lt;li&gt;Plot it to discren the overall pattern visually&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Two-sample data&lt;&#x2F;strong&gt; - second dataset is added, e.g. weights of old persons
+&lt;ul&gt;
+&lt;li&gt;Interest now is in comparing features&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Paired data&lt;&#x2F;strong&gt; - e.g. statistical interest being in comparing weight of babies to the weights of their mothers at the start of pregnancy.
+&lt;ul&gt;
+&lt;li&gt;Essentially seeking a relationship&lt;&#x2F;li&gt;
+&lt;li&gt;Two data lists must contain the same number of values&lt;&#x2F;li&gt;
+&lt;li&gt;For each item in one list there&#x27;s a corresponding item in the other&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;3-summarising-data-location&quot;&gt;3. Summarising data: location&lt;&#x2F;h1&gt;
+&lt;p&gt;Stage &lt;strong&gt;A&lt;&#x2F;strong&gt; of the PCAI cycle - analysing data that have been collected.
+&lt;strong&gt;Location&lt;&#x2F;strong&gt; of a dataset is:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Single number that represents
+&lt;ul&gt;
+&lt;li&gt;average value&lt;&#x2F;li&gt;
+&lt;li&gt;typical value&lt;&#x2F;li&gt;
+&lt;li&gt;central value&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Sets of data can be compared by their locations &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;3-2-measuring-location&quot;&gt;3.2 Measuring location&lt;&#x2F;h2&gt;
+&lt;p&gt;There&#x27;s no single and universally most appropriate measure of location. Measures can be chosen mased on the situation and the nature of the data.
+The three most common measures of location are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mean&lt;&#x2F;li&gt;
+&lt;li&gt;Mode
+&lt;ul&gt;
+&lt;li&gt;A value that occurs most frequently in the dataset
+&lt;ul&gt;
+&lt;li&gt;Won&#x27;t be used in MU123&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Median&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;mean&quot;&gt;Mean&lt;&#x2F;h3&gt;
+&lt;p&gt;(also arithmetic average)&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Strategy&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add all the numbers together&lt;&#x2F;li&gt;
+&lt;li&gt;Divide by however many numbers there are in the set.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;median&quot;&gt;Median&lt;&#x2F;h3&gt;
+&lt;p&gt;Data value that is in the middle when the data are arranged in order&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Strategy&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sort the data into increasing or decreasing order&lt;&#x2F;li&gt;
+&lt;li&gt;If there is an odd number of data values, the median is the middle value&lt;&#x2F;li&gt;
+&lt;li&gt;If there is an even number of data values, the median is defined as the mean of the middle two values&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;3-3-mean-versus-median&quot;&gt;3.3 Mean versus median&lt;&#x2F;h2&gt;
+&lt;p&gt;When the values are highly symmetrical the values of mean and the median are very similar. Outlier on one side has big impact on mean but none on median, e.g.:
+$$
+[3,4,5,6,7,8,99] =&amp;gt; \text{mean}: 18.9 ~\text{median}: 6
+$$&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;3-summarising-data-spread&quot;&gt;3. Summarising data: spread&lt;&#x2F;h1&gt;
+&lt;p&gt;How widely &lt;strong&gt;spread&lt;&#x2F;strong&gt; the values are.&lt;&#x2F;p&gt;
+&lt;p&gt;E.g. following data set is relatively widely spread from 42 to 92:
+$$
+[42, 58, 60, 68, 78, 92]
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;And following set is narrower, ranging from 60 to 80:
+$$
+[60, 65, 72, 74, 75, 80]
+$$&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;4-1-range&quot;&gt;4.1 Range&lt;&#x2F;h2&gt;
+&lt;p&gt;The difference between the smallest and largest value in the set.
+$$
+\text{range} = \text{max} - \text{min}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;Not adequate when there are extreme outliers in the dataset.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;4-2-quartiles-and-the-interquartile-range&quot;&gt;4.2 Quartiles and the interquartile range&lt;&#x2F;h2&gt;
+&lt;p&gt;Exclude top and bottom quarters of the values and create a new measure of spread that measures the range of the middle 50%.
+Cutoff points are called &lt;strong&gt;quartiles&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;lower quartile&lt;&#x2F;strong&gt; (Q1)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;upper quartile&lt;&#x2F;strong&gt; (Q1)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;Interquartile range&lt;&#x2F;strong&gt; (IQR) is the difference between the upper and lower quartiles (Q3 - Q1)&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Strategy&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Arrange the dataset in increasing order.&lt;&#x2F;li&gt;
+&lt;li&gt;Next
+&lt;ul&gt;
+&lt;li&gt;When even
+&lt;ul&gt;
+&lt;li&gt;Q1 is the median of the lower half of dataset&lt;&#x2F;li&gt;
+&lt;li&gt;Q3 is the median of the upper half of dataset&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;When odd 
+&lt;ul&gt;
+&lt;li&gt;Throw out the middle value, median (one of the conventions)&lt;&#x2F;li&gt;
+&lt;li&gt;Q1 is the median of the lower half of new dataset&lt;&#x2F;li&gt;
+&lt;li&gt;Q3 is the median of the upper half of new dataset&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;IQR is Q3 - Q1&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;4-3-standard-deviation&quot;&gt;4.3 Standard deviation&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Strategy&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Find the mean of the dataset&lt;&#x2F;li&gt;
+&lt;li&gt;Find the difference of each value from the mean - &#x27;deviations&#x27;, labelled as $d$ values&lt;&#x2F;li&gt;
+&lt;li&gt;Square each deviation - $d^2$ values&lt;&#x2F;li&gt;
+&lt;li&gt;Find the mean of these squared deviations - &#x27;mean squared deviation&#x27; - &lt;strong&gt;variance&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Find the square root of the variance - &#x27;root mean squared deviation&#x27; - standard deviation&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;summaries-of-data&quot;&gt;Summaries of data&lt;&#x2F;h2&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;graph LR
+    id[Summaries of data]
+	id--&amp;gt;Location
+	id--&amp;gt;Spread
+	Location--&amp;gt;Mean
+	Location--&amp;gt;Median
+	Spread--&amp;gt;Range
+	Spread--&amp;gt;iqr[Interquartile range]
+	Spread--&amp;gt;std[Standard deviation]&lt;&#x2F;div&gt;
+&lt;h1 id=&quot;5-measuring-with-accuracy-and-precision&quot;&gt;5 Measuring with accuracy and precision&lt;&#x2F;h1&gt;
+&lt;p&gt;Repeated measurements to asses the quality of dataset.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;5-2-accuracy-and-precision&quot;&gt;5.2 Accuracy and precision&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy&lt;&#x2F;strong&gt; describes how close the average is to the true value&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Precision&lt;&#x2F;strong&gt; describes how close the measurements are to each other&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+        </item>
+        <item>
+            <title>Index laws I&#x27;ve encountered so far</title>
+            <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/index-laws/</link>
+            <guid>https://ktsk.xyz/posts/index-laws/</guid>
+            <description>&lt;p&gt;$$
+a^m \times a^n = a^{m + n} \qquad \frac{a^m}{a^n} = a^{m-n} \\
+(a^m)^n = a^{mn} \\
+(a \times b)^n = a^n \times b^n \qquad (\frac{a}{b})^n = \frac{a^n}{b^n} \\
+a^0 = 1 \qquad a^{-n} = \frac{1}{a^n} \\
+a^\frac{1}{n} = \sqrt[n]{a} \qquad a^\frac{m}{n} = (\sqrt[n]{a})^m
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;TODO: Add examples&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>MU123 Unit 3 Notes</title>
+            <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/mu123-unit3/</link>
+            <guid>https://ktsk.xyz/posts/mu123-unit3/</guid>
+            <description>&lt;h1 id=&quot;1-natural-numbers&quot;&gt;1 Natural numbers&lt;&#x2F;h1&gt;
+&lt;p&gt;Positive integers &lt;code&gt;1, 2, 3, 4...&lt;&#x2F;code&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Natural_number&quot;&gt;Some include zero, some not&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-1-multiples&quot;&gt;1.1 Multiples&lt;&#x2F;h2&gt;
+&lt;p&gt;A result of multiplying a natural number by natural number. E.g. multiples of 8 are $8, 16, 24, 32$&lt;&#x2F;p&gt;
+&lt;p&gt;Thus multiples are numbers into which 8 divides exactly.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;common-multiple&quot;&gt;Common multiple&lt;&#x2F;h3&gt;
+&lt;p&gt;is a multiple of all the numbers in question. Lowest common multiple (LCM) is the smallest number that is a multiple of numbers in question&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-2-factors&quot;&gt;1.2 Factors&lt;&#x2F;h2&gt;
+&lt;p&gt;A natural number that divides a number exactly into a second natural number, e.g. 2 is factor of 10.
+Alternatively we can say 10 is divisible by 2.&lt;&#x2F;p&gt;
+&lt;p&gt;Related to multiples since 2 is a factor of 10 is same as 10 is a multiple of 2.&lt;&#x2F;p&gt;
+&lt;p&gt;All natural numbers &amp;gt; 1 have at least two factors - itself and 1.&lt;&#x2F;p&gt;
+&lt;p&gt;Factors can be arranged into factor pairs - $1,10$; $2,5$.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Strategy to find factors of a number&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Try 1,2,3,4... in turn. When factor is found, write it down with the other factor in the pair&lt;&#x2F;li&gt;
+&lt;li&gt;Stop when you reach already found factor pair&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;common-factors&quot;&gt;Common factors&lt;&#x2F;h3&gt;
+&lt;p&gt;is a factor of all the numbers in question. The highest common factor (HCF) is the largest number that is a factor of numbers in question.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-3-prime-numbers&quot;&gt;1.3 Prime numbers&lt;&#x2F;h2&gt;
+&lt;p&gt;Natural numbers that have &lt;strong&gt;exactly&lt;&#x2F;strong&gt; two factors - 1 and itself, e.g. $2, 3, 5, 7, 11, 13, \ldots$.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;sieve-of-eratosthenes&quot;&gt;Sieve of Eratosthenes&lt;&#x2F;h3&gt;
+&lt;p&gt;An algorithm for finding all the prime numbers up to a certain number.
+&lt;img src=&quot;https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;commons&#x2F;b&#x2F;b9&#x2F;Sieve_of_Eratosthenes_animation.gif&quot; alt=&quot;sieveofera&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a range of $2..n$ where $n$ is a certain number&lt;&#x2F;li&gt;
+&lt;li&gt;Mark all the numbers that are multiples of 2 and are $&amp;gt;= 2^2$&lt;&#x2F;li&gt;
+&lt;li&gt;Move to next unmarked number - 3 and mark its multiples that are $&amp;gt;= 3^2$&lt;&#x2F;li&gt;
+&lt;li&gt;...&lt;&#x2F;li&gt;
+&lt;li&gt;All the unmarked numbers are primes&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Python impelementation &lt;a href=&quot;https:&#x2F;&#x2F;www.geeksforgeeks.org&#x2F;sieve-of-eratosthenes&#x2F;&quot;&gt;src&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5cb3fa;&quot;&gt;SieveOfEratosthenes&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;):
+ 
+    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;# Create a boolean array 
+    # &amp;quot;prime[0..n]&amp;quot; and initialize
+    #  all entries it as true.
+    # A value in prime[i] will
+    # finally be false if i is 
+    # Not a prime, else true.
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;prime &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;True &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)]
+    p &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;2
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;while &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(p &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;p &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;n):
+ 
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;# If prime[p] is not 
+        # changed, then it is a prime
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(prime[p] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;True&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;):
+ 
+            &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;# Update all multiples of p
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(p &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;p, n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;, p):
+                prime[i] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;False
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;p &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;+= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1
+ 
+    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;# Print all prime numbers
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;p &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;, n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;):
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;prime[p]:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;p,
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Resources&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.geeksforgeeks.org&#x2F;sieve-of-eratosthenes&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.geeksforgeeks.org&#x2F;sieve-of-eratosthenes&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;cp-algorithms.com&#x2F;algebra&#x2F;sieve-of-eratosthenes.html&quot;&gt;https:&#x2F;&#x2F;cp-algorithms.com&#x2F;algebra&#x2F;sieve-of-eratosthenes.html&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.baeldung.com&#x2F;cs&#x2F;sieve-of-eratosthenes&quot;&gt;https:&#x2F;&#x2F;www.baeldung.com&#x2F;cs&#x2F;sieve-of-eratosthenes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;mersenne-primes&quot;&gt;Mersenne primes&lt;&#x2F;h3&gt;
+&lt;p&gt;$$
+2^n - 1 ~\text{for natural number} ~n
+$$
+It can be proven that if $2^n - 1$ is prime then $n$ must be a prime.&lt;&#x2F;p&gt;
+&lt;p&gt;Resources&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mersenne_prime&quot;&gt;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mersenne_prime&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.mersenne.org&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.mersenne.org&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;primes.utm.edu&#x2F;mersenne&#x2F;&quot;&gt;https:&#x2F;&#x2F;primes.utm.edu&#x2F;mersenne&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;1-4-prime-factors&quot;&gt;1.4 Prime factors&lt;&#x2F;h2&gt;
+&lt;p&gt;A natural number &amp;gt; 1 that is not prime is called a &lt;strong&gt;composite number&lt;&#x2F;strong&gt;, e.g.: $4, 6, 8, 9, 10\ldots$.
+A composite number can often be written as a product of even more factors forming a &lt;strong&gt;factor tree&lt;&#x2F;strong&gt;:&lt;&#x2F;p&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;graph TD;
+    two1((2))
+    two2((2))
+    two3((2))
+    three1((3))
+    three2((3))
+    five1((5))
+	
+    360--&amp;gt;20;
+    360--&amp;gt;18;
+    20--&amp;gt;4;
+    20--&amp;gt;five1;
+	18--&amp;gt;three1;
+	18--&amp;gt;6;
+	4--&amp;gt;two1;
+	4--&amp;gt;two2;
+	6--&amp;gt;two3;
+	6--&amp;gt;three2;&lt;&#x2F;div&gt;
+&lt;p&gt;Hence we can say $360 = 2^3 \times 3^2 \times 5$. All of the factors here are primes.&lt;&#x2F;p&gt;
+&lt;p&gt;I could&#x27;ve started with different nodes, e.g. $360 = 10 \times 36$, but the result would&#x27;ve been the same.&lt;&#x2F;p&gt;
+&lt;p&gt;The process of writing a natural number as a product of factors &amp;gt; 1 is called &lt;strong&gt;factorisation&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;The fundamental theorem of arithmetic&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Every natural number &amp;gt; 1 can be written as product of prime numbers in &lt;strong&gt;just one way&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;The &lt;strong&gt;prime factorisation&lt;&#x2F;strong&gt; of a natural number is the product of prime factors that is equal to it, e.g.:
+$$
+2 = 2 \qquad 3 = 3 \qquad 4 = 2^2 \\
+5 = 5 \qquad 6 = 2 \times 3 \qquad 7 = 7 \\
+8 = 2^3 \qquad 9 = 3^2 \qquad 10 = 2 \times 5
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;Because of the fundamental theorem of aithmetic we can say that prime numbers are the &lt;strong&gt;building blocks of natural numbers&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For prime factorisation it may be helpful to be systematic and follow:
+$$
+\text{the smallest possible prime} \times \text{a number}
+$$
+And iterate for each composite number in the factor tree, e.g.:&lt;&#x2F;p&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;graph TD;
+    two1((2))
+    two2((2))
+    three1((3))
+    three2((3))
+    seven1((5))
+	
+	252--&amp;gt;two1;
+    252--&amp;gt;126;
+	126--&amp;gt;two2;
+	126--&amp;gt;63;
+	63--&amp;gt;three1;
+	63--&amp;gt;21;
+	21--&amp;gt;three2;
+	21--&amp;gt;seven1;&lt;&#x2F;div&gt;
+&lt;p&gt;There&#x27;s no other way to find prime factors of a number $n$ then trying all the primes &amp;lt; $n$.
+So multiplying two large primes is a quick process but expensive to reverse.
+This fact is a base to secure encryption systems.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;finding-lcm-and-hcf-using-prime-factors&quot;&gt;Finding LCM and HCF using prime factors&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Find the prime factorisation of the numbers.&lt;&#x2F;li&gt;
+&lt;li&gt;To find the LCM, multiply together the highest ower of each prime factor occuring in any of the numbers.&lt;&#x2F;li&gt;
+&lt;li&gt;To find the HCF, multiply together the lowest power of each prime factor common to all the numbers.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;1-5-powers&quot;&gt;1.5 Powers&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;index-laws&quot;&gt;Index laws&lt;&#x2F;h3&gt;
+&lt;p&gt;So far I&#x27;ve used these
+$$
+\begin{aligned}
+a^m \times a^n &amp;amp;= a^{m+n} \qquad \frac{a^m}{a^n} = a^{m-n} \\
+(a^m)^n &amp;amp;= a^{mn} \\
+(a \times b)^n &amp;amp;= a^n \times b^n \qquad (\frac{a}{b})^n = \frac{a^n}{b^n}
+\end{aligned}
+$$&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;2-rational-numbers&quot;&gt;2 Rational numbers&lt;&#x2F;h1&gt;
+&lt;p&gt;Include natural numbers among others.&lt;&#x2F;p&gt;
+&lt;p&gt;Is a number that can be written as a fraction of two integers: $\frac{integer}{integer}$.&lt;&#x2F;p&gt;
+&lt;p&gt;Following numbers can be written in this form:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fraction as $\frac{3}{4}$&lt;&#x2F;li&gt;
+&lt;li&gt;Mixed number as $5\frac{3}{4}$ since it can be converted to top-heavy fraction: $\frac{23}{4}$&lt;&#x2F;li&gt;
+&lt;li&gt;Whole number: $7 = \frac{7}{1}$&lt;&#x2F;li&gt;
+&lt;li&gt;Decimal number with finite number of digits after decimal points: $0.42 = \frac{42}{100}$&lt;&#x2F;li&gt;
+&lt;li&gt;Some decimal numbers with infinite numbers after decimal point: $0.333\ldots = \frac{1}{3}$&lt;&#x2F;li&gt;
+&lt;li&gt;The negative of any above: $-4 = \frac{-4}{1}$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;irrational-numbers&quot;&gt;Irrational numbers&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$\pi$&lt;&#x2F;li&gt;
+&lt;li&gt;$\sqrt{2}$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;rational-numbers-as-decimals&quot;&gt;Rational numbers as decimals&lt;&#x2F;h3&gt;
+&lt;p&gt;Every rational number can be converted to decimal, e.g.: $\frac{5}{8} = 5 \div 8 = 0.625$
+There are two possible outcomes of the division:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;decimal number with finite digits after d.p. - &lt;strong&gt;terminating decimal&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;$0.625$ is terminating&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;decimal with block of indefinitely repeating digits after d.p - &lt;strong&gt;recurring decimal&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;$\frac{2}{3} = 0.6666\ldots$ is recurring&lt;&#x2F;li&gt;
+&lt;li&gt;Can be denoted with $0.1\overline{23}$.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;Thus rational numbers can be redefined as&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Decimal numbers that are terminating or recurring.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I can convert terminating to fraction so I can prove first part of the statement but I can&#x27;t prove the second yet.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-2-adding-and-subtracting-fractions&quot;&gt;2.2 Adding and subtracting fractions&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Only when there&#x27;s a same denominator - fractions are of a same type.&lt;&#x2F;li&gt;
+&lt;li&gt;When there&#x27;s different denominator - find common one (LCM).&lt;&#x2F;li&gt;
+&lt;li&gt;Always simplify.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2-3-multiplying-and-dividing-fractions&quot;&gt;2.3 Multiplying and dividing fractions&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;multiplying&quot;&gt;Multiplying&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiply the numerators together and multiply the denominators together.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;dividing&quot;&gt;Dividing&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple the fraction by its reciprocal &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;reciprocal&quot;&gt;Reciprocal&lt;&#x2F;h4&gt;
+&lt;p&gt;A number and its reciprocal multiply together to give 1.
+E.g.:
+$0.25 ~\text{is rec of} ~4$,since $0.25 \times 4 = 1$
+$\frac{3}{2} ~\text{is rec of} ~\frac{2}{3}$,since $\frac{3}{2} \times \frac{2}{3} = 1$&lt;&#x2F;p&gt;
+&lt;p&gt;Alternatively, it is 1 divided by given number. &lt;&#x2F;p&gt;
+&lt;p&gt;To find a reciprocal of fraction turn it upside down.
+E.g.:
+$\text{rec of}~\frac{3}{4}~\text{is}~\frac{4}{3}$&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-4-negative-indices&quot;&gt;2.4 Negative indices&lt;&#x2F;h2&gt;
+&lt;p&gt;The previous positive power of a number $n$ is equal to current positive power divided by $n$, e.g.:
+$4^3 = \frac{4^4}{4}$&lt;&#x2F;p&gt;
+&lt;p&gt;Thus $4^0$ has to be a number I get when dividing $\frac{4^1}{4} = 1$.
+Similarly $4^{-1}$ has to be a number I get when dividing $\frac{4^0}{4} = \frac{1}{4}$.&lt;&#x2F;p&gt;
+&lt;p&gt;We can build whole scale of the pattern&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;$4^{-3}$&lt;&#x2F;th&gt;&lt;th&gt;$4^{-2}$&lt;&#x2F;th&gt;&lt;th&gt;$4^{-1}$&lt;&#x2F;th&gt;&lt;th&gt;$4^0$&lt;&#x2F;th&gt;&lt;th&gt;$4^1$&lt;&#x2F;th&gt;&lt;th&gt;$4^2$&lt;&#x2F;th&gt;&lt;th&gt;$4^3$&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;$\frac{1}{4^3}$&lt;&#x2F;td&gt;&lt;td&gt;$\frac{1}{4^2}$&lt;&#x2F;td&gt;&lt;td&gt;$\frac{1}{4}$&lt;&#x2F;td&gt;&lt;td&gt;$1$&lt;&#x2F;td&gt;&lt;td&gt;$4$&lt;&#x2F;td&gt;&lt;td&gt;$16$&lt;&#x2F;td&gt;&lt;td&gt;$64$&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;The meaning of negative and zero indices works with all the index laws I&#x27;ve seen so far.&lt;&#x2F;p&gt;
+&lt;p&gt;Index laws can be expand by following rules based on previous observations:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A non-zero number raised to the power zero is 1:
+$$
+a^0 = 1
+$$&lt;&#x2F;li&gt;
+&lt;li&gt;A non-zero number raised to a negative power is the reciprocal of the number raised to the corresponding positive power:
+$$
+a^{n - 1} = \frac{1}{a^n}
+$$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Interestingly:
+$$
+a^{-1} = \frac{1}{a}
+$$
+Hence, raising a number to the power of $-1$ is the same as finding its reciprocal.&lt;&#x2F;p&gt;
+&lt;p&gt;E.g.:
+$$
+(\frac{2}{3})^{-1} = 1 \times \frac{3}{2} = \frac{3}{2}
+$$&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-5-scientific-notation&quot;&gt;2.5 Scientific notation&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Also called &lt;strong&gt;standard form&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;A number between 1 and 10 (excluded) multiplied by a power of 10.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;3-irrational-numbers-and-real-numbers&quot;&gt;3 Irrational numbers and real numbers&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;3-1-what-is-an-irrational-number&quot;&gt;3.1 What is an irrational number?&lt;&#x2F;h2&gt;
+&lt;p&gt;Decimals with infinite number of digits afterthe decimal point but no repeating block of digits.&lt;&#x2F;p&gt;
+&lt;p&gt;Following number is not terminating nor recurring:
+$$
+0.010,010,001,000,010,000,01\ldots
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;TODO: What if the repeating block is just really big?&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Here $x$ is not rational:&lt;&#x2F;p&gt;
+&lt;p&gt;$$
+x^2 = 2 \\
+\sqrt{2} = x
+$$&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;The fact that $\sqrt{2}$ is irrational can be proven by &lt;strong&gt;contradiction&lt;&#x2F;strong&gt; followingly.&lt;&#x2F;p&gt;
+&lt;p&gt;Suppose there&#x27;s a rational number whose square is $2$. Hence it can be written as
+$$
+\frac{\text{integer}}{\text{integer}}
+$$
+Consider it being cancelled down to the simplest form as:
+$$
+\frac{m}{n}
+$$
+So $m$ and $n$ don&#x27;t have any common factor.
+The square of $\frac{m}{n}$ is 2, so:
+$$
+(\frac{m}{n})^2 = 2 \\
+\frac{m^2}{n^2} = 2
+$$
+It follow that
+$$
+\frac{m^2}{n^2} \times n^2 = 2 \times n^2 \\
+m^2 = 2n^2
+$$
+$2n^2$ has to be even since it&#x27;s a product of 2 and whole number. Meaning $m^2$ has to be even too, that means $m$ has to be even as well.
+That means that $m = 2r$ for some integer $r$.
+When substituting to the original equation we get:
+$$
+(2r)^2 = 2n^2 \\
+4r^2 = 2n^2 \\
+$$
+It follow that
+$$
+\frac{4r^2}{2} = \frac{2n^2}{2} \\
+2r^2 = n^2
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;The integer $n^2$ is even hence $n$ has to be even too.
+So both $m$ and $n$ are even. But that&#x27;s &lt;strong&gt;impossible&lt;&#x2F;strong&gt; since $m$ and $n$ don&#x27;t have any common factor.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;The irrational numbers together with the rational numbers form the &lt;strong&gt;real numbers&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I can think about various categories of numbers as layers:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;Real(
+	Irrational,
+	Rational(
+		Integers(
+			Natural
+		)
+	)
+)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;plus complex, that will come later on.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-2-roots-of-numbers&quot;&gt;3.2 Roots of numbers&lt;&#x2F;h2&gt;
+&lt;p&gt;A number that when multiplied by itself gives the original number.
+Every positive number has two square roots - a positive one and a negative one.&lt;&#x2F;p&gt;
+&lt;p&gt;Square roots of two numbers can be used to find the square root of the product or a quotient.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, numbers 16 and 49 have square roots of 4 and 7.
+I can apply index law $(a \times b)^n = a^n \times b^n$ to those:
+$$
+(4 \times 7)^2 = 4^2 \times 7^2 \\
+(4 \times 7)^2 = 16 \times 49
+$$
+That implies:
+$$
+\sqrt{16 \times 49} = \sqrt{16} \times \sqrt{49}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;This can be generalized into following laws:
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;Obviously, these laws apply to any root.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-3-surds&quot;&gt;3.3 Surds&lt;&#x2F;h2&gt;
+&lt;p&gt;Numbers that are not perfect square have irrational roots. Hence following roots are irrational:
+$$
+\sqrt{7}, \sqrt{8}, \sqrt{10}, \sqrt{11}
+$$
+Since such number can be only approximated as a decimal it should be left as is in calculations, e.g.:
+$$
+x = 2 \times \sqrt{5}
+$$
+such expressions are called &lt;strong&gt;surds&lt;&#x2F;strong&gt; - it contains one or more irrational roots of numbers.
+Surds are usually written concisely as formulas, number before surd when multiplied:
+$$
+y = 2\sqrt{5}
+$$
+In the simplest form:
+$$
+\sqrt{12} = \sqrt{4 \times 3} = \sqrt{4} \times \sqrt{3} = 2\sqrt{3}
+$$
+This is obviously possible when some of a numbers under the root are perfect squares. Thus the goal when simplifying is to find some perfect square multiplied some other number giving the original number bellow the root.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;multiplying-roots&quot;&gt;Multiplying roots&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiply numbers together&lt;&#x2F;li&gt;
+&lt;li&gt;Multiply roots together&lt;&#x2F;li&gt;
+&lt;li&gt;Simplify the root&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;dividing-roots&quot;&gt;Dividing roots&lt;&#x2F;h3&gt;
+&lt;p&gt;Use following laws
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;Sometimes, I should expand an integer to a multiplication of surds in order to simplify the quotient:
+$$
+\frac{2}{\sqrt{2}} = \frac{\sqrt{2} \times \sqrt{2}}{\sqrt{2}} = \frac{1 \times \sqrt{2}}{1} = \sqrt{2}
+$$&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;adding-and-substracting-roots&quot;&gt;Adding and substracting roots&lt;&#x2F;h3&gt;
+&lt;p&gt;It&#x27;s usually not possible to add or substract different roots, thus 
+$$
+\sqrt{a} + \sqrt{b} \not= \sqrt{a + b}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;I can only add or substract roots that are the same.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;To simplify surds&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Simplify roots of integers with square factors.&lt;&#x2F;li&gt;
+&lt;li&gt;Simplify products and quotients of roots.&lt;&#x2F;li&gt;
+&lt;li&gt;Add or subtract roots that are the same.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;3-4-fractional-indices&quot;&gt;3.4 Fractional indices&lt;&#x2F;h2&gt;
+&lt;p&gt;Index laws can be applied to fractional indices too, e.g. let&#x27;s consider the power $5^\frac{1}{2}$&lt;&#x2F;p&gt;
+&lt;p&gt;By applying
+$$
+a^m \times a^n = a ^{m + n}
+$$
+I get
+$$
+5^\frac{1}{2} \times 5^\frac{1}{2} = 5^{\frac{1}{2} + \frac{1}{2}} = 5^1 = 5
+$$
+Hence
+$$
+5^\frac{1}{2} = \sqrt{5}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;It can be generalized in the following index law
+$$
+a^\frac{1}{n} = \sqrt[n]{a}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;This rule toegher with other index laws can be used to give a meaning to any fractional index.&lt;&#x2F;p&gt;
+&lt;p&gt;E.g. in combination with
+$$
+(a^m)^n = a^{mn}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;I can do following operation
+$$
+5^\frac{4}{3} = 5^{\frac{1}{3} \times 4} = (5^{\frac{1}{3}})^4 = (\sqrt[3]{5})^4
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;This combination can be generalized to yet another index law
+$$
+a^\frac{m}{n} = (\sqrt[n]{a})^m
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;Interestingly the square root laws I saw before:
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$
+Can be deduced by applying $n = \frac{1}{2}$ to following index laws:
+$$
+(a \times b)^n = a^n \times b^n \qquad (\frac{a}{b})^n = \frac{a^n}{b^n}
+$$&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Irrational indices are also valid but I will encounter those later on.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h1 id=&quot;4-ratios&quot;&gt;4 Ratios&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;4-1-what-is-a-ratio&quot;&gt;4.1 What is a ratio?&lt;&#x2F;h2&gt;
+&lt;p&gt;Comparition of multiple ordered quantities, e.g.: $3:5 ~ 2:10:7$&lt;&#x2F;p&gt;
+&lt;p&gt;Sometimes it&#x27;s useful to convert a ratio to a $number:1$ form to e.g.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compare multiple ratios.&lt;&#x2F;li&gt;
+&lt;li&gt;Find approximate ratios.
+To reach such a form I can divide both numbers by second number, e.g.:
+$$
+7 : 11 = \frac{7}{11} : \frac{11}{11} = 0.636 : 1 ~\text{(3 d.p.)}
+$$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+        </item>
+    </channel>
+</rss>

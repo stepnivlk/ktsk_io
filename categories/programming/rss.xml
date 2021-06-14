@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>ktsk - programming</title>
+        <link>https://ktsk.xyz</link>
+        <description>Personal web of Tomas Koutsky</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://ktsk.xyz/categories/programming/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>Building Git Notes</title>
+            <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/building-git-notes/</link>
+            <guid>https://ktsk.xyz/posts/building-git-notes/</guid>
+            <description>&lt;blockquote&gt;
+&lt;p&gt;These are my notes taken while reading the &lt;strong&gt;Building Git&lt;&#x2F;strong&gt; book (&lt;a href=&quot;https:&#x2F;&#x2F;shop.jcoglan.com&#x2F;building-git&#x2F;&quot;&gt;https:&#x2F;&#x2F;shop.jcoglan.com&#x2F;building-git&#x2F;&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h1 id=&quot;2-getting-to-know-git&quot;&gt;2. Getting to know &lt;code&gt;.git&lt;&#x2F;code&gt;&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;2-1-the-git-directory&quot;&gt;2.1 The &lt;code&gt;.git&lt;&#x2F;code&gt; directory&lt;&#x2F;h2&gt;
+&lt;p&gt;is called a &lt;strong&gt;repository&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;.git
+├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; branches
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; config
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; description
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; HEAD
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; hooks
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;   ├── ...
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; info
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;   └── exclude
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; objects
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;   ├── info
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;│&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;   └── pack
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; refs
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;├──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; heads
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;└──&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; tags
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;shop.jcoglan.com&#x2F;building-git&#x2F;%5D&quot;&gt;https:&#x2F;&#x2F;git-scm.com&#x2F;docs&#x2F;gitrepository-layout&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-config&quot;&gt;&lt;code&gt;.git&#x2F;config&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;A configuration settings that apply only to this directory.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-description&quot;&gt;&lt;code&gt;.git&#x2F;description&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;A name of the repository, used by gitweb.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-head&quot;&gt;&lt;code&gt;.git&#x2F;HEAD&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;A reference to the &lt;em&gt;current commit&lt;&#x2F;em&gt;, either using that commit&#x27;s ID or a &lt;em&gt;symbolic reference&lt;&#x2F;em&gt; (&lt;em&gt;symref&lt;&#x2F;em&gt;).
+&lt;code&gt;HEAD&lt;&#x2F;code&gt; is used as a parent reference for new commit.
+&lt;code&gt;HEAD&lt;&#x2F;code&gt; is changed when checking out a branch or specific comit.
+When merging, the requested branch is merged with whatever &lt;code&gt;HEAD&lt;&#x2F;code&gt; points at.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-info&quot;&gt;&lt;code&gt;.git&#x2F;info&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Various pieces of metadata about the repository.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-hooks&quot;&gt;&lt;code&gt;.git&#x2F;hooks&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Scripts that Git will execute as part of certain core commands.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-objects&quot;&gt;&lt;code&gt;.git&#x2F;objects&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Forms Git&#x27;s &lt;em&gt;database&lt;&#x2F;em&gt;, place where Git stores all the content it tracks. Initial subdirectories are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.git&#x2F;objects&#x2F;pack&lt;&#x2F;code&gt; - for storing objects in an optimised format. Every object added to the database is stored in its own file at first, such an object is called &lt;em&gt;loose object&lt;&#x2F;em&gt;. On certain events many individual files are rolled up into a pack - a single file containing many objects in a compressed format. It needs an index describing where to find each object in a pack.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;.git&#x2F;objects&#x2F;info&lt;&#x2F;code&gt; stores metadata about the packs for use by some of the remote protocols. Also stores links to other object stores.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;git-refs&quot;&gt;&lt;code&gt;.git&#x2F;refs&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Stores various kind of pointers into the &lt;code&gt;.git&#x2F;objects&lt;&#x2F;code&gt; database. Usually just files that contain the ID of a commit, e.g.:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.git&#x2F;refs&#x2F;heads&lt;&#x2F;code&gt; store the latest commit on each local branch.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;.git&#x2F;refs&#x2F;stash&lt;&#x2F;code&gt; references to stashed changes in &lt;code&gt;.git&#x2F;objects&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2-2-a-simple-commit&quot;&gt;2.2 A simple commit&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;git commit --message &amp;quot;First commit.&amp;quot;
+[master (root-commit) 65b1d93] First commit.
+ 2 files changed, 2 insertions(+)
+ create mode 100644 hello.txt
+ create mode 100644 world.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;root-commit&lt;&#x2F;code&gt; is a commit without any parent.&lt;&#x2F;p&gt;
+&lt;p&gt;Newly added files after running a commit:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;├── COMMIT_EDITMSG
+├── index
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           └── master
+├── objects
+│   ├── 65
+│   │   └── b1d9312836b1e84233b209d8d066038aead925
+│   ├── 88
+│   │   └── e38705fdbd3608cddbe904b67c731f3234c45b
+│   ├── cc
+│   │   └── 628ccd10742baea8241c5924df992b5c019f71
+│   ├── ce
+│   │   └── 013625030ba8dba906f756967f9e9ca394464a
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── master
+    └── tags
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;git-commit-editmsg&quot;&gt;&lt;code&gt;.git&#x2F;COMMIT_EDITMSG&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;cat .git&#x2F;COMMIT_EDITMSG 
+First commit.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Used by Git to compose commit messages. When &lt;code&gt;--message&lt;&#x2F;code&gt; is not passed Git opens an editor to compose the commit message. &lt;code&gt;.git&#x2F;COMMIT_EDITMSG&lt;&#x2F;code&gt; is asked to editor to open. After closing GIt will read this file. When &lt;code&gt;--message&lt;&#x2F;code&gt; is passed Git still saves it in the file.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-index&quot;&gt;&lt;code&gt;.git&#x2F;index&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Binary cache that that stores information about each file in the current commit and which version of each file should be present. Updated when &lt;code&gt;git add&lt;&#x2F;code&gt; is run. Is used to build next commit.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-logs&quot;&gt;&lt;code&gt;.git&#x2F;logs&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Text files containing a log of every time a &lt;em&gt;ref&lt;&#x2F;em&gt; (&lt;em&gt;reference&lt;&#x2F;em&gt;, something that points to a commit, like &lt;code&gt;HEAD&lt;&#x2F;code&gt; or branch name) changes its value, e.g. when:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;making a commit&lt;&#x2F;li&gt;
+&lt;li&gt;checking out a branch&lt;&#x2F;li&gt;
+&lt;li&gt;merging&lt;&#x2F;li&gt;
+&lt;li&gt;rebasing&lt;&#x2F;li&gt;
+&lt;li&gt;...&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;A log record for the First commit:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;0000000000000000000000000000000000000000 65b1d9312836b1e84233b209d8d066038aead925 \
+Tomas Koutsky &amp;lt;tomas@stepnivlk.net&amp;gt; 1616955235 +0200	\
+commit (initial): First commit.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This event changes refs from pointing at nothing (&lt;code&gt;0000...&lt;&#x2F;code&gt;) to a commit (&lt;code&gt;65b1...&lt;&#x2F;code&gt;). Used by &lt;code&gt;reflog&lt;&#x2F;code&gt; command.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;git-refs-heads-master&quot;&gt;&lt;code&gt;.git&#x2F;refs&#x2F;heads&#x2F;master&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Records which commit is at the tip of the &lt;code&gt;master&lt;&#x2F;code&gt; branch, which &lt;code&gt;HEAD&lt;&#x2F;code&gt; is currently reffering to:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;65b1d9312836b1e84233b209d8d066038aead925
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;2-3-storing-objects&quot;&gt;2.3 Storing objects&lt;&#x2F;h2&gt;
+&lt;p&gt;Files in:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;├── objects
+│   ├── 65
+│   │   └── b1d9312836b1e84233b209d8d066038aead925
+│   ├── 88
+│   │   └── e38705fdbd3608cddbe904b67c731f3234c45b
+│   ├── cc
+│   │   └── 628ccd10742baea8241c5924df992b5c019f71
+│   ├── ce
+│   │   └── 013625030ba8dba906f756967f9e9ca394464a
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;are where Git stores all the objects that make up the content including commits.&lt;&#x2F;p&gt;
+&lt;p&gt;The object from a database can be printed using &lt;code&gt;git cat-file -p &amp;lt;hash&amp;gt;&lt;&#x2F;code&gt;, e.g.:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;~&amp;gt; git cat-file -p 65b1d9312836b1e84233b209d8d066038aead925
+
+tree 88e38705fdbd3608cddbe904b67c731f3234c45b
+author Tomas Koutsky &amp;lt;tomas@stepnivlk.net&amp;gt; 1616955235 +0200
+committer Tomas Koutsky &amp;lt;tomas@stepnivlk.net&amp;gt; 1616955235 +0200
+
+First commit.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;A &lt;em&gt;tree&lt;&#x2F;em&gt; represenets whole tree of files as they were when given commit was made:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;~&amp;gt; git cat-file -p 88e38705fdbd3608cddbe904b67c731f3234c45b
+
+100644 blob ce013625030ba8dba906f756967f9e9ca394464a	hello.txt
+100644 blob cc628ccd10742baea8241c5924df992b5c019f71	world.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Tree has one tree for every directory. Each entry in a tree is either another tree or a &lt;em&gt;blob&lt;&#x2F;em&gt; - regular file. Each entry in a tree lists:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;mode - type + permissions, 100644 is a regular, readable, non-executable file&lt;&#x2F;li&gt;
+&lt;li&gt;type - &lt;em&gt;blob&lt;&#x2F;em&gt; or &lt;em&gt;tree&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;ID&lt;&#x2F;li&gt;
+&lt;li&gt;filename&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For blobs, Git just stores their literal contents:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;~&amp;gt; git cat-file -p ce013625030ba8dba906f756967f9e9ca394464a
+
+hello
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Git stores objects with first two characters forming directory in order to cope with restrictions of some operating systems when the amount of objects grows. Also it allows for faster lookup.&lt;&#x2F;p&gt;
+&lt;p&gt;Objects are compressed:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;~&amp;gt; cat .git&#x2F;objects&#x2F;ce&#x2F;013625030ba8dba906f756967f9e9ca394464a 
+
+xK��OR0c�H�����⏎ 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;using DEFLATE (zlib).&lt;&#x2F;p&gt;
+&lt;p&gt;Object can be easilly decompressed using ruby:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;~&amp;gt; cat .git&#x2F;objects&#x2F;ce&#x2F;01.. | ruby -r zlib -e &amp;quot;puts Zlib::Inflate.inflate(STDIN.read)&amp;quot;
+
+blob 6hello
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The file can be inspected further using hexdump:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;cat .git&#x2F;objects&#x2F;ce&#x2F;01.. | ruby -r ... | hexdump -C
+00000000  62 6c 6f 62 20 36 00 68  65 6c 6c 6f 0a           |blob 6.hello.|
+0000000d
+
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;62 6c 6f 62&lt;&#x2F;code&gt; - &lt;code&gt;blob&lt;&#x2F;code&gt; in ASCII&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;20&lt;&#x2F;code&gt; - space&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;36&lt;&#x2F;code&gt; &lt;code&gt;6&lt;&#x2F;code&gt; in ASCII&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;00&lt;&#x2F;code&gt; - null byte; separates the header from actual content&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;So the blobs are stored as zlib compressed:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;the word &lt;code&gt;blob&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;a space&lt;&#x2F;li&gt;
+&lt;li&gt;the lenght of the blob&lt;&#x2F;li&gt;
+&lt;li&gt;null byte&lt;&#x2F;li&gt;
+&lt;li&gt;the actual data&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Trees are different though:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;~&amp;gt; cat .git&#x2F;objects&#x2F;88&#x2F;e38705fdbd3608cddbe904b67c731f3234c45b | .&#x2F;inflate.sh | hexdump -C
+
+00000000  74 72 65 65 20 37 34 00  31 30 30 36 34 34 20 68  |tree 74.100644 h|
+00000010  65 6c 6c 6f 2e 74 78 74  00 ce 01 36 25 03 0b a8  |ello.txt...6%...|
+00000020  db a9 06 f7 56 96 7f 9e  9c a3 94 46 4a 31 30 30  |....V......FJ100|
+00000030  36 34 34 20 77 6f 72 6c  64 2e 74 78 74 00 cc 62  |644 world.txt..b|
+00000040  8c cd 10 74 2b ae a8 24  1c 59 24 df 99 2b 5c 01  |...t+..$.Y$..+\.|
+00000050  9f 71 0a                                          |.q.|
+00000053
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The knowns:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tree 74.&lt;&#x2F;code&gt; - header&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;100644 hello.txt&lt;&#x2F;code&gt; - a filename with mode&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;100644 world.txt&lt;&#x2F;code&gt; - a filename with mode&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Then there are IDs in packed, 20B format:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ce 01 36 25 03 0b a8 db a9 06 f7 56 96 7f 9e 9c a3 94 46 4a&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;cc 62 8c cd 10 74 2b ae a8 24 1c 59 24 df 99 2b 5c 01 9f 71&lt;&#x2F;code&gt;
+The end of filename is separated using null byte.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The type of an object is implied by its mode - &lt;code&gt;10&lt;&#x2F;code&gt; at the beggining of &lt;code&gt;100644&lt;&#x2F;code&gt; indicates its a regular file, not a directory.&lt;&#x2F;p&gt;
+&lt;p&gt;Commits are simpler:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;~&amp;gt; cat .git&#x2F;objects&#x2F;65&#x2F;b1d9312836b1e84233b209d8d066038aead925 | .&#x2F;inflate.sh
+
+commit 184tree 88e38705fdbd3608cddbe904b67c731f3234c45b
+author Tomas Koutsky &amp;lt;tomas@stepnivlk.net&amp;gt; 1616955235 +0200
+committer Tomas Koutsky &amp;lt;tomas@stepnivlk.net&amp;gt; 1616955235 +0200
+
+First commit.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It&#x27;s simply a series of headers followed by the message. In this commit the headers are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;commit 184&lt;&#x2F;code&gt; - its own header&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;tree&lt;&#x2F;code&gt; - reference to a single tree representing the state of files at that point in the history.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;author&lt;&#x2F;code&gt; - simple metadata&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;committer&lt;&#x2F;code&gt; - simple metadata&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;computing-object-ids&quot;&gt;Computing object IDs&lt;&#x2F;h3&gt;
+&lt;p&gt;Objects are named by taking SHA-1 hash of their content prepended with a header before compressing them.
+SHA-1 is a &lt;em&gt;cryptographic hash function&lt;&#x2F;em&gt;, it takes input of arbitrary sized string and outputs a fixed-size 20B number.
+It&#x27;s designed in such a way that it should be effectivelly impossible to find two inputs that has to the same output.
+There are $2^{160}$ of possible object IDs so its &lt;em&gt;computationally infeasible&lt;&#x2F;em&gt; to find a collision.
+This is property is a key to the distributed nature of Git - no two distinct objects in any repository will be given the same ID.
+Also comparition becomes simple - if two objects have same ID they are same.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;problems-with-sha-1&quot;&gt;Problems with SHA-1&lt;&#x2F;h3&gt;
+&lt;p&gt;A hash is considered broken when there is an attack requiring less than $2^\frac{n}{2}$ ($n$ being the size of the output in bits) inputs to find a collision. For SHA-1 tht means an attack requiring fewer than $2^{80}$ steps.&lt;&#x2F;p&gt;
+&lt;p&gt;In 2005 an attack requiring $5.9 \times 10^{20}$ steps was reported (&lt;a href=&quot;https:&#x2F;&#x2F;www.schneier.com&#x2F;blog&#x2F;archives&#x2F;2005&#x2F;02&#x2F;cryptanalysis_o.html&quot;&gt;https:&#x2F;&#x2F;www.schneier.com&#x2F;blog&#x2F;archives&#x2F;2005&#x2F;02&#x2F;cryptanalysis_o.html&lt;&#x2F;a&gt;).
+In 2017 Google announced an attach requiring $9.2 \times 10^{18}$ (&lt;a href=&quot;https:&#x2F;&#x2F;shattered.io&#x2F;&quot;&gt;https:&#x2F;&#x2F;shattered.io&#x2F;&lt;&#x2F;a&gt;)&lt;&#x2F;p&gt;
+&lt;p&gt;The migration to SHA-256 is possible however Git doesn&#x27;t rely on SHA-1 as proof of trust, it&#x27;s an integrity check against accidental damage. From this perspective SHA-1 is good enough.&lt;&#x2F;p&gt;
+&lt;p&gt;Moreover for an attacker to replace an object it&#x27;s not enough to find a collision, he needs to find collision with concrete blob.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;3-the-first-commit&quot;&gt;3. The first commit&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;init&quot;&gt;&lt;code&gt;init&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The very first step is &lt;code&gt;git init&lt;&#x2F;code&gt; the bare essentials for it are &lt;code&gt;objects&lt;&#x2F;code&gt; and &lt;code&gt;refs&lt;&#x2F;code&gt; folder and &lt;code&gt;HEAD&lt;&#x2F;code&gt; file. With those Git will consider the directory valid.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;commit&quot;&gt;&lt;code&gt;commit&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Workspace&lt;&#x2F;code&gt; is responsible for the files in the working tree - all the files that are edited directly, rather than those stored in &lt;code&gt;.git&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;4-making-history&quot;&gt;4. Making history&lt;&#x2F;h1&gt;
+&lt;p&gt;When adding second commit via Git I get:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git commit&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;Second commit.&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;[master&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 2d719c9] Second commit.
+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; file changed, 1 insertion(+)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 1 deletion(-)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;There&#x27;s no &lt;code&gt;root-commit&lt;&#x2F;code&gt; now since it follows on from the previous commit.&lt;&#x2F;p&gt;
+&lt;p&gt;The ID of the second commit is stored in master ref:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cat .git&#x2F;refs&#x2F;heads&#x2F;master
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;2d719c90a3c181782e6e07e2fd027f90ab5de0b5
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;There&#x27;s a parent field in the object representing second commit:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git cat-file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 2d719c90a3c181782e6e07e2fd027f90ab5de0b5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;tree&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 040c6f3e807f0d433870584bc91e06b6046b955d
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;parent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 65b1d9312836b1e84233b209d8d066038aead925
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;author&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Tomas Koutsky &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;tomas@stepnivlk.net&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1617213880&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; +0200
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;committer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Tomas Koutsky &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;tomas@stepnivlk.net&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1617213880&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; +0200
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Second&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; commit.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The ID behind parent points to the first commit:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git cat-file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 65b1d9312836b1e84233b209d8d066038aead925
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;tree&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 88e38705fdbd3608cddbe904b67c731f3234c45b
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;author&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Tomas Koutsky &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;tomas@stepnivlk.net&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1616955235&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; +0200
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;committer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Tomas Koutsky &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;tomas@stepnivlk.net&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;1616955235&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; +0200
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;First&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; commit.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So each commit made after the root one has parent field pointing to previous commit. This allows for understanding of how commits are &lt;em&gt;causually connected&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Each tree contains the snapshot of all the files.
+First tree:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git cat-file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 88e38705fdbd3608cddbe904b67c731f3234c45b
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;100644&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; blob ce013625030ba8dba906f756967f9e9ca394464a	hello.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;100644&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; blob cc628ccd10742baea8241c5924df992b5c019f71	world.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Second tree:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git cat-file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 040c6f3e807f0d433870584bc91e06b6046b955d
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;100644&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; blob e019be006cf33489e2d0177a3837a2384eddebc5	hello.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;100644&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; blob cc628ccd10742baea8241c5924df992b5c019f71	world.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;world.txt&lt;&#x2F;code&gt; is same object with same ID as its content didn&#x27;t change and IDs of objects are derived from their contents.&lt;&#x2F;p&gt;
+&lt;p&gt;Thus Git only creates new blobs when files have their content changed. Files with same content will point to same blob even when those files appear in many trees across many commits.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;4-2-implementing-the-parent-chain&quot;&gt;4.2 Implementing the &lt;code&gt;parent&lt;&#x2F;code&gt; chain&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;code&gt;.git&#x2F;HEAD&lt;&#x2F;code&gt; needs to be updated when storing commits however it has to be done in safe, atomic way as there may be multiple readers. Multiple writers are considered as an error. This can be tackled using a lockfile.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;5-growing-trees&quot;&gt;5 Growing trees&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;5-1-executable-files&quot;&gt;5.1 Executable files&lt;&#x2F;h2&gt;
+&lt;p&gt;When commiting executable file:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; touch cruel.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; chmod +x cruel.txt 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git add cruel.txt 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git commit&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;Third commit.&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;[master&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 91c525a] Third commit.
+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; file changed, 0 insertions(+)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 0 deletions(-)
+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;create&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; mode 100755 cruel.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The mode is &lt;code&gt;100755&lt;&#x2F;code&gt; instead of &lt;code&gt;100644&lt;&#x2F;code&gt; and it&#x27;s stored in the tree:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git cat-file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; HEAD^{tree}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;100755&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	cruel.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;100644&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; blob e019be006cf33489e2d0177a3837a2384eddebc5	hello.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;100644&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; blob cc628ccd10742baea8241c5924df992b5c019f71	world.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The mode is in base 8, it makes it easier to read in the compact format. First 4 bits are file type related, others are permissions (special, user, group other).
+E.g. in &lt;code&gt;100644&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;10&lt;&#x2F;code&gt; - regular file&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;0&lt;&#x2F;code&gt; - no special permissions&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;6&lt;&#x2F;code&gt; - owner can rw&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;4&lt;&#x2F;code&gt; - members of the group can read&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;4&lt;&#x2F;code&gt; - others can read
+In &lt;code&gt;100755&lt;&#x2F;code&gt;:&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;7&lt;&#x2F;code&gt; - owner can rw + execute&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;5&lt;&#x2F;code&gt; - members of the group can r + execute&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;5&lt;&#x2F;code&gt; - others can r + execute&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Git only uses very restricted permissions - whether owner can execute, rest is thrown out:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; touch out.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; chmod 655 out.txt 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git add out.txt 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git commit&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;Forth commit.&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;[master&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 27df932] Forth commit.
+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; file changed, 0 insertions(+)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 0 deletions(-)
+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;create&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; mode 100644 out.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Thus Git only has two modes - &lt;code&gt;100644&lt;&#x2F;code&gt; and &lt;code&gt;100755&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;5-2-nested-trees&quot;&gt;5.2 Nested trees&lt;&#x2F;h2&gt;
+&lt;p&gt;Trees can be arbitrarily nested:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; mkdir&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; a&#x2F;b
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; touch a&#x2F;b&#x2F;c.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git add .
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git commit&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;First commit.&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git cat-file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; HEAD^{tree}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;040000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; tree c4a644afb090a8303bdb28306a2f803017551f25	a
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Hexdump:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cat .git&#x2F;objects&#x2F;c4&#x2F;a644afb090a8303bdb28306a2f803017551f25 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;.&#x2F;inflate.sh &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;hexdump -C
+00000000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  74 72 65 65 20 32 38 00  34 30 30 30 30 20 62 00  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;tree&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 28.40000 b.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000010&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  17 21 a7 a9 1e 87 f5 41  3c 84 2a 9c 5c e7 3f 67  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;.!.....A&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;\.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;?&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;g&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000020&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  44 59 e9 2b 0a                                    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;DY.+.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000025
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The mode is &lt;code&gt;40000&lt;&#x2F;code&gt;. In Unix, directories have file type bits set to &lt;code&gt;4&lt;&#x2F;code&gt; and permissions to &lt;code&gt;755&lt;&#x2F;code&gt;. Git ingones all the permissions and just stores &lt;code&gt;40000&lt;&#x2F;code&gt; to indicate it&#x27;s a directory.
+&lt;code&gt;a&lt;&#x2F;code&gt; of course points to &lt;code&gt;b&lt;&#x2F;code&gt; - another tree.&lt;&#x2F;p&gt;
+&lt;p&gt;The content of a tree is just a list of IDs and names of this contents and SHA-1 hashes the content. Thus when two trees have same IDs it means all their contents are same, recursively.
+This method of storing a tree of information where each tree is labelled with the has of its children is called a Merkle tree.&lt;&#x2F;p&gt;
+&lt;p&gt;Entries in trees have to be sorted in order to compare those effectively. Git sorts the file list for the entire project before building trees, thus it sorts following entries:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;foo &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;# dir with bar.txt entry
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;foo.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;as:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;foo.txt
+foo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It sees &lt;code&gt;foo&lt;&#x2F;code&gt; as &lt;code&gt;foo&#x2F;bar.txt&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;In Git, the &lt;code&gt;add&lt;&#x2F;code&gt; command reads the working tree, stores blobs in the database and adds them to the index. &lt;code&gt;commit&lt;&#x2F;code&gt; reads the index to create trees. The index is stored as flat list of paths.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;6-the-index&quot;&gt;6. The index&lt;&#x2F;h1&gt;
+&lt;p&gt;Current &lt;code&gt;commit&lt;&#x2F;code&gt; implementation reads and hashes every file in the project in order to store blobs, that&#x27;s ineffective. Usually, in larger projects, only small subset of files is changed in commit. Moreover, the current implementation is cumbersome to use. The user should control what goes in a commit.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;code&gt;add&lt;&#x2F;code&gt; command and the index solve the problem by providing a cache of all the blobs representing the current state of the project. It contains the object IDs of the blobs corresponding the the current files plus a lot of information from the filesystem (size of files, timestamps).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;6-2-inspecting-git-index&quot;&gt;6.2 Inspecting &lt;code&gt;.git&#x2F;index&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Let&#x27;s consider following scenario:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; touch file.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git status
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;On&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; branch master
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;No&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; commits yet
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Untracked&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; files:
+  (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to include in what will be committed)
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;file.txt
+
+nothing&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; added to commit but untracked files present (use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;git add&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to track)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git add file.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git status
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;On&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; branch master
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;No&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; commits yet
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Changes&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to be committed:
+  (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;git rm --cached &amp;lt;file&amp;gt;...&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to unstage)
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;new&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; file:   file.txt
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;new content&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; file.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git status
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;On&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; branch master
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;No&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; commits yet
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Changes&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to be committed:
+  (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;git rm --cached &amp;lt;file&amp;gt;...&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to unstage)
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;new&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; file:   file.txt
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Changes&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; not staged for commit:
+  (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to update what will be committed)
+  (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; to discard changes in working directory)
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;modified:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;   file.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;What does it mean for change to be &lt;em&gt;staged&lt;&#x2F;em&gt;?&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; hexdump&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -C&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; .git&#x2F;index
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  44 49 52 43 00 00 00 02  00 00 00 01 60 66 e1 3d  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;DIRC........&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;`&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;f.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;=|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000010&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;  15 7d 40 fe 60 66 e1 3d  15 7d 40 fe 00 00 00 1a  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;@.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;`f.=.}@.....&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000020&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  00 1f 40 63 00 00 81 a4  00 00 03 e8 00 00 03 e8  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;..@c............&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000030&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  00 00 00 00 e6 9d e2 9b  b2 d1 d6 43 4b 8b 29 ae  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;...........CK.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000040&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  77 5a d8 c2 e4 8c 53 91  00 08 66 69 6c 65 2e 74  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;wZ....S...file.t&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000050&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  78 74 00 00 4a a4 ed 90  d2 ca 32 07 52 b6 39 d3  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;xt..J.....2.R.9.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000060&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  e4 31 4b bb fc 72 8e 2d                           &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;.1K..r.-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;00000068
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;By checking &lt;a href=&quot;https:&#x2F;&#x2F;git-scm.com&#x2F;docs&#x2F;index-format&quot;&gt;https:&#x2F;&#x2F;git-scm.com&#x2F;docs&#x2F;index-format&lt;&#x2F;a&gt; I ca see that the index starts with:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A 12-byte header consisting of
+&lt;ul&gt;
+&lt;li&gt;4-byte signature:
+&lt;ul&gt;
+&lt;li&gt;The signature is { &#x27;D&#x27;, &#x27;I&#x27;, &#x27;R&#x27;, &#x27;C&#x27; } (stands for &amp;quot;dircache&amp;quot;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;4-byte version number:
+&lt;ul&gt;
+&lt;li&gt;The current supported versions are 2, 3 and 4.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;32-bit number of index entries.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Thus the header part of the dump is:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;44&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 49 52 43 00 00 00 02 00 00 00 01
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;-----------&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;-----------&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;-----------
+   DIRC    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;v2     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;|  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; entry
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The header is followed by entries themselves, each entry starts with ten 4-byte &lt;code&gt;stat&lt;&#x2F;code&gt; numbers:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;ctime&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; seconds, the last time a file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;s metadata changed
+ctime nanosecond fractions
+mtime seconds, the last time a file&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;s data changed
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;mtime&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; nanosecond fractions
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;dev
+ino
+mode
+uid
+gid
+file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; size
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;ctame&lt;&#x2F;em&gt; - time when content or metadata was changed&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;mtame&lt;&#x2F;em&gt; - time when content was changed&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;dev&lt;&#x2F;em&gt; - ID of hardware storage&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;non&lt;&#x2F;em&gt; - number of inode&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;To list all the files in the index:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; git ls-files&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; --stage
+100644&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0	file.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</description>
+        </item>
+        <item>
+            <title>Hey Webpack, can you bust my cache?</title>
+            <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
+            <link>https://ktsk.xyz/posts/webpack-cache-bust/</link>
+            <guid>https://ktsk.xyz/posts/webpack-cache-bust/</guid>
+            <description>&lt;p&gt;Most JavaScript developers are familiar with this problem. You have a bug in your system; you fix it, ship it… and your error monitoring still spams you with the problem, which was apparently fixed. How come? Your responses have cache headers set, and the client&#x27;s browser caches static assets. But web development is very dynamic nowadays; we deploy multiple times per day. So how can we continue with aggressive deployment and still cache static assets?&lt;&#x2F;p&gt;
+&lt;p&gt;You can use query string to version your assets:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”&#x2F;bundles&#x2F;app.bundle.js?v=23” &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”text&#x2F;javascript”&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Unfortunately, some CDNs and proxies don&#x27;t cache assets with query strings at all. Moreover, versioning here is a very manual process, thus doomed to be forgotten.&lt;&#x2F;p&gt;
+&lt;p&gt;What else? Of course, you can include your version in a path or in a file name:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”&#x2F;bundles&#x2F;v23&#x2F;app.bundle.js” &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”text&#x2F;javascript”&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”&#x2F;bundles&#x2F;app.bundle.v23.js” &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”text&#x2F;javascript”&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Better and valid for CDNs and proxies. But still too manual, we need something automatic and more sophisticated. So whenever someone builds an asset, the version will be automatically busted. Only then will the feature be handy (even managers will be able to invalidate a cache).&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s try to automate it! Since the title of this post starts with Hey Webpack, we will focus on Webpack based solutions. We will build a very tiny example React application because React is cool. But it doesn&#x27;t matter; you can use this solution with whatever library (or framework) you want as long as it will be built using Webpack.&lt;&#x2F;p&gt;
+&lt;p&gt;We start with initializing the project and adding some libraries:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; mkdir cache-busters &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn init
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn add react react-dom
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; --dev&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; webpack webpack-dev-server babel-core babel-loader babel-preset-react css-loader
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now let&#x27;s create some basic directory structure:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir config
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir config&#x2F;webpack
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir src
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters touch src&#x2F;index.jsx
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir src
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir src&#x2F;components
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir src&#x2F;assets
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters touch src&#x2F;assets&#x2F;style.css
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir public
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters touch public&#x2F;index.html
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mkdir public&#x2F;bundles
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters touch .babelrc
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Add Babel preset to .babelrc:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;presets&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;: [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;react&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;]
+
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ok, time to get our hands dirty; now we start to configure the Webpack. We want to have one basic configuration file with just an entry point definition and some rules. Then we&#x27;ll add two separate configurations for development and production environments, which would enhance basic configuration. Using this setup, we can define plugins for each environment separately:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters touch config&#x2F;webpack&#x2F;config.js
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters touch config&#x2F;webpack&#x2F;config.production.js
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters touch config&#x2F;webpack&#x2F;config.development.js
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; config&#x2F;webpack&#x2F;config.js
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;path&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;ExtractTextPlugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;extract-text-webpack-plugin&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+
+module.exports &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+  entry: {
+    app: [
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;resolve&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(__dirname, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;src&#x2F;index.jsx&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+    ],
+  },
+  module: {
+    rules: [
+      {
+        test: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;jsx&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;?&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+        use: [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;babel-loader&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;],
+        exclude: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;&#x2F;node_modules&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+      },
+      {
+        test: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;&#x2F;\.css&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+        use: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;ExtractTextPlugin&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5cb3fa;&quot;&gt;extract&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;({
+          use: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;css-loader&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+        }),
+      },
+    ],
+  },
+  resolve: {
+    modules: [
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;node_modules&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;resolve&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(__dirname, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;src&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+    ],
+    extensions: [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;.js&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;.jsx&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;],
+    alias: {
+      react: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;resolve&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(__dirname, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;node_modules&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;react&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+    },
+  },
+  plugins: [],
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Webpack now knows our entry point and is instructed to use babel-loader for js&#x2F;jsx and css-loader for CSS files.&lt;&#x2F;p&gt;
+&lt;p&gt;Now it&#x27;s time to add basic development configuration, so we&#x27;ll be able to actually build our application and run webpack-dev-server:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; config&#x2F;webpack.development.js
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;webpack &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;webpack&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;.&#x2F;config&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;output &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+  path: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;resolve&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(__dirname, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;public&#x2F;bundles&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+  filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;[name].bundle.js&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  chunkFilename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;[name].js&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  publicPath: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;&#x2F;bundles&#x2F;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+}
+
+module.exports &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here we told Webpack where it should store output files and defined file names.&lt;&#x2F;p&gt;
+&lt;p&gt;We&#x27;re almost ready for our first development build! We need to just add index.html file, React component, and some basic styling:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;&#x2F; public&#x2F;index.html
+
+&amp;lt;!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;DOCTYPE &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;html &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;lang&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;en&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;meta &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;charset&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;UTF-8&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;meta &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;viewport&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;meta &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;http-equiv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;X-UA-Compatible&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;ie=edge&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;Cache Busters&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;link &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;rel&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;stylesheet&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;href&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;&#x2F;bundles&#x2F;app.bundle.css&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;div &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;app&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;&#x2F;bundles&#x2F;app.bundle.js&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;text&#x2F;javascript&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; src&#x2F;index.jsx
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;React &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;react&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;render &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;react-dom&amp;#39;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5cb3fa;&quot;&gt;CacheBusters &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;=&amp;gt;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;lt;div&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Stays Puft&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Even&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; When Toasted&amp;lt;&#x2F;div&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5cb3fa;&quot;&gt;render&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(
+  &amp;lt;CacheBusters &#x2F;&amp;gt;,
+  document.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;getElementById&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;app&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;&#x2F; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;assets&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;style&lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;.css
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;body &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+  background-color: purple;
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And finally, we can add the start script to package.json:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; …
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;scripts&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;: {
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;start&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;webpack-dev-server — config config&#x2F;webpack&#x2F;config.development.js — content-base public&#x2F;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+
+  },
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; …
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now lets try to build &amp;amp; start webpack-dev-server:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn start
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;yarn&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; start v0.22.0
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; webpack-dev-server — config config&#x2F;webpack&#x2F;config.development.js — content-base public&#x2F; — history-api-fallback
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;...
+
+Version:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; webpack 3.0.0
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Time:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 1681ms
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Asset&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Size Chunks Chunk Names
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 1.06 MB 0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;] [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;big&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.css&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;  40 bytes       0  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;...
+
++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 252 hidden modules
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;webpack:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Compiled successfully.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Nice 1MB hello world, our setup works, we can check webpack-dev-server running at a given URL: &lt;code&gt;http:&#x2F;&#x2F;localhost:8080&#x2F;&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Time to move on to production configuration!&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s repeat our goal once more. Upon each production build, we want our static assets to contain a hash (which would be different than the previous one only if the code was changed) and our index.html to be dynamically generated with correct assets names (containing a hash), e.g.:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”&#x2F;bundles&#x2F;app.bundle.9f61f58dd1cc3bb82182.js” &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”text&#x2F;javascript”&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Adding a hash is easy, Webpack gives us two options:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;[hash]&lt;&#x2F;strong&gt; — calculated for build and &lt;strong&gt;[chunkhash]&lt;&#x2F;strong&gt; — calculated for entry file. For our use case, chunkhash will be a better option. Since we can selectively bust only, e.g., &lt;em&gt;app.bundle.js&lt;&#x2F;em&gt; and no &lt;em&gt;app.bundle.css&lt;&#x2F;em&gt; if we changed code just in the javascript part of our application:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; config&#x2F;webpack&#x2F;config.production.js
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;ExtractTextPlugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;extract-text-webpack-plugin&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;path&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;.&#x2F;config&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.plugins.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;ExtractTextPlugin({
+    filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;app.bundle.[chunkhash].css&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+    allChunks: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;true
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;})
+)
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;output &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+  path: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;resolve&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(__dirname, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;public&#x2F;bundles&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+  filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;[name].bundle.[chunkhash].js&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  chunkFilename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;[name].[chunkhash].js&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  publicPath: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;&#x2F;bundles&#x2F;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+}
+
+module.exports &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Let&#x27;s add a build option to our package.json:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;...
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;scripts&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;: {
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;...
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;build&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;webpack --bail -p --config config&#x2F;webpack&#x2F;config.production.js&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;...
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;},
+
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;...
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And trigger a build:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn build
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;yarn&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; build v0.22.0
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; webpack — bail&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; — config config&#x2F;webpack&#x2F;config.production.js
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Hash:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 01788dcc6a43c1f47e5c
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Version:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; webpack 3.0.0
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Time:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 1786ms
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;Asset&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Size Chunks Chunk Names
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.9f61f58dd1cc3bb82182.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 688 kB 0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;] [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;big&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.9f61f58dd1cc3bb82182.css&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 29 bytes 0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We are getting there! Now our bundles have unique hashes. But we have a new problem now; our index.html contains old links to &lt;em&gt;&#x2F;bundles&#x2F;app.bundle.js&lt;&#x2F;em&gt; and &lt;em&gt;&#x2F;bundles&#x2F;app.bundle.css&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;We will use &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;jantimon&#x2F;html-webpack-plugin&quot;&gt;html-webpack-plugin&lt;&#x2F;a&gt; to generate our &lt;em&gt;index.html&lt;&#x2F;em&gt; on demand from a template. You can use &lt;em&gt;html-webpack-plugin&lt;&#x2F;em&gt; with various templating engines, so it should cover most of the use cases.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; --dev&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; html-webpack-plugin
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters mv public&#x2F;index.html .&#x2F;src&#x2F;assets&#x2F;index.template.html
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Remove bundle links from index.template.html:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;&#x2F; src&#x2F;assets&#x2F;index.template.html
+
+&amp;lt;!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;DOCTYPE &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;html &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;lang&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;en&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;meta &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;charset&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;UTF-8&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;meta &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;viewport&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;meta &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;http-equiv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;X-UA-Compatible&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;content&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;ie=edge&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;Cache Busters&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;title&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;div &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;app&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+  &amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Add &lt;em&gt;html-webpack-plugin&lt;&#x2F;em&gt; to Webpack&#x27;s &lt;em&gt;config.production.js&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;path&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;ExtractTextPlugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;extract-text-webpack-plugin&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;HtmlWebpackPlugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;html-webpack-plugin&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;.&#x2F;config&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;output &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+  path: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;resolve&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(__dirname, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;public&#x2F;bundles&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+  filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;[name].bundle.[chunkhash].js&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  chunkFilename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;[name].[chunkhash].js&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  publicPath: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;&#x2F;bundles&#x2F;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.plugins.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;ExtractTextPlugin({
+    filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;app.bundle.[chunkhash].css&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+    allChunks: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;true
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;}),
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;HtmlWebpackPlugin({
+    filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;public&#x2F;index.html&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+    template: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;src&#x2F;assets&#x2F;index.template.html&amp;#39;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;})
+)
+
+module.exports &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And build:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn build
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;yarn&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; build v0.22.0
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;...
+
+Asset&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Size Chunks Chunk Names
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.9f61f58dd1cc3bb82182.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 688 kB 0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;] [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;big&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.9f61f58dd1cc3bb82182.css&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 29 bytes 0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;public&#x2F;index.html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 462 bytes &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;...
+
+➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters cat public&#x2F;index.html
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;!DOCTYPE &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;html lang=”en”&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;    ...
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;link &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;href&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;&#x2F;bundles&#x2F;app.bundle.9f61f58dd1cc3bb82182.css&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;rel&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot; stylesheet&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;head&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;div &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;id&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”app”&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;div&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;script &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”text&#x2F;javascript” &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;”&#x2F;bundles&#x2F;app.bundle.9f61f58dd1cc3bb82182.js”&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;script&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;body&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+
+&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;&#x2F;html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Bingo! Our &lt;em&gt;index.html&lt;&#x2F;em&gt; now contains a dynamic chunk hash for both asset files.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s a good idea to add those folders with dynamically generated files to &lt;em&gt;.gitignore&lt;&#x2F;em&gt; so that no one will commit it to git.&lt;&#x2F;p&gt;
+&lt;p&gt;Now we have a new problem; our development build is broken. There&#x27;s no &lt;em&gt;index.html&lt;&#x2F;em&gt; with our entry point anymore, and we don&#x27;t want to use chunk hash during development since it&#x27;s slower. One way to solve this issue would be to create a second public folder for development only with &lt;em&gt;index.html&lt;&#x2F;em&gt; referencing to static app.bundle.js&#x2F;css assets, but it means we&#x27;d have to keep two versions of &lt;em&gt;index.html&lt;&#x2F;em&gt; with the same content.&lt;&#x2F;p&gt;
+&lt;p&gt;But what if we&#x27;d use html-webpack-plugin to generate index.html from the template with chunk hash-free assets? I&#x27;d work except for one small issue — using webpack-dev-server, our &lt;em&gt;index.html&lt;&#x2F;em&gt; is not being written to a hard drive. What now? Of course, there is a webpack plugin to solve it: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;jantimon&#x2F;html-webpack-harddisk-plugin&quot;&gt;html-webpack-harddisk-plugin&lt;&#x2F;a&gt;!&lt;&#x2F;p&gt;
+&lt;p&gt;Now we can add it to our development config:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt; --dev&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; html-webpack-harddisk-plugin
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; config.development.js
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;path&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;ExtractTextPlugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;extract-text-webpack-plugin&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;HtmlWebpackPlugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;html-webpack-plugin&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;HtmlWebpackHarddiskPlugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;html-webpack-harddisk-plugin&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;require&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;.&#x2F;config&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;)
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;output &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;{
+  path: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;path&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;resolve&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(__dirname, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;public&#x2F;bundles&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;),
+  filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;[name].bundle.js&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  chunkFilename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;quot;[name].js&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+  publicPath: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;&#x2F;bundles&#x2F;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;.plugins.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5ebfcc;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;(
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;ExtractTextPlugin({
+    filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;app.bundle.css&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+    allChunks: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;true
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;}),
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;HtmlWebpackPlugin({
+    filename: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;..&#x2F;..&#x2F;public&#x2F;index.html&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+    template: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#9acc76;&quot;&gt;&amp;#39;src&#x2F;assets&#x2F;index.template.html&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;,
+    alwaysWriteToDisk: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#db9d63;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#5f697a;&quot;&gt;&#x2F;&#x2F; this option was added by html-webpack-harddisk-plugin
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;}),
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;HtmlWebpackHarddiskPlugin()
+)
+
+module.exports &lt;&#x2F;span&gt;&lt;span style=&quot;color:#adb7c9;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;config
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Try to run webpack-dev-server:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;➜&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; cache-busters yarn start
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;...
+
+Asset&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; Size Chunks Chunk Names
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.js&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 1.06 MB 0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;] [&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;big&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;app.bundle.css&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 37 bytes 0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; app
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eb6772;&quot;&gt;..&#x2F;..&#x2F;public&#x2F;index.html&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt; 420 bytes &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#abb2bf;&quot;&gt;emitted&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cd74e8;&quot;&gt;]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That&#x27;s it! Bundles don&#x27;t have a hash, and index.html is being emitted.&lt;&#x2F;p&gt;
+&lt;p&gt;Now we have working cache-busting as well as a solid Webpack setup ready to be extended.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope you enjoyed this tutorial &amp;amp; see you next time.&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>
