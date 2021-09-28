@@ -3,10 +3,10 @@ title = "hello world"
 +++
 
 # I'm Tomas Koutsky
-a self-taught software developer; currently, I write code in the data platform team in [Pipedrive](https://pipedrive.com).
+a self-taught software developer; currently, I write code in [Metaphysic](https://metaphysic.ai/).
 
 Besides that, I, of course, have some side projects (slooowly) going on, namely:
-* [Gameboy DMG-01 emulator](https://github.com/stepnivlk/ohboy)
+* [Mathematics interpreter](https://github.com/stepnivlk/matika)
 * [Git in Rust](https://github.com/stepnivlk/rit)
 * [STEM BSc course at the Open University](categories/uni/)
 
