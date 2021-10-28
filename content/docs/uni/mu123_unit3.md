@@ -1,9 +1,12 @@
 +++
 title = "MU123 Unit 3 Notes"
 date = 2021-02-21
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+toc = true
+top = false
 +++
 
 # 1 Natural numbers
@@ -127,9 +130,11 @@ The process of writing a natural number as a product of factors > 1 is called **
 
 The **prime factorisation** of a natural number is the product of prime factors that is equal to it, e.g.:
 $$
-2 = 2 \qquad 3 = 3 \qquad 4 = 2^2 \\\\
-5 = 5 \qquad 6 = 2 \times 3 \qquad 7 = 7 \\\\
-8 = 2^3 \qquad 9 = 3^2 \qquad 10 = 2 \times 5
+\begin{aligned}
+2 &= 2 \qquad 3 = 3 \qquad 4 = 2^2 \\\\
+5 &= 5 \qquad 6 = 2 \times 3 \qquad 7 = 7 \\\\
+8 &= 2^3 \qquad 9 = 3^2 \qquad 10 = 2 \times 5
+\end{aligned}
 $$
 
 Because of the fundamental theorem of aithmetic we can say that prime numbers are the **building blocks of natural numbers**.
@@ -293,8 +298,10 @@ $$
 Here $x$ is not rational:
 
 $$
+\begin{aligned}
 x^2 = 2 \\\\
 \sqrt{2} = x
+\end{aligned}
 $$
 
 
@@ -312,25 +319,33 @@ $$
 So $m$ and $n$ don't have any common factor.
 The square of $\frac{m}{n}$ is 2, so:
 $$
+\begin{aligned}
 (\frac{m}{n})^2 = 2 \\\\
 \frac{m^2}{n^2} = 2
+\end{aligned}
 $$
 It follow that
 $$
+\begin{aligned}
 \frac{m^2}{n^2} \times n^2 = 2 \times n^2 \\\\
 m^2 = 2n^2
+\end{aligned}
 $$
 $2n^2$ has to be even since it's a product of 2 and whole number. Meaning $m^2$ has to be even too, that means $m$ has to be even as well.
 That means that $m = 2r$ for some integer $r$.
 When substituting to the original equation we get:
 $$
+\begin{aligned}
 (2r)^2 = 2n^2 \\\\
 4r^2 = 2n^2 \\\\
+\end{aligned}
 $$
 It follow that
 $$
+\begin{aligned}
 \frac{4r^2}{2} = \frac{2n^2}{2} \\\\
 2r^2 = n^2
+\end{aligned}
 $$
 
 The integer $n^2$ is even hence $n$ has to be even too.
@@ -362,8 +377,10 @@ Square roots of two numbers can be used to find the square root of the product o
 For example, numbers 16 and 49 have square roots of 4 and 7.
 I can apply index law $(a \times b)^n = a^n \times b^n$ to those:
 $$
+\begin{aligned}
 (4 \times 7)^2 = 4^2 \times 7^2 \\\\
 (4 \times 7)^2 = 16 \times 49
+\end{aligned}
 $$
 That implies:
 $$

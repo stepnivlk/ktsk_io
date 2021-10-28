@@ -1,9 +1,14 @@
 +++
 title = "MU123 Unit 14 Notes"
+description = ""
 date = 2021-08-23
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+lead = ""
+toc = true
+top = false
 +++
 
 # 1 Communicating clearly

@@ -1,9 +1,12 @@
 +++
 title = "Building Git Notes"
 date = 2021-03-31
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["programming"]
+[extra]
+toc = true
+top = false
 +++
 
 > These are my notes taken while reading the **Building Git** book ([https://shop.jcoglan.com/building-git/](https://shop.jcoglan.com/building-git/)).

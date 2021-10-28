@@ -1,9 +1,12 @@
 +++
 title = "MU123 Unit 9 Notes"
 date = 2021-06-14
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+toc = true
+top = false
 +++
 
 # 1 Number patterns and algebra
@@ -60,9 +63,11 @@ $$
 
 ## 2.2 Squaring brackets
 $$
+\begin{aligned}
 (x + p)^2 = (x + p)(x + p) \\\\
 = x^2 + xp + px + p^2 \\\\
 = x^2 + 2px + p^2
+\end{aligned}
 $$
 
 Hence the general formula:
@@ -125,9 +130,11 @@ $$
 $$
 Where:
 $$
-a = 2\\\\
-b = -1\\\\
-c = -6
+\begin{aligned}
+a &= 2\\\\
+b &= -1\\\\
+c &= -6
+\end{aligned}
 $$
 
 > Find two numbers whose product is $ac$ and whose sum is $b$.
@@ -143,9 +150,11 @@ $$
 > Group the four terms in pairs and take out common factors to give the required factorisation.
 
 $$
-2x^2 - x - 6 = 2x^2 +3x -4x - 6 \\\\
-= x(2x + 3) -2(2x + 3) \\\\
-= (x - 2)(2x + 3)
+\begin{aligned}
+2x^2 - x - 6 &= 2x^2 +3x -4x - 6 \\\\
+&= x(2x + 3) -2(2x + 3) \\\\
+&= (x - 2)(2x + 3)
+\end{aligned}
 $$
 
 ### Simplify a quadratic equation

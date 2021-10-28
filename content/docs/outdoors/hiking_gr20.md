@@ -1,10 +1,12 @@
 +++
-title = "How I hiked GR20 through the mountains of Corsica"
+title = "How I hiked GR20"
 date = 2020-10-10
 draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["hiking"]
+[extra]
+toc = false 
+top = false
 +++
 
 # Day 0 - Arrival

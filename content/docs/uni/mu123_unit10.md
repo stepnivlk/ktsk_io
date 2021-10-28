@@ -1,9 +1,12 @@
 +++
 title = "MU123 Unit 10 Notes"
 date = 2021-06-30
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+toc = true
+top = false
 +++
 
 # Introduction
@@ -165,9 +168,11 @@ The RHS expression is the completed-square form of the LHS expression with follo
 
 E.g.:
 $$
+\begin{aligned}
 x^2 + 8x + 10 = \\\\[0.6em]
 (x + 4)^2 - 16 + 10 = \\\\[0.6em]
 (x + 4)^2 - 6
+\end{aligned}
 $$
 
 Hence the general strategy:

@@ -1,9 +1,14 @@
 +++
 title = "MU123 Unit 13 Notes"
+description = ""
 date = 2021-08-05
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+lead = ""
+toc = true
+top = false
 +++
 
 
@@ -94,10 +99,12 @@ He used the $a^m \times a^n = a^{m + n}$ law to turn multiplication problem into
 
 So, in ordert to multipy e.g. 287 and 37 the numbers need to be rewritten as a common base to a power of something:
 $$
-287 \times 37 \approx 10^{2.4579} \times 10^{1.5682} \\\\
-= 10^{2.4579 + 1.5682} \\\\
-= 10^{4.0261} \\\\
-\approx 10619
+\begin{align}
+287 \times 37 &\approx 10^{2.4579} \times 10^{1.5682} \\\\
+&= 10^{2.4579 + 1.5682} \\\\
+&= 10^{4.0261} \\\\
+&\approx 10619
+\end{align}
 $$
 
 However, there is still problem of finding the correct powers of ten for the numbers to be multiplied, and of turning the power of ten obtained as the answer back into an ordinary number.
@@ -176,10 +183,12 @@ $$
 
 #### Formal proof
 $$
-x = b^m ~~~ y = b^n \\\\[1em]
-m = \log_bx ~~~ n = \log_by \\\\[1em]
-\frac{x}{y} = \frac{b^m}{b^n} = b^{m - n} \\\\[1em]
-\log_b(\frac{x}{y}) = m - n = \log_bx - \log_by \\\\
+\begin{align}
+x &= b^m ~~~ y = b^n \\\\[1em]
+m &= \log_bx ~~~ n = \log_by \\\\[1em]
+\frac{x}{y} &= \frac{b^m}{b^n} = b^{m - n} \\\\[1em]
+\log_b(\frac{x}{y}) &= m - n = \log_bx - \log_by \\\\
+\end{align}
 $$
 
 ### Rule for a multiple of a logarithm
@@ -190,8 +199,10 @@ $$
 #### Formal proof
 Suppose that
 $$
-x = b^m \\\\[1em]
-m = \log_bx \\\\[1em]
+\begin{align}
+x &= b^m \\\\[1em]
+m &= \log_bx \\\\[1em]
+\end{align}
 $$
 The power $x^n$ can be written as
 $$
