@@ -1,9 +1,12 @@
 +++
 title = "MU123 Unit 5 Notes"
 date = 2021-04-05
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+toc = true
+top = false
 +++
 
 # 2 Expressions

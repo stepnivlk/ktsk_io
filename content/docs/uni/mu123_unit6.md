@@ -1,9 +1,12 @@
 +++
 title = "MU123 Unit 6 Notes"
 date = 2021-04-25
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+toc = true
+top = false
 +++
 
 # Introduction

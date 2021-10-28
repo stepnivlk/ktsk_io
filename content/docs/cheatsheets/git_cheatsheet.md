@@ -1,9 +1,12 @@
 +++
 title = "Git cheatsheet"
 date = 2021-04-12
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["programming", "cheatsheet"]
+[extra]
+toc = false 
+top = false
 +++
 
 # Break a commit

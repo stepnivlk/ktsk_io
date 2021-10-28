@@ -1,9 +1,12 @@
 +++
 title = "Math cheatsheet"
 date = 2021-03-07
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math", "cheatsheet"]
+[extra]
+toc = false 
+top = false
 +++
 
 # Rearranging formulas by clearing algebraic fractions
@@ -23,11 +26,13 @@ $$
 
 # Index laws
 $$
+\begin{aligned}
 a^m \times a^n = a^{m + n} \qquad \frac{a^m}{a^n} = a^{m-n} \\\\[1em]
 (a^m)^n = a^{mn} \\\\[1em]
 (a \times b)^n = a^n \times b^n \qquad (\frac{a}{b})^n = \frac{a^n}{b^n} \\\\[1em]
 a^0 = 1 \qquad a^{-n} = \frac{1}{a^n} \\\\[1em]
 a^\frac{1}{n} = \sqrt[n]{a} \qquad a^\frac{m}{n} = (\sqrt[n]{a})^m
+\end{aligned}
 $$
 
 # Squaring brackets

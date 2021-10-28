@@ -1,9 +1,12 @@
 +++
-title = "Complex numbers notes"
+title = "Complex numbers Notes"
 date = 2021-05-02
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["math", "random"]
+[extra]
+toc = true
+top = false
 +++
 
 
@@ -132,39 +135,49 @@ $$
 
 I already know that:
 $$ 
+\begin{aligned}
 i^2 = -1 \\\\
 i^3 = -i \\\\
 i^4 = 1
+\end{aligned}
 $$ 
 
 Hence:
 $$
+\begin{aligned}
 2 + 3i + 7(-1) + 5(-i)+ 9(1) = \\\\
 2 + 3i - 7 -5i + 9 = \\\\
 4 - 2i
+\end{aligned}
 $$
 
 ## Adding complex numbers
 E.g.:
 $$
+\begin{aligned}
 (5 + 2i) + (3 - 7i) = \\\\
 5 + 3 + 2i - 7i = \\\\
 8 - 5i
+\end{aligned}
 $$
 
 ## Subtracting complex numbers
 E.g.:
 $$
+\begin{aligned}
 (2 - 3i) - (6 - 18i) = \\\\
 2 - 3i - 6 + 18i = \\\\
 -4 + 15i
+\end{aligned}
 $$
 
 ## Distance of complex numbers
 E.g. distance between:
 $$
+\begin{aligned}
 z = 2 + 3i \\\\
 w = -5 -i
+\end{aligned}
 $$
 
 Can be calculated using Pythagoras theorem:
@@ -173,13 +186,17 @@ Can be calculated using Pythagoras theorem:
 ## Midpoint of complex numbers
 Is the half of real and complex parts separately:
 $$
+\begin{aligned}
 z = 2 + 3i \\\\
 w = -5 -i \\\\
+\end{aligned}
 $$
 
 $$
+\begin{aligned}
 a = (\frac{2 + (-5)}{2}) + (\frac{3 + (- 1)}{2})i \\\\
 a = -\frac{3}{2} + i
+\end{aligned}
 $$
 
 ## Multiplying complex numbers
@@ -203,6 +220,7 @@ $$
 Multiply each term in the first number by each term in the second number:
 
 $$
+\begin{aligned}
 (1 + 4i)(5 + i) = \\\\
 (1)(5) + (1)(i) + (4i)(5) + (4i)(i) = \\\\
 5 + i + 20i + 4i^2 = \\\\
@@ -210,4 +228,5 @@ $$
 5 + 21i + 4(-1) = \\\\
 5 + 21i - 4 = \\\\
 1 + 21i
+\end{aligned}
 $$

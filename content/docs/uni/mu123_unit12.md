@@ -1,9 +1,12 @@
 +++
 title = "MU123 Unit 12 Notes"
 date = 2021-07-13
+draft = false
+template = "docs/page.html"
 
-[taxonomies]
-categories = ["uni", "math"]
+[extra]
+toc = true
+top = false
 +++
 
 
@@ -44,14 +47,18 @@ $$
 $$
 The length $x$ of the third side of this right-angled triangle can be calculated:
 $$
-1^2 + x^2 = 2^2 \\ 
-x^2 = 4 - 1 = 3 \\\\
-x = \sqrt{3}
+\begin{align}
+1^2 + x^2 &= 2^2 \\\\
+x^2 &= 4 - 1 = 3 \\\\
+x &= \sqrt{3}
+\end{align}
 $$
 Hence:
 $$
-\sin60^\circ = \frac{\sqrt{3}}{2} \\\\
-\tan60^\circ = \frac{\sqrt{3}}{1} = \sqrt{3} \\\\
+\begin{align}
+\sin60^\circ &= \frac{\sqrt{3}}{2} \\\\
+\tan60^\circ &= \frac{\sqrt{3}}{1} = \sqrt{3} \\\\
+\end{align}
 $$
 
 Following table can be devised
@@ -65,10 +72,12 @@ Following table can be devised
 
 ### Identities
 $$
-\cos\theta = \sin(90^\circ - \theta) \\\\
-\sin\theta = \cos(90^\circ - \theta) \\\\
-\tan\theta = \frac{\sin\theta}{\cos\theta} \\\\
-\sin^2\theta + \cos^2\theta = 1
+\begin{align}
+\cos\theta &= \sin(90^\circ - \theta) \\\\
+\sin\theta &= \cos(90^\circ - \theta) \\\\
+\tan\theta &= \frac{\sin\theta}{\cos\theta} \\\\
+\sin^2\theta + \cos^2\theta &= 1
+\end{align}
 $$
 
 # 2 Solving general triangles
@@ -83,9 +92,11 @@ $$
 
 ## 2.2 The Cosine Rule
 $$
-a^2 = b^2 + c^2 - 2bc\cos A \\\\
-b^2 = c^2 + a^2 - 2ca \cos B \\\\
-c^2 = a^2 + b^2 - 2ab \cos C
+\begin{align}
+a^2 &= b^2 + c^2 - 2bc\cos A \\\\
+b^2 &= c^2 + a^2 - 2ca \cos B \\\\
+c^2 &= a^2 + b^2 - 2ab \cos C
+\end{align}
 $$
 
 ### The methods of solving a triangle
