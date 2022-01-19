@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MU123 Unit 10 Notes | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mu123-unit10/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mu123 Unit10",
+            "item": "https://ktsk.xyz/docs/uni/mu123-unit10/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#introduction">Introduction</a></li>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#1-introducing-parabolas">1 Introducing parabolas</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#1-1-parabolas-everywhere">1.1 Parabolas everywhere</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#1-2-projectiles">1.2 Projectiles</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#1-3-stopping-distances">1.3 Stopping distances</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#2-graphs-of-quadratic-functions">2 Graphs of quadratic functions</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#2-1-graphs-of-equations-of-the-form-y-ax-2">2.1 Graphs of equations of the form $y = ax^2$</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#2-2-graphs-of-equations-of-the-form-y-ax-2-bx-c">2.2 Graphs of equations of the form $y = ax^2 + bx + c$</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#2-3-the-intercepts-of-a-parabola">2.3 The intercepts of a parabola</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#2-4-sketch-graphs-of-quadratic-functions">2.4 Sketch graphs of quadratic functions</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#3-solving-quadratic-equations">3 Solving quadratic equations</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#3-2-the-quadratic-formula">3.2 The quadratic formula</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#3-3-the-number-of-solutions-of-a-quadratic-equation">3.3 The number of solutions of a quadratic equation</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#3-4-vertically-launched-projectiles">3.4 Vertically-launched projectiles</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#4-completing-the-square">4 Completing the square</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#4-1-shifting-parabolas">4.1 Shifting parabolas</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#4-2-completing-the-square-in-quadratics-of-the-form-x-2-bx-c">4.2 Completing the square in quadratics of the form $x^2 + bx + c$</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#4-3-solving-quadratic-equations-by-completing-the-square">4.3 Solving quadratic equations by completing the square</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#4-4-completing-the-square-in-quadratics-of-the-form-ax-2-bx-c">4.4 Completing the square in quadratics of the form $ax^2 + bx + c$</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#5-maximisation-problems">5 Maximisation problems</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#methods-to-find-the-vertex-of-a-parabola-from-its-equation">Methods to find the vertex of a parabola from its equation</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit10/#strategy-to-solve-a-maximisation-problem">Strategy to solve a maximisation problem</a></li>
+  											
+  									</ul>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MU123 Unit 10 Notes</h1>
+        
+        <h1 id="introduction">Introduction</h1>
+<p>Equation of the form:
+$$
+y = ax^2 +bx + c
+$$
+where $a$, $b$ and $c$ are constants with $a \ne 0$, are examined in this unit.
+The <em>RHS</em> is a quadratic expression and graphs of these equations have a curved shape called <em>parabola</em>.</p>
+<h1 id="1-introducing-parabolas">1 Introducing parabolas</h1>
+<h2 id="1-1-parabolas-everywhere">1.1 Parabolas everywhere</h2>
+<h3 id="the-free-fall-equation">The free-fall equation</h3>
+<p>The relationship between the distance $d$ fallen by an object and the time $t$ that it has been falling is given by
+$$
+d = \frac{1}{2}gt^2
+$$
+where the constant $g$ is the acceleration  due to gravity, which is about $9.8 \text{m/s}^2$.
+Or more compactly:
+$$
+d = 4.9t^2
+$$</p>
+<p><strong>Parabola</strong> - a part of a parabola is formed by curved shape in the free-fall equation.
+<strong>Parabolic curve</strong> - a curve whose shape is all or part of a parabola.</p>
+<h4 id="definitions-of-a-parabola">Definitions of a parabola</h4>
+<ul>
+<li>A shape obtained when a plane &quot;parallel&quot; to the side of a cone intersects the cone.</li>
+<li>A shape of the graph of any equation of the form:
+$$
+y = ax^2 +bx + c
+$$
+where $a$, $b$ and $c$ are constants with $a \ne 0$. The free-fall equation has this form with $b = c = 0$.</li>
+</ul>
+<p>The free-fall equation is only a <strong>model</strong> for the motion of a falling object. It's accurate when there are no other forces than gravity acting on the object.
+In real life there actually are other forces, notably <em>air resistance</em> (<em>drag</em>) which slows down the falling object. After great enough distance the air resistance will cause the speed of falling object to stop increasing - to become constant. This is known as the <em>terminal velocity</em>.</p>
+<p><strong>Quadratic model</strong>
+Any model based on an equation of form $y = ax^2 +bx + c$.</p>
+<h2 id="1-2-projectiles">1.2 Projectiles</h2>
+<p>An object that is propelled through space by a force that ceases after launch.
+<strong>Trajectory</strong> is the path a projectile follows.
+<strong>Ballistics</strong> is the science of projectiles.</p>
+<h2 id="1-3-stopping-distances">1.3 Stopping distances</h2>
+<h1 id="2-graphs-of-quadratic-functions">2 Graphs of quadratic functions</h1>
+<p>Every parabola has an <strong>axis of symmetry</strong> cutting the parabola at exactly one point - the <strong>vertex</strong>.
+A rule that takes input values and produces output values is called a <strong>function</strong>.</p>
+<p>A function of the form $y = ax^2 + bx + c$ is called a <strong>quadratic function</strong>.</p>
+<h2 id="2-1-graphs-of-equations-of-the-form-y-ax-2">2.1 Graphs of equations of the form $y = ax^2$</h2>
+<p>The <strong>magnitude</strong> of $a$ affects how narrow the graph is. The larther the magnitude of $a$, the narrower the parabola becomes.</p>
+<ul>
+<li><strong>u-shaped</strong> parabola is same way up as the graph of $y = x^2$.</li>
+<li><strong>n-shaped</strong> parabola is the another way up, e.g. $y = -x^2$.</li>
+</ul>
+<p>The vertex is $(0, 0)$.</p>
+<h2 id="2-2-graphs-of-equations-of-the-form-y-ax-2-bx-c">2.2 Graphs of equations of the form $y = ax^2 + bx + c$</h2>
+<p>The graph has the same shape as the graph of $y = ax^2$, but shifted and crosses the $y$-axis at $(0, c)$.</p>
+<h2 id="2-3-the-intercepts-of-a-parabola">2.3 The intercepts of a parabola</h2>
+<p>The graph of $y = ax^2 + box + c$ can have two, one or zero $x$-intercepts. There is always exactly one $y$-intercept.</p>
+<h2 id="2-4-sketch-graphs-of-quadratic-functions">2.4 Sketch graphs of quadratic functions</h2>
+<ol>
+<li>Find whether the parabola is u-shaped or n-shaped.</li>
+<li>Find its intercepts, axis of symmetry and vertex.</li>
+<li>Plot the features found, and hence sketch the parabola.</li>
+<li>Lable the parabola with its equation, and make sure that the values of the intercepts and the coordinates of the vertex are indicated.</li>
+</ol>
+<p>A formula for the axis of symmetry of a parabola with equation $y = ax^2 + bx + c$ is:
+$$
+x = - \frac{b}{2a}
+$$</p>
+<h1 id="3-solving-quadratic-equations">3 Solving quadratic equations</h1>
+<h2 id="3-2-the-quadratic-formula">3.2 The quadratic formula</h2>
+<p>The solutions of the quadratic equation
+$$
+ax^2 + bx + c = 0
+$$
+are given by
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$</p>
+<h3 id="simplifying-a-quadratic-equation">Simplifying a quadratic equation</h3>
+<ul>
+<li>If the coeficient of $x^2$ is negative, then multiply the equation through by $-1$ to make this coefficient positive.</li>
+<li>If the coefficients have a common factor, then divide the equation through by this factor.</li>
+<li>If any of the coefficients are fractions, then multiply the equation through by a suitable number to clear them.</li>
+</ul>
+<h2 id="3-3-the-number-of-solutions-of-a-quadratic-equation">3.3 The number of solutions of a quadratic equation</h2>
+<p>The value $b^2 - 4ac$ is called the <strong>discriminant</strong> of the quadratic expression $ax^2 + bx + c$. Such an equation has:</p>
+<ul>
+<li>two solutions if $b^2 - 4ac &gt; 0$ (the discriminant is positive).</li>
+<li>one solution if $b^2 - 4ac = 0$ (the discriminant is zero).</li>
+<li>no solutions if $b^2 - 4ac &lt; 0$ (the discriminant is negative).</li>
+</ul>
+<h2 id="3-4-vertically-launched-projectiles">3.4 Vertically-launched projectiles</h2>
+<p>If an object is launched upwards from an initial height $h_0$ with an initial speed $v_0$, then after time $t$ its height $h$ is given by
+$$
+h = -\frac{1}{2}gt^2 + v_0t + h_0
+$$
+where $g$ is the acceleration due to gravity, which is about $9.8\text{m}/\text{s}^2$.</p>
+<h1 id="4-completing-the-square">4 Completing the square</h1>
+<p>Is a way to rearrange a quadratic expression.</p>
+<h2 id="4-1-shifting-parabolas">4.1 Shifting parabolas</h2>
+<p>If a parabola with equation $y = ax^2$ is shifted right by $h$ units and up by $k$ units, then each point $(x, y)$ on the second parabola is a shift of the point $(x - h, y - k)$ on the first parabola. Hence the formula for second parabola is:
+$$
+y - k = a(x - h)^2
+$$
+Or equivalently:
+$$
+y = a(x - h)^2 + k
+$$
+Which can be further multiplied out to give the usual form $y = ax^2 + bx + c$.
+Importantly the process works vice-versa too. Any equation of the form $y = ax^2 + bx + c$ where $a$, $b$ and $c$ are constants with $a \ne 0$, can be rearranged into the form $y = a(x - h)^2 + k$.</p>
+<p>Every expression of the form $ax^2 + bx + c$, where $a \ne 0$, can be rearranged into the form
+$$
+a (x + \text{a number})^2 + \text{a number}
+$$
+where each of the two numbers in this expression can be positive, negative or zero.
+This is called the <strong>completed-square form</strong>.</p>
+<p>The parabola with equation
+$$
+y = a(x - h)^2 + k
+$$
+has vertex $(h, k)$.</p>
+<h2 id="4-2-completing-the-square-in-quadratics-of-the-form-x-2-bx-c">4.2 Completing the square in quadratics of the form $x^2 + bx + c$</h2>
+<p>Where the coefficient of $x^2$ is 1 - the completed-square form looks like:
+$$
+( x + \text{a number} ) ^2 + \text{a number}
+$$</p>
+<h3 id="completing-the-square-in-quadratics-of-the-form-x-2-bx">Completing the square in quadratics of the form $x^2 + bx$</h3>
+<p>In general:
+$$
+(x + p)^2 = x^2 + 2px + p^2
+$$
+The RHS expression is of the form $x^2 + bx$ plus an extra number. If I subtract this extra number from both sides and swap the sides, then I obtain:
+$$
+x^2 + 2px = (x + p)^2 - p^2
+$$
+The RHS expression is the completed-square form of the LHS expression with following properties:</p>
+<ul>
+<li>Constant term in the RHS bracket is half of the coefficient of the term in $x$ on LHS.</li>
+<li>The number that is subtracted on the RHS is the square of the constant term in the brackets.</li>
+</ul>
+<h3 id="completing-the-square-in-quadratics-of-the-form-x-2-bx-c">Completing the square in quadratics of the form $x^2 + bx + c$</h3>
+<ol>
+<li>Complete the square for the $x^2$ and $x$ terms as before.</li>
+<li>Collect the constant terms.</li>
+</ol>
+<p>E.g.:
+$$
+\begin{aligned}
+x^2 + 8x + 10 = \\[0.6em]
+(x + 4)^2 - 16 + 10 = \\[0.6em]
+(x + 4)^2 - 6
+\end{aligned}
+$$</p>
+<p>Hence the general strategy:</p>
+<ol>
+<li>Rewrite the expression with the $x^2 + bx$ part changed to $(x + p)^2 - p^2$, where the number $p$ is half of $b$.</li>
+<li>Collect the constant terms.</li>
+</ol>
+<h2 id="4-3-solving-quadratic-equations-by-completing-the-square">4.3 Solving quadratic equations by completing the square</h2>
+<ol>
+<li>Equations, where the coefficient of $x^2$ is greated than 1, should be divided through by given coefficient.</li>
+<li>Complete the square.</li>
+<li>Rearrange the equation so the square term and the constant are on different sides.</li>
+<li>Take the square root of both sides.</li>
+<li>Rearrange the equation to obtain $x$ by itself on one side.</li>
+</ol>
+<h3 id="the-derivation-of-the-quadratic-formula">The derivation of the quadratic formula</h3>
+<p>The general quadratic equation $ax^2 + bx + c = 0$ can be rearranged to obtain $x$ by itself on the LHS by following the steps:</p>
+<p>Divide through by the coefficient of $x^2$:
+$$
+x^2 + \frac{b}{a}x + \frac{c}{a} = 0
+$$
+Complete the square:
+$$
+(x + \frac{b}{2a})^2 - \frac{b^2}{4a^2} + \frac{c}{a} = 0 \\[1em]
+$$
+Get the constant terms on the right, combine them into a single fraction:
+$$
+\begin{aligned}
+(x + \frac{b}{2a})^2  &amp;=  \frac{b^2}{4a^2} - \frac{c}{a} \\[1em]
+&amp;= \frac{b^2}{4a^2} - \frac{4ac}{4a^2} \\[1em]
+&amp;= \frac{b^2 - 4ac}{4a^2}
+\end{aligned}
+$$
+Take the square root of both sides:
+$$
+\begin{aligned}
+x + \frac{b}{2a} &amp;= \pm \sqrt{\frac{b^2 - 4ac}{4a^2}} \\[1em]
+&amp;= \pm \frac{\sqrt{b^2 - 4ac}}{2a}
+\end{aligned}
+$$
+Get $x$ by itself on the LHS:
+$$
+\begin{aligned}
+x &amp;= -\frac{b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a} \\[1em]
+&amp;= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{aligned}
+$$
+This is the quadratic formula!</p>
+<h2 id="4-4-completing-the-square-in-quadratics-of-the-form-ax-2-bx-c">4.4 Completing the square in quadratics of the form $ax^2 + bx + c$</h2>
+<p>The common factor of $x^2$ and $x$ can be taken out of present, e.g.:</p>
+<p>$$
+2x^2 + 8x -7 = 2(x^2 +4x) - 7
+$$</p>
+<p>Then the square in the qudratic <em>inside the brackets</em> can be completed as usual.</p>
+<p>When there is no common factor, the coefficient of $x^2$ can still be taken out, the process will create fractions though:</p>
+<p>$$
+2x^2 + 5x + 1 = 2(x^2 + \frac{5}{2}x) + 1
+$$</p>
+<h3 id="strategy-to-complete-the-square-in-a-qudratic-of-the-form-ax-bx-c">Strategy to complete the square in a qudratic of the form $ax + bx + c$</h3>
+<ol>
+<li>Rewrite the expression with the coefficient $a$ of $x^2$ taken out of the $ax^2 + bx$ part as a factor. This generates a pair of brackets.</li>
+<li>Complete the square in the simple quadratic inside the brackets, remembering to keep it enclosed within its brackets. This generates a second pair of brackets, inside the first pair.</li>
+<li>Multiply out the <em>outer</em> brackets.</li>
+<li>Collect the constant terms.</li>
+</ol>
+<h1 id="5-maximisation-problems">5 Maximisation problems</h1>
+<p>Is the problem of finding the maximum value of a quantity and the circumstances under which it is obtained.</p>
+<p>This section focuses on problems that can be modelled with a quadratic function, hence the solution is to find a vertex.</p>
+<h3 id="methods-to-find-the-vertex-of-a-parabola-from-its-equation">Methods to find the vertex of a parabola from its equation</h3>
+<ul>
+<li>Use the formula $x = -b / (2a)$ to find the $x$-coordinate, then substitute into the equation of the parabola to find the $y$-coordinate</li>
+<li>Find the $x$-intercepts (if there are any); then the value halfway between them is the $x$-coordinate of the vertex. Find the $y$-coordinate by substituting into the equation of the parabola.</li>
+<li>Complete the square: the parabola with equation $y = a(x - h)^2 + k$ has vertex $(h, k)$.</li>
+<li>Plot the parabola and read off the approximate coordinates of the vertex.</li>
+</ul>
+<h3 id="strategy-to-solve-a-maximisation-problem">Strategy to solve a maximisation problem</h3>
+<ol>
+<li>Identify the quantity to be maximised and the quantity that it depends on, and denote each quantity by a variable.</li>
+<li>Find a formula for the variable to be maximised in terms of the variable that it depends on.</li>
+<li>If this gives a quadratic function, then find the vertex of its graph.</li>
+</ol>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

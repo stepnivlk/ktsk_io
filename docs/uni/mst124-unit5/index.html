@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MST124 Unit 5 - Coordinate geometry and vectors | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mst124-unit5/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mst124 Unit5",
+            "item": "https://ktsk.xyz/docs/uni/mst124-unit5/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MST124 Unit 5 - Coordinate geometry and vectors</h1>
+        
+        <h1 id="introduction">Introduction</h1>
+<p><em>Coordinate geometry</em> is an area of mathematics where equations and coordinates of points are used to investigate geometric problems.</p>
+<h1 id="1-distance">1 Distance</h1>
+<h2 id="1-1-the-distance-between-two-points-in-the-plane">1.1 The distance between two points in the plane</h2>
+<p>For any points $A(x_1, y_1)$ and $B(x_2, y_2)$ a right angled triangle can be constructed:
+<img src="/mst124_u5_data/vec1.png" alt="vec1.png" /></p>
+<p>So by Pythagoras' theorem the distance between $A$ and $B$ is
+$$
+\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$</p>
+<p>The formula holds for any position of $A$ and $B$.</p>
+<h2 id="1-2-midpoints-and-perpendicular-bisectors">1.2 Midpoints and perpendicular bisectors</h2>
+<p><strong>Locus</strong> of points is a collection of all points that satisfy a particular property (e.g. $y = 2x$).</p>
+<p><strong>Equidistant</strong> points are such points that have same distance from set of other points.</p>
+<p>All the points that are equidistant from two particular points form a line that is perpendicular to the line passing through the original two points.</p>
+<p>In order to find an equation of such a line the <strong>midpoint</strong> has to be identified</p>
+<p><img src="/mst124_u5_data/vec2.png" alt="vec2.png" /></p>
+<p>$x$-coordinate of $M$ is equal to $x$-coordinate of $A$ plus half of the run from $A$ to $B$, hence
+$$
+x_1 + \frac{x_2 - x_1}{2} = \frac{2x_1 + x_2 - x_1}{2} = \frac{x_1 + x_2}{2}
+$$</p>
+<p>Sample applies to $y$-coordinate, giving</p>
+<h3 id="midpoint-formula">Midpoint formula</h3>
+<p>The midpoint of the line segment joining the points $(x_1, y_1)$ and $(x_2, y_2)$ is
+$$
+(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})
+$$</p>
+<p><strong>Perpendicular bisector</strong> is a line that passes through some other line to which is perpendicular and divides it to two equal parts.</p>
+<p><img src="/mst124_u5_data/vec3.png" alt="vec3.png" /></p>
+<p>Product of gradients of two lines that are perpendicular and not parallel to the axes is $-1$, so the gradient of perpendicular bisector of $AB$ is
+$$
+\frac{-1}{\text{gradient of}~ AB}
+$$</p>
+<h3 id="finding-a-perpendicular-bisector">Finding a perpendicular bisector</h3>
+<ol>
+<li>Find the midpoint</li>
+<li>Find the gradient of the line segment using $(y_2 - y_1) / (x_2 - x_1)$.</li>
+<li>Find the gradient of the perpendicular bisector using $-1/XY$</li>
+<li>Find the equation of the perpendicular bisector using the fact that the line with gradient $m$ passing through the point $(x_1, y_1)$ has equation $y - y_1 = m(x - x_1)$</li>
+</ol>
+<h1 id="circles">Circles</h1>
+<p>can be defined as the locus of points that are at a particular distance from a specific point.
+The specified point is the <strong>centre</strong> of the circle, and the distance is the <strong>radius</strong>.</p>
+<h2 id="2-1-the-equation-of-a-circle">2.1 The equation of a circle</h2>
+<p><img src="/mst124_u5_data/vec4.png" alt="vec4.png" />
+By the distance formula, every point $(x, y)$ on the circle satisfies the equation
+$$
+\sqrt{(x - a)^2 + (y - b)^2} = r
+$$
+giving the</p>
+<h3 id="standard-form-of-the-equation-of-a-circle">Standard form of the equation of a circle</h3>
+<p>The circle with centre $(a, b)$ and radius $r$ has equation
+$$
+(x - a)^2 + (y - b)^2 = r^2 ~~~(1)
+$$</p>
+<p>An equation of any circle can be written as an equation with terms in $x^2$, $y^2$, $x$ and $y$ and a constant term. But not every equation of this form is the equation of a circle, not all such equation can be rearranged to standard form.</p>
+<p>Any equation with terms in which $x^2$ and $y^2$ have <em>different</em> coefficients is not the equation of the circle as when $(1)$ is multiplied out those coefficients are always 1.</p>
+<p>An equation like $(x - 2)^2 + (y + 1)^2 = -4$ is not an equation of a circle as no point $(x, y)$ satisfies it as the square of every real number is non-negative.</p>
+<p>Similarly equation like $(x - 5)^2 + (y - 3)^2 = 0$ is satisfied only by single point $(5, 3)$, hence is not an equation of circle.</p>
+<p>Equations like $x^2 + 2y^2 = 4$ represent an <em>ellipse</em> and equations like $x^2 - 2y^2 = 4$ <em>hyperbola</em>.</p>
+<p>Finding a point on circle is straightforward only when one of the coordinates is known, then it can be substituted to the equation leading to solvable quadratic equation. The equation can have two, one or no solution as usual.</p>
+<p><img src="/mst124_u5_data/vec5.png" alt="vec5.png" /></p>
+<p>The equation of a circle like $(x - 1)^2 + (y - 5)^2 = 9$ is said to be in <strong>implicit form</strong> as it doesn't express either of two variables in terms of the other.</p>
+<p>Equation as $y = 3x^2 + 2$ is in <strong>explicit form</strong>, it expresses the variable $y$ as a function of $x$.
+The equation of a circle can't be written in explicit form.
+The equation of a circle can be rearranged as follows
+$$
+\begin{align}
+(x - 1)^2 + (y - 5)^2 &amp;= 9 \
+(y - 5)^2 &amp;= 9 - (x - 1)^2 \
+y - 5 &amp;= \pm \sqrt{9 - (x - 1)^2} \
+y &amp;= 5 \pm \sqrt{9 - (x - 1)^2} 
+\end{align}
+$$
+Such equation doesn't express $y$ as a function of $x$ since each value of $x$ gives <em>two</em> values of $y$ due to $\pm$.</p>
+<h2 id="2-2-the-circle-through-three-points">2.2 The circle through three points</h2>
+<p>A single straight line can be defined with two points, that's not true for circles, many of different circles can pass through two chosen points.</p>
+<p>However when three points are chosen, then as long as those don't lie on straight line, there is only one circle that passes through all three points.</p>
+<p>To find the equation of the circle that passes through three points consider:
+<img src="/mst124_u5_data/vec6.png" alt="vec6.png" />
+Once $D$ is found then it's straightforward to get the radius.
+$D$ is equidistant from $A$, $B$ and $C$.
+In particular it's equidistant from $A$ and $B$ hence it lies on the perpendicular bisector of $AB$. Same applies for $B$ and $C$.
+Hence $D$ is a point at which the two perpendicular bisectors intersect.</p>
+<p><img src="/mst124_u5_data/vec7.png" alt="vec7.png" /></p>
+<h3 id="strategy-to-find-the-equation-of-the-circle-passing-through-three-points">Strategy to find the equation of the circle passing through three points</h3>
+<ol>
+<li>Find the equation of the perpendicular bisector of the line segment that joins any pair of the three points.</li>
+<li>Find the equation of the perpendicular bisector of the line segment that joins a different pair of the three points.</li>
+<li>Find the point of intersection of these two lines. This is the centre of the circle.</li>
+<li>Find the radius of the circle, which is the distance from the centre to any of the three points.</li>
+</ol>
+<p>Hence write down the equation of the circle.</p>
+<h1 id="3-points-of-intersection">3 Points of intersection</h1>
+<h2 id="3-1-points-of-intersection-of-a-line-and-a-curve">3.1 Points of intersection of a line and a curve</h2>
+<p>A line and a circle can have two, one or no points of intersection.</p>
+<p><img src="/mst124_u5_data/vec8.png" alt="vec8.png" /></p>
+<p>The points of intersection can be found by solving the equation of the line and the equation of the circle simultaneously. Leading to a quadratic equation.</p>
+<p>Same can be done with straight line and parabola.</p>
+<h2 id="3-2-points-of-intersection-of-two-circles">3.2 Points of intersection of two circles</h2>
+<p>Two circles may intersect at two points, one point or not at all.</p>
+<p><img src="/mst124_u5_data/vec9.png" alt="vec9.png" /></p>
+<p>Such points can be found by solving the equations of both circles simultaneously. That can be done via eliminating the terms in $x^2$ and $y^2$ by subtracting one equation from the other. Leading to a linear equation representing the straight line passing through the points of intersection. Next apply the steps from 3.1.</p>
+<h1 id="4-working-in-three-dimensions">4 Working in three dimensions</h1>
+<h2 id="4-1-three-dimensional-coordinates">4.1 Three-dimensional coordinates</h2>
+<p>Are obtained by extending the two-dimensional Cartesian coordinate system by a third axis, the $z$-axis, at right angles to the $x$- and $y$-axes.</p>
+<p><img src="/mst124_u5_data/vec10.png" alt="vec10.png" /></p>
+<p>$x, y$-plane, $x, z$-plane and $y, z$-plane are known as the <strong>coordinate planes</strong>.
+The positive direction of the $z$-axis is called the <strong>positive $z$-direction</strong> (similar terminology applies to other axes).
+The position of a point in three dimensions is specified as the triple $(x, y, z)$.</p>
+<p><img src="/mst124_u5_data/vec11.png" alt="vec11.png" /></p>
+<h2 id="4-2-the-distance-between-two-points-in-three-dimensions">4.2 The distance between two points in three dimensions</h2>
+<p>Considering $A(x_1, y_1, z_1)$ and $B(x_2, y_2, z_2)$ as follows:</p>
+<p><img src="/mst124_u5_data/vec12.png" alt="vec12.png" /></p>
+<p>The distance $AB$ is the length of the hypotenuse of the right-angled triangle with vertices $A$, $B$ and $C$, hence
+$$
+AB^2 = AC^2 + BC^2 ~~~(2)
+$$
+where $AC$ is given by
+$$
+AC^2 = AD^2 + DC^2
+$$
+That can be substituted to (2)
+$$
+AB^2 = AD^2 + DC^2 + BC^2
+$$
+Since</p>
+<ul>
+<li>$AD = x_2 - x_1$</li>
+<li>$DC = y_2 - y_1$</li>
+<li>$BC = z_2 - z_1$</li>
+</ul>
+<p>the equation is
+$$
+AB^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2
+$$
+As with the distance formula in two dimensions this equation holds <em>no matter where</em> the points $A$ and $B$ lie.</p>
+<h3 id="distance-formula-three-dimensions">Distance formula (three dimensions)</h3>
+<p>The distance between two points $(x_1, y_1, z_1$ and $(x_2, y_2, z_2)$ is
+$$
+\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+$$</p>
+<h2 id="4-3-the-equation-of-a-sphere">4.3 The equation of a sphere</h2>
+<p>In three dimensions, the locus of points equidistant from a particular point is a sphere.</p>
+<p><img src="/mst124_u5_data/vec13.png" alt="vec13.png" /></p>
+<p>The radius of the sphere is the distance between its center and a point on it, hence</p>
+<h3 id="the-standard-form-of-the-equation-of-a-sphere">The standard form of the equation of a sphere</h3>
+<p>The sphere with centre $(a, b, c)$ and radius $r$ has equation
+$$
+(x - a)^2 + (y - b)^2 + (z - c)^2 = r^2
+$$</p>
+<h1 id="5-vectors">5 Vectors</h1>
+<h2 id="5-1-what-is-a-vector">5.1 What is a vector?</h2>
+<p>Some mathematical quantities need to be specified using a size <em>and a direction</em>.
+<strong>Displacement</strong> is the position of one point relative to another specified by distance and direction.
+<strong>Velocity</strong> is speed together with direction.
+Such quantities are called <strong>vectors</strong>.
+<strong>Magnitude</strong> is the size of a vector.</p>
+<p>Quantities that have size but no direction are called <strong>scalars</strong>.</p>
+<p>A vector with non-zero magnitude can be represented by an <em>arrow</em>.</p>
+<p><img src="/mst124_u5_data/vec14.png" alt="vec14.png" /></p>
+<p>Once a scale is defined, any two arrows with same direction and length represent the <em>same</em> vector.</p>
+<p>Vectors are represented as</p>
+<ul>
+<li>bold lowercase letter in typed texts - $\textbf{v}$</li>
+<li>underlined lowercase letter in written texts - $\underline{v}$</li>
+</ul>
+<p><strong>Displacement vectors</strong> are denoted as e.g. $\overrightarrow{PQ}$</p>
+<p>The magnitude of a vector $\textbf{v}$ is scalar denoted by $|\textbf{v}|$. It's read as 'the magnitude of v', 'the modulus of v' or 'mod v'.</p>
+<p>It applies that $PQ = |\overrightarrow{PQ}|$.</p>
+<h3 id="equal-vectors">Equal vectors</h3>
+<p>Two vectors are <strong>equal</strong> if they have the same magnitude and the same direction.</p>
+<h3 id="the-zero-vector">The zero vector</h3>
+<p>The <strong>zero vector</strong> is denoted by $\textbf{0}$ (bold zero), is the vector whose magnitude is zero. It has no direction.</p>
+<h3 id="addition-of-vectors">Addition of vectors</h3>
+<p>The method of combining two vectors to produce another vector is called <strong>vector addition</strong>, e.g. $\vec{PQ} + \vec{QR} = \vec{PR}$</p>
+<p><img src="/mst124_u5_data/vec15.png" alt="vec15.png" /></p>
+<h4 id="triangle-law-for-vector-addition">Triangle law for vector addition</h4>
+<p>To find the sum of two vectors $\textbf{a}$ and $\textbf{b}$, place the tail of $\textbf{b}$ at the tip of $\textbf{a}$. Then $\textbf{a} + \textbf{b}$ is the vector from the tail of $\textbf{a}$ to the tip of $\textbf{b}$.</p>
+<p>The sum of two vectors is also called their <strong>resultant vector</strong>.</p>
+<p>The order of operations doesn't matter since:</p>
+<p><img src="/mst124_u5_data/vec16.png" alt="vec16.png" /></p>
+<h4 id="parallelogram-law-for-vector-addition">Parallelogram law for vector addition</h4>
+<p>To find the sum of two vectors $\textbf{a}$ and $\textbf{b}$, place their tails together, and complete the resulting figure to form a parallelogram. Then $\textbf{a}$ + $\textbf{b}$ is the vector formed by the diagonal of the parallelogram, starting from the point where the tails of $\textbf{a}$ and $\textbf{b}$ meet.</p>
+<p>More than two vectors can be added by placing them all tip to tail.</p>
+<p>Addition of zero vector leaves original vector unchanged $\textbf{a} + \textbf{0} = \textbf{a}$.</p>
+<p>It's not possible to add a scalar to a vector.</p>
+<h3 id="negative-of-a-vector">Negative of a vector</h3>
+<p>The <strong>negative</strong> of a vector $\textbf{a}$, denoted by $-\textbf{a}$, is the vector with the same magnitude as $\textbf{a}$, but the opposite direction.</p>
+<p>For any points $P$ and $Q$, the position vectors $\vec{PQ}$ and $\vec{QP}$ have the property that $-\vec{PQ} = \vec{QP}$.</p>
+<p>For any vector $\textbf{a}$ and its negative $-\textbf{a}$ it applies that $\textbf{a} + (-\textbf{a}) = \textbf{0}$.</p>
+<h3 id="subtraction-of-vectors">Subtraction of vectors</h3>
+<p>To subtract $\textbf{b}$ from $\textbf{a}$, add $-\textbf{b}$ to $\textbf{a}$. That is
+$$
+\textbf{a} - \textbf{b} = \textbf{a} + (-\textbf{b})
+$$</p>
+<p>For any vector $\textbf{a}$, $\textbf{a} - \textbf{a} = \textbf{0}.$</p>
+<h3 id="multiplication-of-vectors-by-scalars">Multiplication of vectors by scalars</h3>
+<p><img src="/mst124_u5_data/vec17.png" alt="vec17.png" /></p>
+<p>When vector $\textbf{a}$ is added to itself the resultant vector $\textbf{a} + \textbf{a}$ has the same direction as $\textbf{a}$ but twice the magnitude. It's denoted by $2\textbf{a}$ and its said to be a <strong>scalar multiple</strong> of the vector $\textbf{a}$.</p>
+<h4 id="scalar-multiple-of-a-vector">Scalar multiple of a vector</h4>
+<p>Suppose that $\textbf{a}$ is a vector. Then, for any non-zero real number $m$, the <strong>scalar multiple</strong> $m\textbf{a}$ of $\textbf{a}$ is the vector</p>
+<ul>
+<li>whose magnitude is $|m|$ times the magnitude of $\textbf{a}$</li>
+<li>that has the same direction as $\textbf{a}$ if $m$ is positive, and the opposite direction if $m$ is negative.</li>
+</ul>
+<p>Also, $0\textbf{a} = \textbf{0}$.
+(That is, the number zero times the vector $\textbf{a}$ is the zero vector.)</p>
+<h2 id="5-2-vector-algebra">5.2 Vector algebra</h2>
+<h4 id="properties-of-vector-algebra">Properties of vector algebra</h4>
+<p>The following properties hold for all vectors $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$, and all scalars $m$ and $n$.</p>
+<ol>
+<li>$\textbf{a} + \textbf{b} = \textbf{b} + \textbf{a}$
+<ul>
+<li>The vector addition is <strong>commutative</strong></li>
+</ul>
+</li>
+<li>$(\textbf{a} + \textbf{b}) + \textbf{c} = \textbf{a} + (\textbf{b} + \textbf{c})$
+<ul>
+<li>The vector addition is <strong>associative</strong></li>
+</ul>
+</li>
+<li>$\textbf{a} + \textbf{0} = \textbf{a}$</li>
+<li>$\textbf{a} + (-\textbf{a}) = \textbf{0}$</li>
+<li>$m(\textbf{a} + \textbf{b}) = m\textbf{a} + m\textbf{b}$
+<ul>
+<li>The scalar multiplication is <strong>distributive</strong> over the addition of vectors.</li>
+</ul>
+</li>
+<li>$(m + n)\textbf{a} = m\textbf{a} + n\textbf{a}$
+<ul>
+<li>The scalar multiplication is <strong>distributive</strong> over the addition of scalars.</li>
+</ul>
+</li>
+<li>$m(n\textbf{a}) = (mn)\textbf{a}$</li>
+<li>$1\textbf{a} = \textbf{a}$</li>
+</ol>
+<p>Multiplication of vector by another vector will be explored later on.
+Division of a vector by another vector is not possible.</p>
+<h2 id="5-3-using-vectors">5.3 Using vectors</h2>
+<p>A <strong>bearing</strong> is an angle between $0^{\circ}$ and $360^{\circ}$, measured clockwise in degrees from north to the direction of interest.</p>
+<p><img src="/mst124_u5_data/vec18.png" alt="vec18.png" /></p>
+<h4 id="opposite-corresponding-and-alternate-angles">Opposite, corresponding and alternate angles</h4>
+<p>Where two lines intersect <strong>opposite</strong> angles are equal</p>
+<p>Where a line intersects parallel lines <strong>corresponding angles</strong> are equal and <strong>alternate angles</strong> are equal.</p>
+<p><img src="/mst124_u5_data/vec19.png" alt="vec19.png" /></p>
+<h1 id="6-component-form-of-a-vector">6 Component form of a vector</h1>
+<h2 id="6-1-representing-vectors-using-components">6.1 Representing vectors using components</h2>
+<p>Components are vectors in the directions of the $x$-, $y$- and $z$-axes with magnitude 1. These vectors are denoted by $\textbf{i}$, $\textbf{j}$ and $\textbf{k}$ respectively, and are called the <strong>Cartesian unit vectors</strong>.</p>
+<p>Any vector can be expressed as sums of scalar multiples of the Cartesian unit vectors</p>
+<p><img src="/mst124_u5_data/vec20.png" alt="vec20.png" /></p>
+<h3 id="component-form-of-a-vector">Component form of a vector</h3>
+<p>If $\textbf{v} = a\textbf{i} + b\textbf{j}$, then the expression $a\textbf{i} + b\textbf{j}$ is called the <strong>component form</strong> of $\textbf{v}$. The scalars $a$ and $b$ are called the <strong>$\textbf{i}$-component</strong> and <strong>$\textbf{j}$-component</strong>, respectively, of $\textbf{v}$.</p>
+<p>Similarly, if $\textbf{v} = a\textbf{i} + b\textbf{j} + c\textbf{k}$, then the expression $a\textbf{i} + b\textbf{j} + c\textbf{k}$ is called the <strong>component form</strong> of $\textbf{v}$. The scalars $a$, $b$ and $c$ are called the <strong>$\textbf{i}$-component</strong>, <strong>$\textbf{j}$-component</strong> and <strong>$\textbf{k}$-component</strong>, respectively, of $\textbf{v}$.</p>
+<h3 id="alternative-component-form-of-a-vector">Alternative component form of a vector</h3>
+<p>The vector $a\textbf{i} + b\textbf{j}$ can be written as $\begin{pmatrix}a \ b \end{pmatrix}$.</p>
+<p>The vector $a\textbf{i} + b\textbf{j} + c\textbf{k}$ can be written as $\begin{pmatrix}a \ b \ c \end{pmatrix}$.</p>
+<p>A vector written in this form is called a <strong>column vector</strong>.</p>
+<p>For example,
+$$
+4\textbf{i} - 3\textbf{j} = \begin{pmatrix} 4 \ -3 \end{pmatrix}
+$$</p>
+<p>Also,
+$$
+\textbf{i} = \begin{pmatrix}1 \ 0 \ 0\end{pmatrix}~,~~~
+\textbf{j} = \begin{pmatrix}0 \ 1 \ 0\end{pmatrix}~,~~~
+\textbf{k} = \begin{pmatrix}0 \ 0 \ 1\end{pmatrix}
+$$
+And
+$$
+\textbf{0} = 0\textbf{i} + 0\textbf{j} + 0\textbf{k} = \begin{pmatrix}0 \ 0 \ 0\end{pmatrix}
+$$</p>
+<p>Sometimes its useful to denote the components of a vector by same letter:
+$$
+\textbf{a} = a_1\textbf{i} + a_2\textbf{j} = \begin{pmatrix}a_1 \ a_2\end{pmatrix}
+$$</p>
+<h2 id="6-2-vector-algebra-using-components">6.2 Vector algebra using components</h2>
+<p>If $\textbf{a} = a_1\textbf{i} + a_2\textbf{j}$ and $\textbf{b} = b_1\textbf{i} + b_2\textbf{j}$, then
+$$
+\begin{align}
+\textbf{a} + \textbf{b} &amp;= a_1\textbf{i} + a_2\textbf{j} + b_1\textbf{i} + b_2\textbf{j} \
+&amp;= (a_1 + b_1)\textbf{i} + (a_2 + b_2)\textbf{j} 
+\end{align}
+$$</p>
+<p><img src="/mst124_u5_data/vec21.png" alt="vec21.png" /></p>
+<p>Hence, to add two two-dimensional vectors, their corresponding components should be added.</p>
+<h3 id="addition-of-two-dimensional-vectors-in-component-form">Addition of two-dimensional vectors in component form</h3>
+<p>If $\textbf{a} = a_1\textbf{i} + a_2\textbf{j}$ and $\textbf{b} = b_1\textbf{i} + b_2\textbf{j}$, then
+$$
+\begin{align}
+\textbf{a} + \textbf{b} &amp;= (a_1 + b_1)\textbf{i} + (a_2 + b_2)\textbf{j}
+\end{align}
+$$
+In column notation,
+if $\textbf{a} = \begin{pmatrix}a_1 \ a_2\end{pmatrix}$ and $\textbf{b} = \begin{pmatrix}b_1 \ b_2\end{pmatrix}$, then $\textbf{a} + \textbf{b} = \begin{pmatrix}a_1 + b_1 \ a_2 + b_2\end{pmatrix}$</p>
+<p>Vectors in three dimensions are added in similar way.</p>
+<p>This fact extends to sums of more than two vectors.</p>
+<h3 id="negative-of-a-vector-in-component-form">Negative of a vector in component form</h3>
+<p><img src="/mst124_u5_data/vec22.png" alt="vec22.png" /></p>
+<p>If $\textbf{b} = b_1\textbf{i} + b_2\textbf{j} + b_3\textbf{k}$, then $-\textbf{b} = -b_1\textbf{i} - b_2\textbf{j} - b_3\textbf{k}$.
+In column notation,
+if $\textbf{b} = \begin{pmatrix}b_1 \ b_2 \ b_3\end{pmatrix}$, then $-\textbf{b} = \begin{pmatrix}-b_1 \ -b_2 \ -b_3\end{pmatrix}$</p>
+<h3 id="subtraction-of-vectors-in-component-form">Subtraction of vectors in component form</h3>
+<p>If $\textbf{a} = a_1\textbf{i} + a_2\textbf{i} + a_3\textbf{k}$ and $\textbf{b} = b_1\textbf{i} + b_2\textbf{i} + b_3\textbf{k}$, then
+$$
+\textbf{a} - \textbf{b} = (a_1 - b_1)\textbf{i} + (a_2 - b_2)\textbf{j} + (a_3 - b_3)\textbf{k}
+$$
+In column notation,
+if $\textbf{a} = \begin{pmatrix}a_1 \ a_2 \ a_2\end{pmatrix}$ and $\textbf{b} = \begin{pmatrix}b_1 \ b_2 \ b_3\end{pmatrix}$, then $\textbf{a} - \textbf{b} = \begin{pmatrix}a_1 - b_1 \ a_2 - b_2 \ a_3 - b_3\end{pmatrix}$</p>
+<h3 id="multiplication-of-vectors-by-scalars-1">Multiplication of vectors by scalars</h3>
+<p>If $\textbf{a} = a_1\textbf{i} + a_2\textbf{j}$ and $m$ is scalar, then
+$$
+\begin{align*}
+m\textbf{a} &amp;= m(a_1\textbf{i} + a_2\textbf{j}) \\
+&amp;= ma_1\textbf{i} + ma_2\textbf{j}
+\end{align*}
+$$</p>
+<p><img src="/mst124_u5_data/vec23.png" alt="vec23.png" /></p>
+<h4 id="scalar-multiplication-in-component-form">Scalar multiplication in component form</h4>
+<p>If $\textbf{a} = a_1\textbf{i} + a_2\textbf{j} + a_3\textbf{k}$ and $m$ is a scalar, then $m\textbf{a} = ma_1\textbf{i} + ma_2\textbf{j} + ma_3\textbf{k}$.
+In column notation,
+if $\textbf{a} = \begin{pmatrix}a_1 \ a_2 \ a_3\end{pmatrix}$, then $m\textbf{a} = \begin{pmatrix}ma_1 \ ma_2 \ ma_3\end{pmatrix}$.</p>
+<h2 id="6-3-position-vectors">6.3 Position vectors</h2>
+<p><strong>Position vector</strong> of a point $P$ is the displacement vector $\vec{OP}$, where $O$ is the origin.</p>
+<p><img src="/mst124_u5_data/vec24.png" alt="vec24.png" /></p>
+<p>The position vector of the point $P(x, y)$ is
+$$
+\vec{OP} = x\textbf{i} + y\textbf{j} = \begin{pmatrix}x \ y\end{pmatrix}
+$$</p>
+<p>Any displacement vector $\vec{AB}$ can be expressed in terms of the position vectors of the points $A$ and $B$.</p>
+<p><img src="/mst124_u5_data/vec25.png" alt="vec25.png" /></p>
+<p>Since
+$$
+\vec{AB} = \vec{AO} + \vec{OB}
+$$
+it follows that
+$$
+\vec{AB} = -\vec{OA} + \vec{OB}
+$$
+that is
+$$
+\vec{AB} = \vec{OB} - \vec{OA}
+$$
+Hence following definition</p>
+<p>If the points $A$ and $B$ have position vectors $\textbf{a}$ and $\textbf{b}$, respectively, then
+$$
+\vec{AB} = \textbf{b} - \textbf{a}
+$$</p>
+<h3 id="alternative-proof-of-the-midpoint-formula">Alternative proof of the midpoint formula</h3>
+<p>Consider $A(x_1, y_1)$, $B(x_2, y_2)$. Let $M$ be the midpoint of $AB$, let $\textbf{a}$, $\textbf{b}$ and $\textbf{m}$ be the position vectors of $A$, $B$ and $M$, respectively.</p>
+<p><img src="/mst124_u5_data/vec26.png" alt="vec26.png" /></p>
+<p>$$
+\vec{OM} = \vec{OA} + \vec{AM}
+$$</p>
+<p>that is,
+$$
+\textbf{m} = \textbf{a} + \vec{AM}
+$$
+$\vec{AM}$ has the same direction as $\vec{AB}$ but half its magnitude, so 
+$$
+\vec{AM} = \frac{1}{2}\vec{AB} = \frac{1}{2}(\textbf{b} - \textbf{a})
+$$
+hence
+$$
+\begin{align*}
+\textbf{m} &amp;= \textbf{a} + \frac{1}{2}(\textbf{b} - \textbf{a}) \\
+&amp;= \textbf{a} + \frac{1}{2}\textbf{b} - \frac{1}{2}\textbf{a} \\
+&amp;= \frac{1}{2}\textbf{a} + \frac{1}{2}\textbf{b} \\
+&amp;= \frac{1}{2}(\textbf{a} + \textbf{b})
+\end{align*}
+$$</p>
+<p>Since $\textbf{a} = x_1\textbf{i} + y_1\textbf{j}$ and $\textbf{b} = x_2\textbf{i} + y_2\textbf{j}$, then
+$$
+\begin{align*}
+\textbf{m} &amp;= \frac{1}{2}(x_1\textbf{i} + y_1\textbf{j} + x_2\textbf{i} + y_2\textbf{j}) \\
+&amp;= (\frac{x_1 + x_2}{2})\textbf{i} + (\frac{y_1 + y_2}{2})\textbf{j}
+\end{align*}
+$$</p>
+<p>Giving following definition</p>
+<h3 id="midpoint-formula-in-terms-of-position-vectors">Midpoint formula in terms of position vectors</h3>
+<p>If the points $A$ and $B$ have position vectors $\textbf{a}$ and $\textbf{b}$, respectively, then the midpoint of the line segment $AB$ has position vector of $\frac{1}{2}(\textbf{a} + \textbf{b})$.</p>
+<h2 id="6-4-converting-from-component-form-to-magnitude-and-direction-and-vice-versa">6.4 Converting from component form to magnitude and direction, and vice versa</h2>
+<h3 id="finding-the-magnitude-of-a-vector-from-its-components">Finding the magnitude of a vector from its components</h3>
+<p>In
+<img src="/mst124_u5_data/vec27.png" alt="vec27.png" />
+$a$ and $b$ are the <em>magnitudes</em> of the components of $\textbf{v}$.</p>
+<p>By Pythagoras' theorem, the magnitude of the vector $\textbf{v}$ is given by
+$$
+|\textbf{v}| = \sqrt{a^2 + b^2}
+$$</p>
+<p>This formula holds for any vector $\textbf{v} = a\textbf{i} + b\textbf{j}$. Hence</p>
+<h4 id="the-magnitude-of-a-vector-in-terms-of-its-components">The magnitude of a vector in terms of its components</h4>
+<p>The magnitude of the vector $a\textbf{i} + b\textbf{j} + c\textbf{k} = \sqrt{a^2 + b^2 + c^2}$</p>
+<h3 id="finding-the-direction-of-a-two-dimensional-vector-from-its-components">Finding the direction of a two dimensional vector from its components</h3>
+<p>Another method to specify the direction of a two-dimensional vector besides <em>bearing</em> is to state the angle measured from the positive $x$-direction  to the direction of the vector <em>anticlockwise</em>.</p>
+<p><img src="/mst124_u5_data/vec28.png" alt="vec28.png" /></p>
+<p>Suppose a vector in component form and unknown angle against some reference direction, then the right-angled triangle can be sketched with the vector as hypotenuse. Then basic trigonometry can be used to find the acute angle that can be used to find the desired angle.</p>
+<h3 id="finding-the-components-of-a-two-dimensional-vector-from-its-magnitude">Finding the components of a two-dimensional vector from its magnitude</h3>
+<ul>
+<li>Sketch the right-angled triangle whose hypotenuse is the vector</li>
+<li>Use basic trigonometry to find the <em>magnitudes</em> of the components</li>
+<li>Using the direction of the vector find their <em>signs</em></li>
+</ul>
+<p>Consider a vector $\textbf{v}$ that makes the angle $\theta$ with the positive $x$-direction. Let $\textbf{u}$ be the vector in same direction but with magnitude 1. When placed on origin, its tip lies on unit circle, hence it has coordinates of $(\cos\theta, \sin\theta)$. Hence
+$$
+\begin{align*}
+\textbf{u} &amp;= \cos\theta\textbf{i} + \sin\theta\textbf{j} \\
+\text{v} &amp;= |\textbf{v}|(\cos\theta\textbf{i} + \sin\theta\textbf{j}) = |\textbf{v}|\cos\theta\textbf{i} + |\textbf{v}|\sin\theta\textbf{j}
+\end{align*}
+$$</p>
+<p><img src="/mst124_u5_data/vec29.png" alt="vec29.png" /></p>
+<p>So following fact</p>
+<h4 id="component-form-of-a-two-dimensional-vector-in-terms-of-its-magnitude-and-its-angle-with-the-positive-x-direction">Component form of a two-dimensional vector in terms of its magnitude and its angle with the positive $x$-direction</h4>
+<p>If the two-dimensional vector $\textbf{v}$ makes the angle $\theta$ with the positive $x$-direction, then
+$$
+\textbf{v} = |\textbf{v}|\cos\theta\textbf{i} + |\textbf{v}|\sin\theta\textbf{j}
+$$</p>
+<h1 id="7-scalar-product-of-two-vectors">7 Scalar product of two vectors</h1>
+<p>Is a way to multiply two vectors, also known as the <em>dot product</em>.
+It provides a convenient method for finding the angle between any two vectors.</p>
+<h2 id="7-1-calculating-scalar-products">7.1 Calculating scalar products</h2>
+<p>The <strong>angle between</strong> two vectors $\textbf{a}$ and $\textbf{b}$ is the angle $\theta$ in the range $0 \le \theta \le 180^{\circ}$.</p>
+<p><img src="/mst124_u5_data/vec30.png" alt="vec30.png" /></p>
+<h3 id="scalar-product-of-two-vectors">Scalar product of two vectors</h3>
+<p>The <strong>scalar product</strong> of the non-zero vectors $\textbf{a}$ and $\textbf{b}$ is
+$$
+\textbf{a} \cdot \textbf{b} = |\textbf{a}| |\textbf{b}|\cos\theta
+$$
+where $\theta$ is the angle between $\textbf{a}$ and $\textbf{b}$.</p>
+<p>If $\textbf{a}$ or $\textbf{b}$ is the zero vector, then $\textbf{a} \cdot \textbf{b} = 0$.</p>
+<p>The scalar product is <em>scalar</em> because none of the quantities has a direction.</p>
+<p>If two non-zero vectors are perpendicular, then their scalar product is zero since
+$$
+\textbf{a} \cdot \textbf{b} = |\textbf{a}| |\textbf{b}|\cos90^{\circ} = |\textbf{a}| |\textbf{b}|\times0
+$$</p>
+<p>The scalar product of a vector with itself is equal to the square of the magnitude of the vector since
+$$
+\textbf{a} \cdot \textbf{a} = |\textbf{a}||\textbf{a}|\cos0^\circ = |\textbf{a}||\textbf{a}| \times 1 = |\textbf{a}|^2
+$$</p>
+<h4 id="properties-of-the-scalar-product">Properties of the scalar product</h4>
+<p>The following properties hold for all vectors $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$, and every scalar $m$.</p>
+<ol>
+<li>Suppose that $\textbf{a}$ and $\textbf{b}$ are non-zero. If $\textbf{a}$ and $\textbf{b}$ are perpendicular, then $\textbf{a} \cdot \textbf{b} = 0$, and vice versa.</li>
+<li>$\textbf{a} \cdot \textbf{a} = |\textbf{a}|^2$</li>
+<li>$\textbf{a} \cdot \textbf{b} = \textbf{b} \cdot \textbf{a}$
+<ul>
+<li>Operation of taking scalar product is commutative</li>
+</ul>
+</li>
+<li>$\textbf{a} \cdot (\textbf{b} + \textbf{c}) = \textbf{a} \cdot \textbf{b} + \textbf{a} \cdot \textbf{c}$
+<ul>
+<li>Operation of taking scalar product is distributive over vector addition</li>
+</ul>
+</li>
+<li>$(m\textbf{a}) \cdot \textbf{b} = m(\textbf{a} \cdot \textbf{b}) = \textbf{a} \cdot (m\textbf{b})$
+<ul>
+<li>Multiplication by a scalar is distributive over the operation of taking a scalar product</li>
+</ul>
+</li>
+</ol>
+<h3 id="calculating-scalar-products-from-components">Calculating scalar products from components</h3>
+<p>Consider $\textbf{a} = a_1\textbf{i} + a_2\textbf{j}$ and $\textbf{b} = b_1\textbf{i} + b_2\textbf{j}$
+Their scalar product is
+$$
+\begin{align*}
+\textbf{a} \cdot \textbf{b} &amp;= (a_1\textbf{i} + a_2\textbf{j}) \cdot (b_1\textbf{i} + b_2\textbf{j}) \\
+&amp;= (a_1\textbf{i}) \cdot (b_1\textbf{i}) + (a_1\textbf{i}) \cdot (b_2\textbf{j}) + (a_2\textbf{j}) \cdot (b_1\textbf{i}) +(a_2\textbf{j}) \cdot (b_2\textbf{j}) \\
+&amp;= a_1b_1(\textbf{i} \cdot \textbf{i}) + a_1b_2(\textbf{i} \cdot \textbf{j}) + a_2b_1(\textbf{j} \cdot \textbf{i}) + a_2b_2(\textbf{j} \cdot \textbf{j})
+\end{align*} 
+$$</p>
+<p>Given the properties of the scalar product and the fact both $\textbf{i}$ and $\textbf{j}$ have magnitude 1, we get following definition</p>
+<h4 id="scalar-product-of-vectors-in-terms-of-components">Scalar product of vectors in terms of components</h4>
+<p>If $\textbf{a} = a_1\textbf{i} + a_2\textbf{j} + a_3\textbf{k}$ and $\textbf{b} = b_1\textbf{i} + b_2\textbf{j} + b_3\textbf{k}$, then
+$$
+\textbf{a} \cdot \textbf{b} = a_1b_1  + a_2b_2 + a_3b_3
+$$</p>
+<p>In column notation,
+if $\textbf{a} = \begin{pmatrix}a_1 \ a_2 \ a_3\end{pmatrix}$ and $\textbf{b} = \begin{pmatrix}b_1 \ b_2 \ b_3\end{pmatrix}$, then $\textbf{a} \cdot \textbf{b} = a_1b_1  + a_2b_2 + a_3b_3$</p>
+<h2 id="7-2-finding-the-angle-between-two-vectors">7.2 Finding the angle between two vectors</h2>
+<p>Rearranging the definition of the scalar product gives following fact</p>
+<h4 id="angle-between-two-vectors">Angle between two vectors</h4>
+<p>The angle $\theta$ between any two non-zero vectors $\textbf{a}$ and $\textbf{b}$ is given by
+$$
+\cos\theta = \frac{\textbf{a} \cdot \textbf{b}}{|\textbf{a}||\textbf{b}|}
+$$</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

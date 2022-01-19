@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MST124 Unit 4 - Trigonometry | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mst124-unit4/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mst124 Unit4",
+            "item": "https://ktsk.xyz/docs/uni/mst124-unit4/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MST124 Unit 4 - Trigonometry</h1>
+        
+        <h1 id="1-right-angled-triangles">1 Right-angled triangles</h1>
+<h2 id="1-1-radians-and-degrees">1.1 Radians and degrees</h2>
+<p>An unbroken piece of a circumference of a circle is called an <strong>arc</strong>. The angle at the centre is said to be <strong>subtended</strong> by the arc.</p>
+<p>One <strong>radian</strong> is the angle subtended at the centre of a circle by an arc that has the same length as the radius.</p>
+<p><img src="/mst124_u4_data/trig1.png" alt="trig1.png" /></p>
+<p>Given the circumference of a circle is $2\pi r$ and each arch of length $r$ subtends 1 radian then the number of radians in full circle is:
+$$
+\frac{2\pi r}{r} = 2\pi = 360^{\circ}
+$$
+This gives:
+$$
+1~\text{radian} = \frac{360^{\circ}}{2\pi} = \frac{180^{\circ}}{\pi} = 57.295... \approx 57^\circ
+$$</p>
+<p>The number of radians in a fraction of full turn can be expressed in terms of $\pi$, e.g. $120^{\circ}= 2\pi/3$, $30^{\circ}= 2\pi/12 = \pi/6$, $90^\circ = \pi/2$...</p>
+<h4 id="converting-between-degrees-and-radians">Converting between degrees and radians</h4>
+<ul>
+<li>number of radians $= \frac{\pi}{180} \times$ number of degrees</li>
+<li>number of degrees $= \frac{180}{\pi} \times$ number of radians</li>
+</ul>
+<h4 id="length-of-an-arc-of-a-circle">Length of an arc of a circle</h4>
+<p>$$
+\text{arc length} = r\theta
+$$
+where $r$ is the radius of the circle and $\theta$ is the angle subtended by the arc, measured in radians.</p>
+<h4 id="area-of-a-sector-of-a-circle">Area of a sector of a circle</h4>
+<p>$$
+\text{area of sector} = \frac{1}{2}r^2\theta
+$$</p>
+<h2 id="1-2-sine-cosine-and-tangent">1.2 Sine, cosine and tangent</h2>
+<p>$$
+\begin{align}
+\sin\theta = \frac{\text{opp}}{\text{hyp}} \\[1em]
+\cos\theta = \frac{\text{adj}}{\text{hyp}} \\[1em]
+\tan\theta = \frac{\text{opp}}{\text{adj}} \\[1em]
+\end{align}
+$$</p>
+<h2 id="1-5-trigonometric-rations-of-special-angles">1.5 Trigonometric rations of special angles</h2>
+<p>Following special angles can be deduced without calculator:</p>
+<ul>
+<li>$\pi / 6 ~~ (30^{\circ})$</li>
+<li>$\pi / 4 ~~ (45^{\circ})$</li>
+<li>$\pi / 3 ~~ (60^{\circ})$</li>
+</ul>
+<p>$\pi / 3$ is one of the angles of an <em>equilateral triangle</em> like:</p>
+<p><img src="/mst124_u4_data/trig2.png" alt="trig2.png" /></p>
+<p>The lengths of the vertical line is:
+$$
+\sqrt{2^2 - 1^2} = \sqrt{3}
+$$
+Giving:
+$$
+\sin\frac{\pi}{3} = \frac{\sqrt{3}}{2} ~~~ \cos\frac{\pi}{3} = \frac{1}{2} ~~~ \tan\frac{\pi}{3} = \frac{\sqrt{3}}{1} = \sqrt{3}
+$$</p>
+<p>The ratio of $\pi/6$ can be found by using same diagram:</p>
+<p><img src="/mst124_u4_data/trig3.png" alt="trig3.png" /></p>
+<p>Giving:
+$$
+\sin\frac{\pi}{6} = \frac{1}{2} ~~~ \cos\frac{\pi}{6} = \frac{\sqrt{3}}{2} ~~~ \tan\frac{\pi}{6} = \frac{1}{\sqrt{3}}
+$$</p>
+<p>To find the ratios of $\pi/4$, following diagram can be used:</p>
+<p><img src="/mst124_u4_data/trig4.png" alt="trig4.png" /></p>
+<p>The length of the diagonal is:
+$$
+\sqrt{1^2 + 1^2} = \sqrt{2}
+$$</p>
+<p>Giving:
+$$
+\sin\frac{\pi}{4} = \frac{1}{\sqrt{2}} ~~~ \cos\frac{\pi}{4} = \frac{1}{\sqrt{2}} ~~~ \tan\frac{\pi}{4} = \frac{1}{1} = 1
+$$</p>
+<h4 id="special-angles-table">Special angles table</h4>
+<table><thead><tr><th>$\theta$ in radians</th><th>$\theta$ in degrees</th><th>$\sin\theta$</th><th>$\cos\theta$</th><th>$\tan\theta$</th></tr></thead><tbody>
+<tr><td>$\frac{\pi}{6}$</td><td>$30^{\circ}$</td><td>$\frac{1}{2}$</td><td>$\frac{\sqrt{3}}{2}$</td><td>$\frac{1}{\sqrt{3}}$</td></tr>
+<tr><td>$\frac{\pi}{4}$</td><td>$45^{\circ}$</td><td>$\frac{1}{\sqrt{2}}$</td><td>$\frac{1}{\sqrt{2}}$</td><td>$1$</td></tr>
+<tr><td>$\frac{\pi}{3}$</td><td>$60^{\circ}$</td><td>$\frac{\sqrt{3}}{2}$</td><td>$\frac{1}{2}$</td><td>$\sqrt{3}$</td></tr>
+</tbody></table>
+<p>It follows that e.g.
+$$
+\cos^{-1}(\frac{\sqrt{3}}{2}) = \frac{\pi}{6}
+$$</p>
+<p>It also follows that for any acute angle $\theta$, the value of $\sin\theta$ and $\cos\theta$ is less than 1.</p>
+<h2 id="1-6-trigonometric-identities">1.6 Trigonometric identities</h2>
+<p>To find first two identities consider an acute angle $\theta$ in right-angled triangle such that</p>
+<p><img src="/mst124_u4_data/trig5.png" alt="trig5.png" /></p>
+<p>For which
+$$
+\sin\theta = \frac{a}{1} = a <del>,</del> \cos\theta = \frac{b}{1} = b <del>,</del> \tan\theta = \frac{a}{b}
+$$</p>
+<p>It follows that
+$$
+\frac{\sin\theta}{\cos\theta} = \frac{a}{b} = \tan\theta
+$$
+Giving the first identity.</p>
+<p>Second identity can be found by applying the Pythagora's theorem:
+$$
+a^2 + b^2 = 1^2 = 1
+$$
+Hence it follows that
+$$
+(\sin\theta)^2 + (\cos\theta)^2 = 1
+$$
+Giving the second identity.</p>
+<p>For next two identities consider:</p>
+<p><img src="/mst124_u4_data/trig6.png" alt="trig6.png" /></p>
+<p>Where:
+$$
+\sin\theta=\frac{a}{c} ~~ \cos\theta=\frac{b}{c}
+$$
+Leading to next two identities:
+$$
+\sin(\frac{\pi}{2} - \theta) = \frac{b}{c} = \cos\theta ~~ \cos(\frac{\pi}{2} - \theta) = \frac{a}{c} = \sin\theta
+$$</p>
+<h4 id="list-of-trigonometric-identities">List of trigonometric identities</h4>
+<p>$$
+\begin{align}
+\frac{\sin\theta}{\cos\theta} &amp;= \tan\theta \\[1em]
+\sin^2\theta + \cos^2\theta &amp;= 1 \\[1em]
+\sin(\frac{\pi}{2} - \theta) &amp;= \cos\theta \\[1em]
+\cos(\frac{\pi}{2} - \theta) &amp;= \sin\theta \\[1em]
+\end{align}
+$$</p>
+<h1 id="2-trigonometric-functions">2 Trigonometric functions</h1>
+<h2 id="2-1-angles-of-any-size">2.1 Angles of any size</h2>
+<p>Besides acute and right angles we can have:</p>
+<ul>
+<li><strong>obtuse</strong> angles (between $\pi/2$ and $\pi$)</li>
+<li><strong>straight</strong> angles ($\pi$)</li>
+<li><strong>reflex</strong> angles (between $\pi$ and $2\pi$)</li>
+</ul>
+<p>There can also be angles larger than $2\pi$ or negative angles like $-\pi$.</p>
+<p>The first step to find trigonometric rations of any angle is to associate a particular point $P$ with angle $\theta$ on the <strong>unit circle</strong>.</p>
+<p><img src="/mst124_u4_data/trig7.png" alt="trig7.png" /></p>
+<h2 id="2-2-sine-cosine-and-tangent-of-any-angle">2.2 Sine, cosine and tangent of any angle</h2>
+<p><img src="/mst124_u4_data/trig8.png" alt="trig8.png" /></p>
+<h4 id="sine-cosine-and-tangent">Sine, cosine and tangent</h4>
+<p>Suppose that $\theta$ is any angle and $(x, y)$ are the coordinates of its associated point $P$ on the unit circle. Then
+$$
+\sin\theta = y~,~~ \cos\theta = x, \\
+$$
+and, provided that $x \ne 0$,
+$$
+\tan\theta = \frac{y}{x}
+$$
+(If $x = 0$, then $\tan\theta$ is undefined.)</p>
+<h4 id="astc-diagram">ASTC diagram</h4>
+<p>Indicates which of the $\sin\theta$, $\cos\theta$ and $\tan\theta$ are positive.</p>
+<p><img src="/mst124_u4_data/trig9.png" alt="trig9.png" /></p>
+<p>Suppose that $\theta$ is an angle whose associated point $P$ does not lie on either the $x$- or $y$-axis, and $\phi$ is the acute angle between $OP$ and the $x$-axis. Then
+$$
+\begin{align}
+\sin\theta = \pm\sin\phi \\[0.5em]
+\cos\theta = \pm\cos\phi \\[0.5em]
+\tan\theta = \pm\tan\phi \\[0.5em]
+\end{align}
+$$
+The ASTC diagram tells you which sign applies in each case.
+(The values $\sin\phi$, $\cos\phi$ and $\tan\phi$ are all positive, because $\phi$ is acute.)</p>
+<h2 id="2-3-graphs-of-sine-cosine-and-tangent">2.3 Graphs of sine, cosine and tangent</h2>
+<p>Sine, cosine and tangent are <strong>trigonometric functions</strong> (rules with inputs and outputs).</p>
+<h3 id="the-graph-of-the-sine-function">The graph of the sine function</h3>
+<p><img src="/mst124_u4_data/trig10.png" alt="trig10.png" /></p>
+<p>$\sin\theta$ is the $y$-coordinate of point $P$ on unit circle.
+As the angle $\theta$ increases from $0$ to $2\pi$, the point $P$ rotates from positive $x$-axis. Its $y$-coordinate oscillates from 0 to 1 to 0 to -1 and back to 0.</p>
+<p>The graph oscillates endlessly since $\sin(\theta + 2\pi) = \sin\theta$ hence it's <strong>periodic</strong> with <strong>period</strong> $2\pi$.</p>
+<h3 id="the-graph-of-the-cosine-function">The graph of the cosine function</h3>
+<p><img src="/mst124_u4_data/trig11.png" alt="trig11.png" /></p>
+<p>$\cos\theta$ is the $x$-coordinate of the point $P$ on the unit circle. It's periodic with period $2\pi$.</p>
+<h3 id="the-graph-of-the-tangent-function">The graph of the tangent function</h3>
+<p><img src="/mst124_u4_data/trig12.png" alt="trig12.png" /></p>
+<p>The graph is periodic with period of $\pi$. The breaks in graph occur when $\theta = \pi/2 + n\pi$ for some integer $n$. These are the values of $\theta$ for which $\tan\theta$ is undefined because the $x$-coordinate of the point $P$ is zero.</p>
+<h3 id="using-the-variables-x-and-y-for-trigonometric-functions">Using the variables $x$ and $y$ for trigonometric functions</h3>
+<p>Sometimes it's convenient to use the letter $x$ to denote the input variable and the letter $y$ to denote the output variable:</p>
+<p>$$
+y = \sin x ~~ y = \cos x ~~ y = \tan x
+$$</p>
+<h2 id="2-4-inverse-trigonometric-functions">2.4 Inverse trigonometric functions</h2>
+<p>In general if a function $f$ is one-to-one, then it has an <em>inverse function</em> $f^{-1}$, whose rule is give by
+$$
+f^{-1}(y) = x ~~~\text{where}~~~ f(x) = y
+$$
+The sine, cosine and tangent aren't one-to-one, e.g.:</p>
+<p><img src="/mst124_u4_data/trig13.png" alt="trig13.png" /></p>
+<p>To obtain 'sort of inverse function' we need to specify new function with same rule but limited domain - a <em>restriction</em>:</p>
+<p><img src="/mst124_u4_data/trig14.png" alt="trig14.png" /></p>
+<p>It has same image set as the sine function $[-1, 1]$ and it's increasing on the whole domain, so it's one-to-one. Hence it has an inverse function called the <strong>inverse sine function</strong> denoted by $\sin^{-1}$. </p>
+<p>The graph of $y = \sin^{-1}(x)$ is reflection of $y = \sin(x)$ in the line $y = x$ (as with any other inverse function).</p>
+<h3 id="inverse-sine">Inverse sine</h3>
+<p>The <strong>inverse sine function</strong> $\sin^{-1}$ is the function with domain $[-1, 1]$ and rule
+$$
+\sin^{-1}x = y
+$$
+where $y$ is the number in the interval $[-\pi/2, \pi/2]$ such that $\sin y=x$.</p>
+<h3 id="inverse-cosine">Inverse cosine</h3>
+<p>The <strong>inverse cosine function</strong> $\cos^{-1}$ is the function with domain $[-1, 1]$ and rule
+$$
+\cos^{-1} x = y
+$$
+where $y$ is the number in the interval $[0, \pi]$ such that $\cos y = x$</p>
+<p><img src="/mst124_u4_data/trig15.png" alt="trig15.png" /></p>
+<h3 id="inverse-tangent">Inverse tangent</h3>
+<p>The <strong>inverse tangent function</strong> $\tan^{-1}$ is the function with domain $\mathbb{R}$ and rule
+$$
+\tan^{-1} x = y
+$$
+where $y$ is the number in the interval $(-\pi/2, \pi/2)$ such that $\tan y = x$.</p>
+<p><img src="/mst124_u4_data/trig16.png" alt="trig16.png" /></p>
+<h4 id="identities-with-negative-inputs">Identities with negative inputs</h4>
+<p>$$
+\begin{align}
+\sin^{-1}(-x) &amp;= -\sin^{-1}x \\[0.4em]
+\cos^{-1}(-x) &amp;= \pi -\cos^{-1}x \\[0.4em]
+\tan^{-1}(-x) &amp;= -\tan^{-1}x \\[0.4em]
+\end{align}
+$$</p>
+<h2 id="2-5-solving-simple-trigonometric-equations">2.5 Solving simple trigonometric equations</h2>
+<p>Like:
+$$
+\sin\theta=\frac{1}{2},~~~\cos\theta=0.3,~~~\tan\theta=-1
+$$
+One solution can be found by applying an inverse trigonometric function:
+$$
+\theta = \sin^{-1}\frac{1}{2} = \frac{\pi}{6}
+$$
+However there are infinitely many other solutions since the sine is periodic.
+Hence it's the best to start by finding all the solutions in the interval of length $2\pi$, such as $[0, 2\pi]$ or $[-\pi, \pi]$ (there are usually two).
+Additional solutions ca be found by adding integer multiples of $2\pi$.</p>
+<h1 id="3-sine-and-cosine-rules">3 Sine and cosine rules</h1>
+<h2 id="3-1-the-sine-rule">3.1 The sine rule</h2>
+<p><img src="/mst124_u4_data/trig17.png" alt="trig17.png" /></p>
+<p>$$
+\begin{align}
+\sin A &amp;= \frac{h}{b}, <del>\text{so}</del> h = b\sin A \\[0.4em]
+\sin B &amp;= \frac{h}{a}, <del>\text{so}</del> h = a\sin B \\[0.4em]
+\text{hence} \\[0.4em]
+b\sin A &amp;= h = a \sin B \\[0.4em]
+\frac{a}{\sin A} &amp;= \frac{b}{\sin B}
+\end{align}
+$$</p>
+<p>In same way, the line $h$ can be raised from other vertices and similar equation deduced.</p>
+<h3 id="sine-rule">Sine rule</h3>
+<p>$$
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} 
+$$</p>
+<h3 id="using-the-sine-rule-to-find-a-side-length">Using the sine rule to find a side length</h3>
+<p>You can use the sine rule to find an unknown side length of a triangle if you know</p>
+<ul>
+<li>the opposite angle</li>
+<li>another side length and its opposite angle. </li>
+</ul>
+<h3 id="using-the-sine-rule-to-find-an-angle">Using the sine rule to find an angle</h3>
+<p>You can use the sine rule to find an unknown angle in a triangle if you know:</p>
+<ul>
+<li>the opposite side length</li>
+<li>another side length and its opposite angle.</li>
+</ul>
+<p>Sometimes you also need to know whether the unknown angle is acute or obtuse.</p>
+<h2 id="3-2-the-cosine-rule">3.2 The cosine rule</h2>
+<p><img src="/mst124_u4_data/trig18.png" alt="trig18.png" /></p>
+<p>$$
+\begin{align}
+b^2 &amp;= y^2 + h^2 \\
+a^2 &amp;= (c - y)^2 + h^2 \\
+\end{align}
+$$
+Expanding the brackets in second term gives
+$$
+a^2 = c^2 - 2cy + y^2 + h^2
+$$
+Since $y^2 + h^2 = b^2$ it follows that
+$$
+a^2 = c^2 - 2cy + b^2 = b^2 + c^2 - 2cy
+$$
+Next
+$$
+\cos A = \frac{y}{b}, ~~\text{so} ~~ y = b\cos A
+$$
+Substituting gives
+$$
+a^2 = b^2 + c^2 - 2bc\cos A
+$$</p>
+<h4 id="cosine-rule">Cosine rule</h4>
+<p>$$
+\begin{align}
+a^2 = b^2 + c^2 - 2bc\cos A \\
+b^2 = c^2 + a^2 - 2ca\cos B \\
+c^2 = a^2 + b^2 - 2ab\cos C \\
+\end{align}
+$$</p>
+<h3 id="using-the-cosine-rule-to-find-a-side-length">Using the cosine rule to find a side length</h3>
+<p>You can use the cosine rule to find an unknown side length of a triangle if you know the other two side lengths and the angle between them.</p>
+<h3 id="using-the-cosine-rule-to-find-an-angle">Using the cosine rule to find an angle</h3>
+<p>You can use the cosine rule to find an unknown angle if you know all three side lengths.</p>
+<h3 id="triangle-solving-tree">Triangle solving tree</h3>
+<pre style="background-color:#2b303b;">
+<code class="language-mermaid" data-lang="mermaid"><span style="color:#abb2bf;">graph TD
+	l1(Does the triangle contain a right angle?)
+	l2a(Does the problem only involve lengths?)
+	l2b(Do you know a length and the angle opposite?)
+	l3a(Pythagoras&#39; theorem)
+	l3b(Trigonometric ratios)
+	l3c(Sine rule)
+	l3d(Cosine rule)
+	
+	l1 -- Y --&gt; l2a
+	l1 -- N --&gt; l2b
+	
+	l2a -- Y --&gt; l3a
+	l2a -- N --&gt; l3b
+	
+	l2b -- Y --&gt; l3c
+	l2b -- N --&gt; l3d
+</span></code></pre><h2 id="3-3-the-area-of-triangle">3.3 The area of triangle</h2>
+<p>For a triangle,
+$$
+\text{area} = \frac{1}{2} \times \text{base} \times \text{height}
+$$</p>
+<p><img src="/mst124_u4_data/trig19.png" alt="trig19.png" /></p>
+<p>$$
+\sin\theta = \frac{h}{a},~~~\text{so}~~ h = a\sin\theta
+$$
+Hence</p>
+<h3 id="area-of-triangle">Area of triangle</h3>
+<p>For a triangle with an angle $\theta$ between two sides of lengths $a$ and $b$,
+$$
+\text{area} = \frac{1}{2}ab\sin\theta
+$$</p>
+<h2 id="3-4-the-angle-of-inclination-of-a-line">3.4 The angle of inclination of a line</h2>
+<p>is the angle that it makes with the $x$-axis, measured anticlockwise from the positive direction of the $x$-axis, when the line is drawn on axes <em>with equal scales</em>.</p>
+<ul>
+<li>a line with positive gradient has an angle of inclination between 0 and $\pi/2$</li>
+<li>a line with negative gradient has an angle of inclination between $\pi/2$ and $\pi$.</li>
+</ul>
+<p><img src="/mst124_u4_data/trig20.png" alt="trig20.png" /></p>
+<p>When a unit circle is considered:</p>
+<p><img src="/mst124_u4_data/trig21.png" alt="trig21.png" /></p>
+<p>It's known that
+$$
+\tan\theta = \frac{y}{x}
+$$
+And by the formula for gradient
+$$
+\text{gradient of OP} = \frac{y - 0}{x - 0} = \frac{y}{x}
+$$</p>
+<p>hence</p>
+<h3 id="gradient-and-angle-of-inclination-of-a-straight-line">Gradient and angle of inclination of a straight line</h3>
+<p>For any non-vertical straight line with angle of inclination $\theta$,
+$$
+\text{gradient} = \tan\theta
+$$
+Remember that the angle of inclination is measured when the line is drawn on axes <em>with equal scales</em>.</p>
+<h1 id="4-further-trigonometric-identities">4 Further trigonometric identities</h1>
+<h2 id="4-1-two-simple-trigonometric-identities">4.1 Two simple trigonometric identities</h2>
+<p>First one is already known:
+$$
+\tan\theta=\frac{\sin\theta}{\cos\theta}
+$$</p>
+<p>Second can be deduced as follows:</p>
+<p><img src="/mst124_u4_data/trig22.png" alt="trig22.png" /></p>
+<p>The length of the </p>
+<ul>
+<li>vertical side of triangle is $\sin\theta$.</li>
+<li>horizontal side of triangle is $-\cos\theta$</li>
+</ul>
+<p>Hence by Pythagoras' theorem
+$$
+\begin{align}
+(\sin\theta)^2 + (-\cos\theta)^2 = 1^2 \\
+(\sin\theta)^2 + (\cos\theta)^2 = 1
+\end{align}
+$$</p>
+<p>Giving the second identity:
+$$
+\sin^2\theta + \cos^2\theta = 1
+$$</p>
+<h2 id="4-2-trigonometric-identities-from-the-graphs-of-sine-cosine-and-tangent">4.2 Trigonometric identities from the graphs of sine, cosine and tangent</h2>
+<p><img src="/mst124_u4_data/trig23.png" alt="trig23.png" /></p>
+<p>Given the trigonometric functions are periodic it follow that</p>
+<p>$$
+\begin{align}
+\sin(\theta + 2\pi) &amp;= \sin\theta \\
+\cos(\theta + 2\pi) &amp;= \cos\theta \\
+\tan(\theta + \pi) &amp;= \tan\theta \\
+\end{align}
+$$</p>
+<p>From the symmetry of the respective graphs it also follows that
+$$
+\begin{align}
+\sin(-\theta) &amp;= -\sin\theta \\
+\cos(-\theta) &amp;= \cos\theta \\
+\tan(-\theta) &amp;= -\tan\theta
+\end{align}
+$$</p>
+<p>Also, if the graph of cosine is translated to the left by $\pi/2$ and reflected in the vertical axis the graph of sine is obtained. Hence the equation
+$$
+\cos(-\theta + \frac{\pi}{2}) = \sin\theta
+$$
+is an identity. Similar identity can be found for since.</p>
+<p>Hence following identities
+$$
+\begin{align}
+\sin(\frac{\pi}{2} - \theta) = \cos\theta \\
+\cos(-\theta + \frac{\pi}{2}) = \sin\theta
+\end{align}
+$$</p>
+<h2 id="4-3-cosecant-secant-and-cotangent">4.3 Cosecant, secant and cotangent</h2>
+<p>In right angled triangle, three known trigonometric functions are defined as
+$$
+\sin\theta = \frac{\text{opp}}{\text{hyp}} ~~~
+\cos\theta = \frac{\text{adj}}{\text{hyp}} ~~~
+\tan\theta = \frac{\text{opp}}{\text{adj}} ~~~
+$$</p>
+<p>There are three further ratios <strong>cosecant</strong>, <strong>secant</strong>, <strong>cotangent</strong> of $\theta$:
+$$
+\text{cosec}\theta = \frac{\text{hyp}}{\text{opp}} ~~~
+\text{sec}\theta = \frac{\text{hyp}}{\text{adj}} ~~~
+\text{cot}\theta = \frac{\text{adj}}{\text{opp}} ~~~
+$$</p>
+<p>Generalized as</p>
+<h3 id="cosecant-secant-and-cotangent">Cosecant, secant and cotangent</h3>
+<p>$$
+\begin{align}
+\text{cosec}\theta &amp;= \frac{1}{\sin\theta} ~~~(\text{provided} \sin\theta \ne 0) \\
+\text{sec}\theta &amp;= \frac{1}{\cos\theta} ~~~(\text{provided} \cos\theta \ne 0) \\
+\text{cot}\theta &amp;= \frac{\cos\theta}{\sin\theta} ~~~(\text{provided} \sin\theta \ne 0) \\
+\end{align}
+$$</p>
+<p>Given
+$$
+\tan\theta = \frac{\sin\theta}{\cos\theta}
+$$</p>
+<p>it follows that
+$$
+\cot\theta = \frac{1}{\tan\theta} ~~~ (\text{provided} \sin\theta\ne0 ~\text{and} \cos\theta\ne0)
+$$</p>
+<p>Essentially cosecant, secant and cotangent are the reciprocals of the sine, cosine and tangent functions (with same periods).</p>
+<p><img src="/mst124_u4_data/trig24.png" alt="trig24.png" /></p>
+<p>Two new identities can be obtained by taking previous identity
+$$
+\sin^2\theta + \cos^2\theta = 1
+$$
+dividing both sides by $\cos^2\theta$
+$$
+\frac{\sin^2\theta}{\cos^2\theta} + \frac{\cos^2\theta}{\cos^2\theta} = \frac{1}{\cos^2\theta}
+$$
+that is
+$$
+\tan^2\theta + 1 = \sec^2\theta
+$$</p>
+<p>Hence following identities
+$$
+\begin{align}
+\tan^2\theta + 1 &amp;= \sec^2\theta \\
+1 + \cot^2\theta &amp;= \text{cosec}^2\theta
+\end{align}
+$$</p>
+<h2 id="4-4-angle-sum-and-angle-difference-identities">4.4 Angle sum and angle difference identities</h2>
+<h3 id="angle-sum-identities-for-sine-and-cosine">Angle sum identities for sine and cosine</h3>
+<p>$$
+\begin{align}
+\sin(A + B) = \sin A \cos B + \cos A \sin B \\
+\cos(A + B) = \cos A \cos B - \sin A \sin B
+\end{align}
+$$</p>
+<h3 id="angle-sum-identity-for-tangent">Angle sum identity for tangent</h3>
+<p>$$
+\tan(A + B) = \frac{\tan A + \tan B}{1 - \tan A \tan B}
+$$</p>
+<h3 id="angle-difference-identities">Angle difference identities</h3>
+<p>$$
+\begin{align}
+\sin(A + B) = \sin A \cos B - \cos A \sin B \\
+\cos(A - B) = \cos A \cos B + \sin A \sin B \\
+\tan(A - B) = \frac{\tan A - \tan B}{1 + \tan A \tan B}
+\end{align}
+$$</p>
+<h2 id="4-5-double-angle-and-half-angle-identities">4.5 Double-angle and half-angle identities</h2>
+<h3 id="double-angle-identities">Double-angle identities</h3>
+<p>$$
+\begin{align}
+\sin(2\theta) &amp;= 2\sin\theta\cos\theta \\
+\cos(2\theta) &amp;= \cos^2\theta - sin^2\theta \\
+\tan(2\theta) &amp;= \frac{2\tan\theta}{1 - \tan^2\theta}
+\end{align}
+$$</p>
+<h3 id="alternative-double-angle-identities-for-cosine">Alternative double-angle identities for cosine</h3>
+<p>$$
+\begin{align}
+\cos(2\theta) = 1 - 2\sin^2\theta \\
+\cos(2\theta) = 2\cos^2\theta - 1
+\end{align}
+$$</p>
+<h3 id="half-angle-identities">Half-angle identities</h3>
+<p>$$
+\begin{align}
+\sin^2\theta = \frac{1}{2}(1 - \cos(2\theta)) \\
+\cos^2\theta = \frac{1}{2}(1 + cos(2\theta))
+\end{align}
+$$</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

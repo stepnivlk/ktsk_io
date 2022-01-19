@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MST124 Unit 3 - Functions | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mst124-unit3/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mst124 Unit3",
+            "item": "https://ktsk.xyz/docs/uni/mst124-unit3/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MST124 Unit 3 - Functions</h1>
+        
+        <h1 id="introduction">Introduction</h1>
+<p>Whenever one quantity depends on another, we say that the first quantity is a <strong>function</strong> of the second quantity.</p>
+<h1 id="1-functions-and-their-graphs">1 Functions and their graphs</h1>
+<h2 id="1-1-sets-of-real-numbers">1.1 Sets of real numbers</h2>
+<p>A <strong>set</strong> is a collection of objects. The objects could be anything at all.
+An <strong>element</strong> or <strong>member</strong> is each of the objects in a set.
+Elements of the set <strong>belong to</strong> or are <strong>in</strong> a set.</p>
+<p>A set can be specified by enclosing a list of elements in curly brackets, e.g.:
+$$
+S = {5, 12, 34, 58}
+$$</p>
+<p>A set can be described, e.g.:
+Let $T$ be the set of all odd integers.
+Sets are usually denoted with capital letters.</p>
+<p><strong>Empty set</strong> is denoted with $
+\emptyset$.
+$\in$ means is in and $\notin$ means is not in.</p>
+<p>An <strong>intersection</strong> is a process of forming new set out of overlapping members of two or more sets and is denoted as $A \cap B$.</p>
+<p><strong>Union</strong> is a process of forming new set out of all the members of two or more sets and is denoted as $A \cup B$.</p>
+<p>$A$ is a <strong>subset</strong> of $B$ when every element of $A$ is also an element of $B$. A subset is denoted as $A \subseteq B$.
+Every set is a subset of itself and the empty set is a subset of every set.</p>
+<p>The set of all real number is denoted as $\mathbb{R}$.</p>
+<p>An <strong>interval</strong> is a set of real numbers that correspond to a continuous section of number line.</p>
+<p>An <strong>endpoint</strong> is a number that lies at the end of an interval.
+The whole set of real numbers $\mathbb{R}$ is an interval with no endpoints.</p>
+<p><strong>Closed</strong> is such interval that includes all of its endpoints.
+<strong>Open</strong> interval doesn't include any of its endpoints.
+<strong>Half-open</strong> interval includes only one of its endpoints.</p>
+<p>$\mathbb{R}$ doesn't have endpoints, so it's both open and closed.</p>
+<p><strong>Inequality signs</strong> can be used to describe intervals.</p>
+<p><strong>Interval notation</strong> can also describe intervals e.g.:
+$$
+4 \le x &lt; 7
+$$
+is denoted as:
+$$
+[4, 7)
+$$</p>
+<p>An interval that extends indefinitely is denoted by $\infty$ or $-\infty$.</p>
+<p>Union of intervals can be described as e.g.:
+$$
+(-\infty, 2] \cup [4, 6)
+$$</p>
+<h2 id="1-2-what-is-a-function">1.2 What is a function?</h2>
+<p>A <strong>function</strong> consists of:</p>
+<ul>
+<li>a set of allowed input values, called the <strong>domain</strong> of the function</li>
+<li>a set of values in which every output value lies, called the <strong>codomain</strong> of the function</li>
+<li>a process, called the <strong>rule</strong> of the function, for converting each input value into <em>exactly one</em> output value.</li>
+</ul>
+<p>A function can be denoted with <strong>function notation</strong>, e.g.:
+$$
+h(x) = x^2
+$$</p>
+<p>The <strong>image set</strong> is a set of values in the codomain that <em>do</em> occur as output values.</p>
+<p>Every value in the domain of a function must have <em>exactly one</em> output value.</p>
+<p>If $f$ is a function, and $x$ is any value in its domain, then the value $f(x)$ is called the <strong>image of</strong> $x$ <strong>under</strong> $f$, or the <strong>value of</strong> $f$ <strong>at</strong> $x$, or $f$ <strong>maps</strong> $x$ to $f$.</p>
+<p><strong>Real functions</strong> have domain and codomain consisting of real numbers.</p>
+<h2 id="1-3-specifying-functions">1.3 Specifying functions</h2>
+<p>Function specification consists of its domain and rule, e.g.:
+$$
+f(x) = x^{2}+ 1 ~~ (0 \le x \le 6)
+$$
+or</p>
+<p>$$
+f(x) = x^{2}+ 1 ~~ (x \in [0, 6])
+$$</p>
+<p>When a function is specified by <em>just a rule</em>, it's understood that the domain of the function is the largest possible set of real numbers for which the rule is applicable.</p>
+<h2 id="1-4-graphs-of-functions">1.4 Graphs of functions</h2>
+<p>is the set of points $(x, y)$ in the coordinate plane such that $x$ is in the domain of $f$ and $y = f(x)$.</p>
+<h3 id="functions-increasing-or-decreasing-on-an-interval">Functions increasing or decreasing on an interval</h3>
+<p>A function $f$ is <strong>increasing on the interval</strong> $I$ if for all values $x_1$ and $x_2$ in $I$ such that $x_1 &lt; x_2$,
+$$
+f(x_1) &lt; f(x_2)
+$$</p>
+<p>A function $f$ is <strong>decreasing on the interval</strong> $I$ if for all values $x_1$ and $x_2$ in $I$ such that $x_1 &lt; x_2$,
+$$
+f(x_1) &gt; f(x_2)
+$$
+(The interval $I$ must be part of the domain of $f$.)</p>
+<h2 id="1-5-image-sets-of-functions">1.5 Image sets of functions</h2>
+<p>In the same way as a domain of function can be visualized on the $x$-axis the image set of a function can be visualized on the $y$-axis.</p>
+<p>The image set consists of all the possible output numbers, that is, all the points on the $y$-axis that lie directly to the right or left of a point on the graph.</p>
+<h2 id="1-6-some-standard-types-of-functions">1.6 Some standard types of functions</h2>
+<ul>
+<li><strong>Linear functions</strong> - has the rule of the form $f(x) = mx + c$.</li>
+<li><strong>Constant function</strong> - a linear function whose rule is of the form $f(x) = c$.</li>
+<li><strong>Quadratic functions</strong> - has the rule of the form $f(x) = ax^{2} + bx + c$.</li>
+</ul>
+<h3 id="polynomial-functions">Polynomial functions</h3>
+<p>Linear and quadratic functions are particular types of polynomial functions. Other example of polynomial function is:
+$$
+f(x) = 2x^{4} - 5x^{3} + x^{2} + 2x - 3
+$$</p>
+<p>In general, a <strong>polynomial expression in $x$</strong> is any expression that is a sum of finitely many terms, each of which is of the form $ax^{n}$ where $a$ is a number and $n$ is a non-negative integer.</p>
+<p><strong>Degree</strong> of a polynomial expression or function is the highest power of the variable $x$ in it.</p>
+<p>Quadratic functions are polynomial functions of degree 2.</p>
+<p>Linear functions are polynomial functions of degree 1, 0 or no degree at all.</p>
+<p>Polynomial functions of degrees 3, 4, and 5 are called</p>
+<ul>
+<li><strong>cubic</strong></li>
+<li><strong>quartic</strong></li>
+<li><strong>quintic</strong></li>
+</ul>
+<p>functions, respectively</p>
+<p>Every polynomial function (with domain $\mathbb{R}$) that isn't a constant function <strong>tends to infinity</strong> or <strong>tends to minus infinity</strong> at the left and right.</p>
+<p><strong>Dominant term</strong> is a term in a rule of function with the highest power of $x$ and it defines whether the function tends to infinity or minus infinity. It's called dominant because it outweights (<em>dominates</em>) the sum of the values taken by all other temrs for large values of $x$.</p>
+<p>If the dominant term has a plus sign and</p>
+<ul>
+<li>contains an even power of $x$, then the graph tends to infinity at both ends.</li>
+<li>contains an odd power of $x$, then the graph tends to minus infinity at the left and to infinity at the right.</li>
+</ul>
+<p>If the dominant term has a minus sign and</p>
+<ul>
+<li>contains an even power of $x$, then the graph tends to minus infinity at both ends.</li>
+<li>contains an odd power of $x$, then the graph tends to infinity at the left and to minus infinity at the right.</li>
+</ul>
+<h3 id="the-modulus-function">The modulus function</h3>
+<p>The <strong>modulus</strong> of a real number (or <strong>magnitude</strong>, <strong>absolute value</strong>) is its 'distance from zero' and for a real number $x$ its denoted as  $|x|$.</p>
+<p>THe modulus function is
+$$
+f(x) = |x|
+$$</p>
+<p>It follows form the definition that
+$$
+\begin{equation*}
+|x| = \begin{cases}
+x \quad &amp;\text{if} , x \ge 0 \
+-x \quad &amp;\text{if} , x &lt; 0 \
+\end{cases}
+\end{equation*}
+$$</p>
+<p>So the graph of the modulus function is the same as the graph of $y = x$ when $x \ge 0$ and same as the graph of $y = -x$ when $x &lt; 0$. It has a corner at the origin and image set of $[0, \infty)$.</p>
+<p><img src="/mst124_u2_data/modulus_fnc.png" alt="modulus_fnc.png" /></p>
+<h3 id="the-reciprocal-function">The reciprocal function</h3>
+<p>If $x$ is any non-zero number, then the <strong>reciprocal</strong> of $x$ is $1/x$.
+The <strong>reciprocal function</strong> is
+$$
+f(x) = \frac{1}{x}
+$$
+With the domain of $(-\infty, 0) \cup (0, \infty)$.</p>
+<p>It forms following graph</p>
+<p><img src="/mst124_u2_data/reciprocal_fnc.png" alt="reciprocal_fnc.png" /></p>
+<p>If a curve has a property when it gets <em>arbitrarily close</em> to straight line as it gets further away from origin then the straight line is called the <strong>asymptote</strong> of the curve.</p>
+<p>Hence the coordinate axes are asymptotes of the graph of the reciprocal function.</p>
+<h3 id="rational-functions">Rational functions</h3>
+<p>The reciprocal and all polynomial functions are particular examples of <em>rational functions</em>.</p>
+<p>The <strong>rational function</strong> is a function whose rule is of the form
+$$
+f(x) = \frac{p(x)}{q(x)}
+$$
+where $p$ and $q$ are polynomial functions.</p>
+<p><em>f</em> is polynomial function when $q$ is a constant function.
+<em>f</em> is a reciprocal function when $p(x) = 1$ and $q(x) = x$.</p>
+<h1 id="2-new-functions-from-old-functions">2 New functions from old functions</h1>
+<h2 id="2-1-translating-the-graphs-of-functions">2.1 Translating the graphs of functions</h2>
+<p>A <strong>translation</strong> of a shape means sliding it to different position without rotating or reflecting it.</p>
+<p>Suppose that $f$ is a function and $c$ is a constant. To obtain the graph of:</p>
+<ul>
+<li>$y = f(x) + c$, translate the graph of $y = f(x)$ up by $c$ units (the translation is down if $c$ is negative)</li>
+<li>$y = f(x - c)$, translate the graph of $y = f(x)$ to the right by $c$ units (the translation is to the left if $c$ is negative).</li>
+</ul>
+<p><img src="/mst124_u2_data/translation_fnc.png" alt="translation_fnc.png" /></p>
+<p>A translations can be combined. An equation $y = f(x)$ can be moved $c$ units to the right by replacing $x$ as $y = f(x - c)$. A shift up can be achieved by adding a constant $d$:
+$$
+y = f(x - c) + d
+$$</p>
+<p>Hence the original equation is translated to the right by $c$ units and up by $d$ units. Order of operations doesn't matter.</p>
+<h2 id="2-2-scaling-the-graphs-of-functions-vertically">2.2 Scaling the graphs of functions vertically</h2>
+<p><strong>Constant multiple</strong> is a function obtained by multiplying the RHS of a function rule by a constant, e.g. $g(x) = 8x^3$ is a constant multiple of the function $f(x)= x^3$.</p>
+<p>The resulting effect on the graph of function is called the <strong>vertical scaling</strong>.</p>
+<h4 id="vertical-scaling-of-graphs">Vertical scaling of graphs</h4>
+<p>Suppose that $c$ is a constant. To obtain the graph of $y = cf(x)$, scale the graph of $y = f(x)$ vertically by a factor of $c$.</p>
+<p><img src="/mst124_u2_data/scaling_fnc.png" alt="scaling_fnc.png" /></p>
+<p><strong>Negative</strong> of a function $f$ is the result of multiplying the right-hand side of the rule of a function $f$ by $-1$.</p>
+<p>Vertical scaling can be combined with vertical and/or horizontal translations of graphs, e.g. $y = 4x^{3}+ 1$ scales the equation $y = x^3$ vertically by $4$ units, then translates it up by $1$ unit.
+The order of operations <em>does</em> often matter.</p>
+<h2 id="2-3-scaling-the-graphs-of-functions-horizontally">2.3 Scaling the graphs of functions horizontally</h2>
+<p>The horizontal scaling is achieved by replacing each occurrence of the input variable $x$ in the right-hand side of the rule of a function by an expression of the form $x/c$, where $c$ is constant.</p>
+<p>The resulting effect on the graph of a function is called <strong>horizontal scaling</strong>.</p>
+<h4 id="horizontal-scalings-of-graphs">Horizontal scalings of graphs</h4>
+<p>Suppose that $c$ is a non-zero constant. To obtain the graph of </p>
+<p>$$
+y = f(\frac{x}{c})
+$$</p>
+<p>scale the graph of $y = f(x)$ horizontally by a factor of $c$.</p>
+<p><img src="/mst124_u2_data/scaling_h_fnc.png" alt="scaling_h_fnc.png" /></p>
+<h3 id="reflections-of-graphs-in-the-coordinate-axes">Reflections of graphs in the coordinate axes</h3>
+<p>To obtain the graph of $y = -f(x)$, reflect the graph of $y = f(x)$ in the $x$-axis.
+To obtain the graph of $y = f(-x)$, reflect the graph of $y = f(x)$ in the $y$-axis.</p>
+<p><img src="/mst124_u2_data/reflections_fnc.png" alt="reflections_fnc.png" /></p>
+<h1 id="3-more-new-functions-from-old-functions">3 More new functions from old functions</h1>
+<h2 id="3-1-sums-differences-products-and-quotients-of-functions">3.1 Sums, differences, products and quotients of functions</h2>
+<p>Suppose that $f$ and $g$ are functions.</p>
+<ul>
+<li>The <strong>sum</strong> has the rule $h(x) = f(x) + g(x)$</li>
+<li>There are two <strong>differences</strong>
+<ul>
+<li>$h(x) = f(x) - g(x)$</li>
+<li>$h(x) = g(x) - f(g)$</li>
+</ul>
+</li>
+<li>The <strong>product</strong> has the rule $h(x) = f(x)g(x)$</li>
+<li>There are two <strong>quotients</strong>
+<ul>
+<li>$h(x) = \frac{f(x)}{g(x)}$</li>
+<li>$h(x) = \frac{g(x)}{f(x)}$</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-2-composite-functions">3.2 Composite functions</h2>
+<p>Suppose $f$ and $g$, if the output of $f$ lies in the domain of $g$ it can be input to it.</p>
+<div class="mermaid is-flex is-justify-content-center is-align-items-center bg-white rounded">flowchart LR
+	input&gt;x]
+	output&gt;&quot;g(f(x))&quot;]
+	 input --&gt; f --&gt;|&quot;f(x)&quot;| g --&gt; output</div>
+<p>A <strong>composite</strong> function is function whose rule is given by this process and whose domain is the largest set of real numbers to which you can apply the process.
+It's denoted by $g \circ f$ (the function that is applied <em>first</em> is <em>second</em> in the notation).</p>
+<h4 id="definition-of-composite-functions">Definition of composite functions</h4>
+<p>Suppose that $f$ and $g$ are functions. The <strong>composite function</strong> $g \circ f$ is the function whose rule is
+$$
+(g \circ f)(x) = g(f(x))
+$$
+and whose domain consists of all the values $x$ in the domain of $f$ such that $f(x)$ is in the domain of $g$.</p>
+<p>The process of forming a composite function from two functions is called <strong>composing</strong> the functions.
+Functions $f$ and $g$ have two composite functions</p>
+<ul>
+<li>$g \circ f$, meaning apply $f$ first, than $g$</li>
+<li>$f \circ g$, meaning apply $g$ first, than $f$</li>
+</ul>
+<h2 id="3-3-inverse-functions">3.3 Inverse functions</h2>
+<p>The inverse function of a function $f$, which is denoted by $f^{-1}$, is the function whose mapping diagram is obtained by reversing the direction of all the arrows in this full version of diagram.</p>
+<div class="mermaid is-flex is-justify-content-center is-align-items-center bg-white rounded">flowchart LR
+	x --&gt; |f| y
+	y --&gt; |f^-1| x</div>
+<h4 id="one-to-one-functions">One-to-one functions</h4>
+<p>A function $f$ is <strong>one-to-one</strong> if fo all values $x_1$ and $x_2$ in its domain such that $x_1 \ne x_2$,
+$$
+f(x_1) \ne f(x_2)
+$$</p>
+<p>Only one-to-one functions have inverse functions.
+<strong>Invertible</strong> function is a function that has an inverse function.</p>
+<h4 id="definition-of-inverse-functions">Definition of inverse functions</h4>
+<p>Suppose that $f$ is one-to-one function, with domain $A$ and image set $B$. Then the <strong>inverse function</strong>, or simply <strong>inverse</strong>, of $f$, denoted by $f^{-1}$, is the function with domain $B$ whose rule is given by
+$$
+f^{-1}(y) = x, ~~~~~\text{where} ~~ f(x) = y
+$$
+The image set of $f^{-1}$ is $A$.</p>
+<h4 id="strategy-to-find-the-rule-of-the-inverse-function-of-a-one-to-one-function-f">Strategy to find the rule of the inverse function of a one-to-one function $f$</h4>
+<ul>
+<li>Write $y = f(x)$ and rearrange this equation to express $x$ in terms of $y$.</li>
+<li>Use the resulting equation $x = f^{-1}(y)$ to write down the rule of $f^{-1}$. (Usually, change the input variable from $y$ to $x$.)</li>
+</ul>
+<p>If a function is either increasing on its whole domain, or decreasing on its whole domain, then it is one-to-one and so has an inverse function.</p>
+<p>For any pair of inverse functions $f$ and $f^{-1}$,</p>
+<ul>
+<li>$(f^{-1} \circ f)(x) = x$, for every value $x$ in the domain of $f$, and </li>
+<li>$(f \circ f^{-1})(x) = x$, for every value $x$ in the domain of $f^{-1}$</li>
+</ul>
+<h3 id="graphs-of-inverse-functions">Graphs of inverse functions</h3>
+<p>The graphs of a pair of inverse functions are the reflections of each other in the line $y = x$ (when the coordinate axes have equal scales).</p>
+<p><img src="/mst124_u2_data/inverse_fnc.png" alt="inverse_fnc.png" /></p>
+<h3 id="functions-that-aren-t-one-to-one">Functions that aren't one-to-one</h3>
+<p>Starting with a function $f$ that is not one-to-one, specify a new function that has same rule as $f$, but a smaller domain with following conditions satisfied:</p>
+<ul>
+<li>the new function is one-to-one and therefore has an inverse</li>
+<li>the image set of the new function is the same as the image set of the original function</li>
+</ul>
+<p>E.g. for $f(x) = x^{2}$ the new function can be $g(x) = x^{2} ~~ (x \in [0, \infty))$.
+$g$ is one-to-one with inverse $g^{-1}(x) = \sqrt{x}$.</p>
+<p>A function like $g$ that is obtained from another function $f$ by removing some numbers from its domain and keeping the rule is called a <strong>restriction</strong> of the original function $f$.</p>
+<h1 id="4-exponential-functions-and-logarithms">4 Exponential functions and logarithms</h1>
+<h2 id="4-1-exponential-functions">4.1 Exponential functions</h2>
+<p>Is a function whose rule is of the form
+$$
+f(x) = b^x
+$$
+where $b$ is a positive constant, not equal to 1.
+$b$ is called the <strong>base number</strong> of the exponential function.</p>
+<p><img src="/mst124_u2_data/log_03.png" alt="log_03.png" /></p>
+<h4 id="graphs-of-exponential-functions">Graphs of exponential functions</h4>
+<p>The graph of the function $f(x) = b^{x}$, where $b &gt; 0$ and $b \ne 1$, has the following features.</p>
+<ul>
+<li>The graph lies entirely above the $x$-axis.</li>
+<li>If $b &gt; 1$, then the graph is increasing, and it gets steeper as $x$ increases.</li>
+<li>If $0 &lt; b &lt; 1$, then the graph is decreasing, and it gets less steep as $x$ increases.</li>
+<li>The $x$-axis is an asymptote.</li>
+<li>The $y$-intercept is 1.</li>
+<li>The closer the value of $b$ is to 1, the flatter is the graph.</li>
+</ul>
+<h3 id="the-exponential-function">The exponential function</h3>
+<p>The graph of every exponential function $f(x) = b^{x}$ passes through the point $(0, 1)$. And its steepness depends on the value of $b$.</p>
+<p><img src="/mst124_u2_data/log_04.png" alt="log_04.png" /></p>
+<p>The exponential function with rule $f(x) = e^{x}$ has the special property that its gradient is exactly 1 at the point $(0,1)$, this function is referred to as <strong><em>the</em> exponential function</strong>.</p>
+<p><img src="/mst124_u2_data/log_05.png" alt="log_05.png" /></p>
+<h2 id="4-2-what-is-a-logarithm">4.2 What is a logarithm?</h2>
+<p>Logarithms have a particular <em>base</em>
+Logs to base 10 are known as <strong>common logarithms</strong> with following definition.
+The <strong>logarithm to base</strong> 10 of a number $x$ is the power to which 10 must be raised to give the number $x$. e.g.:
+$$
+\begin{align}
+\log_{10}100 = 2 \\[0.6em]
+\log_{10}1000 = 3 \\[0.6em]
+\log_{10}(\frac{1}{10})= -1
+\end{align}
+$$</p>
+<h4 id="general-definition-of-logarithms">General definition of logarithms</h4>
+<p>The <strong>logarithm to base</strong> $b$ of a number $x$, denoted by $\log_bx$, is the power to which the base $b$ must be raised to give the number $x$. So the two equations
+$$
+y = \log_bx ~~~ \text{and} ~~~ x = b^y
+$$
+are equivalent.
+Remeber that:</p>
+<ul>
+<li>the base $b$ must be positive and not equal to 1</li>
+<li>only positive numbers have logarithms, but logarithms themselves can be any number.</li>
+</ul>
+<h4 id="logarithm-of-the-number-1-and-logarithm-of-the-base">Logarithm of the number 1 and logarithm of the base</h4>
+<p>For any base $b$,
+$$
+\log_b1 = 0 ~~~ \text{and} ~~~ \log_bb = 1
+$$</p>
+<p>The most common bases of logarithms are $2$, $10$ and $e$.
+Logarithms to the base $e$ are called <strong>natural logarithms</strong> and the notation $\ln$ is often used.</p>
+<h4 id="natural-logarithms">Natural logarithms</h4>
+<p>The <strong>natural logarithm</strong> of a number $x$, denoted by $\ln x$, is the power to which the base $e$ must be raised to give the number $x$. So the two equations
+$$
+y = \ln x ~~~\text{and} ~~~ x = e^y
+$$
+are equivalent.
+Natural logarithms share following properties with common logs
+$$
+\ln 1 = 0 ~~~ \text{and} ~~~ \ln e = 1
+$$</p>
+<h2 id="4-3-logarithmic-functions">4.3 Logarithmic functions</h2>
+<p>Are functions with a rule of the form
+$$
+f(x) = \log_b x
+$$
+where $b$ is a positive constant, not equal to 1.</p>
+<p>The logarithmic function $f(x) = \log_b x$ is the inverse function of the exponential function $g(x) = b^x$ since
+$$
+y = \log_bx ~~~ \text{and} ~~~ x = b^y
+$$
+are rearrangements of each other. Hence the graphs of both functions are reflections of each other in the line $y = x$.</p>
+<p><img src="/mst124_u2_data/log_06.png" alt="log_06.png" /></p>
+<h4 id="graphs-of-logarithmic-functions">Graphs of logarithmic functions</h4>
+<p>The graph of the function $f(x) = \log_bx$, where $b &gt; 0$ and $b \ne 1$, has the following features.</p>
+<ul>
+<li>The graph lies entirely to the right of the $y$-axis.</li>
+<li>If $b &gt; 1$, then the graph is increasing, and it gets less steep as $x$ increases.</li>
+<li>If $0 &lt; b &lt; 1$, then the graph is decreasing, and it gets less steep as $x$ increases.</li>
+<li>The $y$-axis is an asymptote.</li>
+<li>The $x$-intercept is 1.</li>
+<li>The closer the value of $b$ is to 1, the steeper is the graph.</li>
+</ul>
+<p><img src="/mst124_u2_data/log_07.png" alt="log_07.png" /></p>
+<p>For any base $b$,
+$$
+\log_b(b^{x})= x ~~~ \text{and} ~~~ b^{\log_bx} = x
+$$
+In particular,
+$$
+\ln(e^{x}) = x ~~~ \text{and} ~~~ e^{\ln x} = x
+$$
+(A composition of $f(x) = b^{x}$ and $f^{-1}(x) = \log_bx$)</p>
+<h2 id="4-4-logarithm-laws">4.4 Logarithm laws</h2>
+<h4 id="three-logarithm-laws">Three logarithm laws</h4>
+<p>$$
+\begin{aligned}
+\log_bx + \log_by = \log_b(xy) \\[0.5em]
+\log_bx - \log_by = \log_b(\frac{x}{y}) \\[0.5em]
+r\log_bx = log_b(x^r)
+\end{aligned}
+$$</p>
+<h3 id="solving-exponential-equations">Solving exponential equations</h3>
+<p>An exponential equation has the unknown in the exponent, e.g.
+$$
+5^{x}= 130
+$$</p>
+<p>And the third logarithm law can be used to solve those. It's useful to swap the sides for this purpose:
+$$
+\log_b(x^{r)}= r\log_b(x) ~~~ \text{in particular} ~~~ \ln(x^{r}) = r\ln(x)
+$$</p>
+<h2 id="4-5-alternative-form-for-exponential-functions">4.5 Alternative form for exponential functions</h2>
+<p>Any exponential function $f(x) = b^x$, where $b$ is a positive constant not equal to 1, can be written in the alternative form
+$$
+f(x) = e^{kx}
+$$
+where $k$ is a non-zero constant. The constant $k$ is given by $k = \ln b$.</p>
+<p>This fact gives following alternative definition of an exponential function
+An <strong>exponential function</strong> is a function whose rule is of the form
+$$
+f(x) = e^{kx}
+$$
+where $k$ is a non-zero constant.
+And properties of exponential graphs can be rewritten as</p>
+<h4 id="graphs-of-exponential-functions-1">Graphs of exponential functions</h4>
+<p>The graph of the function $f(x) = e^{kx}$, where $k \ne 0$, has the following features.</p>
+<ul>
+<li>The graph lies entirely above the $x$-axis.</li>
+<li>If $k &gt; 0$, then the graph is increasing, and it gets steeper as $x$ increases.</li>
+<li>If $k &lt; 0$, then the graph is decreasing, and it gets less steep as $x$ increases.</li>
+<li>The $x$-axis is an asymptote.</li>
+<li>The $y$-intercept is 1.</li>
+<li>The closer the value of $k$ is to 0, the flatter is the graph.</li>
+</ul>
+<p><img src="/mst124_u2_data/log2_fnc.png" alt="log2_fnc.png" /></p>
+<p>The graph of every exponential function is a horizontal scaling of the graph of the exponential function $f(x) = e^x$.</p>
+<h2 id="4-6-exponential-models">4.6 Exponential models</h2>
+<p>Are defined by a function with rule of the form $f(x) = ab^{x}$. That is equal to $f(x) = ae^{kx}$ in the alternative form.</p>
+<p>$f(x) = ae^{kx}$ is obtained by</p>
+<ul>
+<li>vertically scaling the graph of the function $g(x) = e^{kx}$ by the factor of $a$.</li>
+</ul>
+<p>$g(x) = e^{kx}$ is obtained by</p>
+<ul>
+<li>horizontally scaling the graph of the function $h(x) = e^{kx}$ by a factor of $1/k$.</li>
+</ul>
+<p>Hence the graph of the function $f(x) = ae^{kx}$ is obtained by scaling the graph of the function $h(x) = e^x$ both horizontally and vertically.</p>
+<p><img src="/mst124_u2_data/log3_fnc.png" alt="log3_fnc.png" /></p>
+<p>A quantity is <strong>changed exponentially</strong> when the change can be modeled by a function with rule of the the form $f(x) = ae^{kx}$.</p>
+<p>If $a$ and $k$ are positive then the quantity is said to <strong>grow exponentially</strong> and the function is called <strong>exponential growth function</strong>.</p>
+<p>If $a$ is positive but $k$ is negative then it's said the quantity <strong>decays exponentially</strong>, the function is <strong>exponential decay function</strong> and graph is called an <strong>exponential decay curve</strong>.</p>
+<h4 id="a-characteristic-property-of-exponential-growth-and-decay-functions">A characteristic property of exponential growth and decay functions</h4>
+<p>If $f(x) = ae^{kx}$, then whenever $p$ units are added to the value of $x$, the value of $f(x)$ is multiplied by $e^{kp}$</p>
+<p>The reason is following. Say the value of $x$ changes from
+$$
+f(x) = ae^{kx} ~~~ \text{to} ~~~ f(x + p) = ae^{k(x + p)}
+$$
+Then
+$$
+ae^{k(x + p)} = a^{kx + kp} = ae^{kx}e^{kp} = f(x) \times e^{kp}
+$$</p>
+<p>The factor by which $f(x)$ is multiplied is called <strong>growth</strong> or <strong>decay</strong> factor.</p>
+<ul>
+<li>Growth factors are $&gt; 1$</li>
+<li>Decay factors are between 0 and 1, exclusive.</li>
+</ul>
+<h4 id="doubling-and-halving-periods">Doubling and halving periods</h4>
+<p>Suppose that $f$ is an exponential growth function. Then $p$ is the <strong>doubling period</strong> of $f$ if whenever you add $p$ to $x$, the value of $f(x)$ doubles.</p>
+<p>Similarly, suppose that $f$ is an exponential decay function. Then $p$ is the <strong>halving period</strong> of $f$ if whenever you add $p$ to $x$, the value of $f(x)$ halves.</p>
+<h4 id="strategy-to-find-a-doubling-or-halving-period">Strategy to find a doubling or halving period</h4>
+<p>If $f(x) = ae^{kx}$ is an exponential growth function (so $k &gt; 0$), then the doubling period of $f$ is the solution $p$ of the equation $e^{kp} = 2$; that is, $p = (\ln2)/k$.</p>
+<p>Similarly, if $f(x) = ae^{kx}$ is an exponential decay function (so $k &lt; 0$), then the halving period of $f$ is the solution $p$ of the equation $e^{kp} = \frac{1}{2}$; that is, $p = \ln \frac{1}{2}/k= -(\ln 2)/k$.</p>
+<h1 id="5-inequalities">5 Inequalities</h1>
+<h2 id="5-2-rearranging-inequalities">5.2 Rearranging inequalities</h2>
+<p>Carrying out any of the following operations on an inequality gives an equivalent inequality.</p>
+<ul>
+<li>Rearrange the expressions on one or both sides.</li>
+<li>Swap the sides, <em>provided you reverse the inequality sign</em>.</li>
+<li>Do any of the following things to both sides:
+<ul>
+<li>add or subtract something</li>
+<li>multiply or divide by something that's positive</li>
+<li>multiply or divide by something that's negative, <em>provided you reverse the inequality sign</em>.</li>
+</ul>
+</li>
+</ul>
+<p>Both sides shouldn't be multiplied by a variable unless it's limited o positive values only.</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

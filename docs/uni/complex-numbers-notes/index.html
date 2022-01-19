@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Complex numbers Notes | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Complex Numbers Notes",
+            "item": "https://ktsk.xyz/docs/uni/complex-numbers-notes/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#imaginary-numbers">Imaginary numbers</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#simplifying-pure-imaginary-numbers">Simplifying pure imaginary numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#powers-of-i">Powers of $i$</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#roots-of-negative-numbers">Roots of negative numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#i-as-the-principal-root-of-1">$i$ as the principal root of $-1$</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#complex-numbers">Complex numbers</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#classifying-complex-numbers">Classifying complex numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#simplifying-complex-numbers">Simplifying complex numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#adding-complex-numbers">Adding complex numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#subtracting-complex-numbers">Subtracting complex numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#distance-of-complex-numbers">Distance of complex numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#midpoint-of-complex-numbers">Midpoint of complex numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/complex-numbers-notes/#multiplying-complex-numbers">Multiplying complex numbers</a></li>
+  											
+  									</ul>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Complex numbers Notes</h1>
+        
+        <h1 id="imaginary-numbers">Imaginary numbers</h1>
+<p>Quadratic equations as $x^2 = -1$ don't have any <em>real number</em> solution.
+The solution exists in the <strong>complex</strong> number system.</p>
+<p>Backbone of which is the <strong>imaginary unit</strong> $i$. For which following is true:</p>
+<ul>
+<li>$i = \sqrt{-1}$</li>
+<li>$i^2 = -1$</li>
+</ul>
+<p>By taking multiples of $i$, I can create infinitely many <strong>pure imaginary numbers</strong>, e.g. $3i$, $i\sqrt{5}$, $-12i$.</p>
+<p>By squaring an imaginary number I can explore how those relate to the real numbers:
+$$
+(3i)^2 = 3^2i^2 = 9i^2
+$$</p>
+<p>Now I can apply the fact that $i^2 = -1$:</p>
+<p>$$
+9i^2 = 9(-1) = -9
+$$</p>
+<p>Meaning $3i$ is square root of $-9$</p>
+<h2 id="simplifying-pure-imaginary-numbers">Simplifying pure imaginary numbers</h2>
+<p>As proved $\sqrt{-9}$ simplifies to $3i$ and following though process can be applied:
+The square root of $-9$ is an imaginary number. The square root of $9$ is $3$, so the square root of <em>negative</em> $9$ is $3$ <em>imaginary units</em>, or $3i$</p>
+<p>More formally:
+$$
+\text{For}~ a &gt; 0,  \sqrt{-a} = i\sqrt{a}
+$$</p>
+<h2 id="powers-of-i">Powers of $i$</h2>
+<p>Basic power line can be devised:
+$$
+\begin{aligned}
+i^0 &amp;= 1 \\
+i^1 &amp;= i \\
+i^2 &amp;= -1 \\
+i^3 &amp;= i^2 \times i = (-1)(i) = -i \\
+i^4 &amp;= i^3 \times i = (-i)(i)  = (-1)(i)(i) = (-1)(-1) = 1 \\
+i^5 &amp;= i^4 \times i = 1 \times i = i \\
+i^6 &amp;= i^5 \times i = -1 \\
+i^7 &amp;= i^6 \times i = -i \\
+i^8 &amp;= i^7 \times i = 1 \\
+\end{aligned}
+$$</p>
+<p>Results can be summarised in following table:</p>
+<table><thead><tr><th>$i^1$</th><th>$i^2$</th><th>$i^3$</th><th>$i^4$</th><th>$i^5$</th><th>$i^6$</th><th>$i^7$</th><th>$i^8$</th></tr></thead><tbody>
+<tr><td>$i$</td><td>$-1$</td><td>$-i$</td><td>$1$</td><td>$i$</td><td>$-1$</td><td>$-i$</td><td>1</td></tr>
+</tbody></table>
+<p>Hence it appearst that powers of $i$ cycle through the sequence of $i, -1, -i, 1$.</p>
+<p>Properties of exponents can be used to devise larger powers of $i$, e.g.:
+$$
+i^{20} = i^{4\times5} = (i^4)^5 = 1^5 = 1
+$$
+Hence:
+$$
+i^{20} = 1
+$$</p>
+<p>The fact that $i$ raised to a multiple of $4$ is $1$ (along with properties of exponents) can be used to find large powers of $i$.</p>
+<h2 id="roots-of-negative-numbers">Roots of negative numbers</h2>
+<p>Square roots of negative numbers can be simplified followingly:
+$$
+\sqrt{-20} = \sqrt{-1 \times 4 \times 5} = i\sqrt{4 \times 5} = 2i\sqrt{5}
+$$</p>
+<h2 id="i-as-the-principal-root-of-1">$i$ as the principal root of $-1$</h2>
+<p>Consider following application of the $\sqrt{ab} = \sqrt{a} \times \sqrt{b}$ rule on the $i$:</p>
+<p>GIven $i = \sqrt{-1}$ I can state:
+$$
+-1 = i \times i = \sqrt{-1} \times \sqrt{-1} = \sqrt{-1 \times -1} = \sqrt{1} = 1
+$$
+Which is obviosly not truthy. In reality the $\sqrt{ab} = \sqrt{a} \times \sqrt{b}$ rule <strong>cannot be applied</strong> when both $a$ and $b$ are negative.</p>
+<h1 id="complex-numbers">Complex numbers</h1>
+<p>Combination of real and imaginary numbers, e.g. $z = 5 + 3i$ which has following parts:
+Real:
+$$
+Re(z) = 5
+$$
+Imaginary:
+$$
+Im(z) = 3
+$$</p>
+<p>The number can be plotted with $Re$ on $x$ axis and $Im$ on $y$ axis:
+<img src=":/e0e4b2bfff13476988e5e745801aeb66" alt="complex_plot.png" /></p>
+<p>More formally a complex number is any number that can be written as $a + bi$.</p>
+<h2 id="classifying-complex-numbers">Classifying complex numbers</h2>
+<p>An imaginary number is a complex nuimber $a + bi$ where $a = 0$.
+A real number is a complex number $a + bi$ where $b = 0$.</p>
+<p>Hence following hiearchy:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#abb2bf;">-------------------------
+|  Complex numbers      |
+|                       |
+| ----------------      |
+| | Real numbers |      |
+| ----------------      |
+|                       |
+| --------------------- |
+| | Imaginary numbers | |
+| --------------------- | 
+-------------------------
+</span></code></pre><h2 id="simplifying-complex-numbers">Simplifying complex numbers</h2>
+<p>Let's consider:
+$$
+2 + 3i + 7i^2 + 5i^3 + 9i^4
+$$</p>
+<p>I already know that:
+$$ 
+\begin{aligned}
+i^2 = -1 \\
+i^3 = -i \\
+i^4 = 1
+\end{aligned}
+$$ </p>
+<p>Hence:
+$$
+\begin{aligned}
+2 + 3i + 7(-1) + 5(-i)+ 9(1) = \\
+2 + 3i - 7 -5i + 9 = \\
+4 - 2i
+\end{aligned}
+$$</p>
+<h2 id="adding-complex-numbers">Adding complex numbers</h2>
+<p>E.g.:
+$$
+\begin{aligned}
+(5 + 2i) + (3 - 7i) = \\
+5 + 3 + 2i - 7i = \\
+8 - 5i
+\end{aligned}
+$$</p>
+<h2 id="subtracting-complex-numbers">Subtracting complex numbers</h2>
+<p>E.g.:
+$$
+\begin{aligned}
+(2 - 3i) - (6 - 18i) = \\
+2 - 3i - 6 + 18i = \\
+-4 + 15i
+\end{aligned}
+$$</p>
+<h2 id="distance-of-complex-numbers">Distance of complex numbers</h2>
+<p>E.g. distance between:
+$$
+\begin{aligned}
+z = 2 + 3i \\
+w = -5 -i
+\end{aligned}
+$$</p>
+<p>Can be calculated using Pythagoras theorem:
+<img src=":/3c8cf700b648464283597c0ffe920c0e" alt="complex_distance.png" /></p>
+<h2 id="midpoint-of-complex-numbers">Midpoint of complex numbers</h2>
+<p>Is the half of real and complex parts separately:
+$$
+\begin{aligned}
+z = 2 + 3i \\
+w = -5 -i \\
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+a = (\frac{2 + (-5)}{2}) + (\frac{3 + (- 1)}{2})i \\
+a = -\frac{3}{2} + i
+\end{aligned}
+$$</p>
+<h2 id="multiplying-complex-numbers">Multiplying complex numbers</h2>
+<h3 id="a-real-number-by-a-complex-number">A real number by a complex number</h3>
+<p>Use a distributive property:
+$$
+-4(13 + 5i) = -4(13) + (-4)(5i) = -52 - 20i
+$$</p>
+<h3 id="a-pure-imaginary-number-by-a-complex-number">A pure imaginary number by a complex number</h3>
+<p>$$
+2i(3 - 8i) = 2i(3) - 2i(8i) = 6i - 16i^2
+$$</p>
+<p>Use the fact that $i^2 = -1$:
+$$
+6i - 16i^2 = 6i - 16(-1) = 6i + 16 = 16 + 6i
+$$</p>
+<h3 id="two-complex-numbers">Two complex numbers</h3>
+<p>Multiply each term in the first number by each term in the second number:</p>
+<p>$$
+\begin{aligned}
+(1 + 4i)(5 + i) = \\
+(1)(5) + (1)(i) + (4i)(5) + (4i)(i) = \\
+5 + i + 20i + 4i^2 = \\
+5 + 21i + 4i^2 = \\
+5 + 21i + 4(-1) = \\
+5 + 21i - 4 = \\
+1 + 21i
+\end{aligned}
+$$</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

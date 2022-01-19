@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Webpack - cache busting | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Programming",
+            "item": "https://ktsk.xyz/docs/programming/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Webpack Cache Bust",
+            "item": "https://ktsk.xyz/docs/programming/webpack-cache-bust/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Webpack - cache busting</h1>
+        
+        <p>Most JavaScript developers are familiar with this problem. You have a bug in your system; you fix it, ship it… and your error monitoring still spams you with the problem, which was apparently fixed. How come? Your responses have cache headers set, and the client's browser caches static assets. But web development is very dynamic nowadays; we deploy multiple times per day. So how can we continue with aggressive deployment and still cache static assets?</p>
+<p>You can use query string to version your assets:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-html" data-lang="html"><span style="color:#abb2bf;">&lt;</span><span style="color:#eb6772;">script </span><span style="color:#db9d63;">src</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”/bundles/app.bundle.js?v=23” </span><span style="color:#db9d63;">type</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”text/javascript”</span><span style="color:#abb2bf;">&gt;&lt;/</span><span style="color:#eb6772;">script</span><span style="color:#abb2bf;">&gt;
+</span></code></pre>
+<p>Unfortunately, some CDNs and proxies don't cache assets with query strings at all. Moreover, versioning here is a very manual process, thus doomed to be forgotten.</p>
+<p>What else? Of course, you can include your version in a path or in a file name:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-html" data-lang="html"><span style="color:#abb2bf;">&lt;</span><span style="color:#eb6772;">script </span><span style="color:#db9d63;">src</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”/bundles/v23/app.bundle.js” </span><span style="color:#db9d63;">type</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”text/javascript”</span><span style="color:#abb2bf;">&gt;&lt;/</span><span style="color:#eb6772;">script</span><span style="color:#abb2bf;">&gt;
+</span></code></pre>
+<p>...</p>
+<pre style="background-color:#2b303b;">
+<code class="language-html" data-lang="html"><span style="color:#abb2bf;">&lt;</span><span style="color:#eb6772;">script </span><span style="color:#db9d63;">src</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”/bundles/app.bundle.v23.js” </span><span style="color:#db9d63;">type</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”text/javascript”</span><span style="color:#abb2bf;">&gt;&lt;/</span><span style="color:#eb6772;">script</span><span style="color:#abb2bf;">&gt;
+</span></code></pre>
+<p>Better and valid for CDNs and proxies. But still too manual, we need something automatic and more sophisticated. So whenever someone builds an asset, the version will be automatically busted. Only then will the feature be handy (even managers will be able to invalidate a cache).</p>
+<p>Let's try to automate it! Since the title of this post starts with Hey Webpack, we will focus on Webpack based solutions. We will build a very tiny example React application because React is cool. But it doesn't matter; you can use this solution with whatever library (or framework) you want as long as it will be built using Webpack.</p>
+<p>We start with initializing the project and adding some libraries:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> mkdir cache-busters </span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#5ebfcc;">cd</span><span style="color:#abb2bf;"> cache-busters
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn init
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn add react react-dom
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn add</span><span style="color:#eb6772;"> --dev</span><span style="color:#abb2bf;"> webpack webpack-dev-server babel-core babel-loader babel-preset-react css-loader
+</span></code></pre>
+<p>Now let's create some basic directory structure:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir config
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir config/webpack
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir src
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters touch src/index.jsx
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir src
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir src/components
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir src/assets
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters touch src/assets/style.css
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir public
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters touch public/index.html
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mkdir public/bundles
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters touch .babelrc
+</span></code></pre>
+<p>Add Babel preset to .babelrc:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#abb2bf;">{
+
+  </span><span style="color:#9acc76;">&quot;presets&quot;</span><span style="color:#abb2bf;">: [</span><span style="color:#9acc76;">&quot;react&quot;</span><span style="color:#abb2bf;">]
+
+}
+</span></code></pre>
+<p>Ok, time to get our hands dirty; now we start to configure the Webpack. We want to have one basic configuration file with just an entry point definition and some rules. Then we'll add two separate configurations for development and production environments, which would enhance basic configuration. Using this setup, we can define plugins for each environment separately:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters touch config/webpack/config.js
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters touch config/webpack/config.production.js
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters touch config/webpack/config.development.js
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="font-style:italic;color:#5f697a;">// config/webpack/config.js
+
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">path </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;path&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">ExtractTextPlugin </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;extract-text-webpack-plugin&#39;</span><span style="color:#abb2bf;">)
+
+module.exports </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{
+  entry: {
+    app: [
+      </span><span style="color:#eb6772;">path</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">resolve</span><span style="color:#abb2bf;">(__dirname, </span><span style="color:#9acc76;">&#39;../../src/index.jsx&#39;</span><span style="color:#abb2bf;">),
+    ],
+  },
+  module: {
+    rules: [
+      {
+        test: </span><span style="color:#5ebfcc;">/</span><span style="color:#db9d63;">.</span><span style="color:#5ebfcc;">jsx</span><span style="color:#adb7c9;">?</span><span style="color:#cd74e8;">$</span><span style="color:#5ebfcc;">/</span><span style="color:#abb2bf;">,
+        use: [</span><span style="color:#9acc76;">&#39;babel-loader&#39;</span><span style="color:#abb2bf;">],
+        exclude: </span><span style="color:#5ebfcc;">/node_modules/</span><span style="color:#abb2bf;">,
+      },
+      {
+        test: </span><span style="color:#5ebfcc;">/\.css</span><span style="color:#cd74e8;">$</span><span style="color:#5ebfcc;">/</span><span style="color:#abb2bf;">,
+        use: </span><span style="color:#eb6772;">ExtractTextPlugin</span><span style="color:#abb2bf;">.</span><span style="color:#5cb3fa;">extract</span><span style="color:#abb2bf;">({
+          use: </span><span style="color:#9acc76;">&#39;css-loader&#39;</span><span style="color:#abb2bf;">,
+        }),
+      },
+    ],
+  },
+  resolve: {
+    modules: [
+      </span><span style="color:#9acc76;">&#39;node_modules&#39;</span><span style="color:#abb2bf;">,
+      </span><span style="color:#eb6772;">path</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">resolve</span><span style="color:#abb2bf;">(__dirname, </span><span style="color:#9acc76;">&#39;../../src&#39;</span><span style="color:#abb2bf;">),
+    ],
+    extensions: [</span><span style="color:#9acc76;">&#39;.js&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;.jsx&#39;</span><span style="color:#abb2bf;">],
+    alias: {
+      react: </span><span style="color:#eb6772;">path</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">resolve</span><span style="color:#abb2bf;">(__dirname, </span><span style="color:#9acc76;">&#39;../../node_modules&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;react&#39;</span><span style="color:#abb2bf;">),
+    },
+  },
+  plugins: [],
+}
+</span></code></pre>
+<p>Webpack now knows our entry point and is instructed to use babel-loader for js/jsx and css-loader for CSS files.</p>
+<p>Now it's time to add basic development configuration, so we'll be able to actually build our application and run webpack-dev-server:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="font-style:italic;color:#5f697a;">// config/webpack.development.js
+
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">webpack </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;webpack&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">config </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;./config&#39;</span><span style="color:#abb2bf;">)
+
+</span><span style="color:#eb6772;">config</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">output </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{
+  path: </span><span style="color:#eb6772;">path</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">resolve</span><span style="color:#abb2bf;">(__dirname, </span><span style="color:#9acc76;">&#39;../../public/bundles&#39;</span><span style="color:#abb2bf;">),
+  filename: </span><span style="color:#9acc76;">&#39;[name].bundle.js&#39;</span><span style="color:#abb2bf;">,
+  chunkFilename: </span><span style="color:#9acc76;">&quot;[name].js&quot;</span><span style="color:#abb2bf;">,
+  publicPath: </span><span style="color:#9acc76;">&#39;/bundles/&#39;</span><span style="color:#abb2bf;">,
+}
+
+module.exports </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">config
+</span></code></pre>
+<p>Here we told Webpack where it should store output files and defined file names.</p>
+<p>We're almost ready for our first development build! We need to just add index.html file, React component, and some basic styling:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-html" data-lang="html"><span style="color:#abb2bf;">// public/index.html
+
+&lt;!</span><span style="color:#cd74e8;">DOCTYPE </span><span style="color:#db9d63;">html</span><span style="color:#abb2bf;">&gt;
+&lt;</span><span style="color:#eb6772;">html </span><span style="color:#db9d63;">lang</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;en&quot;</span><span style="color:#abb2bf;">&gt;
+  &lt;</span><span style="color:#eb6772;">head</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">meta </span><span style="color:#db9d63;">charset</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;UTF-8&quot;</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">meta </span><span style="color:#db9d63;">name</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;viewport&quot; </span><span style="color:#db9d63;">content</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">meta </span><span style="color:#db9d63;">http-equiv</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;X-UA-Compatible&quot; </span><span style="color:#db9d63;">content</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;ie=edge&quot;</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">title</span><span style="color:#abb2bf;">&gt;Cache Busters&lt;/</span><span style="color:#eb6772;">title</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">link </span><span style="color:#db9d63;">rel</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;stylesheet&quot; </span><span style="color:#db9d63;">href</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;/bundles/app.bundle.css&quot;</span><span style="color:#abb2bf;">&gt;
+  &lt;/</span><span style="color:#eb6772;">head</span><span style="color:#abb2bf;">&gt;
+  &lt;</span><span style="color:#eb6772;">body</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">div </span><span style="color:#db9d63;">id</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;app&quot;</span><span style="color:#abb2bf;">&gt;&lt;/</span><span style="color:#eb6772;">div</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">script </span><span style="color:#db9d63;">src</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;/bundles/app.bundle.js&quot; </span><span style="color:#db9d63;">type</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;text/javascript&quot;</span><span style="color:#abb2bf;">&gt;&lt;/</span><span style="color:#eb6772;">script</span><span style="color:#abb2bf;">&gt;
+  &lt;/</span><span style="color:#eb6772;">body</span><span style="color:#abb2bf;">&gt;
+&lt;/</span><span style="color:#eb6772;">html</span><span style="color:#abb2bf;">&gt;
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="font-style:italic;color:#5f697a;">// src/index.jsx
+
+</span><span style="color:#cd74e8;">import </span><span style="color:#eb6772;">React </span><span style="color:#cd74e8;">from </span><span style="color:#9acc76;">&#39;react&#39;
+</span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">{ </span><span style="color:#eb6772;">render </span><span style="color:#abb2bf;">} </span><span style="color:#cd74e8;">from </span><span style="color:#9acc76;">&#39;react-dom&#39;
+
+</span><span style="color:#cd74e8;">const </span><span style="color:#5cb3fa;">CacheBusters </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">() </span><span style="color:#cd74e8;">=&gt;
+  </span><span style="color:#abb2bf;">&lt;div&gt;</span><span style="color:#eb6772;">Stays Puft</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">Even</span><span style="color:#abb2bf;"> When Toasted&lt;/div&gt;
+
+</span><span style="color:#5cb3fa;">render</span><span style="color:#abb2bf;">(
+  &lt;CacheBusters /&gt;,
+  document.</span><span style="color:#5ebfcc;">getElementById</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;app&#39;</span><span style="color:#abb2bf;">),
+)
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-css" data-lang="css"><span style="color:#abb2bf;">// </span><span style="color:#cd74e8;">src</span><span style="color:#abb2bf;">/</span><span style="color:#cd74e8;">assets</span><span style="color:#abb2bf;">/</span><span style="color:#eb6772;">style</span><span style="color:#db9d63;">.css
+
+</span><span style="color:#eb6772;">body </span><span style="color:#abb2bf;">{
+  background-color: purple;
+}
+</span></code></pre>
+<p>And finally, we can add the start script to package.json:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#abb2bf;">{
+
+  </span><span style="font-style:italic;color:#5f697a;">// …
+
+  </span><span style="color:#9acc76;">&quot;scripts&quot;</span><span style="color:#abb2bf;">: {
+
+    </span><span style="color:#9acc76;">&quot;start&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;webpack-dev-server — config config/webpack/config.development.js — content-base public/&quot;</span><span style="color:#abb2bf;">,
+
+  },
+
+  </span><span style="font-style:italic;color:#5f697a;">// …
+
+</span><span style="color:#abb2bf;">}
+</span></code></pre>
+<p>Now lets try to build &amp; start webpack-dev-server:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn start
+
+</span><span style="color:#eb6772;">yarn</span><span style="color:#abb2bf;"> start v0.22.0
+
+</span><span style="color:#eb6772;">$</span><span style="color:#abb2bf;"> webpack-dev-server — config config/webpack/config.development.js — content-base public/ — history-api-fallback
+
+</span><span style="color:#eb6772;">...
+
+Version:</span><span style="color:#abb2bf;"> webpack 3.0.0
+
+</span><span style="color:#eb6772;">Time:</span><span style="color:#abb2bf;"> 1681ms
+
+</span><span style="color:#eb6772;">Asset</span><span style="color:#abb2bf;"> Size Chunks Chunk Names
+
+</span><span style="color:#eb6772;">app.bundle.js</span><span style="color:#abb2bf;"> 1.06 MB 0 </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">] [</span><span style="color:#abb2bf;">big</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+
+</span><span style="color:#eb6772;">app.bundle.css</span><span style="color:#abb2bf;">  40 bytes       0  </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+
+</span><span style="color:#eb6772;">...
+
++</span><span style="color:#abb2bf;"> 252 hidden modules
+
+</span><span style="color:#eb6772;">webpack:</span><span style="color:#abb2bf;"> Compiled successfully.
+</span></code></pre>
+<p>Nice 1MB hello world, our setup works, we can check webpack-dev-server running at a given URL: <code>http://localhost:8080/</code>.</p>
+<p>Time to move on to production configuration!</p>
+<p>Let's repeat our goal once more. Upon each production build, we want our static assets to contain a hash (which would be different than the previous one only if the code was changed) and our index.html to be dynamically generated with correct assets names (containing a hash), e.g.:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-html" data-lang="html"><span style="color:#abb2bf;">&lt;</span><span style="color:#eb6772;">script </span><span style="color:#db9d63;">src</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”/bundles/app.bundle.9f61f58dd1cc3bb82182.js” </span><span style="color:#db9d63;">type</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">”text/javascript”</span><span style="color:#abb2bf;">&gt;&lt;/</span><span style="color:#eb6772;">script</span><span style="color:#abb2bf;">&gt;
+</span></code></pre>
+<p>Adding a hash is easy, Webpack gives us two options:</p>
+<p><strong>[hash]</strong> — calculated for build and <strong>[chunkhash]</strong> — calculated for entry file. For our use case, chunkhash will be a better option. Since we can selectively bust only, e.g., <em>app.bundle.js</em> and no <em>app.bundle.css</em> if we changed code just in the javascript part of our application:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="font-style:italic;color:#5f697a;">// config/webpack/config.production.js
+
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">ExtractTextPlugin </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;extract-text-webpack-plugin&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">path </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;path&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">config </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;./config&#39;</span><span style="color:#abb2bf;">)
+
+</span><span style="color:#eb6772;">config</span><span style="color:#abb2bf;">.plugins.</span><span style="color:#5ebfcc;">push</span><span style="color:#abb2bf;">(
+  </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">ExtractTextPlugin({
+    filename: </span><span style="color:#9acc76;">&#39;app.bundle.[chunkhash].css&#39;</span><span style="color:#abb2bf;">,
+    allChunks: </span><span style="color:#db9d63;">true
+  </span><span style="color:#abb2bf;">})
+)
+
+</span><span style="color:#eb6772;">config</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">output </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{
+  path: </span><span style="color:#eb6772;">path</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">resolve</span><span style="color:#abb2bf;">(__dirname, </span><span style="color:#9acc76;">&#39;../../public/bundles&#39;</span><span style="color:#abb2bf;">),
+  filename: </span><span style="color:#9acc76;">&#39;[name].bundle.[chunkhash].js&#39;</span><span style="color:#abb2bf;">,
+  chunkFilename: </span><span style="color:#9acc76;">&quot;[name].[chunkhash].js&quot;</span><span style="color:#abb2bf;">,
+  publicPath: </span><span style="color:#9acc76;">&#39;/bundles/&#39;</span><span style="color:#abb2bf;">,
+}
+
+module.exports </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">config
+</span></code></pre>
+<p>Let's add a build option to our package.json:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#abb2bf;">{
+
+  </span><span style="color:#adb7c9;">...
+
+  </span><span style="color:#9acc76;">&quot;scripts&quot;</span><span style="color:#abb2bf;">: {
+
+    </span><span style="color:#adb7c9;">...
+
+    </span><span style="color:#9acc76;">&quot;build&quot;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;webpack --bail -p --config config/webpack/config.production.js&quot;</span><span style="color:#abb2bf;">,
+
+    </span><span style="color:#adb7c9;">...
+
+  </span><span style="color:#abb2bf;">},
+
+  </span><span style="color:#adb7c9;">...
+
+</span><span style="color:#abb2bf;">}
+</span></code></pre>
+<p>And trigger a build:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn build
+
+</span><span style="color:#eb6772;">yarn</span><span style="color:#abb2bf;"> build v0.22.0
+
+</span><span style="color:#eb6772;">$</span><span style="color:#abb2bf;"> webpack — bail</span><span style="color:#eb6772;"> -p</span><span style="color:#abb2bf;"> — config config/webpack/config.production.js
+
+</span><span style="color:#eb6772;">Hash:</span><span style="color:#abb2bf;"> 01788dcc6a43c1f47e5c
+
+</span><span style="color:#eb6772;">Version:</span><span style="color:#abb2bf;"> webpack 3.0.0
+
+</span><span style="color:#eb6772;">Time:</span><span style="color:#abb2bf;"> 1786ms
+
+</span><span style="color:#eb6772;">Asset</span><span style="color:#abb2bf;"> Size Chunks Chunk Names
+
+</span><span style="color:#eb6772;">app.bundle.9f61f58dd1cc3bb82182.js</span><span style="color:#abb2bf;"> 688 kB 0 </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">] [</span><span style="color:#abb2bf;">big</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+
+</span><span style="color:#eb6772;">app.bundle.9f61f58dd1cc3bb82182.css</span><span style="color:#abb2bf;"> 29 bytes 0 </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+</span></code></pre>
+<p>We are getting there! Now our bundles have unique hashes. But we have a new problem now; our index.html contains old links to <em>/bundles/app.bundle.js</em> and <em>/bundles/app.bundle.css</em>.</p>
+<p>We will use <a href="https://github.com/jantimon/html-webpack-plugin">html-webpack-plugin</a> to generate our <em>index.html</em> on demand from a template. You can use <em>html-webpack-plugin</em> with various templating engines, so it should cover most of the use cases.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn add</span><span style="color:#eb6772;"> --dev</span><span style="color:#abb2bf;"> html-webpack-plugin
+
+</span><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters mv public/index.html ./src/assets/index.template.html
+</span></code></pre>
+<p>Remove bundle links from index.template.html:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-html" data-lang="html"><span style="color:#abb2bf;">// src/assets/index.template.html
+
+&lt;!</span><span style="color:#cd74e8;">DOCTYPE </span><span style="color:#db9d63;">html</span><span style="color:#abb2bf;">&gt;
+&lt;</span><span style="color:#eb6772;">html </span><span style="color:#db9d63;">lang</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;en&quot;</span><span style="color:#abb2bf;">&gt;
+  &lt;</span><span style="color:#eb6772;">head</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">meta </span><span style="color:#db9d63;">charset</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;UTF-8&quot;</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">meta </span><span style="color:#db9d63;">name</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;viewport&quot; </span><span style="color:#db9d63;">content</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">meta </span><span style="color:#db9d63;">http-equiv</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;X-UA-Compatible&quot; </span><span style="color:#db9d63;">content</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;ie=edge&quot;</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">title</span><span style="color:#abb2bf;">&gt;Cache Busters&lt;/</span><span style="color:#eb6772;">title</span><span style="color:#abb2bf;">&gt;
+  &lt;/</span><span style="color:#eb6772;">head</span><span style="color:#abb2bf;">&gt;
+  &lt;</span><span style="color:#eb6772;">body</span><span style="color:#abb2bf;">&gt;
+    &lt;</span><span style="color:#eb6772;">div </span><span style="color:#db9d63;">id</span><span style="color:#abb2bf;">=</span><span style="color:#9acc76;">&quot;app&quot;</span><span style="color:#abb2bf;">&gt;&lt;/</span><span style="color:#eb6772;">div</span><span style="color:#abb2bf;">&gt;
+  &lt;/</span><span style="color:#eb6772;">body</span><span style="color:#abb2bf;">&gt;
+&lt;/</span><span style="color:#eb6772;">html</span><span style="color:#abb2bf;">&gt;
+</span></code></pre>
+<p>Add <em>html-webpack-plugin</em> to Webpack's <em>config.production.js</em>:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">path </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;path&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">ExtractTextPlugin </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;extract-text-webpack-plugin&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">HtmlWebpackPlugin </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;html-webpack-plugin&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">config </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;./config&#39;</span><span style="color:#abb2bf;">)
+
+</span><span style="color:#eb6772;">config</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">output </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{
+  path: </span><span style="color:#eb6772;">path</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">resolve</span><span style="color:#abb2bf;">(__dirname, </span><span style="color:#9acc76;">&#39;../../public/bundles&#39;</span><span style="color:#abb2bf;">),
+  filename: </span><span style="color:#9acc76;">&#39;[name].bundle.[chunkhash].js&#39;</span><span style="color:#abb2bf;">,
+  chunkFilename: </span><span style="color:#9acc76;">&quot;[name].[chunkhash].js&quot;</span><span style="color:#abb2bf;">,
+  publicPath: </span><span style="color:#9acc76;">&#39;/bundles/&#39;</span><span style="color:#abb2bf;">,
+}
+
+</span><span style="color:#eb6772;">config</span><span style="color:#abb2bf;">.plugins.</span><span style="color:#5ebfcc;">push</span><span style="color:#abb2bf;">(
+  </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">ExtractTextPlugin({
+    filename: </span><span style="color:#9acc76;">&#39;app.bundle.[chunkhash].css&#39;</span><span style="color:#abb2bf;">,
+    allChunks: </span><span style="color:#db9d63;">true
+  </span><span style="color:#abb2bf;">}),
+  </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">HtmlWebpackPlugin({
+    filename: </span><span style="color:#9acc76;">&#39;../../public/index.html&#39;</span><span style="color:#abb2bf;">,
+    template: </span><span style="color:#9acc76;">&#39;src/assets/index.template.html&#39;
+  </span><span style="color:#abb2bf;">})
+)
+
+module.exports </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">config
+</span></code></pre>
+<p>And build:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn build
+
+</span><span style="color:#eb6772;">yarn</span><span style="color:#abb2bf;"> build v0.22.0
+
+</span><span style="color:#eb6772;">...
+
+Asset</span><span style="color:#abb2bf;"> Size Chunks Chunk Names
+
+</span><span style="color:#eb6772;">app.bundle.9f61f58dd1cc3bb82182.js</span><span style="color:#abb2bf;"> 688 kB 0 </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">] [</span><span style="color:#abb2bf;">big</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+
+</span><span style="color:#eb6772;">app.bundle.9f61f58dd1cc3bb82182.css</span><span style="color:#abb2bf;"> 29 bytes 0 </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+
+</span><span style="color:#eb6772;">public/index.html</span><span style="color:#abb2bf;"> 462 bytes </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">]
+
+</span><span style="color:#eb6772;">...
+
+➜</span><span style="color:#abb2bf;"> cache-busters cat public/index.html
+
+</span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">!DOCTYPE </span><span style="color:#eb6772;">html</span><span style="color:#adb7c9;">&gt;
+
+&lt;</span><span style="color:#abb2bf;">html lang=”en”</span><span style="color:#adb7c9;">&gt;
+
+  &lt;</span><span style="color:#abb2bf;">head</span><span style="color:#adb7c9;">&gt;
+
+</span><span style="color:#abb2bf;">    ...
+
+    </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">link </span><span style="color:#eb6772;">href</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&quot;/bundles/app.bundle.9f61f58dd1cc3bb82182.css&quot; </span><span style="color:#eb6772;">rel</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&quot; stylesheet&quot;</span><span style="color:#adb7c9;">&gt;
+
+  &lt;</span><span style="color:#abb2bf;">/head</span><span style="color:#adb7c9;">&gt;
+
+  &lt;</span><span style="color:#abb2bf;">body</span><span style="color:#adb7c9;">&gt;
+
+    &lt;</span><span style="color:#abb2bf;">div </span><span style="color:#eb6772;">id</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">”app”</span><span style="color:#adb7c9;">&gt;&lt;</span><span style="color:#abb2bf;">/div</span><span style="color:#adb7c9;">&gt;
+
+    &lt;</span><span style="color:#abb2bf;">script </span><span style="color:#eb6772;">type</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">”text/javascript” </span><span style="color:#eb6772;">src</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">”/bundles/app.bundle.9f61f58dd1cc3bb82182.js”</span><span style="color:#adb7c9;">&gt;&lt;</span><span style="color:#abb2bf;">/script</span><span style="color:#adb7c9;">&gt;
+
+  &lt;</span><span style="color:#abb2bf;">/body</span><span style="color:#adb7c9;">&gt;
+
+&lt;</span><span style="color:#abb2bf;">/html</span><span style="color:#adb7c9;">&gt;
+</span></code></pre>
+<p>Bingo! Our <em>index.html</em> now contains a dynamic chunk hash for both asset files.</p>
+<p>It's a good idea to add those folders with dynamically generated files to <em>.gitignore</em> so that no one will commit it to git.</p>
+<p>Now we have a new problem; our development build is broken. There's no <em>index.html</em> with our entry point anymore, and we don't want to use chunk hash during development since it's slower. One way to solve this issue would be to create a second public folder for development only with <em>index.html</em> referencing to static app.bundle.js/css assets, but it means we'd have to keep two versions of <em>index.html</em> with the same content.</p>
+<p>But what if we'd use html-webpack-plugin to generate index.html from the template with chunk hash-free assets? I'd work except for one small issue — using webpack-dev-server, our <em>index.html</em> is not being written to a hard drive. What now? Of course, there is a webpack plugin to solve it: <a href="https://github.com/jantimon/html-webpack-harddisk-plugin">html-webpack-harddisk-plugin</a>!</p>
+<p>Now we can add it to our development config:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn add</span><span style="color:#eb6772;"> --dev</span><span style="color:#abb2bf;"> html-webpack-harddisk-plugin
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="font-style:italic;color:#5f697a;">// config.development.js
+
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">path </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;path&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">ExtractTextPlugin </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;extract-text-webpack-plugin&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">HtmlWebpackPlugin </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;html-webpack-plugin&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">HtmlWebpackHarddiskPlugin </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;html-webpack-harddisk-plugin&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">config </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">require</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;./config&#39;</span><span style="color:#abb2bf;">)
+
+</span><span style="color:#eb6772;">config</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">output </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{
+  path: </span><span style="color:#eb6772;">path</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">resolve</span><span style="color:#abb2bf;">(__dirname, </span><span style="color:#9acc76;">&#39;../../public/bundles&#39;</span><span style="color:#abb2bf;">),
+  filename: </span><span style="color:#9acc76;">&#39;[name].bundle.js&#39;</span><span style="color:#abb2bf;">,
+  chunkFilename: </span><span style="color:#9acc76;">&quot;[name].js&quot;</span><span style="color:#abb2bf;">,
+  publicPath: </span><span style="color:#9acc76;">&#39;/bundles/&#39;</span><span style="color:#abb2bf;">,
+}
+
+</span><span style="color:#eb6772;">config</span><span style="color:#abb2bf;">.plugins.</span><span style="color:#5ebfcc;">push</span><span style="color:#abb2bf;">(
+  </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">ExtractTextPlugin({
+    filename: </span><span style="color:#9acc76;">&#39;app.bundle.css&#39;</span><span style="color:#abb2bf;">,
+    allChunks: </span><span style="color:#db9d63;">true
+  </span><span style="color:#abb2bf;">}),
+  </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">HtmlWebpackPlugin({
+    filename: </span><span style="color:#9acc76;">&#39;../../public/index.html&#39;</span><span style="color:#abb2bf;">,
+    template: </span><span style="color:#9acc76;">&#39;src/assets/index.template.html&#39;</span><span style="color:#abb2bf;">,
+    alwaysWriteToDisk: </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">, </span><span style="font-style:italic;color:#5f697a;">// this option was added by html-webpack-harddisk-plugin
+  </span><span style="color:#abb2bf;">}),
+  </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">HtmlWebpackHarddiskPlugin()
+)
+
+module.exports </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">config
+</span></code></pre>
+<p>Try to run webpack-dev-server:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">➜</span><span style="color:#abb2bf;"> cache-busters yarn start
+
+</span><span style="color:#eb6772;">...
+
+Asset</span><span style="color:#abb2bf;"> Size Chunks Chunk Names
+
+</span><span style="color:#eb6772;">app.bundle.js</span><span style="color:#abb2bf;"> 1.06 MB 0 </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">] [</span><span style="color:#abb2bf;">big</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+
+</span><span style="color:#eb6772;">app.bundle.css</span><span style="color:#abb2bf;"> 37 bytes 0 </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">]</span><span style="color:#abb2bf;"> app
+
+</span><span style="color:#eb6772;">../../public/index.html</span><span style="color:#abb2bf;"> 420 bytes </span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">emitted</span><span style="color:#cd74e8;">]
+</span></code></pre>
+<p>That's it! Bundles don't have a hash, and index.html is being emitted.</p>
+<p>Now we have working cache-busting as well as a solid Webpack setup ready to be extended.</p>
+<p>I hope you enjoyed this tutorial &amp; see you next time.</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;home&#x2F;intro&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Intro
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+          
+          
+          <a class="ms-auto" href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;cheatsheets&#x2F;git-cheatsheet&#x2F;">
+            <div class="card my-1">
+              <div class="card-body py-2">
+                Git cheatsheet &rarr;
+              </div>
+            </div>
+          </a>
+          
+          
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

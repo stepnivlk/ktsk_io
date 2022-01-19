@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MU123 Unit 3 Notes | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mu123-unit3/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mu123 Unit3",
+            "item": "https://ktsk.xyz/docs/uni/mu123-unit3/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#1-natural-numbers">1 Natural numbers</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#1-1-multiples">1.1 Multiples</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#1-2-factors">1.2 Factors</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#1-3-prime-numbers">1.3 Prime numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#1-4-prime-factors">1.4 Prime factors</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#1-5-powers">1.5 Powers</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#2-rational-numbers">2 Rational numbers</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#irrational-numbers">Irrational numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#rational-numbers-as-decimals">Rational numbers as decimals</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#2-2-adding-and-subtracting-fractions">2.2 Adding and subtracting fractions</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#2-3-multiplying-and-dividing-fractions">2.3 Multiplying and dividing fractions</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#2-4-negative-indices">2.4 Negative indices</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#2-5-scientific-notation">2.5 Scientific notation</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#3-irrational-numbers-and-real-numbers">3 Irrational numbers and real numbers</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#3-1-what-is-an-irrational-number">3.1 What is an irrational number?</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#3-2-roots-of-numbers">3.2 Roots of numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#3-3-surds">3.3 Surds</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#3-4-fractional-indices">3.4 Fractional indices</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#4-ratios">4 Ratios</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit3/#4-1-what-is-a-ratio">4.1 What is a ratio?</a></li>
+  											
+  									</ul>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MU123 Unit 3 Notes</h1>
+        
+        <h1 id="1-natural-numbers">1 Natural numbers</h1>
+<p>Positive integers <code>1, 2, 3, 4...</code>
+<a href="https://en.wikipedia.org/wiki/Natural_number">Some include zero, some not</a>.</p>
+<h2 id="1-1-multiples">1.1 Multiples</h2>
+<p>A result of multiplying a natural number by natural number. E.g. multiples of 8 are $8, 16, 24, 32$</p>
+<p>Thus multiples are numbers into which 8 divides exactly.</p>
+<h3 id="common-multiple">Common multiple</h3>
+<p>is a multiple of all the numbers in question. Lowest common multiple (LCM) is the smallest number that is a multiple of numbers in question</p>
+<h2 id="1-2-factors">1.2 Factors</h2>
+<p>A natural number that divides a number exactly into a second natural number, e.g. 2 is factor of 10.
+Alternatively we can say 10 is divisible by 2.</p>
+<p>Related to multiples since 2 is a factor of 10 is same as 10 is a multiple of 2.</p>
+<p>All natural numbers &gt; 1 have at least two factors - itself and 1.</p>
+<p>Factors can be arranged into factor pairs - $1,10$; $2,5$.</p>
+<blockquote>
+<p><strong>Strategy to find factors of a number</strong></p>
+<ul>
+<li>Try 1,2,3,4... in turn. When factor is found, write it down with the other factor in the pair</li>
+<li>Stop when you reach already found factor pair</li>
+</ul>
+</blockquote>
+<h3 id="common-factors">Common factors</h3>
+<p>is a factor of all the numbers in question. The highest common factor (HCF) is the largest number that is a factor of numbers in question.</p>
+<h2 id="1-3-prime-numbers">1.3 Prime numbers</h2>
+<p>Natural numbers that have <strong>exactly</strong> two factors - 1 and itself, e.g. $2, 3, 5, 7, 11, 13, \ldots$.</p>
+<h3 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h3>
+<p>An algorithm for finding all the prime numbers up to a certain number.
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif" alt="sieveofera" /></p>
+<ul>
+<li>Create a range of $2..n$ where $n$ is a certain number</li>
+<li>Mark all the numbers that are multiples of 2 and are $&gt;= 2^2$</li>
+<li>Move to next unmarked number - 3 and mark its multiples that are $&gt;= 3^2$</li>
+<li>...</li>
+<li>All the unmarked numbers are primes</li>
+</ul>
+<p>Python impelementation <a href="https://www.geeksforgeeks.org/sieve-of-eratosthenes/">src</a>:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">SieveOfEratosthenes</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">n</span><span style="color:#abb2bf;">):
+ 
+    </span><span style="font-style:italic;color:#5f697a;"># Create a boolean array 
+    # &quot;prime[0..n]&quot; and initialize
+    #  all entries it as true.
+    # A value in prime[i] will
+    # finally be false if i is 
+    # Not a prime, else true.
+    </span><span style="color:#abb2bf;">prime </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[</span><span style="color:#db9d63;">True </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">i </span><span style="color:#cd74e8;">in </span><span style="color:#5ebfcc;">range</span><span style="color:#abb2bf;">(n</span><span style="color:#adb7c9;">+</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">)]
+    p </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">2
+    </span><span style="color:#cd74e8;">while </span><span style="color:#abb2bf;">(p </span><span style="color:#adb7c9;">* </span><span style="color:#abb2bf;">p </span><span style="color:#adb7c9;">&lt;= </span><span style="color:#abb2bf;">n):
+ 
+        </span><span style="font-style:italic;color:#5f697a;"># If prime[p] is not 
+        # changed, then it is a prime
+        </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">(prime[p] </span><span style="color:#adb7c9;">== </span><span style="color:#db9d63;">True</span><span style="color:#abb2bf;">):
+ 
+            </span><span style="font-style:italic;color:#5f697a;"># Update all multiples of p
+            </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">i </span><span style="color:#cd74e8;">in </span><span style="color:#5ebfcc;">range</span><span style="color:#abb2bf;">(p </span><span style="color:#adb7c9;">* </span><span style="color:#abb2bf;">p, n</span><span style="color:#adb7c9;">+</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, p):
+                prime[i] </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">False
+        </span><span style="color:#abb2bf;">p </span><span style="color:#adb7c9;">+= </span><span style="color:#db9d63;">1
+ 
+    </span><span style="font-style:italic;color:#5f697a;"># Print all prime numbers
+    </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">p </span><span style="color:#cd74e8;">in </span><span style="color:#5ebfcc;">range</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">, n</span><span style="color:#adb7c9;">+</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">):
+        </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">prime[p]:
+            </span><span style="color:#cd74e8;">print </span><span style="color:#abb2bf;">p,
+</span></code></pre>
+<p>Resources</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/sieve-of-eratosthenes/">https://www.geeksforgeeks.org/sieve-of-eratosthenes/</a></li>
+<li><a href="https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html">https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html</a></li>
+<li><a href="https://www.baeldung.com/cs/sieve-of-eratosthenes">https://www.baeldung.com/cs/sieve-of-eratosthenes</a></li>
+</ul>
+<h3 id="mersenne-primes">Mersenne primes</h3>
+<p>$$
+2^n - 1 ~\text{for natural number} ~n
+$$
+It can be proven that if $2^n - 1$ is prime then $n$ must be a prime.</p>
+<p>Resources</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Mersenne_prime">https://en.wikipedia.org/wiki/Mersenne_prime</a></li>
+<li><a href="https://www.mersenne.org/">https://www.mersenne.org/</a></li>
+<li><a href="https://primes.utm.edu/mersenne/">https://primes.utm.edu/mersenne/</a></li>
+</ul>
+<h2 id="1-4-prime-factors">1.4 Prime factors</h2>
+<p>A natural number &gt; 1 that is not prime is called a <strong>composite number</strong>, e.g.: $4, 6, 8, 9, 10\ldots$.
+A composite number can often be written as a product of even more factors forming a <strong>factor tree</strong>:</p>
+<div class="mermaid is-flex is-justify-content-center is-align-items-center bg-white rounded">graph TD;
+    two1((2))
+    two2((2))
+    two3((2))
+    three1((3))
+    three2((3))
+    five1((5))
+	
+    360--&gt;20;
+    360--&gt;18;
+    20--&gt;4;
+    20--&gt;five1;
+	18--&gt;three1;
+	18--&gt;6;
+	4--&gt;two1;
+	4--&gt;two2;
+	6--&gt;two3;
+	6--&gt;three2;</div>
+<p>Hence we can say $360 = 2^3 \times 3^2 \times 5$. All of the factors here are primes.</p>
+<p>I could've started with different nodes, e.g. $360 = 10 \times 36$, but the result would've been the same.</p>
+<p>The process of writing a natural number as a product of factors &gt; 1 is called <strong>factorisation</strong>.</p>
+<blockquote>
+<p><strong>The fundamental theorem of arithmetic</strong></p>
+<p>Every natural number &gt; 1 can be written as product of prime numbers in <strong>just one way</strong>.</p>
+</blockquote>
+<p>The <strong>prime factorisation</strong> of a natural number is the product of prime factors that is equal to it, e.g.:
+$$
+\begin{aligned}
+2 &amp;= 2 \qquad 3 = 3 \qquad 4 = 2^2 \\
+5 &amp;= 5 \qquad 6 = 2 \times 3 \qquad 7 = 7 \\
+8 &amp;= 2^3 \qquad 9 = 3^2 \qquad 10 = 2 \times 5
+\end{aligned}
+$$</p>
+<p>Because of the fundamental theorem of aithmetic we can say that prime numbers are the <strong>building blocks of natural numbers</strong>.</p>
+<p>For prime factorisation it may be helpful to be systematic and follow:
+$$
+\text{the smallest possible prime} \times \text{a number}
+$$
+And iterate for each composite number in the factor tree, e.g.:</p>
+<div class="mermaid is-flex is-justify-content-center is-align-items-center bg-white rounded">graph TD;
+    two1((2))
+    two2((2))
+    three1((3))
+    three2((3))
+    seven1((5))
+	
+	252--&gt;two1;
+    252--&gt;126;
+	126--&gt;two2;
+	126--&gt;63;
+	63--&gt;three1;
+	63--&gt;21;
+	21--&gt;three2;
+	21--&gt;seven1;</div>
+<p>There's no other way to find prime factors of a number $n$ then trying all the primes &lt; $n$.
+So multiplying two large primes is a quick process but expensive to reverse.
+This fact is a base to secure encryption systems.</p>
+<h3 id="finding-lcm-and-hcf-using-prime-factors">Finding LCM and HCF using prime factors</h3>
+<ul>
+<li>Find the prime factorisation of the numbers.</li>
+<li>To find the LCM, multiply together the highest ower of each prime factor occuring in any of the numbers.</li>
+<li>To find the HCF, multiply together the lowest power of each prime factor common to all the numbers.</li>
+</ul>
+<h2 id="1-5-powers">1.5 Powers</h2>
+<h3 id="index-laws">Index laws</h3>
+<p>So far I've used these
+$$
+\begin{aligned}
+a^m \times a^n &amp;= a^{m+n} \qquad \frac{a^m}{a^n} = a^{m-n} \\
+(a^m)^n &amp;= a^{mn} \\
+(a \times b)^n &amp;= a^n \times b^n \qquad (\frac{a}{b})^n = \frac{a^n}{b^n}
+\end{aligned}
+$$</p>
+<h1 id="2-rational-numbers">2 Rational numbers</h1>
+<p>Include natural numbers among others.</p>
+<p>Is a number that can be written as a fraction of two integers: $\frac{integer}{integer}$.</p>
+<p>Following numbers can be written in this form:</p>
+<ul>
+<li>Fraction as $\frac{3}{4}$</li>
+<li>Mixed number as $5\frac{3}{4}$ since it can be converted to top-heavy fraction: $\frac{23}{4}$</li>
+<li>Whole number: $7 = \frac{7}{1}$</li>
+<li>Decimal number with finite number of digits after decimal points: $0.42 = \frac{42}{100}$</li>
+<li>Some decimal numbers with infinite numbers after decimal point: $0.333\ldots = \frac{1}{3}$</li>
+<li>The negative of any above: $-4 = \frac{-4}{1}$</li>
+</ul>
+<h3 id="irrational-numbers">Irrational numbers</h3>
+<ul>
+<li>$\pi$</li>
+<li>$\sqrt{2}$</li>
+</ul>
+<h3 id="rational-numbers-as-decimals">Rational numbers as decimals</h3>
+<p>Every rational number can be converted to decimal, e.g.: $\frac{5}{8} = 5 \div 8 = 0.625$
+There are two possible outcomes of the division:</p>
+<ul>
+<li>decimal number with finite digits after d.p. - <strong>terminating decimal</strong>
+<ul>
+<li>$0.625$ is terminating</li>
+</ul>
+</li>
+<li>decimal with block of indefinitely repeating digits after d.p - <strong>recurring decimal</strong>
+<ul>
+<li>$\frac{2}{3} = 0.6666\ldots$ is recurring</li>
+<li>Can be denoted with $0.1\overline{23}$.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Thus rational numbers can be redefined as</strong></p>
+<blockquote>
+<p>Decimal numbers that are terminating or recurring.</p>
+</blockquote>
+<p>I can convert terminating to fraction so I can prove first part of the statement but I can't prove the second yet.</p>
+<h2 id="2-2-adding-and-subtracting-fractions">2.2 Adding and subtracting fractions</h2>
+<ul>
+<li>Only when there's a same denominator - fractions are of a same type.</li>
+<li>When there's different denominator - find common one (LCM).</li>
+<li>Always simplify.</li>
+</ul>
+<h2 id="2-3-multiplying-and-dividing-fractions">2.3 Multiplying and dividing fractions</h2>
+<h3 id="multiplying">Multiplying</h3>
+<ul>
+<li>Multiply the numerators together and multiply the denominators together.</li>
+</ul>
+<h3 id="dividing">Dividing</h3>
+<ul>
+<li>Multiple the fraction by its reciprocal </li>
+</ul>
+<h4 id="reciprocal">Reciprocal</h4>
+<p>A number and its reciprocal multiply together to give 1.
+E.g.:
+$0.25 ~\text{is rec of} ~4$,since $0.25 \times 4 = 1$
+$\frac{3}{2} ~\text{is rec of} ~\frac{2}{3}$,since $\frac{3}{2} \times \frac{2}{3} = 1$</p>
+<p>Alternatively, it is 1 divided by given number. </p>
+<p>To find a reciprocal of fraction turn it upside down.
+E.g.:
+$\text{rec of}~\frac{3}{4}~\text{is}~\frac{4}{3}$</p>
+<h2 id="2-4-negative-indices">2.4 Negative indices</h2>
+<p>The previous positive power of a number $n$ is equal to current positive power divided by $n$, e.g.:
+$4^3 = \frac{4^4}{4}$</p>
+<p>Thus $4^0$ has to be a number I get when dividing $\frac{4^1}{4} = 1$.
+Similarly $4^{-1}$ has to be a number I get when dividing $\frac{4^0}{4} = \frac{1}{4}$.</p>
+<p>We can build whole scale of the pattern</p>
+<table><thead><tr><th>$4^{-3}$</th><th>$4^{-2}$</th><th>$4^{-1}$</th><th>$4^0$</th><th>$4^1$</th><th>$4^2$</th><th>$4^3$</th></tr></thead><tbody>
+<tr><td>$\frac{1}{4^3}$</td><td>$\frac{1}{4^2}$</td><td>$\frac{1}{4}$</td><td>$1$</td><td>$4$</td><td>$16$</td><td>$64$</td></tr>
+</tbody></table>
+<p>The meaning of negative and zero indices works with all the index laws I've seen so far.</p>
+<p>Index laws can be expand by following rules based on previous observations:</p>
+<ul>
+<li>A non-zero number raised to the power zero is 1:
+$$
+a^0 = 1
+$$</li>
+<li>A non-zero number raised to a negative power is the reciprocal of the number raised to the corresponding positive power:
+$$
+a^{n - 1} = \frac{1}{a^n}
+$$</li>
+</ul>
+<p>Interestingly:
+$$
+a^{-1} = \frac{1}{a}
+$$
+Hence, raising a number to the power of $-1$ is the same as finding its reciprocal.</p>
+<p>E.g.:
+$$
+(\frac{2}{3})^{-1} = 1 \times \frac{3}{2} = \frac{3}{2}
+$$</p>
+<h2 id="2-5-scientific-notation">2.5 Scientific notation</h2>
+<ul>
+<li>Also called <strong>standard form</strong>.</li>
+<li>A number between 1 and 10 (excluded) multiplied by a power of 10.</li>
+</ul>
+<h1 id="3-irrational-numbers-and-real-numbers">3 Irrational numbers and real numbers</h1>
+<h2 id="3-1-what-is-an-irrational-number">3.1 What is an irrational number?</h2>
+<p>Decimals with infinite number of digits afterthe decimal point but no repeating block of digits.</p>
+<p>Following number is not terminating nor recurring:
+$$
+0.010,010,001,000,010,000,01\ldots
+$$</p>
+<p><em>TODO: What if the repeating block is just really big?</em></p>
+<p>Here $x$ is not rational:</p>
+<p>$$
+\begin{aligned}
+x^2 = 2 \\
+\sqrt{2} = x
+\end{aligned}
+$$</p>
+<hr />
+<p>The fact that $\sqrt{2}$ is irrational can be proven by <strong>contradiction</strong> followingly.</p>
+<p>Suppose there's a rational number whose square is $2$. Hence it can be written as
+$$
+\frac{\text{integer}}{\text{integer}}
+$$
+Consider it being cancelled down to the simplest form as:
+$$
+\frac{m}{n}
+$$
+So $m$ and $n$ don't have any common factor.
+The square of $\frac{m}{n}$ is 2, so:
+$$
+\begin{aligned}
+(\frac{m}{n})^2 = 2 \\
+\frac{m^2}{n^2} = 2
+\end{aligned}
+$$
+It follow that
+$$
+\begin{aligned}
+\frac{m^2}{n^2} \times n^2 = 2 \times n^2 \\
+m^2 = 2n^2
+\end{aligned}
+$$
+$2n^2$ has to be even since it's a product of 2 and whole number. Meaning $m^2$ has to be even too, that means $m$ has to be even as well.
+That means that $m = 2r$ for some integer $r$.
+When substituting to the original equation we get:
+$$
+\begin{aligned}
+(2r)^2 = 2n^2 \\
+4r^2 = 2n^2 \\
+\end{aligned}
+$$
+It follow that
+$$
+\begin{aligned}
+\frac{4r^2}{2} = \frac{2n^2}{2} \\
+2r^2 = n^2
+\end{aligned}
+$$</p>
+<p>The integer $n^2$ is even hence $n$ has to be even too.
+So both $m$ and $n$ are even. But that's <strong>impossible</strong> since $m$ and $n$ don't have any common factor.</p>
+<hr />
+<p>The irrational numbers together with the rational numbers form the <strong>real numbers</strong>.</p>
+<p>I can think about various categories of numbers as layers:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#abb2bf;">Real(
+	Irrational,
+	Rational(
+		Integers(
+			Natural
+		)
+	)
+)
+</span></code></pre>
+<p>plus complex, that will come later on.</p>
+<h2 id="3-2-roots-of-numbers">3.2 Roots of numbers</h2>
+<p>A number that when multiplied by itself gives the original number.
+Every positive number has two square roots - a positive one and a negative one.</p>
+<p>Square roots of two numbers can be used to find the square root of the product or a quotient.</p>
+<p>For example, numbers 16 and 49 have square roots of 4 and 7.
+I can apply index law $(a \times b)^n = a^n \times b^n$ to those:
+$$
+\begin{aligned}
+(4 \times 7)^2 = 4^2 \times 7^2 \\
+(4 \times 7)^2 = 16 \times 49
+\end{aligned}
+$$
+That implies:
+$$
+\sqrt{16 \times 49} = \sqrt{16} \times \sqrt{49}
+$$</p>
+<p>This can be generalized into following laws:
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$</p>
+<p>Obviously, these laws apply to any root.</p>
+<h2 id="3-3-surds">3.3 Surds</h2>
+<p>Numbers that are not perfect square have irrational roots. Hence following roots are irrational:
+$$
+\sqrt{7}, \sqrt{8}, \sqrt{10}, \sqrt{11}
+$$
+Since such number can be only approximated as a decimal it should be left as is in calculations, e.g.:
+$$
+x = 2 \times \sqrt{5}
+$$
+such expressions are called <strong>surds</strong> - it contains one or more irrational roots of numbers.
+Surds are usually written concisely as formulas, number before surd when multiplied:
+$$
+y = 2\sqrt{5}
+$$
+In the simplest form:
+$$
+\sqrt{12} = \sqrt{4 \times 3} = \sqrt{4} \times \sqrt{3} = 2\sqrt{3}
+$$
+This is obviously possible when some of a numbers under the root are perfect squares. Thus the goal when simplifying is to find some perfect square multiplied some other number giving the original number bellow the root.</p>
+<h3 id="multiplying-roots">Multiplying roots</h3>
+<ul>
+<li>Multiply numbers together</li>
+<li>Multiply roots together</li>
+<li>Simplify the root</li>
+</ul>
+<h3 id="dividing-roots">Dividing roots</h3>
+<p>Use following laws
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$</p>
+<p>Sometimes, I should expand an integer to a multiplication of surds in order to simplify the quotient:
+$$
+\frac{2}{\sqrt{2}} = \frac{\sqrt{2} \times \sqrt{2}}{\sqrt{2}} = \frac{1 \times \sqrt{2}}{1} = \sqrt{2}
+$$</p>
+<h3 id="adding-and-substracting-roots">Adding and substracting roots</h3>
+<p>It's usually not possible to add or substract different roots, thus 
+$$
+\sqrt{a} + \sqrt{b} \not= \sqrt{a + b}
+$$</p>
+<p>I can only add or substract roots that are the same.</p>
+<blockquote>
+<p><strong>To simplify surds</strong></p>
+<ul>
+<li>Simplify roots of integers with square factors.</li>
+<li>Simplify products and quotients of roots.</li>
+<li>Add or subtract roots that are the same.</li>
+</ul>
+</blockquote>
+<h2 id="3-4-fractional-indices">3.4 Fractional indices</h2>
+<p>Index laws can be applied to fractional indices too, e.g. let's consider the power $5^\frac{1}{2}$</p>
+<p>By applying
+$$
+a^m \times a^n = a ^{m + n}
+$$
+I get
+$$
+5^\frac{1}{2} \times 5^\frac{1}{2} = 5^{\frac{1}{2} + \frac{1}{2}} = 5^1 = 5
+$$
+Hence
+$$
+5^\frac{1}{2} = \sqrt{5}
+$$</p>
+<p>It can be generalized in the following index law
+$$
+a^\frac{1}{n} = \sqrt[n]{a}
+$$</p>
+<p>This rule toegher with other index laws can be used to give a meaning to any fractional index.</p>
+<p>E.g. in combination with
+$$
+(a^m)^n = a^{mn}
+$$</p>
+<p>I can do following operation
+$$
+5^\frac{4}{3} = 5^{\frac{1}{3} \times 4} = (5^{\frac{1}{3}})^4 = (\sqrt[3]{5})^4
+$$</p>
+<p>This combination can be generalized to yet another index law
+$$
+a^\frac{m}{n} = (\sqrt[n]{a})^m
+$$</p>
+<p>Interestingly the square root laws I saw before:
+$$
+\sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \qquad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$
+Can be deduced by applying $n = \frac{1}{2}$ to following index laws:
+$$
+(a \times b)^n = a^n \times b^n \qquad (\frac{a}{b})^n = \frac{a^n}{b^n}
+$$</p>
+<blockquote>
+<p>Irrational indices are also valid but I will encounter those later on.</p>
+</blockquote>
+<h1 id="4-ratios">4 Ratios</h1>
+<h2 id="4-1-what-is-a-ratio">4.1 What is a ratio?</h2>
+<p>Comparition of multiple ordered quantities, e.g.: $3:5 ~ 2:10:7$</p>
+<p>Sometimes it's useful to convert a ratio to a $number:1$ form to e.g.</p>
+<ul>
+<li>Compare multiple ratios.</li>
+<li>Find approximate ratios.
+To reach such a form I can divide both numbers by second number, e.g.:
+$$
+7 : 11 = \frac{7}{11} : \frac{11}{11} = 0.636 : 1 ~\text{(3 d.p.)}
+$$</li>
+</ul>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

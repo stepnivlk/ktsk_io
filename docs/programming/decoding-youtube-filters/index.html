@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Decoding Youtube filters | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Programming",
+            "item": "https://ktsk.xyz/docs/programming/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Decoding Youtube Filters",
+            "item": "https://ktsk.xyz/docs/programming/decoding-youtube-filters/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Decoding Youtube filters</h1>
+        
+        <h1 id="introduction">Introduction</h1>
+<p>Recently, I was searching for some videos on Youtube and noticed the search filters aren't passed to the server as a series of key-value strings on the URL as one might expect, e.g.:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#abb2bf;">https://www.youtube.com/results?search_query=cassini?type=video&amp;features=4k
+</span></code></pre>
+<p>Instead, all the active filters are somehow combined and encoded to the <code>sp</code> query parameter. So the valid version of the previously mentioned URL is:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#abb2bf;">https://www.youtube.com/results?search_query=cassini&amp;sp=EgQQAXAB
+</span></code></pre>
+<p>There is some function on Youtube that encodes Type: <strong>Video</strong> and Features: <strong>4K</strong> filters to <code>EgQQAXAB</code>. I can only guess what's the reasoning behind such an opaque approach. More importantly, it made me curious how the encoding works concretely. Hence as a little mental excercise, I set out to decode it.</p>
+<h1 id="reading-the-data">Reading the data</h1>
+<p><code>EgQQAXAB</code> looks like base64 encoded data, so let's fire up <strong>ptpython</strong> and try to decode it:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">base64
+</span><span style="color:#adb7c9;">&gt;&gt;&gt;
+&gt;&gt;&gt; </span><span style="color:#5ebfcc;">filter </span><span style="color:#adb7c9;">= </span><span style="color:#9acc76;">&#39;EgQQAXAB&#39;
+</span><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#abb2bf;">bytes </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">base64.</span><span style="color:#eb6772;">b64decode</span><span style="color:#abb2bf;">(</span><span style="color:#5ebfcc;">filter</span><span style="color:#abb2bf;">)
+</span><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#abb2bf;">bytes
+</span><span style="color:#cd74e8;">b</span><span style="color:#9acc76;">&#39;</span><span style="color:#5ebfcc;">\x12\x04\x10\x01</span><span style="color:#9acc76;">p</span><span style="color:#5ebfcc;">\x01</span><span style="color:#9acc76;">&#39;
+</span><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#5ebfcc;">bytes</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">decode</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;utf-8&#39;</span><span style="color:#abb2bf;">)
+</span><span style="color:#9acc76;">&#39;</span><span style="color:#5ebfcc;">\x12\x04\x10\x01</span><span style="color:#9acc76;">p</span><span style="color:#5ebfcc;">\x01</span><span style="color:#9acc76;">&#39;
+</span></code></pre>
+<p>We're dealing with some binary that is not a utf-8 string. Hence converting the bytes to a more explorable form is the logical next step:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#abb2bf;">[</span><span style="color:#5ebfcc;">format</span><span style="color:#abb2bf;">(byte, </span><span style="color:#9acc76;">&#39;08b&#39;</span><span style="color:#abb2bf;">) </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">byte </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">bytes]
+[</span><span style="color:#9acc76;">&#39;00010010&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00000100&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00010000&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00000001&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;01110000&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00000001&#39;</span><span style="color:#abb2bf;">]
+</span></code></pre>
+<p>Ok, we're in. What now?</p>
+<p>There's not much else to do besides looking at various combinations of filters and trying to spot pattern(s).</p>
+<p>What about <code>EgQQASAB</code> that encodes Type: <strong>Video</strong> and Features: <strong>HD</strong> filters?</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#5ebfcc;">filter </span><span style="color:#adb7c9;">= </span><span style="color:#9acc76;">&#39;EgQQASAB&#39;
+</span><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#abb2bf;">bytes </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">base64.</span><span style="color:#eb6772;">b64decode</span><span style="color:#abb2bf;">(</span><span style="color:#5ebfcc;">filter</span><span style="color:#abb2bf;">)
+</span><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#abb2bf;">[</span><span style="color:#5ebfcc;">format</span><span style="color:#abb2bf;">(byte, </span><span style="color:#9acc76;">&#39;08b&#39;</span><span style="color:#abb2bf;">) </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">byte </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">bytes]
+[</span><span style="color:#9acc76;">&#39;00010010&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00000100&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00010000&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00000001&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00100000&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;00000001&#39;</span><span style="color:#abb2bf;">]
+</span></code></pre>
+<p>What can we observe?
+The first 4 bytes are the same. Fifth is different, so it probably encodes different feature filters:</p>
+<ul>
+<li><code>01110000</code> is <strong>4K</strong> feature filter</li>
+<li><code>00100000</code> is <strong>HD</strong> feature filter</li>
+</ul>
+<p>Before validating the assumptions, it would be useful to reduce repetitive code, print bytes in more readable form, and be able to compare different <code>sp</code>s.
+We can use the following little piece of code to achieve that:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">base64
+</span><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">tabulate </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">tabulate
+
+
+</span><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">decode_sp</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">sp</span><span style="color:#abb2bf;">):
+    sp </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">base64.</span><span style="color:#eb6772;">b64decode</span><span style="color:#abb2bf;">(sp)
+
+    </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">[</span><span style="color:#5ebfcc;">format</span><span style="color:#abb2bf;">(byte, </span><span style="color:#9acc76;">&#39;08b&#39;</span><span style="color:#abb2bf;">) </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">byte </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">sp]
+
+
+</span><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">build_header</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">labeled_sps</span><span style="color:#abb2bf;">):
+     bytes_len </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[</span><span style="color:#5ebfcc;">len</span><span style="color:#abb2bf;">(bytes) </span><span style="color:#cd74e8;">for </span><span style="color:#eb6772;">_</span><span style="color:#abb2bf;">, bytes </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">labeled_sps]
+     header_bytes_part </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[i </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">i </span><span style="color:#cd74e8;">in </span><span style="color:#5ebfcc;">range</span><span style="color:#abb2bf;">(</span><span style="color:#5ebfcc;">max</span><span style="color:#abb2bf;">(bytes_len))]
+
+     </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">[</span><span style="color:#9acc76;">&quot;label&quot;</span><span style="color:#abb2bf;">] </span><span style="color:#adb7c9;">+ </span><span style="color:#abb2bf;">header_bytes_part
+
+
+</span><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">print_sps</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">sps</span><span style="color:#abb2bf;">):
+    sps </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[(label, </span><span style="color:#eb6772;">decode_sp</span><span style="color:#abb2bf;">(sp)) </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">label, sp </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">sps]
+    header </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">build_header</span><span style="color:#abb2bf;">(sps)
+    sps </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[[label, </span><span style="color:#adb7c9;">*</span><span style="color:#abb2bf;">sp] </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">label, sp </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">sps]
+    table </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">tabulate</span><span style="color:#abb2bf;">(sps, </span><span style="color:#eb6772;">headers</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">header)
+
+    </span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(table)
+</span></code></pre>
+<p>That allows us to stay organized and compare various <code>sp</code>s:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#abb2bf;">sps </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[(</span><span style="color:#9acc76;">&#39;type=video, features=4k&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;EgQQAXAB&#39;</span><span style="color:#abb2bf;">), (</span><span style="color:#9acc76;">&#39;type=video, features=hd&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;EgQQASAB&#39;</span><span style="color:#abb2bf;">)]
+</span><span style="color:#adb7c9;">&gt;&gt;&gt; </span><span style="color:#eb6772;">print_sps</span><span style="color:#abb2bf;">(sps)
+label                           </span><span style="color:#db9d63;">0         1         2         3         4         5
+</span><span style="color:#adb7c9;">-----------------------  --------  --------  --------  --------  --------  --------
+</span><span style="color:#5ebfcc;">type</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">video, features</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">4k  </span><span style="color:#db9d63;">00010010  00000100  00010000  00000001  01110000  00000001
+</span><span style="color:#5ebfcc;">type</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">video, features</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">hd  </span><span style="color:#db9d63;">00010010  00000100  00010000  00000001  00100000  00000001
+
+</span></code></pre>
+<p>Moving forward I'm going to format the output to markdown table to further improve readability:</p>
+<table><thead><tr><th>Label</th><th>SP</th><th>B0</th><th>B1</th><th>B2</th><th>B3</th><th>B4</th><th>B5</th></tr></thead><tbody>
+<tr><td>type=video, features=4k</td><td>EgQQAXAB</td><td>00010010</td><td>00000100</td><td>00010000</td><td>00000001</td><td>01110000</td><td>00000001</td></tr>
+<tr><td>type=video, features=hd</td><td>EgQQASAB</td><td>00010010</td><td>00000100</td><td>00010000</td><td>00000001</td><td>00100000</td><td>00000001</td></tr>
+</tbody></table>
+<h1 id="making-sense-of-the-data">Making sense of the data</h1>
+<p>What about multiple active features filters?</p>
+<table><thead><tr><th>Label</th><th>SP</th><th>B0</th><th>B1</th><th>B2</th><th>B3</th><th>B4</th><th>B5</th><th>B6</th><th>B7</th></tr></thead><tbody>
+<tr><td>type=video, features=4k</td><td>EgQQAXAB</td><td>00010010</td><td>00000100</td><td>00010000</td><td>00000001</td><td>01110000</td><td>00000001</td><td></td><td></td></tr>
+<tr><td>type=video, features=hd</td><td>EgQQASAB</td><td>00010010</td><td>00000100</td><td>00010000</td><td>00000001</td><td>00100000</td><td>00000001</td><td></td><td></td></tr>
+<tr><td><strong>type=video, features=hd+4k</strong></td><td>EgYQASABcAE=</td><td>00010010</td><td>00000110</td><td>00010000</td><td>00000001</td><td>00100000</td><td>00000001</td><td>01110000</td><td>00000001</td></tr>
+</tbody></table>
+<p>Now we're talking.</p>
+<p><strong>B0</strong> is a constant (at least in current sample space) and probably a header.</p>
+<p><strong>B1</strong> changed from <code>00000100</code> to <code>00000110</code> after the introduction of an additional feature.
+Is it a counter of active filters? The first two <code>sp</code>s contain 2 filters - <code>10</code> in binary, third has three filters - <code>11</code> in binary.
+Why counting doesn't start at the rightmost bit though?</p>
+<p><strong>B2</strong> is the same for all the filters, it most likely identifies type: <strong>video</strong> filter that has been active for all the configurations.</p>
+<p>Moreover, the following may hold:</p>
+<ul>
+<li><code>00100000</code> identifies feature: <strong>HD</strong> filter</li>
+<li><code>01110000</code> identifies feature: <strong>4K</strong> filter</li>
+<li><code>00000001</code> looks like some spacer in between of filters</li>
+</ul>
+<p>We can easily validate the counter assumption by applying an additional filter:</p>
+<table><thead><tr><th>Label</th><th>SP</th><th>B0</th><th>B1</th><th>...</th></tr></thead><tbody>
+<tr><td>type=video, features=hd+4k+live</td><td>EgQQAXAB</td><td>00010010</td><td><strong>00001000</strong></td><td>...</td></tr>
+</tbody></table>
+<p>It's official, <strong>B1</strong> contains a counter that is shifted by one to the left for an unknown reason. We can consider it being part of a header and draft a specification:</p>
+<h3 id="specification-v1">Specification v1</h3>
+<p>The <code>sp</code> is base64 encoded binary.
+First 2 bytes are header.
+The header is followed by one or more filters.</p>
+<h5 id="header">Header</h5>
+<table><thead><tr><th>B0 constant</th><th>B1 counter</th></tr></thead><tbody>
+<tr><td>00010010</td><td>B7-B1: counter; B0: 0</td></tr>
+</tbody></table>
+<h4 id="example">Example</h4>
+<table><thead><tr><th>Header - Const</th><th>Header - Count: 2</th><th>Type: Video</th><th>Spacer?</th><th>Features: 4K</th><th>Spacer?</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00000100</td><td>00010000</td><td>00000001</td><td>01110000</td><td>00000001</td></tr>
+</tbody></table>
+<p>We have some understanding of the header and shape of some filters. Now we can apply different filters to see whether our assumptions hold for those.</p>
+<h2 id="additional-filter-types">Additional filter types</h2>
+<p>Let's observe <code>EgQIAhAB</code> <code>sp</code> encoding Type: <strong>Video</strong> and Upload date: <strong>Today</strong> filters:</p>
+<table><thead><tr><th>B0 Header - Const</th><th>B1 Header - Count: 2</th><th>B2 ?</th><th>B3 ?</th><th>B4 Type: Video</th><th>B5 Spacer?</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00000100</td><td><strong>00001000</strong></td><td><strong>00000010</strong></td><td>00010000</td><td>00000001</td></tr>
+</tbody></table>
+<p><strong>B0</strong> and <strong>B1</strong> still hold our assumption. However Type: <strong>Video</strong> filter together with spacer moved from <strong>B2</strong> and <strong>B3</strong> to <strong>B4</strong> and <strong>B5</strong> respectively. Meaning <strong>B2</strong> should identify Upload date: <strong>Today</strong> but <strong>B3</strong> is not usual assumed spacer byte.</p>
+<p>Maybe looking at yet another filter type may be of help. Let's check Type: <strong>Video</strong> and Duration: <strong>4 - 20 minutes</strong> given by <code>EgQQARgD</code> <code>sp</code>:</p>
+<table><thead><tr><th>B0 Header - Const</th><th>B1 Header - Count: 2</th><th>B2 Type: Video</th><th>B3 ?</th><th>B4 ?</th><th>B5 ?</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00000100</td><td>00010000</td><td>00000001</td><td><strong>00011000</strong></td><td><strong>00000011</strong></td></tr>
+</tbody></table>
+<p>Type: <strong>Video</strong> is back at <strong>B2</strong> but the spacer assumption is rendered invalid as the <strong>B5</strong> following assumed Duration: <strong>4 - 20 minutes</strong> filter is yet again different.</p>
+<p>Here's an idea. What if there's nothing like a spacer and each piece of information in the <code>sp</code> is composed of <strong>two bytes wide words</strong>? And what if the order of filter words doesn't really matter?</p>
+<p>We can try to decode a combination of all known filters to see whether all the assumptions fit well.</p>
+<p>The <code>EgoIAhABGAMgAXAB</code> <code>sp</code> contains following filters</p>
+<ul>
+<li>Type: <strong>Video</strong></li>
+<li>Features: <strong>4K</strong> + <strong>HD</strong></li>
+<li>Duration: <strong>4 - 20 minutes</strong></li>
+<li>Upload date: <strong>Today</strong></li>
+</ul>
+<p>From previous observations and assumptions made we know that the header should contain 5 in binary - <code>101</code> and that the filters should decode as:</p>
+<table><thead><tr><th>Type: Video</th><th>Features: 4K</th><th>Features: HD</th><th>Upload date: Today</th><th>Duration: 4 - 20 mins</th></tr></thead><tbody>
+<tr><td>00010000,00000001</td><td>01110000,00000001</td><td>00100000,00000001</td><td>00001000,00000010</td><td>00011000,00000011</td></tr>
+</tbody></table>
+<p>Let's try to find a match in whole decoded <code>sp</code>:</p>
+<table><thead><tr><th>Header Count: 5</th><th>Upload date: Today</th><th>Type: Video</th><th>Duration: 4-20mins</th><th>Features: HD</th><th>Features: 4K</th></tr></thead><tbody>
+<tr><td>00010010,00001010</td><td>00001000,00000010</td><td>00010000,00000001</td><td>00011000,00000011</td><td>00100000,00000001</td><td>01110000,00000001</td></tr>
+</tbody></table>
+<p>All good, it seems like our assumptions are valid. Thus we can update our specification.</p>
+<h3 id="specification-v2">Specification v2</h3>
+<p>The <code>sp</code> is base64 encoded binary. The binary consists of 2 bytes wide words.
+The first word is a header which is followed by one or more filter words.</p>
+<h5 id="header-1">Header</h5>
+<p>The first byte is constant, second contains a counter of filter words.</p>
+<table><thead><tr><th>B0 constant</th><th>B1</th></tr></thead><tbody>
+<tr><td>00010010</td><td>b7 - b1: counter; b0: 0</td></tr>
+</tbody></table>
+<h5 id="filters-catalog">Filters catalog</h5>
+<h6 id="type">Type</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>Video</td><td>00010000,00000001</td></tr>
+</tbody></table>
+<h6 id="features">Features</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>4K</td><td>01110000,00000001</td></tr>
+<tr><td>HD</td><td>00100000,00000001</td></tr>
+</tbody></table>
+<h6 id="upload-date">Upload date</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>Today</td><td>00001000,00000010</td></tr>
+</tbody></table>
+<h6 id="duration">Duration</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>4 - 20 minutes</td><td>00011000,00000011</td></tr>
+</tbody></table>
+<h4 id="example-1">Example</h4>
+<table><thead><tr><th>Header Const</th><th>Header Count: 2</th><th>Type: Video</th><th>Features: 4K</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00000100</td><td>00010000,00000001</td><td>01110000,00000001</td></tr>
+</tbody></table>
+<h2 id="breaking-the-rules">Breaking the rules</h2>
+<p>We can try to tinker with some additional combinations to see whether we fully cracked the encoding logic.
+What about usual Type: <strong>Video</strong> combined with Features: <strong>HDR</strong> given by <code>EgUQAcgBAQ==</code> <code>sp</code>?</p>
+<table><thead><tr><th>B0 Header Const</th><th>B1 What?</th><th>B2-3 Type: Video</th><th>B4 ?</th><th>B5 ?</th><th>B6 ?</th></tr></thead><tbody>
+<tr><td>00010010</td><td><strong>00000101</strong></td><td>00010000,00000001</td><td>11001000</td><td>00000001</td><td>00000001</td></tr>
+</tbody></table>
+<p>Now, this is different.</p>
+<p>Bit 0 on the counter got finally activated. <strong>B2</strong> and <strong>B3</strong> clearly identify Type: <strong>Video</strong> filter that is followed by 3 bytes.</p>
+<p>The only possible conclusion is that bit 0 of the counter marks the presence of <strong>special 3-bytes long filter</strong>.
+That seems to be included in the counter and I assume it will always be the last filter in the <code>sp</code>. Otherwise parsing would be a nightmare.</p>
+<p>We can again apply all the known filters together with Features: <strong>HDR</strong> to validate the assumptions. The <code>Eg0IAhABGAMgAXAByAEB</code> <code>sp</code> contains the following filters:</p>
+<ul>
+<li>Type: <strong>Video</strong></li>
+<li>Duration: <strong>4 - 20 minutes</strong></li>
+<li>Upload date: <strong>Today</strong></li>
+<li>Features: <strong>4K</strong> + <strong>HD</strong> + <strong>HDR</strong> (new)</li>
+</ul>
+<p>Decoding as <code>00010010  00001101  00001000  00000010  00010000  00000001  00011000  00000011  00100000  00000001  01110000  00000001  11001000  00000001  00000001</code>
+binary that can be broken down to the following sections:</p>
+<p><strong>Header:</strong></p>
+<table><thead><tr><th>Const</th><th>Count: 6; 3B filter on</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00001101</td></tr>
+</tbody></table>
+<p><strong>Filters:</strong></p>
+<table><thead><tr><th>Upload date: Today</th><th>Type: Video</th><th>Duration: 4-20min</th><th>Features: HD</th><th>Features: 4K</th><th>Features: HDR</th></tr></thead><tbody>
+<tr><td>00001000,00000010</td><td>00010000,00000001</td><td>00011000,00000011</td><td>00100000,00000001</td><td>01110000,00000001</td><td>11001000,00000001,00000001</td></tr>
+</tbody></table>
+<p>Another 3 bytes wide filter is Features: <strong>VR180</strong> given by <code>EgPQAQE=</code> (this time without any additional filter):</p>
+<table><thead><tr><th>Header Const</th><th>Header Count: 1; 3B filter on</th><th>Features: VR180</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00000011</td><td>11010000,00000001,00000001</td></tr>
+</tbody></table>
+<p>With that cracked we can update our specification and fill it with all the possible filters.</p>
+<h3 id="specification-v3">Specification v3</h3>
+<p>The <code>sp</code> is base64 encoded binary.
+The binary consists of 2 bytes wide header followed by 2 bytes wide filters.
+When the first bit of the header is set, the last filter (tail) is 3 bytes wide.</p>
+<h5 id="header-2">Header</h5>
+<p>The first byte is constant, second contains a 3-bytes filter tail toggle and a counter of filters.</p>
+<table><thead><tr><th>B0 constant</th><th>B1</th></tr></thead><tbody>
+<tr><td>00010010</td><td>b7 - b1: counter; b0: 3-bytes filter tail toggle</td></tr>
+</tbody></table>
+<h6 id="3-bytes-filter-tail-toggle">3-bytes filter tail toggle</h6>
+<p>When set, the last filter is 3-bytes wide.</p>
+<h5 id="filters-catalog-1">Filters catalog</h5>
+<h6 id="type-1">Type</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>Video</td><td>00010000,00000001</td></tr>
+<tr><td>Channel</td><td>00010000,00000010</td></tr>
+<tr><td>Playlist</td><td>00010000,00000011</td></tr>
+<tr><td>Movie</td><td>00010000,00000100</td></tr>
+</tbody></table>
+<h6 id="features-1">Features</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>Live</td><td>01000000,00000001</td></tr>
+<tr><td>4K</td><td>01110000,00000001</td></tr>
+<tr><td>HD</td><td>00100000,00000001</td></tr>
+<tr><td>Subtitles/CC</td><td>00101000,00000001</td></tr>
+<tr><td>Creative commons</td><td>00110000,00000001</td></tr>
+<tr><td>$360^{\circ}$</td><td>01111000,00000001</td></tr>
+<tr><td>VR180 (3B)</td><td>11010000,00000001,00000001</td></tr>
+<tr><td>3D</td><td>00111000,00000001</td></tr>
+<tr><td>HDR (3B)</td><td>11001000,00000001,00000001</td></tr>
+<tr><td>Location (3B)</td><td>10111000,00000001,00000001</td></tr>
+<tr><td>Purchased</td><td>01001000,00000001</td></tr>
+</tbody></table>
+<h6 id="upload-date-1">Upload date</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>Last hour</td><td>00001000,00000001</td></tr>
+<tr><td>Today</td><td>00001000,00000010</td></tr>
+<tr><td>This week</td><td>00001000,00000011</td></tr>
+<tr><td>This month</td><td>00001000,00000100</td></tr>
+<tr><td>This year</td><td>00001000,00000101</td></tr>
+</tbody></table>
+<h6 id="duration-1">Duration</h6>
+<table><thead><tr><th>Label</th><th>Binary value</th></tr></thead><tbody>
+<tr><td>Under 4 minutes</td><td>00011000,00000001</td></tr>
+<tr><td>4 - 20 minutes</td><td>00011000,00000011</td></tr>
+<tr><td>Over 20 minutes</td><td>00011000,00000010</td></tr>
+</tbody></table>
+<h4 id="examples">Examples</h4>
+<table><thead><tr><th>Header Const</th><th>Header Count: 2</th><th>Type: Video</th><th>Features: 4K</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00000100</td><td>00010000,00000001</td><td>01110000,00000001</td></tr>
+</tbody></table>
+<table><thead><tr><th>Header Const</th><th>Header Count: 1; 3B filter on</th><th>Features: VR180</th></tr></thead><tbody>
+<tr><td>00010010</td><td>00000011</td><td>11010000,00000001,00000001</td></tr>
+</tbody></table>
+<h2 id="closing-thoughts">Closing thoughts</h2>
+<p>I believe we cracked the filters quite accurately, I successfully tested a couple of combinations against Youtube. All were accepted and correctly parsed.</p>
+<p>Of course, there are some additional nuances to the filters. For example when Type: <strong>Movie</strong> filter is active, only certain additional filters can be appended.
+Also, I didn't cover sorting.</p>
+<p>The core workings behind the <code>sp</code> should be covered though. </p>
+<p>One might write an encoder/decoder of the <code>sp</code>based on this breakdown.
+As I don't have use of such program I'll leave it on fellow readers that would benefit from it.</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;home&#x2F;intro&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Intro
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+          
+          
+          <a class="ms-auto" href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;cheatsheets&#x2F;git-cheatsheet&#x2F;">
+            <div class="card my-1">
+              <div class="card-body py-2">
+                Git cheatsheet &rarr;
+              </div>
+            </div>
+          </a>
+          
+          
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

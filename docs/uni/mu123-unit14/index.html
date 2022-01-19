@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MU123 Unit 14 Notes | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mu123-unit14/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mu123 Unit14",
+            "item": "https://ktsk.xyz/docs/uni/mu123-unit14/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#1-communicating-clearly">1 Communicating clearly</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#1-1-interpreting-information-about-risk">1.1 Interpreting information about risk</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#1-2-interpreting-graphs-and-charts">1.2 Interpreting graphs and charts</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#2-extending-your-mathematical-skills">2 Extending your mathematical skills</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#2-1-developing-your-equation-solving-skills">2.1 Developing your equation-solving skills</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#2-2-solving-trigonometric-equations">2.2 Solving trigonometric equations</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#2-3-finding-the-angle-of-inclination-of-a-line">2.3 Finding the angle of inclination of a line</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#2-4-solving-trigonometric-equations-in-radians">2.4 Solving trigonometric equations in radians</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mu123-unit14/#4-2-exploring-sinusoidal-functions">4.2 Exploring sinusoidal functions</a></li>
+  											
+  									</ul>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MU123 Unit 14 Notes</h1>
+        
+        <h1 id="1-communicating-clearly">1 Communicating clearly</h1>
+<h2 id="1-1-interpreting-information-about-risk">1.1 Interpreting information about risk</h2>
+<p><strong>Probability</strong>, <strong>chance</strong> or <strong>risk</strong> defines how likely is something to occur.</p>
+<p>Probabilities can be expressed as fractions, decimals or percentages, or in the form of an $x$ in $y$ chance.</p>
+<h2 id="1-2-interpreting-graphs-and-charts">1.2 Interpreting graphs and charts</h2>
+<p><strong>Comparative bar chart</strong> is a bar chart with tow or more bars for each data item.
+<strong>Pictogram</strong> is a chart that conveys numerical information by means of pictures.</p>
+<h1 id="2-extending-your-mathematical-skills">2 Extending your mathematical skills</h1>
+<h2 id="2-1-developing-your-equation-solving-skills">2.1 Developing your equation-solving skills</h2>
+<h3 id="using-shortcuts">Using shortcuts</h3>
+<h4 id="cross-multiplying">Cross-multiplying</h4>
+<p>$$
+\frac{A}{B} = \frac{C}{D} \\[1em]
+BD \times \frac{A}{B} = BD \times \frac{C}{D} \\[1em]
+AD = BC
+$$</p>
+<h2 id="2-2-solving-trigonometric-equations">2.2 Solving trigonometric equations</h2>
+<h3 id="sines-cosines-and-tangents-of-related-angles">Sines, cosines and tangents of related angles</h3>
+<p>In general, for any acute angle $\theta$ the for angles</p>
+<p>$\theta$, $180^\circ-\theta$, $180^\circ+\theta$, $360^\circ-\theta$</p>
+<p>all have the same sine, cosine and tangent, except for the signs.
+The signs are determined by the sings that th $x$- and $y$-coordinates take in the different quadrats:</p>
+<ul>
+<li>In the first quadrant, $x$ and $y$ are both positive, so sine, cosine and tangent are all positive.</li>
+<li>In the second quadrant, $x$ is negative and $y$ is positive, so sine is positive and cosine is negative, and hence tangent is negative.</li>
+<li>In the third quadrant, $x$ and $y$ are both negative, so sine and cosine are both negative, and hence tangent is positive.</li>
+<li>In the fourth quadrant, $x$ is positive and $y$ is negative, so sine is negative and cosine is positive, and hence tangent is negative.</li>
+</ul>
+<p>The sings can be remembered using <strong>CAST</strong>:</p>
+<table><thead><tr><th>S (Sin positive)</th><th>A (All positive)</th></tr></thead><tbody>
+<tr><td>T (Tan positive)</td><td>C  (Cos positive)</td></tr>
+</tbody></table>
+<h2 id="2-3-finding-the-angle-of-inclination-of-a-line">2.3 Finding the angle of inclination of a line</h2>
+<p><strong>Angle of inclination</strong> of a line is its angle measured anticlockwise from the positive direction of the $x$-axis, when the line is drawn on a pair of axes with equal scales.</p>
+<h3 id="gradient-and-angle-of-inclination-of-a-straight-line">Gradient and angle of inclination of a straight line</h3>
+<p>For any straight line with angle of inclination $\theta$,
+$$
+\text{gradient} = \tan \theta
+$$
+Remember that the angle of inclination is measured when the line is drawn on axes <em>with equal scales</em>.</p>
+<h2 id="2-4-solving-trigonometric-equations-in-radians">2.4 Solving trigonometric equations in radians</h2>
+<p>The quadrants</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#abb2bf;">    pi/2
+     |
+pi ----- 0 and 2pi
+     |
+   3pi/2
+		
+</span></code></pre><h2 id="4-2-exploring-sinusoidal-functions">4.2 Exploring sinusoidal functions</h2>
+<p>A curve that can be obtained from the graph of the sine function by shifting, stretching or compressing it horizontally or vertically is called a <strong>sinusoidal curve</strong>.
+A function whose graph is sinusoidal curve is called a <strong>sinusoidal function</strong>.</p>
+<p><strong>General sine functions</strong> and <strong>general cosine functions</strong> are functions with roles of following forms:
+$$
+y = a \sin(b(x - c)) + d
+$$
+and
+$$
+y = a \cos (b(x + c)) + d
+$$
+where $a$, $b$, $c$ and $d$ are constants.</p>
+<p>The $y$-values of any sinusoidal function <em>oscillates</em> between a minimum value and a maximum value and the shape of the graph is continually repeated.
+<strong>Period</strong> of the graph is the length on the $x$-axis that it takes for the graph to repeat. Any section of the graph covering this length on the $x$-axis is referred to as an <strong>oscillation</strong>.</p>
+<h3 id="the-period-of-general-sine-or-cosine-function">The period of general sine or cosine function</h3>
+<p>The period of $y = a \sin(b(x - c)) + d$ or $y = a \cos (b(x + c)) + d$ is:
+$$
+\frac{2\pi}{|b|}
+$$</p>
+<h3 id="the-graph-of-a-general-sine-function">The graph of a general sine function</h3>
+<p>The graph of the equation 
+$$
+y = a \sin(b(x - c)) + d
+$$
+where $a$ and $b$ are positive, and $c$ and $d$ can take any values, has the following features.</p>
+<ul>
+<li>$a$ is the <strong>amplitude</strong>: the distance between the center line and the maximum (or minimum) value.</li>
+<li>$b$ determines the <em>period</em>, which is equal to $2\pi/b$.</li>
+<li>$c$ is the <strong>horizontal displacement</strong>: the amount that the graph of $y = a \sin (bx) + d$ is shifhted to the right to obtain the graph of $y = a \sin (b(x - c)) + d$. (The shift is to the left if $c$ is negative.)</li>
+<li>$d$ is the <strong>vertical displacement</strong>: the amount that the center line is shifted up from the $x$-axis. (The shift is down if $d$ is negative.)</li>
+<li>The minimum value is $d - a$ (the vertical displacement minus the amplitude)</li>
+<li>The maximum value is $d + a$ (the vertical displacement plus the amplitude)</li>
+</ul>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

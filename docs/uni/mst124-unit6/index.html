@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MST124 Unit 6 - Differentiation | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mst124-unit6/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mst124 Unit6",
+            "item": "https://ktsk.xyz/docs/uni/mst124-unit6/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MST124 Unit 6 - Differentiation</h1>
+        
+        <h1 id="introduction">Introduction</h1>
+<p>Calculus allows to work with situations where a quantity is continuously changing and its rate of change isn't necessarily constant.</p>
+<p>It applies to all situations where one quantity changes smoothly with respect to another quantity.</p>
+<p>Basic calculus splits into </p>
+<ul>
+<li><strong>differential calculus</strong></li>
+<li><strong>integral calculus</strong></li>
+</ul>
+<h1 id="1-what-is-differentiation">1 What is differentiation?</h1>
+<h2 id="1-1-graphs-of-relationships">1.1 Graphs of relationships</h2>
+<p>If a graph that represents the relationship between two quantities is curved, then there's no single gradient value that applies to the whole graph.
+Instead, the graph has a gradient at <em>each point</em> on the graph.</p>
+<p>As with straight-line, the gradient at each point is the rate of change of the quantity on the vertical axis with respect to the quantity on the horizontal axis.</p>
+<h2 id="1-2-gradients-of-curved-graphs">1.2 Gradients of curved graphs</h2>
+<p>The gradient of straight line is a measure of how steep it is and is calculated as
+$$
+\text{gradient} = \frac{\text{rise}}{\text{run}}
+$$
+Vertical lines don't have gradient. Hence:</p>
+<h4 id="gradient-of-straight-line">Gradient of straight line</h4>
+<p>The gradient of the straight line through the points $(x_1, y_1)$ and $(x_2, y_2)$, where $x_1 \ne x_2$, is given by
+$$
+\text{gradient} = \frac{\text{rise}}{\text{run}} = \frac{y_2 - y_1}{x_2 - x_1}
+$$</p>
+<p>A straight-line graph that</p>
+<ul>
+<li>Slopes <em>down</em> from left to right has a <em>negative</em> gradient.</li>
+<li>Is <em>horizontal</em> has a gradient of <em>zero</em>.</li>
+<li>Slopes <em>up</em> from left to right has a <em>positive</em> gradient.</li>
+</ul>
+<p>On the other hand curved graphs, as $y = x^2$ don't have a single gradient value. Instead, any particular point on it can be chosen and gradient can be found for the graph at that given point.</p>
+<p><img src="/mst124_u6_data/dif1.png" alt="dif1.png" /></p>
+<p>The straight line that 'just touches' the graph at a given point is called the <strong>tangent</strong>.</p>
+<p>The <strong>gradient</strong> of a graph at a particular point is the gradient of the tangent to the graph at that point.</p>
+<p>If a graph has a 'sharp corner', like $y = |x|$ then it has no gradient at that point.
+If a graph has a 'break' at a point (the <strong>discontinuity</strong>), then the graph has no tangent at that point, hence no gradient.
+If a graph has a vertical tangent at a point, then the graph has no gradient at it.</p>
+<p><img src="/mst124_u6_data/dif2.png" alt="dif2.png" /></p>
+<h2 id="1-3-gradients-of-the-graph-of-y-x-2">1.3 Gradients of the graph of $y = x^2$</h2>
+<p>$y = x^2$ has a gradient at <em>every</em> point since it has a tangent, which is not vertical, at every point.</p>
+<p>To find a gradient of a point on $y = x^2$ one may start by finding an <em>approximate</em> value by choosing a second point on the graph that is fairly close to first one. Then a gradient of this approximation can be calculated in usual way.</p>
+<p><img src="/mst124_u6_data/dif3.png" alt="dif3.png" /></p>
+<p>The closer second point is to the first one, the better the approximation is.</p>
+<p><img src="/mst124_u6_data/dif4.png" alt="dif4.png" /></p>
+<p>E.g. for point $(1, 1)$ and second point $(1.1, 1.21)$, the approximate value for the gradient is
+$$
+\frac{1.21 - 1}{1.1 - 1} = \frac{0.21}{0.1} = 2.1
+$$
+Second point can lie on both sides of first one.</p>
+<p>Following table for $(1, 1)$ and various second points can be devised</p>
+<table><thead><tr><th>$x$-coord of second point</th><th>0.8</th><th>0.9</th><th>0.99</th><th>0.999</th><th>1.001</th><th>1.01</th><th>1.1</th><th>1.2</th></tr></thead><tbody>
+<tr><td>Gradient of line</td><td>1.8</td><td>1.9</td><td>1.99</td><td>1.999</td><td>2.001</td><td>2.01</td><td>2.1</td><td>2.2</td></tr>
+</tbody></table>
+<p>That can be confirmed algebraically as follows.
+Consider $h$ denoting the increase in the $x$-coordinate from $(1, 1)$ to the second point. The value of $h$ can't be zero.
+The $x$-coordinate of second point is $1 + h$.
+The $y$-coordinate of second point is $(1 + h)^2$.</p>
+<p><img src="/mst124_u6_data/dif5.png" alt="dif5.png" /></p>
+<p>The gradient of the line that passes through both points is</p>
+<p>$$
+\begin{align*}
+\text{gradient} &amp;= \frac{(1 + h)^2 - 1}{(1 + h) - 1} \\
+&amp;= \frac{1 + 2h + h^2 - 1}{1 + h - 1} \\
+&amp;= \frac{2h + h^2}{h} \\
+&amp;= \frac{h(2 + h)}{h} \\
+&amp;= 2 + h
+\end{align*}
+$$</p>
+<p>As the value of $h$ gets closer and closer to zero, the gradient of the line $2 + h$ gets closer and closer to 2. Hence the gradient of the graph at $(1, 1)$ must bey exactly 2.</p>
+<p>Expressed mathematically as</p>
+<p>$2 + h$ <strong>tends</strong> to $2$ as $h$ <strong>tends</strong> to $0$</p>
+<p>or</p>
+<p>the <strong>limit</strong> of $2 + h$ as $h$ <strong>tends</strong> to zero is $2$.</p>
+<p>More generic formula can be devised as</p>
+<p><img src="/mst124_u6_data/dif6.png" alt="dif6.png" /></p>
+<p>$
+\begin{align*}
+\text{gradient} &amp;= \frac{(x + h)^2 - x^2}{(x + h) - x} \\
+&amp;= \frac{x^2 + 2xh + h^2 - x^2}{x + h - x} \\
+&amp;= \frac{2xh + h^2}{h} \\
+&amp;= \frac{h(2x + h)}{h} \\
+&amp;= 2x + h
+\end{align*}$</p>
+<p>As the second point gets closer and closer to the original point, the value of $h$ gets closer and closer to $0$ and the gradient gets closer and closer to $2x$.
+So the gradient of the graph of $y = x^2$ at the point whose $x$-coordinate is denoted by $x$ is given by the formula
+$$
+\text{gradient} = 2x
+$$</p>
+<h2 id="1-4-derivatives">1.4 Derivatives</h2>
+<p>Consider a function $f$ and input value $x$.
+The point on the graph of $f$ that corresponds to $x$ is $(x, f(x))$.
+If the graph of $f$ has a gradient at that point, then we say that $f$ is <strong>differentiable</strong> at $x$.</p>
+<p>It's convenient to think about various gradients of a function $f$  as defining a new function that is related to $f$.
+The rule of the new function is:</p>
+<blockquote>
+<p>If the input value is $x$, then the output value is the gradient of the graph of $f$ at the point $(x, f(x))$.</p>
+</blockquote>
+<p>This new function is called the <strong>derivative</strong> (or <strong>derived function</strong>) of the function $f$ and is denoted by $f'$.</p>
+<p>The domain of $f'$ consists of all the values at which $f$ is differentiable.</p>
+<p><strong>Differentiation</strong> is the process of finding the derivative of a given function $f$.</p>
+<p>The <em>value</em> of the derivative of a function $f$ at a particular input value $x$ is called the <strong>derivative of $f$ at $x$</strong>.</p>
+<h3 id="differentiation-from-first-principle">Differentiation from first principle</h3>
+<p>Suppose $f$ and $x$ in the domain of $f$ such that $f$ is differentiable at $x$ (the graph of $f$ has a gradient at $(x, f(x))$). Consider second point with the offset of $h$, then:</p>
+<p><img src="/mst124_u6_data/dif7.png" alt="dif7.png" /></p>
+<p>The gradient of the  line that passes through the two points is given by
+$$
+\text{gradient} = \frac{f(x + h) - f(x)}{(x + h) - x} = \frac{f(x + h) - f(x)}{h}
+$$
+This expression is known as the <strong>difference quotient</strong> for the function $f$ at the value $x$.</p>
+<p>As the value of $h$ gets closer and closer to zero, the value of the difference quotient gets closer and closer to the gradient of the graph at the point $(x, f(x))$, that is $f'(x)$.</p>
+<p>To find the formula for $f'(x)$ I need to find, in terms of $x$, the <em>limit</em> of the difference quotient as $h$ tends to zero. In other words, I need to consider what happens to the difference quotient for $f$ at $x$, as $h$ gets closer and closer to zero.</p>
+<p>Saying that a function $f$ is differentiable at a particular value of $x$ is the same as saying that the difference quotient for $f$ at $x$ tends to a limit as $h$ tends to zero. It must tend to the same limit for positive values of $h$ as for negative values.</p>
+<p>For any function $f$, the derivative $f'$ of $f$ is given by the equation
+$$
+f'(x) = \lim_{h \to 0} \frac{ f(x + h) - f(x) }{ h }
+$$
+for each value of $x$ in the domain of $f$ for which this limit exists.</p>
+<h3 id="leibniz-notation">Leibniz notation</h3>
+<p>The notation with $f'$ denoting the derivative of a function $f$ is called <strong>Lagrange notation</strong> or <strong>prime notation</strong>. <strong>Leibniz notation</strong> is other extensively used notation.</p>
+<p>In general, Lagrange notation is used when thinking in terms of a variable, and a function of this variable. Leibniz notation is used when thinking more of the relationship between two variables.</p>
+<p>Consider $y = x^2$, formula for its gradient is $\text{gradient} = 2x$.
+In Leibniz notation this equation is written as
+$$
+\frac{\text{d}y}{\text{d}x} = 2x
+$$
+Often referred to as the <strong>derivative of $y$ with respect to $x$</strong>.</p>
+<p>It's important to mention that</p>
+<ul>
+<li>The notation is not a fraction</li>
+<li>$\text{d}$ doesn't have any meaning outside of the notation</li>
+<li>$\text{d}$ is not a factor</li>
+</ul>
+<p>The usefulness of the Leibniz notation can be demonstrated as follows</p>
+<p><img src="/mst124_u6_data/dif8.png" alt="dif8.png" /></p>
+<p>The emphasis is on the relationship between the variables $x$ and $y$, rather than on the idea of $f$ as a function of $x$.
+Change in the $x$- and $y$-coordinate is denoted by $\delta x$ and $\delta y$ respectively. 
+$\delta$ (delta) indicates 'a small change in'.
+So the $x$- and $y$-coordinates of second point are $x + \delta x$ and $y + \delta y$ respectively.</p>
+<p>The gradient of the line that passes through he two points is then
+$$
+\frac{\text{rise}}{\text{run}} = \frac{\delta y}{\delta x}
+$$</p>
+<p>The gradient is the limit of $\delta y / \delta x$ as the second point gets closer and closer to the first point.</p>
+<h3 id="functions-whose-domains-include-endpoints">Functions whose domains include endpoints</h3>
+<p>Any function whose domain includes an endpoint isn't differentiable at this endpoint.
+E.g. $f(x) = x^{3/2}$ has domain $[0, \infty)$:</p>
+<p><img src="/mst124_u6_data/dif9.png" alt="dif9.png" /></p>
+<p>The endpoint at $0$ (at the origin) can be approached from right but can't from left. Hence the graph doesn't have tangent at the origin, it's not differentiable at $x = 0$.
+But the graph has a 'gradient on the right' at origin, namely $0$.</p>
+<p>So we can say that the function $f(x) = x^{3/2}$ is <strong>right-differentiable</strong> at $x=0$, and that its <strong>right derivative</strong> at 0 is 0.</p>
+<h3 id="summary-of-derivatives">Summary of derivatives</h3>
+<p>The <strong>derivative</strong> (or <strong>derived function</strong>) of a function $f$ is the function $f'$ such that
+$$
+f'(x) = \text{gradient of the graph of } f~ \text{at the point } (x, f(x))
+$$
+The domain of $f'$ consists of the values in the domain of $f$ at which $f$ is <strong>differentiable</strong> (that is, the $x$-values that give points at which the gradient exists).</p>
+<p>If $y = f(x)$, then $f'(x)$ is also denoted by $\frac{\text{d}y}{\text{d}x}$.</p>
+<p>The derivative $f'$ is given by the equation
+$$
+f'(x) = \lim_{h \to 0} \frac{ f(x + h) - f(x) }{ h }
+$$
+The procedure of using this equation to find a formula for the derivative $f'$ is called <strong>differentiation from first principles</strong>.</p>
+<h1 id="2-finding-derivatives-of-simple-functions">2 Finding derivatives of simple functions</h1>
+<h2 id="2-1-derivatives-of-power-functions">2.1 Derivatives of power functions</h2>
+<p>Any functions of the form $f(x) = x^n$, where $n$ is a real number, is called a <strong>power function</strong>.</p>
+<p>Previously seen formulas for the derivatives of three power functions are:
+$$
+\frac{\text{d}}{\text{d}x}(x^2) = 2x, ~~~
+\frac{\text{d}}{\text{d}x}(x^3) = 3x^2, ~~~
+\frac{\text{d}}{\text{d}x}(x^4) = 4x^3
+$$
+They all follow the same pattern:</p>
+<h3 id="derivative-of-a-power-function">Derivative of a power function</h3>
+<p>For any number $n$,
+$$
+\frac{\text{d}}{\text{d}x}(x^n) = nx^{n -1}
+$$
+This formula holds for <em>all</em> values of $n$, including negative and fractional values.</p>
+<p>$f(x) = x$  has derivative $f'(x) = 1 \times x^0$; that is$f'(x) = 1$.
+$f(x) = 1$ (same as $f(x) = x^0$) has derivative $f'(x) = 0$.</p>
+<h2 id="2-2-constant-multiple-rule">2.2 Constant multiple rule</h2>
+<p>If any graph is scaled vertically by a particular factor, then its gradient at any particular $x$-value is multiplied by this factor.</p>
+<p>Scaling a graph by a factor of 3:
+<img src="/mst124_u6_data/dif10.png" alt="dif10.png" /></p>
+<h3 id="constant-multiple-rule-lagrange-notation">Constant multiple rule (Lagrange notation)</h3>
+<p>If the function $k$ is given by $k(x) = af(x)$, where $f$ is a function and $a$ is a constant, then
+$$
+k'(x) = af'(x)
+$$
+for all values of $x$ at which $f$ is differentiable.</p>
+<h3 id="constant-multiple-rule-leibniz-notation">Constant multiple rule (Leibniz notation)</h3>
+<p>If $y = au$, where $u$ is a function of $x$ and $a$ is a constant, then
+$$
+\frac{ \text{d}y }{ \text{d}x } = a\frac{ \text{d}u }{ \text{d}x } 
+$$
+for all values of $x$ at which $u$ is differentiable.</p>
+<h3 id="derivative-of-a-constant-function">Derivative of a constant function</h3>
+<p>If $a$ is a constant, then
+$$
+\frac{\text{d}}{\text{d}x}(a) = 0
+$$</p>
+<h2 id="2-3-sum-rule">2.3 Sum rule</h2>
+<p>When two functions are added, then the $y$-coordinates of the points on the two graphs are added.
+<img src="/mst124_u6_data/dif11.png" alt="dif11.png" /></p>
+<p>If I add two functions, then the gradient of the sum function at any particular $x$-value is the sum of the gradients of the two original functions at that $x$-value.
+E.g.:
+<img src="/mst124_u6_data/dif12.png" alt="dif12.png" /></p>
+<h3 id="sum-rule-lagrange-notation">Sum rule (Lagrange notation)</h3>
+<p>If $k(x) = f(x) + g(x)$, where $f$ and $g$ are functions, then
+$$
+k'(x) = f'(x) + g'(x)
+$$
+for all values of $x$ at which both $f$ and $g$ are differentiable.</p>
+<h3 id="sum-rule-leibniz-notation">Sum rule (Leibniz notation)</h3>
+<p>If $y = u + v$, where $u$ and $v$ are functions of $x$, then
+$$
+\frac{ \text{d}y }{ \text{d}x } =
+\frac{ \text{d}u }{ \text{d}x } + \frac{ \text{d}v }{ \text{d}x }
+$$</p>
+<p>Every polynomial function (with domain $\mathbb{R}$) is differentiable at <em>every</em> value of $x$.</p>
+<h1 id="3-rates-of-change">3 Rates of change</h1>
+<p>The idea of a gradient as a rate of change applies to curved graphs. However the rate of change is 'instantaneous' value.</p>
+<p>Another way to think about the derivative $\text{d}y/\text{d}x$ is that it is the rate of change of $y$ with respect to $x$.</p>
+<h2 id="3-1-displacement-and-velocity">3.1 Displacement and velocity</h2>
+<h3 id="relationship-between-displacement-and-velocity">Relationship between displacement and velocity</h3>
+<p>Suppose that an object is moving along a straight line. If $t$ is the time that has elapsed since some chosen point in time, $s$ is the displacement of the object from some chosen reference point, and $v$ is the velocity of the object, then
+$$
+v = \frac{\text{d}s}{\text{d}t}
+$$
+(Time, displacement and velocity can be measured in any suitable units, as long as they're consistent).</p>
+<h1 id="4-finding-where-functions-are-increasing-decreasing-or-stationary">4 Finding where functions are increasing, decreasing or stationary</h1>
+<p>Because the derivative of a function gives the gradient at each point on the graph of the function, it gives information about the shape of the graph.</p>
+<h2 id="4-1-increasing-decreasing-criterion">4.1 Increasing/decreasing criterion</h2>
+<h3 id="functions-increasing-or-decreasing-on-an-interval">Functions increasing or decreasing on an interval</h3>
+<p>A function $f$ is <strong>increasing on the interval</strong> $I$ if for all values $x_1$ and $x_2$ in $I$ such that $x_1 &lt; x_2$
+$$
+f(x_1) &lt; f(x_2)
+$$
+A function $f$ is <strong>decreasing on the interval</strong> $I$ if for all values $x_1$ and $x_2$ in $I$ such that $x_1 &lt; x_2$
+$$
+f(x_1) &gt; f(x_2)
+$$
+(The interval $I$ must be part of the domain of $f$.)</p>
+<h3 id="increasing-decreasing-criterion">Increasing/decreasing criterion</h3>
+<p>If $f'(x)$ is positive for all $x$ in an interval $I$, then $f$ is increasing on $I$.
+If $f'(x)$ is negative for all $x$ in an interval $I$, then $f$ is decreasing on $I$.</p>
+<h2 id="stationary-points">Stationary points</h2>
+<p>The gradient of $f(x) = 2x^3 - 3x^2 - 36x$ is</p>
+<ul>
+<li>positive on the interval $(-\infty, -2)$</li>
+<li>negative on the interval $(-2, 3)$</li>
+<li>positive on the interval $(3, \infty)$</li>
+</ul>
+<p>Between these open intervals, there are points at which the gradient of the graph is zero. Such a point is called a <strong>stationary point</strong>.</p>
+<p><img src="/mst124_u6_data/dif13.png" alt="dif13.png" /></p>
+<p>At the left-hand stationary point the value taken by the function is larger than at any other point nearby, hence the function has a <strong>local maximum</strong> at this point.
+Similarly the function has a <strong>local minimum</strong> a the right-hand point.</p>
+<p><strong>Turning point</strong> is a point where a function has a local maximum or local minimum.</p>
+<p>A stationary point of functions as:
+<img src="/mst124_u6_data/dif14.png" alt="dif14.png" />
+when the graph of a functions is constantly decreasing or increasing, is called a <strong>horizontal point of inflection</strong>.</p>
+<h3 id="strategy-to-fund-the-stationary-points-of-a-function-f">Strategy to fund the stationary points of a function $f$</h3>
+<p>Solve the equation $f'(x) = 0$</p>
+<h3 id="first-derivative-test-for-determining-the-nature-of-a-stationary-point-of-a-function-f">First derivative test (for determining the nature of a stationary point of a function $f$)</h3>
+<p>If there are open intervals immediately to the left and right of a stationary point such that</p>
+<ul>
+<li>$f'(x)$ is positive on the left interval and negative on the right interval, then the stationary point is a local maximum</li>
+<li>$f'(x)$ is negative on the left interval and positive on the right interval, then the stationary point is a local minimum</li>
+<li>$f'(x)$ is positive on both intervals or negative on both intervals, then the stationary point is a horizontal point of inflection.</li>
+</ul>
+<h3 id="strategy-to-apply-the-first-derivative-test-by-choosing-sample-points">Strategy to apply the first derivative test by choosing sample points</h3>
+<ol>
+<li>Choose two points (that is, two $x$-values) fairly close to the stationary point, one on each side.</li>
+<li>Check that the function is differentiable at all points between the chosen points and the stationary point, and that there are no other stationary points between the chosen points and the stationary point.</li>
+<li>Find the value of the derivative of the function at the two chosen points.
+<ul>
+<li>If the derivative is positive at the left chosen point and negative at the right chosen point, then the stationary point is a local maximum.</li>
+<li>If the derivative is negative at the left chosen point and positive at the right chosen point, then the stationary point is a local minimum.</li>
+<li>If the derivative is positive at both chosen points or negative at both chosen points, then the stationary point is a horizontal point of inflection.</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-3-uses-of-finding-stationary-points">4.3 Uses of finding stationary points</h2>
+<h3 id="properties-of-graphs-of-cubic-functions">Properties of graphs of cubic functions</h3>
+<p>The graph of every cubic function has the following properties.</p>
+<ul>
+<li>There are two, one or no stationary points</li>
+<li>Apart from at any stationary points and in the interval between them if there are two,
+<ul>
+<li>the graph slopes up from left to right if the coefficient of $x^3$ in the rule of the function is positive</li>
+<li>the graph slopes down from left to right if the coefficient of $x^3$ is negative.</li>
+</ul>
+</li>
+<li>If there are two stationary points, then one is a local maximum and the other is a local minimum, and the graph slopes the other way in the interval between them. </li>
+<li>If there is one stationary point, then it is a horizontal point of inflection.</li>
+<li>There are three, two or one $x$-intercepts.</li>
+<li>There is one $y$-intercept.</li>
+<li>The graph tends to plus or minus infinity for large positive and large negative values of $x$.</li>
+</ul>
+<h3 id="finding-the-greatest-and-least-values-of-a-function-an-interval-of-the-form-a-b">Finding the greatest and least values of a function an interval of the form $[a, b]$</h3>
+<p>(This strategy is valid when the function is continuous on the interval, and differentiable at all values in the interval except possibly the endpoints.)</p>
+<ol>
+<li>Find the stationary points of the function.</li>
+<li>Find the values of the function at any stationary points inside the interval, and at the endpoints of the  interval.</li>
+<li>Find the greatest or least of the function values found.</li>
+</ol>
+<h1 id="5-differentiating-twice">5 Differentiating twice</h1>
+<h2 id="5-1-second-derivative">5.1 Second derivative</h2>
+<p>The derivative of a function is itself a function, sometimes called the <em>derived function</em>. Meaning it can itself be differentiable.
+The <strong>second derivative</strong> (or <strong>second derived function</strong>) is the function  that is obtained by differentiating a function twice.</p>
+<p>In Lagrange notation, the second derivative of a function $f$ is denoted by $f''$.</p>
+<p>In Leibniz notation, the second derivative of $y$ with respect to $x$ is denoted by:
+$$
+\frac{d^2y}{dx^2}
+$$
+With following reasoning:
+The second derivative can be written as
+$$
+\frac{d}{dx}(\frac{d}{dx}y)
+$$
+Which was historically abbreviated as
+$$
+(\frac{d}{dx})^2y~,\text{and then to}~~ \frac{d^2y}{dx^2}
+$$</p>
+<p>The domain of the second derivative of a function consists of all the values of $x$ at which its first derivative is differentiable. It's said that the original function is <strong>twice-differentiable</strong> at such values of $x$.</p>
+<p>Third, forth, Nth derivative can be taken in same way.</p>
+<p>The derivative of a function is sometimes called its <strong>first derivative</strong>. Hence the word 'first' in 'first derivative test'.</p>
+<p>Derivative of a function tells the gradient of the graph of the function. So the second derivative tells the gradient of the graph of the first derivative.
+Hence the second derivative also gives an information about the shape of the graph of the original function.</p>
+<p>E.g. suppose an interval on which the second derivative of a particular function is <em>positive</em>. 
+By the increasing/decreasing criterion, this means that the first derivative is <em>increasing</em> on that interval. In other words, the gradient of the graph of the original function is increasing on that interval.</p>
+<p>Meaning that the shape of the graph of the original function on the interval must be something like:</p>
+<p><img src="/mst124_u6_data/dif15.png" alt="dif15.png" /></p>
+<p>All of these are sections of the graphs with increasing gradient.</p>
+<p>A section of a graph shaped like one of the diagrams above is said to be <em>concave up</em>.
+A graph is <strong>concave up</strong> on an interval if the tangents to the graph on that interval lie <em>below</em> the graph:</p>
+<p><img src="/mst124_u6_data/dif16.png" alt="dif16.png" /></p>
+<p>When there is an interval on which the second derivative of a particular function is <em>negative</em> then, by the increasing/decreasing criterion, the first derivative is <em>decreasing</em> on that interval. Meaning the shape of the graph of the original function on the interval must be something like:</p>
+<p><img src="/mst124_u6_data/dif17.png" alt="dif17.png" /></p>
+<p>A section of a graph shaped like this is said to be <em>concave down</em>.
+A graph is <strong>concave down</strong> on an interval if the tangents to the graph on that interval lie <em>above</em> the graph:</p>
+<p><img src="/mst124_u6_data/dif18.png" alt="dif18.png" /></p>
+<p>Sometimes, the words <em>convex</em> and <em>concave</em> are used instead of concave up and concave down, respectively.</p>
+<p>A point where a graph changes from concave up to concave down or vice versa is called a <strong>point of inflection</strong>. E.g. $f(x) = x^3$ has a point of inflection at the origin:</p>
+<p><img src="/mst124_u6_data/dif19.png" alt="dif19.png" /></p>
+<p>If the gradient of a graph at a point of inflection is zero, then the point is a <strong>horizontal</strong> point of inflection. Otherwise the point is a <strong>slant</strong> point of inflection.</p>
+<h3 id="concave-up-concave-down-criterion">Concave up/concave down criterion</h3>
+<p>If $f''(x)$ is positive for all $x$ in an interval $I$, then $f$ is concave up on $I$.
+If $f''(x)$ is negative for all $x$ in an interval $I$, then $f$ is concave down on $I$.</p>
+<h3 id="second-derivative-test-for-determining-the-nature-of-a-stationary-point">Second derivative test (for determining the nature of a stationary point)</h3>
+<p>If, at a stationary point of a function, the value of the second derivative of the function is</p>
+<ul>
+<li>negative, then the stationary point is a local maximum</li>
+<li>positive, then the stationary point is a local minimum</li>
+</ul>
+<p>When the value of the second derivative at a stationary point is <em>zero</em> then I can't use the second derivative test to determine the nature of the stationary point.</p>
+<h2 id="5-2-rates-of-change-of-rates-of-change">5.2 Rates of change of rates of change</h2>
+<h3 id="relationship-between-displacement-velocity-and-acceleration">Relationship between displacement, velocity and acceleration</h3>
+<p>Suppose that an object is moving in a straight line. If $t$ is the time that has elapsed since some chosen point in time, and $s$, $v$ and $a$ are the displacement, velocity and acceleration of the object, respectively, then
+$$
+v = \frac{\text{d}s}{\text{d}t}, ~~
+a = \frac{\text{d}v}{\text{d}t}, ~~
+a = \frac{\text{d}^2s}{\text{d}t^2}
+$$</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

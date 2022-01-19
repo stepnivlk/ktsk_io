@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://ktsk.xyz/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://ktsk.xyz/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>MST124 Unit 1 - Algebra | ktsk</title>
+<meta name="description" content="Personal web of Tomas Koutsky">
+<link rel="canonical" href="https://ktsk.xyz/docs/uni/mst124-unit1/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://ktsk.xyz/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://ktsk.xyz/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Uni",
+            "item": "https://ktsk.xyz/docs/uni/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Mst124 Unit1",
+            "item": "https://ktsk.xyz/docs/uni/mst124-unit1/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  
+  <link color="#5bbad5" href='&#x2F;icons&#x2F;safari-pinned-tab.svg' rel="mask-icon" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-touch-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+  
+    <link rel="manifest" href="https://ktsk.xyz/site.webmanifest">
+  
+
+
+  
+    
+      <script>
+      // https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
+      window.MathJax = {
+      	tex: {
+      	inlineMath: [['$', '$'], ['\\(', '\\)']],
+      	displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+      	processEscapes: true,
+      	processEnvironments: true,
+      	},
+      	options: {
+      	skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      	}
+      };
+      </script>
+      <script  async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+    
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://ktsk.xyz">ktsk</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="mailto:tomas@ktsk.xyz"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.02c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 12.55l-5.992-4.57h11.983l-5.991 4.57zm0 1.288l-6-4.629v6.771h12v-6.771l-6 4.629z"/></svg><span class="ms-2 visually-hidden">Email</span></a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/stepnivlk"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://ktsk.xyz/docs/home/intro/">wiki</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>~</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/home/intro/">Intro</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Programming</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/decoding-youtube-filters/">Decoding Youtube filters</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/building-git-notes/">Building Git Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/programming/webpack-cache-bust/">Webpack - cache busting</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Cheatsheets</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/git-cheatsheet/">Git cheatsheet</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/cheatsheets/math-cheatsheet/">Math cheatsheet</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Outdoors</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/outdoors/hiking-gr20/">How I hiked GR20</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>Uni</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit6/">MST124 Unit 6 - Differentiation</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit5/">MST124 Unit 5 - Coordinate geometry and vectors</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit4/">MST124 Unit 4 - Trigonometry</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit3/">MST124 Unit 3 - Functions</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mst124-unit2/">MST124 Unit 2 - Graphs and equations</a></li>
+							                           
+									<li><a class="docs-link active" href="https://ktsk.xyz/docs/uni/mst124-unit1/">MST124 Unit 1 - Algebra</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit14/">MU123 Unit 14 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit13/">MU123 Unit 13 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit12/">MU123 Unit 12 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit10/">MU123 Unit 10 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit9/">MU123 Unit 9 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/complex-numbers-notes/">Complex numbers Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit6/">MU123 Unit 6 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit5/">MU123 Unit 5 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit4/">MU123 Unit 4 Notes</a></li>
+							                           
+									<li><a class="docs-link" href="https://ktsk.xyz/docs/uni/mu123-unit3/">MU123 Unit 3 Notes</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#1-numbers">1 Numbers</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#1-1-types-of-numbers">1.1 Types of numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#1-2-working-with-numbers">1.2 Working with numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#1-3-integers">1.3 Integers</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#2-algebraic-expressions">2 Algebraic expressions</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#2-1-algebraic-terminology">2.1 Algebraic terminology</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#2-2-simplifying-algebraic-expressions">2.2 Simplifying algebraic expressions</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#2-3-multiplying-out-brackets">2.3 Multiplying out brackets</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#3-algebraic-factors-multiples-and-fractions">3 Algebraic factors, multiples and fractions</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#3-1-factors-and-multiples-of-algebraic-expressions">3.1 Factors and multiples of algebraic expressions</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#3-2-taking-out-common-factors">3.2 Taking out common factors</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#3-3-algebraic-fractions">3.3 Algebraic fractions</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#4-roots-and-powers">4 Roots and powers</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#4-1-roots-of-numbers">4.1 Roots of numbers</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#4-2-manipulating-surds">4.2 Manipulating surds</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#4-3-working-with-powers">4.3 Working with powers</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#5-equations">5 Equations</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#5-1-terminology-for-equations">5.1 Terminology for equations</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#5-2-rearranging-equations">5.2 Rearranging equations</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#5-3-solving-linear-equations-in-one-unknown">5.3 Solving linear equations in one unknown</a></li>
+  											
+  											<li><a href="https://ktsk.xyz/docs/uni/mst124-unit1/#5-4-making-a-variable-the-subject-of-an-equation">5.4 Making a variable the subject of an equation</a></li>
+  											
+  									</ul>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>MST124 Unit 1 - Algebra</h1>
+        
+        <h1 id="1-numbers">1 Numbers</h1>
+<h2 id="1-1-types-of-numbers">1.1 Types of numbers</h2>
+<ul>
+<li>Natural numbers (positive integers) - $1, 2, 3, ...$</li>
+<li>Integers - $..., -3, -2, -1, 0, 1, 2, 3, ...$</li>
+<li>Rational numbers - $\frac{3}{4}, 2\frac{1}{3}, 4, -4, -\frac{8}{7}, 0.16, 7.374$</li>
+<li>Real numbers - every point on a number line corresponds to a real number
+<ul>
+<li>Some points corresponds to rational numbers - $\frac{2}{3}$</li>
+<li>Some points to irrational numbers - $\sqrt{2}, \pi$</li>
+</ul>
+</li>
+</ul>
+<p>Every rational number can be written in decimal form by dividing nominator by the denominator.
+<strong>Terminating</strong> rational number has finite number of digits after decimal point - $0.125$
+<strong>Recurring</strong> has a blog of one or more digits after the decimal point that repeat indefinitely - $0.126 126 126 ...$</p>
+<p>Decimal numbers that are neither terminating nor recurring - those that are infinitely long but have no block of digits that repeat indefinitely - are the irrational numbers.</p>
+<p>Hence, the rational numbers are decimal numbers that terminate or recur. The irrational numbers are the decimal numbers with an infinite number of digits after the decimal point but with no block of digits that repeats indefinitely.</p>
+<h2 id="1-2-working-with-numbers">1.2 Working with numbers</h2>
+<p>The $\approx$  symbol can be used as an alternative to explicitly writing the rounding in brackets behind a number.</p>
+<h3 id="four-mathematical-words">Four mathematical words</h3>
+<ul>
+<li>The <strong>sum</strong> of two or more numbers is the result of adding them.
+• The <strong>product</strong> of two or more numbers is the result of multiplying
+them.
+• A <strong>diﬀerence</strong> of two numbers is the result of subtracting one
+from the other.
+• A <strong>quotient</strong> of two numbers is the result of dividing one by the
+other.</li>
+</ul>
+<h2 id="1-3-integers">1.3 Integers</h2>
+<p>If an integer $a$ divides exactly into another integer $b$, then we say that</p>
+<ul>
+<li>$b$ is a <strong>multiple</strong> of $a$, or</li>
+<li>$b$ is <strong>divisible</strong> by $a$, or</li>
+<li>$a$ is a <strong>factor</strong> or <strong>divisor</strong> of $b$.</li>
+</ul>
+<p><strong>Factor pair</strong> of an integer is a pair of its factors that multiple together to give the integer.</p>
+<h3 id="strategy-to-find-the-positive-factor-pairs-of-a-positive-integer">Strategy to find the positive factor pairs of a positive integer</h3>
+<ul>
+<li>Try dividing the integer by each of the numbers $1, 2, 3, 4, ...$ in turn. Write down a factor pair when one is found.</li>
+<li>Stop when you get a factor pair that you have already.</li>
+</ul>
+<p><strong>Prime</strong> number is an integer greater than 1 whose only factors are 1 and itself.</p>
+<p><strong>Composite</strong> number is an integer greater than 1 that isn't a proime number.</p>
+<h3 id="the-fundamental-theorem-of-arithmetic">The fundamental theorem of arithmetic</h3>
+<p>Every integer greater than 1 can be written as a product of prime factors in just one way (except that you can change the order of the factors).</p>
+<p><strong>Prime factorisation</strong> of an integer greater than 1 is any expression that shows it written as a product of prime factors. E.g.: $504 = 2^3 \times 3^2 \times 7$.</p>
+<h3 id="strategy-to-find-the-prime-factorisation-of-an-integer-greater-than-1">Strategy to find the prime factorisation of an integer greater than 1</h3>
+<ul>
+<li>Repeatedly factor out the prime 2 until you obrain a number that isn't divisble by 2</li>
+<li>Repeatedly factor out the prime 3 until you obrain a number that isn't divisble by 3</li>
+<li>Repeatedly factor out the prime 5 until you obrain a number that isn't divisble by 5
+Continue the process with each of the successive primes. Stop when you have a product of primes.
+Write the factorisation with the primes in increasing order, using index notation.</li>
+</ul>
+<p><strong>Common multiple</strong> of two or more integers is a number that is a multiple of all of them.
+<strong>Least common multiple (LCM)</strong> of two or more integers is the smallest positive integers that is a multiple of all of them.
+<strong>Common factor</strong> of two or more integers is a number that is a factor ofo all of them.
+<strong>Highest common factor (HCF)</strong> of two or more integers is the largest positive number that is a factor of all of them.</p>
+<h3 id="strategy-to-find-the-lowest-common-multiple-or-highest-common-factor-of-two-or-more-integers-greater-than-1">Strategy to ﬁnd the lowest common multiple or highest common factor of two or more integers greater than 1</h3>
+<p>• Find the prime factorisations of the numbers.
+• To ﬁnd the LCM, multiply together the highest power of each
+prime factor occurring in any of the numbers.
+• To ﬁnd the HCF, multiply together the lowest power of each
+prime factor common to all the numbers.</p>
+<p><em>Euclid's algorithm</em> is an efficient method for finding LCMs and HCFs without having to find prime factorisation first.</p>
+<h1 id="2-algebraic-expressions">2 Algebraic expressions</h1>
+<h2 id="2-1-algebraic-terminology">2.1 Algebraic terminology</h2>
+<p><strong>Expression</strong> is an arrangement of letters, numbers and/or mathematical symbols, which is such that if numbers are substituted for any letters present, then you can work out hte value of the arrangement.
+<strong>Algebraic expression</strong> contains letters.</p>
+<p>A letter can be either</p>
+<ul>
+<li><strong>variable</strong></li>
+<li><strong>unknown</strong></li>
+<li><strong>constant</strong></li>
+</ul>
+<p>An <strong>equation</strong> is made up of two expressions with an equals sign in between them, e.g.: $x + 2x = 3x$.</p>
+<p><strong>Terms</strong> are the quantities that are added in an expression.
+<strong>Constant</strong> is a term without variable.
+<strong>Coefficient</strong> is a fixed value in a term of a form $\text{a fixed value} \times \text{a combination of variables}$.</p>
+<h2 id="2-2-simplifying-algebraic-expressions">2.2 Simplifying algebraic expressions</h2>
+<p>If two or more terms of an expression differ only in the value of their coefficients, then you can combine them into a single term - the process called <strong>collect like terms</strong>.</p>
+<h3 id="strategy-to-simplify-a-term">Strategy to simplify a term</h3>
+<ol>
+<li>Find the overall sign and write it at the front.</li>
+<li>Simplify the rest of the coefficient and write it next.</li>
+<li>Write any remaining parts of the term in an appropriate order; for example, letters are usually ordered alphabetically. Use index notation to avoid writing letters (or other items) more than once.</li>
+</ol>
+<h3 id="strategy-to-simplify-an-expression-with-more-than-one-term">Strategy to simplify an expression with more than one term</h3>
+<ol>
+<li>Indentify the terms. Each term after the first starts with a plus or minus sign that isn't inside brackets.</li>
+<li>Simplify each term. Include the sign (plus or minus) at the start of each term.</li>
+<li>Collect any like terms.</li>
+</ol>
+<h2 id="2-3-multiplying-out-brackets">2.3 Multiplying out brackets</h2>
+<p><strong>Expansion</strong> is the form of an expression when the brackets are multiplied out.
+<strong>Multiplier</strong> is the subexpression that multiplies the brackets.</p>
+<h3 id="strategy-to-multiply-out-brackets">Strategy to multiply out brackets</h3>
+<p>Multiply each term inside the brackets by the multiplier.</p>
+<h3 id="strategy-to-remove-brackets-with-a-plus-or-minus-sign-in-front">Strategy to remove brackets with a plus or minus sign in front</h3>
+<ul>
+<li>If the sign is plus, keep the sign of each term inside the brackets the same.</li>
+<li>If the sign is minus, change the sign of each term inside the brackets.</li>
+</ul>
+<p>For any expressions $A$ and $B$, the negative of $A - B$ is $B - A$.
+E.g.: $-(n - 3n^2) = 3n^2 - n$</p>
+<p>Multiplying an expression that contains several terms by a second expression is the same as multiplying <em>each term</em> of the first expression by the second expression.
+Similarly, dividing an expression that contains several terms by a second expression is the same as dividing <em>each term</em> of the first expression by the second expression.</p>
+<h3 id="strategy-to-multiply-out-brackets-in-an-expression-with-more-than-one-term">Strategy to multiply out brackets in an expression with more than one term</h3>
+<ol>
+<li>Identify the terms.</li>
+<li>Multiply out the brackets in each term. Include the sign at the start of each resulting term.</li>
+<li>Collect any like terms</li>
+</ol>
+<h3 id="difference-of-two-squares">Difference of two squares</h3>
+<p>For any expressions $A$ and $B$,
+$$
+(A + B)(A - B) = A^2 - B^2
+$$
+The expression on RHS is called the <strong>difference of two squares</strong>.</p>
+<h3 id="squaring-brackets">Squaring brackets</h3>
+<p>For any expressions $A$ and $B$,
+$$
+\begin{align}
+(A + B)^2 = A^2 + 2AB + B^2 \\[1em]
+(A - B)^2 = A^2 - 2AB + B^2 \\[1em]
+\end{align}
+$$</p>
+<h1 id="3-algebraic-factors-multiples-and-fractions">3 Algebraic factors, multiples and fractions</h1>
+<h2 id="3-1-factors-and-multiples-of-algebraic-expressions">3.1 Factors and multiples of algebraic expressions</h2>
+<p>For example, the equation $a^2b = a \times ab$ shows that both $a$ and $ab$ are <strong>factors</strong> of $a^2b$ and it also shows that $a^2b$ is a <strong>multiple</strong> of both $a$ and $ab$.</p>
+<p><strong>Common factor</strong> of two or more algebraic expressions is an expression that's a factor of all of them.
+<strong>Common multiple</strong> of two or more algebraic pexressions is an expression that's a multiple of all of them.
+<strong>Highest common factor</strong> is a multiple of all other common factors.
+<strong>Lowes common multiple</strong> is a common multiple that is a factor of all other common multiples.</p>
+<h2 id="3-2-taking-out-common-factors">3.2 Taking out common factors</h2>
+<p><strong>Factorising</strong> an expression means writing it as the product of two or more expressions, neither of which is 1 (and, usually, neither of which is −1).</p>
+<h3 id="strategy-to-take-out-a-common-factor-from-an-expression">Strategy to take out a common factor from an expression</h3>
+<ol>
+<li>Find a common factor of the terms (usually the highest common factor).</li>
+<li>Write the common factor in front of a pair of brackets.</li>
+<li>Write what's left of each term inside the brackets.</li>
+</ol>
+<h2 id="3-3-algebraic-fractions">3.3 Algebraic fractions</h2>
+<h3 id="strategy-to-add-or-subtract-algebraic-fractions">Strategy to add or subtract algebraic fractions</h3>
+<ol>
+<li>Make sure that the fractions have the same denominator - if necessary, rewrite each fraction as equivalent fraction to achieve this.</li>
+<li>Add or subtract the numerators.</li>
+<li>Simplify the answer if possible.</li>
+</ol>
+<h3 id="strategy-to-multiply-or-divide-algebraic-fraction">Strategy to multiply or divide algebraic fraction</h3>
+<ul>
+<li>To multiply two or more algebraic fractions, multiply the numerators together and multiply the denominators together.</li>
+<li>To divide an algebraic fraction, multiply by its reciprocal.
+Simplify the answer if possible.</li>
+</ul>
+<h1 id="4-roots-and-powers">4 Roots and powers</h1>
+<h2 id="4-1-roots-of-numbers">4.1 Roots of numbers</h2>
+<p>For every even natural number $n$, every positive number has exactly two real $n$th roots (a positive one and a negative one), every negative number has no real $n$th roots, and the number $0$ has exactly one $n$th root (itself). For every odd natural number $n$, every real number has exactly one real $n$th root.</p>
+<p>Most roots of numbers are irrational numbers. In particular, the square root of any natural number that isn’t a perfect square is irrational.</p>
+<p><strong>Surd</strong> is a numerical expression that contains one or more irrational roots of numbers.</p>
+<h2 id="4-2-manipulating-surds">4.2 Manipulating surds</h2>
+<p>The square root of a product of numbers is tha same as the product of the square roots of the numbers, and similarly for a quotient:
+$$
+\sqrt{ab} = \sqrt{a} \sqrt{b}~,~~ \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+$$</p>
+<p>Multiplying by a <strong>conjugate</strong> of denominator is useufl when a denominator of a fraction contains a sum of two terms, either or both of which is a trational number multiplied by an irrational square root. Conjugate is an expression that is given by changing the sign of one of the terms. This is useful since $(A + B)(A - B) = A^2 - B^2$.
+E.g.
+$$
+\begin{align}
+\frac{5}{4\sqrt{7} + \sqrt{2}} &amp;= \\[1em]
+\frac{5\times(4\sqrt{7} - \sqrt{2})}{ (4\sqrt{7} + \sqrt{2})(4\sqrt{7} - \sqrt{2}) } &amp;= \\[1em]
+\frac{20\sqrt{7} - 5\sqrt{2}}{110} \\[1em]
+\end{align}
+$$</p>
+<h2 id="4-3-working-with-powers">4.3 Working with powers</h2>
+<h3 id="index-laws-for-a-single-base">Index laws for a single base</h3>
+<p>To multiply two powers with the same base, add the indices:
+$$
+a^mb^n = a^{m + n}
+$$
+To divide two powers with the same base, subtract the indices:
+$$
+\frac{a^m}{a^n} = a^{m - n}
+$$
+To find a power of w a power, multiply the indices:
+$$
+(a^m)^n = a^{mn}
+$$
+A number raised to the power of 0 is 1:
+$$
+a^0 = 1
+$$
+A number raised to a negative power is the reciprocal of the number raised to the corresponding positive power:
+$$
+a^{-n} = \frac{1}{a^n}
+$$</p>
+<h3 id="index-laws-for-two-bases">Index laws for two bases</h3>
+<p>A power of a product of numbers is the same as the product of the same powers of the numbers, and similarly for a power of a quotient:
+$$
+\begin{align}
+(ab)^n = a^nb^n \\[1em]
+(\frac{a}{b})^n = \frac{a^n}{b^n}
+\end{align}
+$$</p>
+<h3 id="converting-between-fractional-indices-and-roots">Converting between fractional indices and roots</h3>
+<p>$$
+\begin{align}
+a^{\frac{1}{n}} = \sqrt[n]{a} \\[1em]
+a^{\frac{m}{n}} = (\sqrt[n]{a})^m = \sqrt[n]{a^m}
+\end{align}
+$$</p>
+<h1 id="5-equations">5 Equations</h1>
+<h2 id="5-1-terminology-for-equations">5.1 Terminology for equations</h2>
+<p><strong>Identity</strong> is an equation that is satisfied by <em>all</em> possible values of its variables. E.g $x(x + y) = x^2 + xy$.</p>
+<h2 id="5-2-rearranging-equations">5.2 Rearranging equations</h2>
+<h3 id="strategy-to-rearrange-an-equation">Strategy to rearrange an equation</h3>
+<ul>
+<li>Rearrange the expressions on one or both sides.</li>
+<li>Swap the sides</li>
+<li>Do the same thing to both sides.</li>
+</ul>
+<h3 id="doing-the-same-thing-to-both-sides-of-an-equations">Doing the same thing to both sides of an equations</h3>
+<ul>
+<li>Add something.</li>
+<li>Subract something.</li>
+<li>Multiply by something (non-zero).</li>
+<li>Divide by something (non-zero).</li>
+<li>Raise to a power (non-zero).</li>
+</ul>
+<p><strong>Multiplying through</strong> is a process of multiplying each term no both sides of an equation by something.
+<strong>Dividing through</strong> is a process of dividing each term no both sides of an equation by something.
+<strong>Clearing</strong> is a process of muliplying through by appropriate number to remove a fraction from equation.</p>
+<h3 id="cross-multiplying">Cross-multiplying</h3>
+<p>If $A$, $B$, $C$ and $D$ are expressions, then the equations
+$$
+\frac{A}{B} = \frac{C}{D} ~~ \text{and} ~~ AD = BC
+$$
+are equivalent (provided that $B$ and $D$ are never zero).</p>
+<h2 id="5-3-solving-linear-equations-in-one-unknown">5.3 Solving linear equations in one unknown</h2>
+<p>Use the rules for rearranging equations to obtain successive equivalent equations. Aim to obtain an equation in which the unknown is alone on one side, with only a number on the other side. To achieve that, do the following, in order.</p>
+<ol>
+<li>Clear any fractions and multiply out any brackets.  To clear fractions, multiply through by a suitable expression.</li>
+<li>Add or subtract terms on both sides to get all the terms in the unknown on one side, and all the other terms on the other side. Collect like terms.</li>
+<li>Divide both sides by the coefficient of the unknown.</li>
+</ol>
+<h2 id="5-4-making-a-variable-the-subject-of-an-equation">5.4 Making a variable the subject of an equation</h2>
+<p><strong>Formula</strong> is an equation with a subject.</p>
+<h3 id="strategy-to-make-a-variable-the-subject-of-an-equation">Strategy to make a variable the subject of an equation</h3>
+<p>(this works for some equations but not all)</p>
+<ol>
+<li>Clear any fractions and multiply out any brackets.</li>
+<li>Add or subtract terms on both sides to get all the terms in the unknown on one side, and all the other terms on the other side. Collect like terms.</li>
+<li>If more than one term contains the required subject, then take it out as a common factor.</li>
+<li>Divide both sides by the expression that multiplies the required subject.</li>
+</ol>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;ktsk.xyz&#x2F;docs&#x2F;outdoors&#x2F;hiking-gr20&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; How I hiked GR20
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Within Cells Interlinked.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://ktsk.xyz/js/main.js" defer></script>
+
+  <script src="https://ktsk.xyz/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://ktsk.xyz/search_index.en.js" defer></script>
+  <script src="https://ktsk.xyz/js/search.js" defer></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
